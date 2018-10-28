@@ -1,5 +1,7 @@
 package View;
-
+/**
+ * View class is managing the windows of the crud gui
+ */
 import Controller.Controller;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -15,12 +17,19 @@ public class View {
     public UserController userController;
     public Controller controller;
 
+    /**
+     * Setting the view's controller. implement mvc paradigm
+     * @param _controller mvc's controller
+     */
     public void setController(Controller _controller) {
         controller = _controller;
         userController = new UserController();
         userController.setController(controller);
     }
 
+    /**
+     * Opens create user window when "create user" button is pushed
+     */
     public void createUser()
     {
         Stage stage = new Stage();
@@ -40,6 +49,9 @@ public class View {
         }
     }
 
+    /**
+     * Opens read user window when "read user" button is pushed
+     */
     public void readUser()
     {
         Stage stage = new Stage();
@@ -59,6 +71,9 @@ public class View {
         }
     }
 
+    /**
+     * Opens update user window when "update user" button is pushed
+     */
     public void updateUser()
     {
         Stage stage = new Stage();
@@ -77,7 +92,9 @@ public class View {
             e.getCause().printStackTrace();
         }
     }
-
+    /**
+     * Opens delete user window when "delete user" button is pushed
+     */
     public void deleteUser()
     {
         Stage stage = new Stage();

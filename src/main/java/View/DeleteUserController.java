@@ -1,4 +1,7 @@
 package View;
+/**
+ * This class controls the delete user window
+ */
 
 import javafx.scene.control.Alert;
 
@@ -8,7 +11,10 @@ public class DeleteUserController extends UserController {
     public javafx.scene.control.Button delete;
     public javafx.scene.control.Button clear;
 
-
+    /**
+     * This method controls the delete of the user and shows a suitable alert message
+     * for each state
+     */
     public void deleteUser() {
         if (searchUserData(userName.getText()) != null)
         {
@@ -34,7 +40,9 @@ public class DeleteUserController extends UserController {
         return;
     }
 
-    // clear all fields from user data, to start new search
+    /**
+     * This method clears all fields from user data, to start new search
+     */
     public void clearUserData() {
         userName.clear();
         userPassword.clear();

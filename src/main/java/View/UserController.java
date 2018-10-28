@@ -1,4 +1,7 @@
 package View;
+/**
+ * UserController is the father class for each window controller of the CRUD GUI
+ */
 
 import Controller.Controller;
 import Model.User;
@@ -17,11 +20,16 @@ public class UserController {
     public javafx.scene.control.Button clear;
     protected static Controller controller;
     public static User currentUser ;
-
+/**
+ * Sets the static controller for all of the user windows controllers
+ */
     public void setController(Controller _controller){
         controller = _controller;
     }
 
+    /**
+     * Shows relevant info for the given user (currentUser) for relevant windows(Read User, Update User)
+     */
     public void show() {
         if (invalidUserName())
         {
@@ -39,7 +47,9 @@ public class UserController {
         }
     }
 
-    // Validation checks for the typed user name
+    /**
+     * Validation checks for the typed user name
+     */
     public boolean invalidUserName() {
         String name = userName.getText();
         currentUser = searchUserData(name);
@@ -53,13 +63,17 @@ public class UserController {
         return true;
     }
 
-    // Search the user name string and if exist in the database display the user data
+    /**
+     *  Search the user name string and if exist in the database display the user data
+     */
     public User searchUserData(String name)
     {
         return controller.searchUserData(name) ;
     }
 
-    // clear all fields from user data, to start new search
+    /**
+     *   Clears all fields from user data, to start new search
+     */
     public void clearUserData() {
         userName.setDisable(false);
         userName.clear();

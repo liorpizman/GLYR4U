@@ -1,5 +1,7 @@
 package View;
-
+/**
+ * This class controls the Update User Window
+ */
 import Model.User;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -14,6 +16,10 @@ import java.time.LocalDate;
 public class UpdateUserController extends UserController {
     public javafx.scene.control.Button update;
 
+    /**
+     * Implementing show function in order to manipulate the update button
+     */
+    @Override
     public void show() {
         super.show();
         if (invalidUserName()) {
@@ -21,6 +27,10 @@ public class UpdateUserController extends UserController {
         }
     }
 
+    /**
+     * Gets the data that the user input's in order to update user,
+     * alerts if data wasn't insert correctly
+     */
     public void updateUserData() {
         String password = userPassword.getText();
         String firstName = userFirstName.getText();

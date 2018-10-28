@@ -3,7 +3,9 @@ import Model.User;
 import javafx.scene.control.Alert;
 
 import java.time.LocalDate;
-
+/**
+ * This class controls the Create User Window
+ */
 public class CreateUserController extends  UserController{
     public javafx.scene.control.TextField userName;
     public javafx.scene.control.TextField userPassword;
@@ -13,6 +15,9 @@ public class CreateUserController extends  UserController{
     public javafx.scene.control.DatePicker userBirthDate;
     public javafx.scene.control.Button apply;
 
+    /**
+     * When users applies for registration, gets all the data and sends it to the mvc controller
+     */
     public void apply(){
         String _userName = userName.getText();
         String _password = userPassword.getText();
@@ -85,11 +90,4 @@ public class CreateUserController extends  UserController{
             clearUserData();
         }
     }
-
-    public void invalidUserDataError(String errorMsg){
-        Alert a = new Alert(Alert.AlertType.INFORMATION);
-        a.setContentText(errorMsg);
-        a.show();
-    }
-
 }
