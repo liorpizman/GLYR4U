@@ -18,7 +18,6 @@ public class Main extends Application {
         Controller controller = new Controller(model, view);
         view.setController(controller);
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("MainView.fxml"));
-        //root.getStylesheets().add(getClass().getResource("vacationCSS.css").toExternalForm());
         root.getStylesheets().add(getClass().getClassLoader().getResource("vacationCSS.css").toExternalForm());
         primaryStage.setTitle("Welcome To Vacation4U!");
         primaryStage.setScene(new Scene(root, 600, 400));

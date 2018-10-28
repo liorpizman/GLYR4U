@@ -56,7 +56,6 @@ public class UserController {
     // Search the user name string and if exist in the database display the user data
     public User searchUserData(String name)
     {
-        // User userDetails = controller.searchUserData(name);
         return controller.searchUserData(name) ;
     }
 

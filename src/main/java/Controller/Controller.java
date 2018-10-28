@@ -14,17 +14,14 @@ public class Controller {
     }
 
     public boolean updateUser(User updatedUser) {
-        //System.out.println("Update Success");
         return model.updateUser(updatedUser);
     }
 
     public User searchUserData(String userName) {
-        //System.out.println("SearchSuccess");
         return model.searchUserData(userName);
     }
 
     public void insertUser(User newUser) {
-        //System.out.println("Insert Success");
         model.insertUser(newUser);
     }
 
