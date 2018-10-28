@@ -10,6 +10,10 @@ import java.sql.Statement;
 
 public class DBManagement {
 
+    /**
+     * This method create new dataBase
+     * @param fileName -the name of the dataBase
+     */
     public static void createNewDatabase(String fileName) {
         String url = "jdbc:sqlite:" + System.getProperty("user.dir") + "\\" + fileName + ".db";
         try {
@@ -23,6 +27,11 @@ public class DBManagement {
             System.out.println(e.getMessage());
         }
     }
+
+    /**
+     * This method create new table in the dataBase
+     * @param tableName - The name of the table to create
+     */
 
     public static void createNewTable(String tableName) {
         // SQLite connection string
@@ -47,6 +56,10 @@ public class DBManagement {
         }
     }
 
+    /**
+     * This method connect to the dataBase,and return the connection
+     * @return- the connection to the dataBase
+     */
 
     private Connection connect() {
         String url = "jdbc:sqlite:" + System.getProperty("user.dir") + "\\v4uDB.db";
@@ -59,6 +72,16 @@ public class DBManagement {
         return conn;
     }
 
+    /**
+     * This method insert a new user to the table in the dataBase
+     * by his private fields
+     * @param user_name
+     * @param password
+     * @param first_name
+     * @param last_name
+     * @param city
+     * @param date
+     */
 
     public void insert(String user_name, String password, String first_name, String last_name, String city, String date) {
         String sql = "INSERT INTO Users(user_name,password, first_name, last_name, city,date) VALUES(?,?, ?,?,?,?)";
@@ -78,6 +101,12 @@ public class DBManagement {
         }
     }
 
+    /**
+     * This method deletes a user from the table in the dataBase
+     * by his user name
+     * @param userToDelete
+     */
+
     public void delete(String userToDelete) {
         String sql = "DELETE FROM Users WHERE user_name = ?";
         try (Connection conn = this.connect();
@@ -89,6 +118,14 @@ public class DBManagement {
         }
     }
 
+    /**
+     * This method updates user's field,and returns True or False
+     * if the update is done (or not)
+     * @param user_name
+     * @param field -The field that be update
+     * @param newData -The new value of the field
+     * @return
+     */
     public boolean update(String user_name, String field, String newData) {
         String sql = "UPDATE Users SET " + field + " = ? WHERE user_name = ? ";
 
@@ -105,6 +142,13 @@ public class DBManagement {
             return false;
         }
     }
+
+    /**
+     * This method search a user in the dataBase and return the user if he exists
+     * and Null if not
+     * @param userName
+     * @return
+     */
 
     public User find_User_Exists(String userName) {
         String sql = "SELECT user_name, password, first_name, last_name, city,date "
@@ -129,6 +173,14 @@ public class DBManagement {
         }
         return null;
     }
+
+    /**
+     * This method gets a user name and  a password
+     * and checks whether they are suitable
+     * @param userName
+     * @param password
+     * @return -True or False
+     */
 
     public boolean confirmPassword(String userName, String password) {
         User currUser = find_User_Exists(userName);
