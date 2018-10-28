@@ -1,4 +1,7 @@
 package Model;
+/**
+ * This class represents the activity of the data base
+ */
 
 import java.sql.*;
 
