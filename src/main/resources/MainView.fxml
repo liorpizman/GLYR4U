@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="AnchorPane1" minHeight="0.0" minWidth="0.0" prefHeight="344.0" prefWidth="599.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.View">
+   <children>
+      <Button fx:id="createUser" layoutX="80.0" layoutY="93.0" mnemonicParsing="false" onAction="#createUser" prefHeight="40.0" prefWidth="179.0" text="Create User">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Button>
+      <Button fx:id="readUser" layoutX="331.0" layoutY="93.0" mnemonicParsing="false" onAction="#readUser" prefHeight="48.0" prefWidth="207.0"  text="Read User Data">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Button>
+      <Button fx:id="updateUser" layoutX="331.0" layoutY="240.0" mnemonicParsing="false" onAction="#updateUser" prefHeight="48.0" prefWidth="207.0" text="Update User Data">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Button>
+      <Button fx:id="deleteUser" layoutX="80.0" layoutY="240.0" mnemonicParsing="false" onAction="#deleteUser" prefHeight="38.0" prefWidth="179.0" text="Delete User">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
