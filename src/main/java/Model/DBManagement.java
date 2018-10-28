@@ -11,7 +11,6 @@ import java.sql.Statement;
 public class DBManagement {
 
     public static void createNewDatabase(String fileName) {
-        //System.out.println(System.getProperty("user.dir"));
         String url = "jdbc:sqlite:" + System.getProperty("user.dir") + "\\" + fileName + ".db";
         try {
             Connection conn = DriverManager.getConnection(url);
@@ -50,8 +49,6 @@ public class DBManagement {
 
 
     private Connection connect() {
-        // SQLite connection string
-        //System.out.println(System.getProperty("user.dir"));
         String url = "jdbc:sqlite:" + System.getProperty("user.dir") + "\\v4uDB.db";
         Connection conn = null;
         try {
@@ -85,9 +82,7 @@ public class DBManagement {
         String sql = "DELETE FROM Users WHERE user_name = ?";
         try (Connection conn = this.connect();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            // set the corresponding param
             pstmt.setString(1, userToDelete);
-            // execute the delete statement
             pstmt.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -99,7 +94,6 @@ public class DBManagement {
 
         try (Connection conn = this.connect();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
-
             // set the corresponding param [ instead of question marks (?) ]
             pstmt.setString(2, user_name);
             pstmt.setString(1, newData);
@@ -118,13 +112,8 @@ public class DBManagement {
 
         try (Connection conn = this.connect();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
-
-            // set the value
             pstmt.setString(1, userName);
-            //
             ResultSet rs = pstmt.executeQuery();
-            // loop through the result set
-
             while (rs.next()) {
                 return new User(rs.getString("user_name"),
                         rs.getString("password"),
@@ -146,27 +135,4 @@ public class DBManagement {
         return (password.equals(currUser.getPassword())) ? true : false;
     }
 
-    /**
-     * @param args the command line arguments
-     */
-
-    public static void main(String[] args) {
-        //createNewDatabase("newDB");
-        //createNewTable("Try2");
-        //createNewTable("Flight");
-        //DBManagement app = new DBManagement();
-        //app.selectAll();
-        //DBManagement app = new DBManagement();
-        //insert three new rows
-        //app.insert("moshiko", "bgu7u","mor", "dani","tel-aviv","01/01/2004");
-        //app.insert("galLah", "bgu4u","gal", "lahiani","beer-sheva");
-        //app.insert("liorPiz", "bgu5u","lior", "pizman","gan-yavne");
-        //app.insert("yehudaPash", "bgu2u","yehuda", "pashay","ashdod");
-        //app.selectAll();
-        //app.delete("ronEl");
-        //app.update("moshiko","first_name","yoniB");//,"bo");
-        //app.update_second_try();
-        //app.find_specific_record("moshiko");
-        //System.out.println(app.confirmPassword("liorPiz", "bgu5u"));
-    }
 }

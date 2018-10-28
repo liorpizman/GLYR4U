@@ -29,9 +29,7 @@ public class View {
         try
         {
             Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("CreateUser.fxml"));
-            //Parent root = FXMLLoader.load(getClass().getResource("/CreateUser.fxml"));
             root.getStylesheets().add(getClass().getClassLoader().getResource("backGroundCSS.css").toExternalForm());
-            //root.getStylesheets().add(getClass().getResource("backGroundCSS.css").toExternalForm());
             Scene scene = new Scene(root, 600, 500);
             stage.setScene(scene);
             stage.initModality(Modality.APPLICATION_MODAL);
@@ -50,9 +48,7 @@ public class View {
         try
         {
             Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("ReadUser.fxml"));
-            //Parent root = FXMLLoader.load(getClass().getResource("/ReadUser.fxml"));
             root.getStylesheets().add(getClass().getClassLoader().getResource("backGroundCSS.css").toExternalForm());
-            //root.getStylesheets().add(getClass().getResource("backGroundCSS.css").toExternalForm());
             Scene scene = new Scene(root, 600, 500);
             stage.setScene(scene);
             stage.initModality(Modality.APPLICATION_MODAL);
@@ -70,10 +66,8 @@ public class View {
         stage.setTitle("Update User");
         try
         {
-            //Parent root = FXMLLoader.load(getClass().getResource("/UpdateUser.fxml"));
             Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("UpdateUser.fxml"));
             root.getStylesheets().add(getClass().getClassLoader().getResource("backGroundCSS.css").toExternalForm());
-            //root.getStylesheets().add(getClass().getResource("backGroundCSS.css").toExternalForm());
             Scene scene = new Scene(root, 600, 500);
             stage.setScene(scene);
             stage.initModality(Modality.APPLICATION_MODAL);
@@ -92,9 +86,7 @@ public class View {
         try
         {
             Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("DeleteUser.fxml"));
-            //Parent root = FXMLLoader.load(getClass().getResource("/DeleteUser.fxml"));
             root.getStylesheets().add(getClass().getClassLoader().getResource("backGroundCSS.css").toExternalForm());
-            //root.getStylesheets().add(getClass().getResource("backGroundCSS.css").toExternalForm());
             Scene scene = new Scene(root, 600, 500);
             stage.setScene(scene);
             stage.initModality(Modality.APPLICATION_MODAL);
