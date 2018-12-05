@@ -7,6 +7,7 @@ package Model;
 public class Model {
 
     private DBManagement dbManagement;
+    private String CurrentUser;  // the user that logged in the DB
 
     /**
      * This is a default constructor of the model which holds the data base
@@ -77,5 +78,13 @@ public class Model {
             return false;
         }
 
+    }
+
+    public void UserLogIn(String UserName){
+        this.CurrentUser=UserName;
+    }
+
+    public void UserLogOut(){
+        this.CurrentUser=null;
     }
 }

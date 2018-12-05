@@ -1,5 +1,8 @@
 package Model;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  *  This class represents a user in the data base
  */
@@ -11,6 +14,7 @@ public class User {
     private String last_name;
     private String city;
     private String date;
+    private Map<Integer,Vacation> AllVacations;
 
     /**
      * This is a default constructor to create a new user
@@ -29,6 +33,13 @@ public class User {
         this.last_name=last_name;
         this.city=city;
         this.date=date;
+        AllVacations=new HashMap<Integer, Vacation>();
+    }
+
+    public void AddVacation(Vacation vacation){
+        if (!AllVacations.containsKey(vacation.GetVacationId())){
+            AllVacations.put(vacation.GetVacationId(),vacation);
+        }
     }
 
     public String getUser_name() {
