@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- *  This class represents a user in the data base
+ * This class represents a user in the data base
  */
 public class User {
 
@@ -14,10 +14,11 @@ public class User {
     private String last_name;
     private String city;
     private String date;
-    private Map<Integer,Vacation> AllVacations;
+    private Map<Integer, Vacation> AllVacations;
 
     /**
      * This is a default constructor to create a new user
+     *
      * @param user_name
      * @param password
      * @param first_name
@@ -26,21 +27,15 @@ public class User {
      * @param date
      */
     public User(String user_name, String password, String first_name,
-                String last_name, String city, String date){
-        this.user_name=user_name;
-        this.password=password;
-        this.first_name=first_name;
-        this.last_name=last_name;
-        this.city=city;
-        this.date=date;
-        AllVacations=new HashMap<Integer, Vacation>();
+                String last_name, String city, String date) {
+        this.user_name = user_name;
+        this.password = password;
+        this.first_name = first_name;
+        this.last_name = last_name;
+        this.city = city;
+        this.date = date;
     }
 
-    public void AddVacation(Vacation vacation){
-        if (!AllVacations.containsKey(vacation.GetVacationId())){
-            AllVacations.put(vacation.GetVacationId(),vacation);
-        }
-    }
 
     public String getUser_name() {
         return user_name;
@@ -93,8 +88,8 @@ public class User {
     /**
      * This method prints all the data of the user
      */
-    public void printUser(){
-        System.out.println(user_name+", "+ password +", " + first_name+ ", "+ last_name+ ", "+city+", " + date);
+    public void printUser() {
+        System.out.println(user_name + ", " + password + ", " + first_name + ", " + last_name + ", " + city + ", " + date);
     }
 
 }

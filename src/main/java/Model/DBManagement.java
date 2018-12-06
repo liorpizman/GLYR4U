@@ -15,6 +15,7 @@ public class DBManagement {
 
     /**
      * This method create new dataBase
+     *
      * @param fileName -the name of the dataBase
      */
     public static void createNewDatabase(String fileName) {
@@ -33,23 +34,14 @@ public class DBManagement {
 
     /**
      * This method create new table in the dataBase
-     * @param tableName - The name of the table to create
+     *
+     * @param sql -  statement for creating a new table
      */
 
-    public static void createNewTable(String tableName) {
+    public static void createNewTable(String sql) {
         // SQLite connection string
         System.out.println(System.getProperty("user.dir"));
         String url = "jdbc:sqlite:" + System.getProperty("user.dir") + "\\v4uDB.db";
-
-        // SQL statement for creating a new table
-        String sql = "CREATE TABLE IF NOT EXISTS " + tableName + " (\n"
-                + " user_name varchar(10) NOT NULL PRIMARY KEY,\n"
-                + " password varchar(10) NOT NULL,\n"
-                + " first_name varchar(10) NOT NULL,\n "
-                + " last_name varchar(10) NOT NULL,\n "
-                + " city varchar(10) NOT NULL,\n "
-                + " date varchar(15) NOT NULL\n "
-                + ");";
         try {
             Connection conn = DriverManager.getConnection(url);
             Statement stmt = conn.createStatement();
@@ -61,6 +53,7 @@ public class DBManagement {
 
     /**
      * This method connect to the dataBase,and return the connection
+     *
      * @return- the connection to the dataBase
      */
 
@@ -78,6 +71,7 @@ public class DBManagement {
     /**
      * This method insert a new user to the table in the dataBase
      * by his private fields
+     *
      * @param user_name
      * @param password
      * @param first_name
@@ -86,7 +80,7 @@ public class DBManagement {
      * @param date
      */
 
-    public void insert(String user_name, String password, String first_name, String last_name, String city, String date) {
+    public void insertNewUser(String user_name, String password, String first_name, String last_name, String city, String date) {
         String sql = "INSERT INTO Users(user_name,password, first_name, last_name, city,date) VALUES(?,?, ?,?,?,?)";
 
         try {
@@ -105,16 +99,17 @@ public class DBManagement {
     }
 
     /**
-     * This method deletes a user from the table in the dataBase
-     * by his user name
-     * @param userToDelete
+     * This method deletes a record from the table in the dataBase
+     * by its primary key
+     *
+     * @param PrimaryKeyToDelete
      */
 
-    public void delete(String userToDelete) {
-        String sql = "DELETE FROM Users WHERE user_name = ?";
+    public void deleteRecord(String PrimaryKeyToDelete, String sql) {   /// to delete user: sql="DELETE FROM Users WHERE user_name = ?" . to delete vacation sql=""
+        // String sql = "DELETE FROM Users WHERE user_name = ?";
         try (Connection conn = this.connect();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            pstmt.setString(1, userToDelete);
+            pstmt.setString(1, PrimaryKeyToDelete);
             pstmt.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -124,12 +119,13 @@ public class DBManagement {
     /**
      * This method updates user's field,and returns True or False
      * if the update is done (or not)
+     *
      * @param user_name
-     * @param field -The field that be update
-     * @param newData -The new value of the field
+     * @param field     -The field that be update
+     * @param newData   -The new value of the field
      * @return
      */
-    public boolean update(String user_name, String field, String newData) {
+    public boolean updateUser(String user_name, String field, String newData) {
         String sql = "UPDATE Users SET " + field + " = ? WHERE user_name = ? ";
 
         try (Connection conn = this.connect();
@@ -149,6 +145,7 @@ public class DBManagement {
     /**
      * This method search a user in the dataBase and return the user if he exists
      * and Null if not
+     *
      * @param userName
      * @return
      */
@@ -180,6 +177,7 @@ public class DBManagement {
     /**
      * This method gets a user name and  a password
      * and checks whether they are suitable
+     *
      * @param userName
      * @param password
      * @return -True or False
@@ -190,4 +188,68 @@ public class DBManagement {
         return (password.equals(currUser.getPassword())) ? true : false;
     }
 
+    public void insertNewVacation(int VacationId, int OriginFlightId, int DestFlightId, String VacationCountry, String VacationCity,
+                                  String StartDate, String EndDate, double Price, String BaggageType, boolean HotVacation, int Status,
+                                  String VacationType, String AccommodationType, boolean AccommodationIncluded,
+                                  int AccommodationRank, boolean Parking, String user_name) {
+        String sql = "INSERT INTO Vacations(VacationId,OriginFlightId,DestFlightId,VacationCountry,VacationCity," +
+                "StartDate,EndDate,Price,BaggageType,HotVacation,Status," +
+                "VacationType,AccommodationType,AccommodationIncluded," +
+                "AccommodationRank,Parking,user_name) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        try {
+            Connection conn = this.connect();
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.setInt(1, VacationId);
+            pstmt.setInt(2, OriginFlightId);
+            pstmt.setInt(3, DestFlightId);
+            pstmt.setString(4, VacationCountry);
+            pstmt.setString(5, VacationCity);
+            pstmt.setString(6, StartDate);
+            pstmt.setString(7, EndDate);
+            pstmt.setDouble(8, Price);
+            pstmt.setString(9, BaggageType);
+            pstmt.setBoolean(10, HotVacation);
+            pstmt.setInt(11, Status);
+            pstmt.setString(12, VacationType);
+            pstmt.setString(13, AccommodationType);
+            pstmt.setBoolean(14, AccommodationIncluded);
+            pstmt.setInt(15, AccommodationRank);
+            pstmt.setBoolean(16, Parking);
+            pstmt.setString(17, user_name);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+
+    public void insertNewFlightTickets(int TicketId, String Airline, String DestinationCountry, String DestinationCity, String OriginCountry,
+                                       String OriginCity, int BabyTickets, int ChildTickets, int AdultTickets, String TicketType,
+                                       int AmountOfTickets, int VacationId) {
+        String sql = "INSERT INTO Vacations(TicketId,Airline,DestinationCountry,DestinationCity,OriginCountry," +
+                "OriginCity,BabyTickets,ChildTickets,AdultTickets,TicketType," +
+                "AmountOfTickets,VacationId) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)";
+        try {
+            Connection conn = this.connect();
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.setInt(1, TicketId);
+            pstmt.setString(2, Airline);
+            pstmt.setString(3, DestinationCountry);
+            pstmt.setString(4, DestinationCity);
+            pstmt.setString(5, OriginCountry);
+            pstmt.setString(6, OriginCity);
+            pstmt.setInt(7, BabyTickets);
+            pstmt.setInt(8, ChildTickets);
+            pstmt.setInt(9, AdultTickets);
+            pstmt.setString(10, TicketType);
+            pstmt.setInt(11, AmountOfTickets);
+            pstmt.setInt(12, VacationId);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+
 }
+

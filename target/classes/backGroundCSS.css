@@ -1,0 +1,5 @@
+.root {
+    -fx-background-image: url("formBackGround.jpg");
+    -fx-background-size: stretch;
+}
+

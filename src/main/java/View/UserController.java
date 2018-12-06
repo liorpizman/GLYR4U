@@ -5,7 +5,12 @@ package View;
 
 import Controller.Controller;
 import Model.User;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 import java.time.LocalDate;
 
@@ -19,11 +24,12 @@ public class UserController {
     public javafx.scene.control.Button show;
     public javafx.scene.control.Button clear;
     protected static Controller controller;
-    public static User currentUser ;
-/**
- * Sets the static controller for all of the user windows controllers
- */
-    public void setController(Controller _controller){
+    public static User currentUser;
+
+    /**
+     * Sets the static controller for all of the user windows controllers
+     */
+    public void setController(Controller _controller) {
         controller = _controller;
     }
 
@@ -31,8 +37,7 @@ public class UserController {
      * Shows relevant info for the given user (currentUser) for relevant windows(Read User, Update User)
      */
     public void show() {
-        if (invalidUserName())
-        {
+        if (invalidUserName()) {
             userName.setDisable(true);
             userPassword.setText(currentUser.getPassword());
             userPassword.setDisable(false);
@@ -53,8 +58,7 @@ public class UserController {
     public boolean invalidUserName() {
         String name = userName.getText();
         currentUser = searchUserData(name);
-        if (name.isEmpty() || currentUser == null)
-        {
+        if (name.isEmpty() || currentUser == null) {
             Alert a = new Alert(Alert.AlertType.INFORMATION);
             a.setContentText("Invalid User Name, please try again.");
             a.show();
@@ -64,15 +68,14 @@ public class UserController {
     }
 
     /**
-     *  Search the user name string and if exist in the database display the user data
+     * Search the user name string and if exist in the database display the user data
      */
-    public User searchUserData(String name)
-    {
-        return controller.searchUserData(name) ;
+    public User searchUserData(String name) {
+        return controller.searchUserData(name);
     }
 
     /**
-     *   Clears all fields from user data, to start new search
+     * Clears all fields from user data, to start new search
      */
     public void clearUserData() {
         userName.setDisable(false);
@@ -83,4 +86,14 @@ public class UserController {
         userCity.clear();
         userBirthDate.setValue(LocalDate.of(2000, 01, 01));
     }
+
+
+    /**
+     * Opens mainWindow when the user press back button
+     */
+    public void backHome() {
+        // back to home stage from the current window
+        // close this window and change a stage/scene
+    }
+
 }

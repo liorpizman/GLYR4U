@@ -11,11 +11,11 @@ public class Location {
         City = city;
     }
 
-    public String GetCountry() {
+    public String getCountry() {
         return Country;
     }
 
-    public String GetCity() {
+    public String getCity() {
         return City;
     }
 

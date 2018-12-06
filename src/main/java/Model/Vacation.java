@@ -3,41 +3,116 @@ package Model;
 import java.util.HashMap;
 import java.util.Map;
 
+enum VacationStatus {
+    ForSale, InProgress, Sold
+}
+
+enum Rank {
+    bad, likely, good, veryGood, excellent;
+}
+
 public class Vacation {
     private static int VactionID = 200;
-    private  FlightTicket FromOriginFlight;
-    private FlightTicket FromDestFlight;  /// if it is null - it is not exists
+    private FlightTickets FromOriginFlight;
+    private FlightTickets FromDestFlight;  /// if it is null - it is not exists
     private Location VacationLocation;
     private String StartDate;
     private String EndDate;               /// use date picker in the gui and convert it to string
-    private int Price;
-    private Map<Integer,FlightTicket> AllTickets;
+    private double Price;
     private int VactionId;
+    private String BaggageType; //comboBox with default option that we will choose
+    private boolean HotVacation;
+    private VacationStatus Status;
+    private String VacationType;  //comboBox with default option that we will choose
+    private String AccommodationType;  //comboBox with default option that we will choose
+    private boolean AccommodationIncluded;
+    private Rank AccommodationRank;
+    private boolean Parking;
 
-
-    public Vacation(FlightTicket fromOriginFlight,FlightTicket fromDestFlight, Location vacationLocation,
-                    String startDate, String endDate,int price) {
+    public Vacation(FlightTickets fromOriginFlight, FlightTickets fromDestFlight, Location vacationLocation,
+                    String startDate, String endDate, int price, String Baggagetype, String vacationType,
+                    String accommodationType, boolean accommodationIncluded, boolean parking) {
         FromOriginFlight = fromOriginFlight;
         FromDestFlight = fromDestFlight;
         VacationLocation = vacationLocation;
         StartDate = startDate;
         EndDate = endDate;
-        Price=price;
-        AllTickets = new HashMap<Integer,FlightTicket>();
-        VactionId=VactionID++;
+        Price = price;
+        VactionId = VactionID++;
+        BaggageType = Baggagetype;
+        HotVacation = false;
+        Status = VacationStatus.ForSale;
+        VacationType = vacationType;
+        AccommodationType = accommodationType;
+        AccommodationIncluded = accommodationIncluded;
+        AccommodationRank = Rank.good;
+        Parking = parking;
     }
 
-    public void AddTicket(FlightTicket flightTicket){
-        if (!AllTickets.containsKey(flightTicket.GetTicketId())){
-            AllTickets.put(flightTicket.GetTicketId(),flightTicket);
-        }
+
+    public int getFromOriginFlightId() {
+        return FromOriginFlight.getTicketID();
     }
 
-    public int GetAmountOfTickets(){
-        return AllTickets.size();
+    public int getFromDestFlightId() {
+        return FromDestFlight.getTicketID();
     }
 
-    public int GetVacationId(){
+    public String getVacationCountry() {
+        return VacationLocation.getCountry();
+    }
+
+    public String getVacationCity() {
+        return VacationLocation.getCity();
+    }
+
+    public String getStartDate() {
+        return StartDate;
+    }
+
+    public String getEndDate() {
+        return EndDate;
+    }
+
+    public double getPrice() {
+        return Price;
+    }
+
+    public int getVactionId() {
         return VactionId;
     }
+
+    public String getBaggageType() {
+        return BaggageType;
+    }
+
+    public boolean isHotVacation() {
+        return HotVacation;
+    }
+
+    public int getStatus() {
+        return Status.ordinal();
+    }
+
+    public String getVacationType() {
+        return VacationType;
+    }
+
+    public String getAccommodationType() {
+        return AccommodationType;
+    }
+
+    public boolean isAccommodationIncluded() {
+        return AccommodationIncluded;
+    }
+
+    public int getAccommodationRank() {
+        return AccommodationRank.ordinal();
+    }
+
+    public boolean isParking() {
+        return Parking;
+    }
+
+
 }

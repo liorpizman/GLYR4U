@@ -1,9 +1,12 @@
 package Controller;
 
 /**
- *  This class represents a controller which is responsible for returning the response to a request.
+ * This class represents a controller which is responsible for returning the response to a request.
  */
+
 import Model.User;
+import Model.Vacation;
+import Model.FlightTickets;
 import Model.Model;
 import View.View;
 
@@ -13,6 +16,7 @@ public class Controller {
 
     /**
      * This is a default constructor to create the controller
+     *
      * @param _model
      * @param _view
      */
@@ -24,6 +28,7 @@ public class Controller {
 
     /**
      * This method returning the response to an update request
+     *
      * @param updatedUser
      * @return
      */
@@ -33,6 +38,7 @@ public class Controller {
 
     /**
      * This method returning the response to search request
+     *
      * @param userName
      * @return
      */
@@ -42,6 +48,7 @@ public class Controller {
 
     /**
      * This method returning the response to an insert of a user request;
+     *
      * @param newUser
      */
     public void insertUser(User newUser) {
@@ -50,6 +57,7 @@ public class Controller {
 
     /**
      * This method returning the response to delete of a user request;
+     *
      * @param userToDelete
      * @param password
      * @return
@@ -57,4 +65,25 @@ public class Controller {
     public boolean deleteUser(String userToDelete, String password) {
         return model.deleteUser(userToDelete, password);
     }
+
+    /**
+     * This method returning the response to an insert of a vacation request;
+     *
+     * @param newVacation
+     */
+    public void insertVacation(Vacation newVacation) {
+        model.insertVacation(newVacation);
+    }
+
+
+    /**
+     * This method returning the response to an insert of a flightTickets request;
+     *
+     * @param newFlightTickets
+     */
+    public void insertFlightTickets(FlightTickets newFlightTickets) {
+        model.insertFlightTickets(newFlightTickets);
+    }
+
+
 }
