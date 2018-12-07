@@ -39,10 +39,12 @@ public class Main extends Application {
             + " AccommodationRank int NOT NULL,\n"
             + " Parking boolean NOT NULL,\n"
             + " user_name varchar(10) NOT NULL,\n "
+            /*
             + " CONSTRAINT FK_UserVacation FOREIGN KEY (user_name)\n"
             + " REFERENCES Users(user_name)\n "
             + " ON DELETE CASCADE\n"
             + " ON UPDATE CASCADE\n "
+            */
             + ");";
 
     // SQL statement for creating a FlightTickets table
@@ -59,10 +61,12 @@ public class Main extends Application {
             + " TicketType INTEGER NOT NULL,\n "
             + " AmountOfTickets INTEGER NOT NULL,\n "
             + " VacationId INTEGER NOT NULL,\n "
+            /*
             + " CONSTRAINT FK_VacationUser FOREIGN KEY (VacationId)\n"
             + " REFERENCES Vacations(VacationId)\n "
             + " ON DELETE CASCADE\n"
             + " ON UPDATE CASCADE\n "
+            */
             + ");";
 
     @Override
@@ -77,7 +81,7 @@ public class Main extends Application {
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("MainView.fxml"));
         root.getStylesheets().add(getClass().getClassLoader().getResource("vacationCSS.css").toExternalForm());
         primaryStage.setTitle("Welcome To Vacation4U!");
-        primaryStage.setScene(new Scene(root, 600, 400));
+        primaryStage.setScene(new Scene(root, 400, 400));
         primaryStage.show();
     }
 

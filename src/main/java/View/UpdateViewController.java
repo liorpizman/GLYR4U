@@ -3,17 +3,9 @@ package View;
  * This class controls the Update User Window
  */
 import Model.User;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
-import javafx.scene.control.TableColumn;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
-import java.awt.*;
-import java.time.LocalDate;
 
-public class UpdateUserController extends UserController {
+public class UpdateViewController extends ViewController {
     public javafx.scene.control.Button update;
 
     /**

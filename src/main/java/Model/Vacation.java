@@ -51,11 +51,11 @@ public class Vacation {
 
 
     public int getFromOriginFlightId() {
-        return FromOriginFlight.getTicketID();
+        return FromOriginFlight.getTicketId();
     }
 
     public int getFromDestFlightId() {
-        return FromDestFlight.getTicketID();
+        return FromDestFlight.getTicketId();
     }
 
     public String getVacationCountry() {

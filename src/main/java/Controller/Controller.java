@@ -9,6 +9,7 @@ import Model.Vacation;
 import Model.FlightTickets;
 import Model.Model;
 import View.View;
+import javafx.scene.control.Alert;
 
 public class Controller {
     private Model model;
@@ -94,5 +95,43 @@ public class Controller {
      */
     public boolean IsCorrectPassword(String userName, String password) {
         return model.IsCorrectPassword(userName, password);
+    }
+
+
+    /**
+     * This method sets the current user which logged to the app
+     *
+     * @param userName
+     */
+    public void setCurrentUserInSystem(String userName) {
+        model.setCurrentUser(userName);
+    }
+
+
+    /**
+     * When users applies for log in
+     */
+    public void logIn(String _userName, String _password) {
+        if (_userName.isEmpty()) {
+            Alert a = new Alert(Alert.AlertType.INFORMATION);
+            a.setContentText("You didn't entered your user name, please entered.");
+            a.show();
+        } else if (_password.isEmpty()) {
+            Alert a = new Alert(Alert.AlertType.INFORMATION);
+            a.setContentText("You didn't entered your password, please entered.");
+            a.show();
+        } else {
+            if (searchUserData(_userName) != null) {
+                if (IsCorrectPassword(_userName, _password)) {
+                    setCurrentUserInSystem(_userName);
+                    //Model.CurrentUser = _userName;
+                    //close current stage and move to LoggedUserWindow (MAYBE SHOULD EXIT FROM MAIN STAGE TOO)
+                } else {
+                    Alert a = new Alert(Alert.AlertType.INFORMATION);
+                    a.setContentText("The user name or password is incorrect./nPlease try again!");
+                    a.show();
+                }
+            }
+        }
     }
 }
