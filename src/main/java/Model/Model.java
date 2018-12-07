@@ -96,7 +96,7 @@ public class Model {
                 newVacation.getVacationCountry(), newVacation.getVacationCity(),
                 newVacation.getStartDate(), newVacation.getEndDate(), newVacation.getPrice(), newVacation.getBaggageType(), newVacation.isHotVacation(),
                 newVacation.getStatus(), newVacation.getVacationType(), newVacation.getAccommodationType(), newVacation.isAccommodationIncluded(),
-                newVacation.getAccommodationRank(), newVacation.isParking(), CurrentUser);
+                newVacation.getAccommodationRank(), newVacation.isTransfers(), CurrentUser);
     }
 
 
@@ -139,4 +139,9 @@ public class Model {
     public void setCurrentUser(String userName) {
         this.CurrentUser = userName;
     }
+
+    public void GetVacationsIdByField(String TableName, String FieldName, String value) {
+        dbManagement.GetVacationsIdByField(TableName, FieldName, value);
+    }
+
 }

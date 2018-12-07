@@ -1,5 +1,5 @@
 .root {
-    -fx-background-image: url("logo.jpg");
+    -fx-background-image: url("formBackGround.jpg");
     -fx-background-size: stretch;
 }
 
@@ -98,9 +98,7 @@
     -fx-text-fill: #000000;
 }
 
-
 #PurchaseButton:hover {
     -fx-background-color: #ffff99;
     -fx-text-fill: #000000;
 }
-

@@ -3,17 +3,17 @@
     -fx-background-size: stretch;
 }
 
-#readUser:hover {
+#ReadUser:hover {
     -fx-background-color: #ffff99;
     -fx-text-fill: #000000;
 }
 
-#updateUser:hover {
+#UpdateUser:hover {
     -fx-background-color: #ffff99;
     -fx-text-fill: #000000;
 }
 
-#deleteUser:hover {
+#DeleteUser:hover {
     -fx-background-color: #ffff99;
     -fx-text-fill: #000000;
 }
@@ -57,3 +57,50 @@
     -fx-background-color: #ffff99;
     -fx-text-fill: #000000;
 }
+
+#searchVacation:hover {
+    -fx-background-color: #ffff99;
+    -fx-text-fill: #000000;
+}
+
+#previousVacations:hover {
+    -fx-background-color: #ffff99;
+    -fx-text-fill: #000000;
+}
+
+#publishVacation:hover {
+    -fx-background-color: #ffff99;
+    -fx-text-fill: #000000;
+}
+
+#accountSettings:hover {
+    -fx-background-color: #ffff99;
+    -fx-text-fill: #000000;
+}
+
+#nextVacations:hover {
+    -fx-background-color: #ffff99;
+    -fx-text-fill: #000000;
+}
+
+#SearchButton:hover {
+    -fx-background-color: #ffff99;
+    -fx-text-fill: #000000;
+}
+
+#PublishButton:hover {
+    -fx-background-color: #ffff99;
+    -fx-text-fill: #000000;
+}
+
+#ConfirmPayment:hover {
+    -fx-background-color: #ffff99;
+    -fx-text-fill: #000000;
+}
+
+
+#PurchaseButton:hover {
+    -fx-background-color: #ffff99;
+    -fx-text-fill: #000000;
+}
+
