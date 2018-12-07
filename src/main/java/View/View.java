@@ -19,6 +19,7 @@ public class View {
     public static Controller controller;
     public javafx.scene.control.TextField userName;
     public javafx.scene.control.TextField userPassword;
+    public javafx.scene.control.Button BackButton;
 
     /**
      * Setting the view's controller. implement mvc paradigm
@@ -40,7 +41,7 @@ public class View {
         stage.setTitle("Create New User");
         try {
             Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("CreateUser.fxml"));
-            root.getStylesheets().add(getClass().getClassLoader().getResource("vacationCSS.css").toExternalForm());
+            root.getStylesheets().add(getClass().getClassLoader().getResource("flightCSS.css").toExternalForm());
             Scene scene = new Scene(root, 600, 500);
             stage.setScene(scene);
             stage.initModality(Modality.APPLICATION_MODAL);
@@ -59,7 +60,7 @@ public class View {
         stage.setTitle("Read User");
         try {
             Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("ReadUser.fxml"));
-            root.getStylesheets().add(getClass().getClassLoader().getResource("vacationCSS.css").toExternalForm());
+            root.getStylesheets().add(getClass().getClassLoader().getResource("flightCSS.css").toExternalForm());
             Scene scene = new Scene(root, 600, 500);
             stage.setScene(scene);
             stage.initModality(Modality.APPLICATION_MODAL);
@@ -78,7 +79,7 @@ public class View {
         stage.setTitle("Update User");
         try {
             Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("UpdateUser.fxml"));
-            root.getStylesheets().add(getClass().getClassLoader().getResource("vacationCSS.css").toExternalForm());
+            root.getStylesheets().add(getClass().getClassLoader().getResource("flightCSS.css").toExternalForm());
             Scene scene = new Scene(root, 600, 500);
             stage.setScene(scene);
             stage.initModality(Modality.APPLICATION_MODAL);
@@ -97,7 +98,7 @@ public class View {
         stage.setTitle("Delete User");
         try {
             Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("DeleteUser.fxml"));
-            root.getStylesheets().add(getClass().getClassLoader().getResource("vacationCSS.css").toExternalForm());
+            root.getStylesheets().add(getClass().getClassLoader().getResource("flightCSS.css").toExternalForm());
             Scene scene = new Scene(root, 600, 500);
             stage.setScene(scene);
             stage.initModality(Modality.APPLICATION_MODAL);
@@ -117,8 +118,8 @@ public class View {
         stage.setTitle("Search Vacation");
         try {
             Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("SearchVaction.fxml"));
-            root.getStylesheets().add(getClass().getClassLoader().getResource("vacationCSS.css").toExternalForm());
-            Scene scene = new Scene(root, 600, 500);
+            root.getStylesheets().add(getClass().getClassLoader().getResource("flightCSS.css").toExternalForm());
+            Scene scene = new Scene(root, 1200, 800);
             stage.setScene(scene);
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.show();
@@ -133,5 +134,18 @@ public class View {
     public void logIn() {
         controller.logIn(userName.getText(), userPassword.getText());
     }
+
+    /**
+     * Opens mainWindow when the user press back button
+     */
+    public void backHome() {
+        // back to home stage from the current window
+        // close this window and change a stage/scene
+
+        // get a handle to the stage
+        Stage stage = (Stage) BackButton.getScene().getWindow();
+        stage.close();
+    }
+
 
 }

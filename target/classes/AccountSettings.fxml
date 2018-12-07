@@ -4,11 +4,15 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="380.0" prefWidth="379.0" xmlns="http://javafx.com/javafx/8.0.171"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.ViewController">
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.View">
     <children>
-        <Button fx:id="BackButton" layoutX="35.0" layoutY="333.0" onAction="" mnemonicParsing="false" text="Back"/>
-        <Button fx:id="" layoutX="44.0" layoutY="91.0" onAction="" mnemonicParsing="false" text="User Info"/>
-        <Button fx:id="" layoutX="50.0" layoutY="215.0" onAction="" mnemonicParsing="false" text="Delete My Account"/>
-        <Button fx:id="" layoutX="129.0" layoutY="91.0" onAction="" mnemonicParsing="false" text="Update Account"/>
+        <Button fx:id="BackButton" layoutX="35.0" layoutY="333.0" onAction="#backHome" mnemonicParsing="false"
+                text="Back"/>
+        <Button fx:id="ReadUser" layoutX="44.0" layoutY="91.0" onAction="#readUser" mnemonicParsing="false"
+                text="User Info"/>
+        <Button fx:id="DeleteUser" layoutX="50.0" layoutY="215.0" onAction="#deleteUser" mnemonicParsing="false"
+                text="Delete My Account"/>
+        <Button fx:id="UpdateUser" layoutX="129.0" layoutY="91.0" onAction="#updateUser" mnemonicParsing="false"
+                text="Update Account"/>
     </children>
 </AnchorPane>

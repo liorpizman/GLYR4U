@@ -27,11 +27,11 @@ public class Vacation {
     private String AccommodationType;  //comboBox with default option that we will choose
     private boolean AccommodationIncluded;
     private Rank AccommodationRank;
-    private boolean Parking;
+    private boolean Transfers;
 
     public Vacation(FlightTickets fromOriginFlight, FlightTickets fromDestFlight, Location vacationLocation,
                     String startDate, String endDate, int price, String Baggagetype, String vacationType,
-                    String accommodationType, boolean accommodationIncluded, boolean parking) {
+                    String accommodationType, boolean accommodationIncluded, boolean transfers) {
         FromOriginFlight = fromOriginFlight;
         FromDestFlight = fromDestFlight;
         VacationLocation = vacationLocation;
@@ -46,7 +46,7 @@ public class Vacation {
         AccommodationType = accommodationType;
         AccommodationIncluded = accommodationIncluded;
         AccommodationRank = Rank.good;
-        Parking = parking;
+        Transfers = transfers;
     }
 
 
@@ -110,8 +110,8 @@ public class Vacation {
         return AccommodationRank.ordinal();
     }
 
-    public boolean isParking() {
-        return Parking;
+    public boolean isTransfers() {
+        return Transfers;
     }
 
 
