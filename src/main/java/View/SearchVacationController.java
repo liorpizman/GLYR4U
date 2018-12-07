@@ -1,6 +1,6 @@
 package View;
 
-public class SearchVacationController extends UserController {
+public class SearchVacationController extends ViewController {
 
 
 }

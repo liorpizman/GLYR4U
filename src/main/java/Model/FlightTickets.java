@@ -34,8 +34,8 @@ public class FlightTickets {
     }
 
 
-    public static int getTicketID() {
-        return TicketID;
+    public int getTicketId() {
+        return TicketId;
     }
 
     public String getAirline() {

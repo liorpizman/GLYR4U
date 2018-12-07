@@ -106,7 +106,7 @@ public class Model {
      * @param newFlightTickets
      */
     public void insertFlightTickets(FlightTickets newFlightTickets) {
-        dbManagement.insertNewFlightTickets(newFlightTickets.getTicketID(), newFlightTickets.getAirline(), newFlightTickets.getDestinationCountry(),
+        dbManagement.insertNewFlightTickets(newFlightTickets.getTicketId(), newFlightTickets.getAirline(), newFlightTickets.getDestinationCountry(),
                 newFlightTickets.getDestinationCity(), newFlightTickets.getOriginCountry(), newFlightTickets.getOriginCity(),
                 newFlightTickets.getBabyTicketsAmount(), newFlightTickets.getChildTicketsAmount(), newFlightTickets.getAdultTicketsAmount(),
                 newFlightTickets.getTicketType(), newFlightTickets.getAmountOfTickets(), newFlightTickets.getVacationId());
@@ -131,4 +131,12 @@ public class Model {
         return dbManagement.IsCorrectPassword(userName, password);
     }
 
+    /**
+     * This method sets the current user which logged to the app
+     *
+     * @param userName
+     */
+    public void setCurrentUser(String userName) {
+        this.CurrentUser = userName;
+    }
 }

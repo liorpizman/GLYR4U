@@ -10,6 +10,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 public class DBManagement {
 
@@ -188,6 +189,32 @@ public class DBManagement {
         return (password.equals(currUser.getPassword())) ? true : false;
     }
 
+
+    /**
+     * This method checks if a current user exists in the DB
+     *
+     * @param userName
+     * @param password
+     */
+    public boolean IsCorrectPassword(String userName, String password) {
+        String sql = "SELECT password "
+                + "FROM Users WHERE user_name = ?";
+        try (Connection conn = this.connect();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, userName);
+            ResultSet rs = pstmt.executeQuery();
+            if (rs.getObject(password) != password) {
+                return false;
+            } else {
+                return true;
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return false;
+        }
+    }
+
+
     public void insertNewVacation(int VacationId, int OriginFlightId, int DestFlightId, String VacationCountry, String VacationCity,
                                   String StartDate, String EndDate, double Price, String BaggageType, boolean HotVacation, int Status,
                                   String VacationType, String AccommodationType, boolean AccommodationIncluded,
@@ -250,29 +277,120 @@ public class DBManagement {
         }
     }
 
+    public ArrayList GetVacationsIdByField(String TableName, String FieldName, String value) {//,String FieldToFind){
 
-    /**
-     * This method checks if a current user exists in the DB
-     *
-     * @param userName
-     * @param password
-     */
-    public boolean IsCorrectPassword(String userName, String password) {
-        String sql = "SELECT password "
-                + "FROM Users WHERE user_name = ?";
+        ArrayList<Integer> VacationsID = new ArrayList<Integer>();
+        String sql = "SELECT * FROM " + TableName + " WHERE " + FieldName + " =?";
+
         try (Connection conn = this.connect();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            pstmt.setString(1, userName);
+
+            // set the value
+            pstmt.setString(1, value);
+            //
             ResultSet rs = pstmt.executeQuery();
-            if (rs.getObject(password) != password) {
-                return false;
-            } else {
-                return true;
+            //rs.getObject(FieldToFind);
+            // loop through the result set
+
+            while (rs.next()) {
+                VacationsID.add((int) rs.getObject(("VacationId")));
             }
+            return VacationsID;
+
         } catch (SQLException e) {
             System.out.println(e.getMessage());
-            return false;
         }
+        return VacationsID;
     }
+
+    public ArrayList<Vacation> GetVacationsInformation(ArrayList<Integer> VacationsID) {//,String FieldToFind){
+
+        Object[] Ids = VacationsID.toArray();
+        ArrayList<Vacation> AllVacations = new ArrayList<Vacation>();
+        for (int i = 0; i < VacationsID.size(); i++) {
+            String sql = "SELECT * FROM " + "Vacations" + " WHERE " + "VacationId" + " =?";
+
+
+            try (Connection conn = this.connect();
+                 PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+                // set the value
+                pstmt.setString(1, (String) Ids[i]);
+                //
+                ResultSet rs = pstmt.executeQuery();
+                //rs.getObject(FieldToFind);
+                // loop through the result set
+
+                AllVacations.add(CreateVacationFromDB((String) rs.getObject("VacationId"),
+                        (String) rs.getObject("OriginFlightId"),
+                        (String) rs.getObject("DestFlightId"),
+                        (String) rs.getObject("VacationCountry"),
+                        (String) rs.getObject("VacationCity"),
+                        (String) rs.getObject("StartDate"),
+                        (String) rs.getObject("EndDate"),
+                        (String) rs.getObject("Price"),
+                        (String) rs.getObject("BaggageType"),
+                        (String) rs.getObject("HotVacation"),
+                        (String) rs.getObject("Status"),
+                        (String) rs.getObject("VacationType"),
+                        (String) rs.getObject("AccommodationType"),
+                        (String) rs.getObject("AccommodationIncluded"),
+                        (String) rs.getObject("AccommodationRank"),
+                        (String) rs.getObject("Parking"),
+                        (String) rs.getObject("user_name")));
+
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());
+            }
+            return AllVacations;
+        }
+        return AllVacations;
+    }
+
+
+    public Vacation CreateVacationFromDB(String vacationId, String OriginFlightId, String DestFlightId, String VacationCountry,
+                                         String VacationCity, String StartDate, String EndDate, String Price,
+                                         String BaggageType, String HotVacation, String Status, String VacationType,
+                                         String AccommodationType, String AccommodationIncluded, String AccommodationRank, String Parking,
+                                         String user_name) {
+        return new Vacation(createFlightTicket(OriginFlightId), createFlightTicket(DestFlightId), new Location(VacationCountry, VacationCity),
+                StartDate, EndDate, Integer.parseInt(Price), BaggageType, VacationType, AccommodationType,
+                Boolean.parseBoolean(AccommodationIncluded), Boolean.parseBoolean(Parking));
+
+    }
+
+    public FlightTickets createFlightTicket(String FlightTicketValue) {
+        String sql = "SELECT * FROM " + "FlightTickets" + " WHERE " + "TicketId" + " =?";
+
+
+        try (Connection conn = this.connect();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+            // set the value
+            pstmt.setString(1, FlightTicketValue);
+            //
+            ResultSet rs = pstmt.executeQuery();
+            //rs.getObject(FieldToFind);
+            // loop through the result set
+
+            int[] Tickets = new int[]{Integer.parseInt((String) rs.getObject("BabyTickets")),
+                    Integer.parseInt((String) rs.getObject("ChildTickets")),
+                    Integer.parseInt((String) rs.getObject("AdultTickets"))};
+            return new FlightTickets(
+                    (String) rs.getObject("Airline"),
+                    new Location((String) rs.getObject("DestinationCountry"),
+                            (String) rs.getObject("DestinationCity")),
+                    new Location((String) rs.getObject("OriginCountry"),
+                            (String) rs.getObject("OriginCity")),
+                    Tickets,
+                    (String) rs.getObject("TicketType"),
+                    Integer.parseInt((String) rs.getObject("VacationId")));
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return null;
+    }
+
 }
 

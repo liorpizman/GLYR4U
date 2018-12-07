@@ -15,8 +15,10 @@ public class View {
     public javafx.scene.control.Button readUser;
     public javafx.scene.control.Button updateUser;
     public javafx.scene.control.Button deleteUser;
-    public UserController userController;
-    public Controller controller;
+    public ViewController viewController;
+    public static Controller controller;
+    public javafx.scene.control.TextField userName;
+    public javafx.scene.control.TextField userPassword;
 
     /**
      * Setting the view's controller. implement mvc paradigm
@@ -24,9 +26,9 @@ public class View {
      * @param _controller mvc's controller
      */
     public void setController(Controller _controller) {
-        controller = _controller;
-        userController = new UserController();
-        userController.setController(controller);
+        this.controller = _controller;
+        this.viewController = new ViewController();
+        this.viewController.setController(controller);
     }
 
     /**
@@ -125,23 +127,11 @@ public class View {
         }
     }
 
-
     /**
-     * Opens log in window for the user
+     * check whether the user's details are correct
      */
     public void logIn() {
-        Stage stage = new Stage();
-        stage.setResizable(true);
-        stage.setTitle("Log In");
-        try {
-            Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("LogInWindow.fxml"));
-            root.getStylesheets().add(getClass().getClassLoader().getResource("vacationCSS.css").toExternalForm());
-            Scene scene = new Scene(root, 600, 500);
-            stage.setScene(scene);
-            stage.initModality(Modality.APPLICATION_MODAL);
-            stage.show();
-        } catch (Exception e) {
-            e.getCause().printStackTrace();
-        }
+        controller.logIn(userName.getText(), userPassword.getText());
     }
+
 }
