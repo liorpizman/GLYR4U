@@ -11,6 +11,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Dictionary;
+import java.util.HashMap;
 
 public class DBManagement {
 
@@ -19,8 +21,8 @@ public class DBManagement {
      *
      * @param fileName -the name of the dataBase
      */
-    public static void createNewDatabase(String fileName) {
-        String url = "jdbc:sqlite:" + System.getProperty("user.dir") + "\\" + fileName + ".db";
+    public void createNewDatabase(String fileName) {
+        String url = "jdbc:sqlite:" + "D:\\Studies\\BGU\\semesterE\\NITUZ\\Part1\\GLYR4U" + "\\" + fileName + ".db";
         try {
             Connection conn = DriverManager.getConnection(url);
             if (conn != null) {
@@ -52,6 +54,22 @@ public class DBManagement {
         }
     }
 
+    public static void addConstraintToTable(String tableName, String constraintName,
+                                            String constraintType, String fieldName, String constraintCondition) {
+        // SQLite connection string
+        System.out.println(System.getProperty("user.dir"));
+        String url = "jdbc:sqlite:" + System.getProperty("user.dir") + "\\v4uDB.db";
+        String sql = "ALTER TABLE " + tableName + " ADD CONSTRAINT " + constraintName + " " +
+                constraintType + " (" + fieldName + ") " + "REFERENCES " + constraintCondition;
+        try {
+            Connection conn = DriverManager.getConnection(url);
+            Statement stmt = conn.createStatement();
+            stmt.execute(sql);
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+    }
     /**
      * This method connect to the dataBase,and return the connection
      *
@@ -277,21 +295,34 @@ public class DBManagement {
         }
     }
 
-    public ArrayList GetVacationsIdByField(String TableName, String FieldName, String value) {//,String FieldToFind){
+    public ArrayList<Integer> GetVacationsIdByField(String TableName, HashMap<String, String> askedValues) {//,String FieldToFind){
+        ArrayList<Integer> VacationsID = new ArrayList<>();
+        HashMap<Integer, String> searchValues = new HashMap<>();
+        int numOfValues = 0;
+        String whereStatement = "";
 
-        ArrayList<Integer> VacationsID = new ArrayList<Integer>();
-        String sql = "SELECT * FROM " + TableName + " WHERE " + FieldName + " =?";
+        for (String key : askedValues.keySet()) {
+            if (!(askedValues.get(key).equals("")))
+            {
+                numOfValues++;
+                if (numOfValues == 1)
+                    whereStatement = whereStatement + " " + key + " =?";
+                else
+                    whereStatement = whereStatement + " AND " + key + " =?";
+                searchValues.put(numOfValues, askedValues.get(key));
+            }
+        }
+
+        String sql = "SELECT * FROM " + TableName + " WHERE" + whereStatement;
 
         try (Connection conn = this.connect();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
-
-            // set the value
-            pstmt.setString(1, value);
-            //
+            for (int i = 1; i <= numOfValues; i++)
+            {
+                // set the value
+                pstmt.setString(i, searchValues.get(i));
+            }
             ResultSet rs = pstmt.executeQuery();
-            //rs.getObject(FieldToFind);
-            // loop through the result set
-
             while (rs.next()) {
                 VacationsID.add((int) rs.getObject(("VacationId")));
             }
@@ -303,60 +334,60 @@ public class DBManagement {
         return VacationsID;
     }
 
-    public ArrayList<Vacation> GetVacationsInformation(ArrayList<Integer> VacationsID) {//,String FieldToFind){
+    public ArrayList<Vacation> GetVacationsInformation(ArrayList<Integer> VacationsID) {
 
         Object[] Ids = VacationsID.toArray();
-        ArrayList<Vacation> AllVacations = new ArrayList<Vacation>();
+        ArrayList<Vacation> AllVacations = new ArrayList<>();
         for (int i = 0; i < VacationsID.size(); i++) {
             String sql = "SELECT * FROM " + "Vacations" + " WHERE " + "VacationId" + " =?";
-
 
             try (Connection conn = this.connect();
                  PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
                 // set the value
-                pstmt.setString(1, (String) Ids[i]);
+                pstmt.setString(1, Ids[i].toString());
                 //
                 ResultSet rs = pstmt.executeQuery();
                 //rs.getObject(FieldToFind);
                 // loop through the result set
 
-                AllVacations.add(CreateVacationFromDB((String) rs.getObject("VacationId"),
-                        (String) rs.getObject("OriginFlightId"),
-                        (String) rs.getObject("DestFlightId"),
-                        (String) rs.getObject("VacationCountry"),
-                        (String) rs.getObject("VacationCity"),
-                        (String) rs.getObject("StartDate"),
-                        (String) rs.getObject("EndDate"),
-                        (String) rs.getObject("Price"),
-                        (String) rs.getObject("BaggageType"),
-                        (String) rs.getObject("HotVacation"),
-                        (String) rs.getObject("Status"),
-                        (String) rs.getObject("VacationType"),
-                        (String) rs.getObject("AccommodationType"),
-                        (String) rs.getObject("AccommodationIncluded"),
-                        (String) rs.getObject("AccommodationRank"),
-                        (String) rs.getObject("Parking"),
-                        (String) rs.getObject("user_name")));
+                AllVacations.add(CreateVacationFromDB((rs.getObject("VacationId")).toString(),
+                        (rs.getObject("OriginFlightId")).toString(),
+                        (rs.getObject("DestFlightId")).toString(),
+                        (rs.getObject("DVacationCountry")).toString(),
+                        (rs.getObject("DVacationCity")).toString(),
+                        (rs.getObject("OVacationCountry")).toString(),
+                        (rs.getObject("OVacationCity")).toString(),
+                        (rs.getObject("StartDate")).toString(),
+                        (rs.getObject("EndDate")).toString(),
+                        (rs.getObject("Price")).toString(),
+                        (rs.getObject("BaggageType")).toString(),
+                        (rs.getObject("HotVacation")).toString(),
+                        (rs.getObject("Status")).toString(),
+                        (rs.getObject("VacationType")).toString(),
+                        (rs.getObject("AccommodationType")).toString(),
+                        (rs.getObject("AccommodationIncluded")).toString(),
+                        (rs.getObject("AccommodationRank")).toString(),
+                        (rs.getObject("Parking")).toString(),
+                        (rs.getObject("user_name")).toString()));
 
             } catch (SQLException e) {
                 System.out.println(e.getMessage());
             }
-            return AllVacations;
         }
         return AllVacations;
     }
 
 
-    public Vacation CreateVacationFromDB(String vacationId, String OriginFlightId, String DestFlightId, String VacationCountry,
-                                         String VacationCity, String StartDate, String EndDate, String Price,
+    public Vacation CreateVacationFromDB(String vacationId, String OriginFlightId, String DestFlightId, String DVacationCountry,
+                                         String DVacationCity, String OVacationCountry, String OVacationCity,String StartDate, String EndDate, String Price,
                                          String BaggageType, String HotVacation, String Status, String VacationType,
-                                         String AccommodationType, String AccommodationIncluded, String AccommodationRank, String Parking,
+                                         String AccommodationType, String AccommodationIncluded, String AccommodationRank, String Transfers,
                                          String user_name) {
-        return new Vacation(createFlightTicket(OriginFlightId), createFlightTicket(DestFlightId), new Location(VacationCountry, VacationCity),
-                StartDate, EndDate, Integer.parseInt(Price), BaggageType, VacationType, AccommodationType,
-                Boolean.parseBoolean(AccommodationIncluded), Boolean.parseBoolean(Parking));
-
+        return new Vacation(createFlightTicket(OriginFlightId), createFlightTicket(DestFlightId),
+                new Location(DVacationCountry, DVacationCity), new Location(OVacationCountry, OVacationCity),
+                StartDate, EndDate, Double.parseDouble(Price), BaggageType, VacationType, AccommodationType,
+                Boolean.parseBoolean(AccommodationIncluded), Boolean.parseBoolean(Transfers));
     }
 
     public FlightTickets createFlightTicket(String FlightTicketValue) {
@@ -373,18 +404,18 @@ public class DBManagement {
             //rs.getObject(FieldToFind);
             // loop through the result set
 
-            int[] Tickets = new int[]{Integer.parseInt((String) rs.getObject("BabyTickets")),
-                    Integer.parseInt((String) rs.getObject("ChildTickets")),
-                    Integer.parseInt((String) rs.getObject("AdultTickets"))};
+            int[] Tickets = new int[]{Integer.parseInt((rs.getObject("BabyTickets")).toString()),
+                    Integer.parseInt((rs.getObject("ChildTickets")).toString()),
+                    Integer.parseInt((rs.getObject("AdultTickets").toString()))};
             return new FlightTickets(
-                    (String) rs.getObject("Airline"),
-                    new Location((String) rs.getObject("DestinationCountry"),
-                            (String) rs.getObject("DestinationCity")),
-                    new Location((String) rs.getObject("OriginCountry"),
-                            (String) rs.getObject("OriginCity")),
+                    (rs.getObject("Airline")).toString(),
+                    new Location((rs.getObject("DestinationCountry")).toString(),
+                            (rs.getObject("DestinationCity")).toString()),
+                    new Location((rs.getObject("OriginCountry")).toString(),
+                            (rs.getObject("OriginCity")).toString()),
                     Tickets,
-                    (String) rs.getObject("TicketType"),
-                    Integer.parseInt((String) rs.getObject("VacationId")));
+                    (rs.getObject("TicketType")).toString(),
+                    Integer.parseInt((rs.getObject("VacationId")).toString()));
 
         } catch (SQLException e) {
             System.out.println(e.getMessage());
