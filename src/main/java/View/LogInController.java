@@ -2,7 +2,7 @@ package View;
 
 import javafx.scene.control.Alert;
 
-public class LogInController extends UserController  {
+public class LogInController extends UserController {
 
     public javafx.scene.control.TextField userName;
     public javafx.scene.control.TextField userPassword;
@@ -14,23 +14,25 @@ public class LogInController extends UserController  {
         String _userName = userName.getText();
         String _password = userPassword.getText();
 
-        if (_userName.isEmpty())
-        {
+        if (_userName.isEmpty()) {
             Alert a = new Alert(Alert.AlertType.INFORMATION);
             a.setContentText("You didn't entered your user name, please entered.");
             a.show();
-        }
-        else if (_password.isEmpty())
-        {
+        } else if (_password.isEmpty()) {
             Alert a = new Alert(Alert.AlertType.INFORMATION);
             a.setContentText("You didn't entered your password, please entered.");
             a.show();
-        }
-        else{
-            if (searchUserData(_userName) != null)
-            {
-                //check that user's name and password are in the db and connect the user to the app
-                //Model.CurrentUser = _userName;
+        } else {
+            if (searchUserData(_userName) != null) {
+                if (IsCorrectPassword(_userName, _password)) {
+                    //controller.setCurrentUserInSystem(_userName);
+                    //Model.CurrentUser = _userName;
+                    //close current stage and move to LoggedUserWindow (MAYBE SHOULD EXIT FROM MAIN STAGE TOO)
+                } else {
+                    Alert a = new Alert(Alert.AlertType.INFORMATION);
+                    a.setContentText("The user name or password is incorrect./nPlease try again!");
+                    a.show();
+                }
             }
         }
     }

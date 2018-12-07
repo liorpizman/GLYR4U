@@ -251,5 +251,28 @@ public class DBManagement {
     }
 
 
+    /**
+     * This method checks if a current user exists in the DB
+     *
+     * @param userName
+     * @param password
+     */
+    public boolean IsCorrectPassword(String userName, String password) {
+        String sql = "SELECT password "
+                + "FROM Users WHERE user_name = ?";
+        try (Connection conn = this.connect();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, userName);
+            ResultSet rs = pstmt.executeQuery();
+            if (rs.getObject(password) != password) {
+                return false;
+            } else {
+                return true;
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return false;
+        }
+    }
 }
 

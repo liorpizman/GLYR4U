@@ -33,13 +33,27 @@
     -fx-text-fill: #000000;
 }
 
-#LogInButton:hover{
+#LogInButton:hover {
     -fx-background-color: #ffff99;
     -fx-text-fill: #000000;
 }
 
-#SearchVacationButton:hover{
+#SearchVacationButton:hover {
     -fx-background-color: #ffff99;
     -fx-text-fill: #000000;
 }
 
+#apply:hover {
+    -fx-background-color: #ffff99;
+    -fx-text-fill: #000000;
+}
+
+#show:hover {
+    -fx-background-color: #ffff99;
+    -fx-text-fill: #000000;
+}
+
+#clear:hover {
+    -fx-background-color: #ffff99;
+    -fx-text-fill: #000000;
+}

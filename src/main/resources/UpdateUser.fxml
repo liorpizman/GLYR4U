@@ -20,9 +20,9 @@
       <Text layoutX="330.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="City" wrappingWidth="90.80336952209473" />
       <DatePicker fx:id="userBirthDate" disable="true" layoutX="410.0" layoutY="106.0" />
       <Text layoutX="330.0" layoutY="123.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Birth Date" wrappingWidth="90.80336952209473" />
-      <Button layoutX="240.0" layoutY="311.0" mnemonicParsing="false" onAction="#show" text="Show" />
+      <Button fx:id="show" layoutX="240.0" layoutY="311.0" mnemonicParsing="false" onAction="#show" text="Show" />
       <Button fx:id="update" disable="true" layoutX="310.0" layoutY="311.0" mnemonicParsing="false" onAction="#updateUserData" text="Update" />
-      <Button layoutX="390.0" layoutY="311.0" mnemonicParsing="false" onAction="#clearUserData" text="Clear" />
+      <Button fx:id="clear" layoutX="390.0" layoutY="311.0" mnemonicParsing="false" onAction="#clearUserData" text="Clear" />
       <Text layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Please fill user name field and click show to display the user's data, than update data and click update:" wrappingWidth="542.8033752441406" />
       <Button fx:id="BackButton" layoutX="25.0" layoutY="336.0" mnemonicParsing="false" onAction="#backHome" prefHeight="25.0" prefWidth="55.0" text="Back" />
    </children>

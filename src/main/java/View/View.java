@@ -38,7 +38,7 @@ public class View {
         stage.setTitle("Create New User");
         try {
             Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("CreateUser.fxml"));
-            root.getStylesheets().add(getClass().getClassLoader().getResource("backGroundCSS.css").toExternalForm());
+            root.getStylesheets().add(getClass().getClassLoader().getResource("vacationCSS.css").toExternalForm());
             Scene scene = new Scene(root, 600, 500);
             stage.setScene(scene);
             stage.initModality(Modality.APPLICATION_MODAL);
@@ -57,7 +57,7 @@ public class View {
         stage.setTitle("Read User");
         try {
             Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("ReadUser.fxml"));
-            root.getStylesheets().add(getClass().getClassLoader().getResource("backGroundCSS.css").toExternalForm());
+            root.getStylesheets().add(getClass().getClassLoader().getResource("vacationCSS.css").toExternalForm());
             Scene scene = new Scene(root, 600, 500);
             stage.setScene(scene);
             stage.initModality(Modality.APPLICATION_MODAL);
@@ -76,7 +76,7 @@ public class View {
         stage.setTitle("Update User");
         try {
             Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("UpdateUser.fxml"));
-            root.getStylesheets().add(getClass().getClassLoader().getResource("backGroundCSS.css").toExternalForm());
+            root.getStylesheets().add(getClass().getClassLoader().getResource("vacationCSS.css").toExternalForm());
             Scene scene = new Scene(root, 600, 500);
             stage.setScene(scene);
             stage.initModality(Modality.APPLICATION_MODAL);
@@ -95,7 +95,7 @@ public class View {
         stage.setTitle("Delete User");
         try {
             Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("DeleteUser.fxml"));
-            root.getStylesheets().add(getClass().getClassLoader().getResource("backGroundCSS.css").toExternalForm());
+            root.getStylesheets().add(getClass().getClassLoader().getResource("vacationCSS.css").toExternalForm());
             Scene scene = new Scene(root, 600, 500);
             stage.setScene(scene);
             stage.initModality(Modality.APPLICATION_MODAL);
@@ -115,7 +115,7 @@ public class View {
         stage.setTitle("Search Vacation");
         try {
             Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("SearchVaction.fxml"));
-            root.getStylesheets().add(getClass().getClassLoader().getResource("backGroundCSS.css").toExternalForm());
+            root.getStylesheets().add(getClass().getClassLoader().getResource("vacationCSS.css").toExternalForm());
             Scene scene = new Scene(root, 600, 500);
             stage.setScene(scene);
             stage.initModality(Modality.APPLICATION_MODAL);
@@ -135,7 +135,7 @@ public class View {
         stage.setTitle("Log In");
         try {
             Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("LogInWindow.fxml"));
-            root.getStylesheets().add(getClass().getClassLoader().getResource("backGroundCSS.css").toExternalForm());
+            root.getStylesheets().add(getClass().getClassLoader().getResource("vacationCSS.css").toExternalForm());
             Scene scene = new Scene(root, 600, 500);
             stage.setScene(scene);
             stage.initModality(Modality.APPLICATION_MODAL);
@@ -144,5 +144,4 @@ public class View {
             e.getCause().printStackTrace();
         }
     }
-
 }

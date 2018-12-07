@@ -23,8 +23,9 @@ public class UserController {
     public javafx.scene.control.DatePicker userBirthDate;
     public javafx.scene.control.Button show;
     public javafx.scene.control.Button clear;
+    public javafx.scene.control.Button BackButton;
     protected static Controller controller;
-    public static User currentUser;
+    protected static User currentUser;
 
     /**
      * Sets the static controller for all of the user windows controllers
@@ -94,6 +95,17 @@ public class UserController {
     public void backHome() {
         // back to home stage from the current window
         // close this window and change a stage/scene
+
+        // get a handle to the stage
+        Stage stage = (Stage) BackButton.getScene().getWindow();
+        stage.close();
     }
 
+
+    /**
+     * Checks whether the user name and the passwords are exist in the DB
+     */
+    public boolean IsCorrectPassword(String userName, String password) {
+        return controller.IsCorrectPassword(userName, password);
+    }
 }

@@ -121,5 +121,14 @@ public class Model {
         this.CurrentUser = null;
     }
 
+    /**
+     * This method calls the function which checks if a current user exists in the DB
+     *
+     * @param userName
+     * @param password
+     */
+    public boolean IsCorrectPassword(String userName, String password) {
+        return dbManagement.IsCorrectPassword(userName, password);
+    }
 
 }

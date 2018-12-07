@@ -10,7 +10,6 @@ import Model.Model;
 
 public class Main extends Application {
 
-
     // SQL statement for creating a Users table
     private String UsersSql = "CREATE TABLE IF NOT EXISTS " + "Users" + " (\n"
             + " user_name varchar(10) NOT NULL PRIMARY KEY,\n"
@@ -45,7 +44,6 @@ public class Main extends Application {
             + " ON DELETE CASCADE\n"
             + " ON UPDATE CASCADE\n "
             + ");";
-
 
     // SQL statement for creating a FlightTickets table
     private String FlightTicketsSql = "CREATE TABLE IF NOT EXISTS " + "FlightTickets" + " (\n"

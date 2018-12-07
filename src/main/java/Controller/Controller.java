@@ -86,4 +86,13 @@ public class Controller {
     }
 
 
+    /**
+     * This method returning the response if a current user exists in the DB
+     *
+     * @param userName
+     * @param password
+     */
+    public boolean IsCorrectPassword(String userName, String password) {
+        return model.IsCorrectPassword(userName, password);
+    }
 }
