@@ -35,6 +35,7 @@ public class PublishVacationController extends ViewController {
         String _toCountry = ToCountry.getText();
         String _toCity = ToCity.getText();
 
+        /*
         LocalDate _arrival = Arrival.getValue();
         LocalDate _departure = Departure.getValue();
 
@@ -52,7 +53,7 @@ public class PublishVacationController extends ViewController {
         String _vacationType = VacationType.getValue().toString();
 
         boolean _transfers = Transfers.isSelected();
-
+*/
         if (_fromCountry.isEmpty()) {
             Alert a = new Alert(Alert.AlertType.INFORMATION);
             a.setContentText("You didn't entered the origin country.\nPlease fill this field.");
