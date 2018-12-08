@@ -524,21 +524,5 @@ public class DBManagement {
             System.out.println(e.getMessage());
         }
     }
-
-    /**
-     * This method get the details of a vacation purchase and update the DB payment table
-     *
-     * @param VacationId
-     * @param Seller
-     * @param Buyer
-     * @param PaymentMethod
-     * @param CreditNumber
-     * @param PaymentDate
-     */
-    /*public void insertNewPayment(int VacationId, String Seller, String Buyer, String PaymentMethod,
-                                 String CreditNumber, String PaymentDate) {
-        dbManagement.insertNewPayment(VacationId, Seller, Buyer, PaymentMethod, CreditNumber, PaymentDate);
-    }*/
-
 }
 

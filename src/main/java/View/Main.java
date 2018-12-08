@@ -104,9 +104,8 @@ public class Main extends Application {
         askedValues.put("StartDate", "");
         askedValues.put("EndDate", "");
         askedValues.put("AccommodationRank", "");
-
         result = model.GetVacationsInformation(model.GetVacationsIdByField(askedValues));
-        //model.insertNewPayment(3, "gal", "gal", "credit", "12345678", "8/12/18");
+        model.insertNewPayment(3, "gal", "gal", "credit", "12345678", "8/12/18");
         View view = new View();
         Controller controller = new Controller(model, view);
         view.setController(controller);
