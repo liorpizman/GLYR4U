@@ -1,13 +1,15 @@
 package View;
 
+import Controller.Controller;
 import Model.User;
 import Model.Vacation;
 import javafx.scene.control.Alert;
+import javafx.stage.Stage;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-public class VacationController extends ViewController {
+public class VacationController {
 
     public javafx.scene.control.TextField VacationIDUpdate;
     public javafx.scene.control.TextField FromCountryUpdate;
@@ -26,6 +28,19 @@ public class VacationController extends ViewController {
     public javafx.scene.control.TextField BaggageUpdate;
     public javafx.scene.control.TextField VacationTypeUpdate;
     public javafx.scene.control.CheckBox TransfersUpdate;
+
+    public javafx.scene.control.Button BackButton;
+
+    protected static Controller controller;
+
+
+    /**
+     * Sets the static controller for all of the user windows controllers
+     */
+    public void setController(Controller _controller) {
+        controller = _controller;
+    }
+
 
     /**
      * Validation checks for the vacation id
@@ -109,5 +124,23 @@ public class VacationController extends ViewController {
         }
     }
 
+    public void backHome() {
+        // back to home stage from the current window
+        // close this window and change a stage/scene
 
+        // get a handle to the stage
+        Stage stage = (Stage) BackButton.getScene().getWindow();
+        stage.close();
+    }
+
+    public boolean isInteger(String s) {
+        try {
+            Integer.parseInt(s);
+        } catch (NumberFormatException e) {
+            return false;
+        } catch (NullPointerException e) {
+            return false;
+        }
+        return true;
+    }
 }
