@@ -9,20 +9,85 @@ import javafx.scene.control.Alert;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 public class SearchVacationController {
 
-    public javafx.scene.control.Button LogoutButton;
-    public javafx.scene.control.Button accountSettings;
-    public javafx.scene.control.Button publishButton;
+    public javafx.scene.control.TextField fromCountry;
+    public javafx.scene.control.TextField fromCity;
+    public javafx.scene.control.TextField toCountry;
+    public javafx.scene.control.TextField toCity;
+    public javafx.scene.control.DatePicker arrivalDate;
+    public javafx.scene.control.DatePicker departureDate;
+    public javafx.scene.control.CheckBox roundTripCheck;
+    public javafx.scene.control.ChoiceBox flightClassChoice;
+    public javafx.scene.control.ChoiceBox accommodationChoice;
+    public javafx.scene.control.ChoiceBox adultsChoice;
+    public javafx.scene.control.ChoiceBox childrenChoice;
+    public javafx.scene.control.ChoiceBox babiesChoice;
 
-    public javafx.scene.control.Button BackButton;
+    public javafx.scene.control.TextField fromCountry1;
+    public javafx.scene.control.TextField fromCity1;
+    public javafx.scene.control.TextField toCountry1;
+    public javafx.scene.control.TextField toCity1;
+    public javafx.scene.control.TextField airline1;
+    public javafx.scene.control.TextField arrivalDate1;
+    public javafx.scene.control.TextField departureDate1;
+    public javafx.scene.control.TextField flightClass1;
+    public javafx.scene.control.TextField accomodationType1;
+    public javafx.scene.control.TextField accomodationRank1;
+    public javafx.scene.control.TextField vacationType1;
+    public javafx.scene.control.TextField baggage1;
+    public javafx.scene.control.TextField price1;
+    public javafx.scene.control.CheckBox transfersCheck1;
+    public javafx.scene.control.TextField publishedBy1;
+
+
+    public javafx.scene.control.TextField fromCountry2;
+    public javafx.scene.control.TextField fromCity2;
+    public javafx.scene.control.TextField toCountry2;
+    public javafx.scene.control.TextField toCity2;
+    public javafx.scene.control.TextField airline2;
+    public javafx.scene.control.TextField arrivalDate2;
+    public javafx.scene.control.TextField departureDate2;
+    public javafx.scene.control.TextField flightClass2;
+    public javafx.scene.control.TextField accomodationType2;
+    public javafx.scene.control.TextField accomodationRank2;
+    public javafx.scene.control.TextField vacationType2;
+    public javafx.scene.control.TextField baggage2;
+    public javafx.scene.control.TextField price2;
+    public javafx.scene.control.CheckBox transfersCheck2;
+    public javafx.scene.control.TextField publishedBy2;
+
+    public javafx.scene.control.TextField fromCountry3;
+    public javafx.scene.control.TextField fromCity3;
+    public javafx.scene.control.TextField toCountry3;
+    public javafx.scene.control.TextField toCity3;
+    public javafx.scene.control.TextField airline3;
+    public javafx.scene.control.TextField arrivalDate3;
+    public javafx.scene.control.TextField departureDate3;
+    public javafx.scene.control.TextField flightClass3;
+    public javafx.scene.control.TextField accomodationType3;
+    public javafx.scene.control.TextField accomodationRank3;
+    public javafx.scene.control.TextField vacationType3;
+    public javafx.scene.control.TextField baggage3;
+    public javafx.scene.control.TextField price3;
+    public javafx.scene.control.CheckBox transfersCheck3;
+    public javafx.scene.control.TextField publishedBy3;
 
     public javafx.scene.control.Button PurchaseButton1;
     public javafx.scene.control.Button PurchaseButton2;
     public javafx.scene.control.Button PurchaseButton3;
-    public javafx.scene.control.TextField publishedBy1;
-    public javafx.scene.control.TextField publishedBy2;
-    public javafx.scene.control.TextField publishedBy3;
+
+    public javafx.scene.control.Button LogoutButton;
+    public javafx.scene.control.Button accountSettings;
+    public javafx.scene.control.Button publishButton;
+    public javafx.scene.control.Button SearchButton;
+    public javafx.scene.control.Button BackButton;
+    public javafx.scene.control.Button nextButton;
+    public javafx.scene.control.Button previousButton;
+
 
     protected static Controller controller;
 
@@ -69,6 +134,13 @@ public class SearchVacationController {
         publishButton.setDisable(true);
     }
 
+    public void search() {
+        HashMap<String,String> askedFields = new HashMap<String,String>();
+        ArrayList<Vacation> vacationsList = controller.GetVacationsInformation(askedFields);
+        for (Vacation vacation:vacationsList) {
+
+        }
+    }
 
     public void back() {
 
@@ -82,12 +154,14 @@ public class SearchVacationController {
      * Opens publishing of a vacation window
      */
     public void publishVacation() {
+        /*
         if (!controller.isUserConnected()) {
             Alert a = new Alert(Alert.AlertType.INFORMATION);
             a.setContentText("You can't Publish if you aren't connected");
             a.show();
             return;
         }
+        */
         Stage stage = new Stage();
         stage.setResizable(true);
         stage.setTitle("Publish Vacation");
@@ -107,12 +181,14 @@ public class SearchVacationController {
      * Opens Account settings window
      */
     public void AccountSettings() {
+        /*
         if (!controller.isUserConnected()) {
             Alert a = new Alert(Alert.AlertType.INFORMATION);
             a.setContentText("You are not logged in");
             a.show();
             return;
         }
+        */
         Stage stage = new Stage();
         stage.setResizable(true);
         stage.setTitle("Account Settings");
@@ -147,12 +223,14 @@ public class SearchVacationController {
      * Opens Purchase window
      */
     private void openPurchase(String sellerID, String vacationID) {
+        /*
         if (!controller.isUserConnected()) {
             Alert a = new Alert(Alert.AlertType.INFORMATION);
-            a.setContentText("You can't purchase vacationse if you aren't connected");
+            a.setContentText("You can't purchase vacations if you aren't connected");
             a.show();
             return;
         }
+        */
         Stage stage = new Stage();
         stage.setResizable(true);
         stage.setTitle("Purchase Window, VacationID:" + vacationID + ", SellerID:" + sellerID);

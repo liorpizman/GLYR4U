@@ -1,4 +1,5 @@
 package View;
 
-public class ReadVacationController extends  ViewController {
+public class ReadVacationController extends VacationController {
+
 }

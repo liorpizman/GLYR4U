@@ -12,6 +12,7 @@ import View.View;
 import javafx.scene.control.Alert;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Controller {
     private Model model;
@@ -90,16 +91,6 @@ public class Controller {
 
 
     /**
-     * This method get a list of Vacations ID's and return a list of the suitable vacation objects
-     *
-     * @param VacationsID
-     */
-    public ArrayList<Vacation> GetVacationsInformation(ArrayList<Integer> VacationsID) {//,String FieldToFind){
-        return model.GetVacationsInformation(VacationsID);
-    }
-
-
-    /**
      * This method returning the response if a current user exists in the DB
      *
      * @param userName
@@ -148,7 +139,21 @@ public class Controller {
     }
 
     public boolean isUserConnected() {
-        return model.getCurrentUser() != null ;
+        return model.getCurrentUser() != null;
+    }
+
+    public ArrayList<Vacation> GetVacationsInformation(HashMap<String, String> askedValues) {//,String FieldToFind){
+        ArrayList<Integer> vacationsIdList = model.GetVacationsIdByField(askedValues);
+        return model.GetVacationsInformation(vacationsIdList);
+    }
+
+    /**
+     * Search the vacation data and if exist in the database display the data
+     */
+    public ArrayList<Vacation> searchVacationData(String vacationID) {
+        ArrayList<Integer> tmpList = new ArrayList<>();
+        tmpList.add(Integer.parseInt(vacationID));
+        return model.GetVacationsInformation(tmpList);
     }
 
 }

@@ -17,6 +17,7 @@ public class View {
     public javafx.scene.control.Button deleteUser;
     private ViewController viewController;
     public SearchVacationController searchViewController;
+    public VacationController vacationController;
     public static Controller controller;
     public javafx.scene.control.TextField userName;
     public javafx.scene.control.TextField userPassword;
@@ -33,6 +34,8 @@ public class View {
         this.viewController.setController(controller);
         this.searchViewController = new SearchVacationController();
         searchViewController.setController(controller);
+        this.vacationController = new VacationController();
+        vacationController.setController(controller);
     }
 
 
@@ -123,14 +126,13 @@ public class View {
         try {
             Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("SearchVaction.fxml"));
             root.getStylesheets().add(getClass().getClassLoader().getResource("flightCSS.css").toExternalForm());
-            Scene scene = new Scene(root, 1200, 850);
+            Scene scene = new Scene(root, 1030, 652);
             stage.setScene(scene);
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.show();
         } catch (Exception e) {
             e.getCause().printStackTrace();
         }
-//        SearchVacationController.setDisable();
     }
 
     /**

@@ -1,10 +1,18 @@
 package View;
 
-public class UpdateVacationController extends ViewController {
+import Model.Vacation;
+
+import java.util.ArrayList;
+
+public class UpdateVacationController extends VacationController {
 
 
     public void UpdateVacationRun() {
 
+
+
     }
+
+
 
 }
