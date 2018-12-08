@@ -136,7 +136,9 @@ public class SearchVacationController {
 
     public void search() {
         HashMap<String,String> askedFields = new HashMap<String,String>();
-        ArrayList<Vacation> vacationsList = controller.GetVacationsInformation(askedFields);
+        ArrayList<Integer> vacationId = new ArrayList<>();
+        vacationId = controller.GetVacationsIdByField(askedFields);
+        ArrayList<Vacation> vacationsList = controller.GetVacationsInformation(vacationId);
         for (Vacation vacation:vacationsList) {
 
         }

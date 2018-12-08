@@ -69,7 +69,7 @@
         </ChoiceBox>
         <Button fx:id="BackButton" layoutX="25.0" layoutY="483.0" mnemonicParsing="false" onAction="#backHome"
                 text="Back"/>
-        <Button fx:id="PublishButton" layoutX="234.0" layoutY="483.0" mnemonicParsing="false" text="Publish"/>
+        <Button fx:id="PublishButton" layoutX="234.0" layoutY="483.0" mnemonicParsing="false" text="Publish" onAction="#publishVacation"/>
         <Text layoutX="41.0" layoutY="421.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="98.58398374915123"/>
         <CheckBox layoutX="41.0" layoutY="438.0" mnemonicParsing="false" text="Transfers"/>
         <Text layoutX="34.0" layoutY="229.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Accommodation         Rank:"

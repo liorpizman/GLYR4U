@@ -50,6 +50,14 @@ public class Vacation {
         Transfers = transfers;
     }
 
+    public FlightTickets getFromOriginFlight() {
+        return FromOriginFlight;
+    }
+
+    public FlightTickets getFromDestFlight() {
+        return FromDestFlight;
+    }
+
     public int getFromOriginFlightId() {
         return FromOriginFlight.getTicketId();
     }

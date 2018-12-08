@@ -142,9 +142,21 @@ public class Controller {
         return model.getCurrentUser() != null;
     }
 
-    public ArrayList<Vacation> GetVacationsInformation(HashMap<String, String> askedValues) {//,String FieldToFind){
-        ArrayList<Integer> vacationsIdList = model.GetVacationsIdByField(askedValues);
-        return model.GetVacationsInformation(vacationsIdList);
+    /**
+     * This method calls the DB function to get a list of all Vacations ID's that suitable to the user search
+     *
+     * @param askedValues
+     */
+    public ArrayList<Integer> GetVacationsIdByField(HashMap<String, String> askedValues) {
+        return model.GetVacationsIdByField(askedValues);
+    }
+    /**
+     * This method get a list of Vacations ID's and return a list of the suitable vacation objects
+     *
+     * @param VacationsID
+     */
+    public ArrayList<Vacation> GetVacationsInformation(ArrayList<Integer> VacationsID) {//,String FieldToFind){
+        return model.GetVacationsInformation(VacationsID);
     }
 
     /**
