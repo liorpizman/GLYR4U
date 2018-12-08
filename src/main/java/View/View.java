@@ -152,5 +152,62 @@ public class View {
         stage.close();
     }
 
+    /**
+     * Opens vacation info window when the vacation info button was pressed
+     */
+    public void VacationInfoRun() {
+        Stage stage = new Stage();
+        stage.setResizable(true);
+        stage.setTitle("Vacation Info");
+        try {
+            Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("VacationInfoWindow.fxml"));
+            root.getStylesheets().add(getClass().getClassLoader().getResource("flightCSS.css").toExternalForm());
+            Scene scene = new Scene(root, 600, 500);
+            stage.setScene(scene);
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.show();
+        } catch (Exception e) {
+            e.getCause().printStackTrace();
+        }
+    }
+
+    /**
+     * Opens update vacation window when the update vacation button was pressed
+     */
+    public void UpdateVacationRun() {
+        Stage stage = new Stage();
+        stage.setResizable(true);
+        stage.setTitle("Update Vacation");
+        try {
+            Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("UpdateVacationWindow.fxml"));
+            root.getStylesheets().add(getClass().getClassLoader().getResource("flightCSS.css").toExternalForm());
+            Scene scene = new Scene(root, 600, 500);
+            stage.setScene(scene);
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.show();
+        } catch (Exception e) {
+            e.getCause().printStackTrace();
+        }
+    }
+
+    /**
+     * Opens delete vacation window when the delete vacation button was pressed
+     */
+    public void DeleteVacationRun() {
+        Stage stage = new Stage();
+        stage.setResizable(true);
+        stage.setTitle("Delete Vacation");
+        try {
+            Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("DeleteVacationWindow.fxml"));
+            root.getStylesheets().add(getClass().getClassLoader().getResource("flightCSS.css").toExternalForm());
+            Scene scene = new Scene(root, 600, 500);
+            stage.setScene(scene);
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.show();
+        } catch (Exception e) {
+            e.getCause().printStackTrace();
+        }
+    }
+
 
 }

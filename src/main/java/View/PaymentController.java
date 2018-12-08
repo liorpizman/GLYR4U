@@ -2,6 +2,8 @@ package View;
 
 import javafx.scene.control.Alert;
 
+import java.time.LocalDate;
+
 public class PaymentController extends ViewController {
 
     public javafx.scene.control.ChoiceBox PaymentMethodChoice;
@@ -9,9 +11,11 @@ public class PaymentController extends ViewController {
     public javafx.scene.control.DatePicker PaymentDate;
     public javafx.scene.control.TextField AmountToPay;
 
-
     public void ConfirmVacationPayment() {
+        String _paymentMethodChoice = PaymentMethodChoice.getValue().toString();
         String _creditNumber = CreditNumber.getText();
+        LocalDate _paymentDate = PaymentDate.getValue();
+        String _amountToPay = AmountToPay.getText();
 
         if (!isInteger(_creditNumber)) {
             Alert a = new Alert(Alert.AlertType.INFORMATION);
@@ -19,6 +23,7 @@ public class PaymentController extends ViewController {
             a.show();
         }
     }
+
 
 
     public boolean isInteger(String s) {
