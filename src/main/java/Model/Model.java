@@ -169,5 +169,4 @@ public class Model {
     public void setCurrentUser(String userName) {
         this.CurrentUser = userName;
     }
-
 }

@@ -30,13 +30,13 @@ public class Vacation {
     private Rank AccommodationRank;
     private boolean Transfers;
 
-    public Vacation(FlightTickets fromOriginFlight, FlightTickets fromDestFlight, Location DVacationLocation,
-                    Location OVacationLocation, String startDate, String endDate, double price, String Baggagetype, String vacationType,
+    public Vacation(FlightTickets fromOriginFlight, FlightTickets fromDestFlight, Location dVacationLocation,
+                    Location oVacationLocation, String startDate, String endDate, double price, String Baggagetype, String vacationType,
                     String accommodationType, boolean accommodationIncluded, boolean Transfers) {
         FromOriginFlight = fromOriginFlight;
         FromDestFlight = fromDestFlight;
-        DVacationLocation = DVacationLocation;
-        OVacationLocation = OVacationLocation;
+        DVacationLocation = dVacationLocation;
+        OVacationLocation = oVacationLocation;
         StartDate = startDate;
         EndDate = endDate;
         Price = price;
