@@ -16,7 +16,7 @@
               wrappingWidth="74.13668251037598"/>
         <Text layoutX="14.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0"
               text="Please fill user name and password:" wrappingWidth="196.13674926757812"/>
-        <Button fx:id="LogInButton" layoutX="92.0" layoutY="178.0" mnemonicParsing="false" onAction="#logIn" prefHeight="25.0"
+        <Button fx:id="LogIn" layoutX="92.0" layoutY="178.0" mnemonicParsing="false" onAction="#logIn" prefHeight="25.0"
                 prefWidth="64.0" text="Log In"/>
         <Button fx:id="createUser" layoutX="92.0" layoutY="244.0" mnemonicParsing="false" onAction="#createUser"
                 prefHeight="25.0" prefWidth="99.0" text="Create Account"/>

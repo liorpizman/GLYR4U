@@ -66,13 +66,25 @@ public class Main extends Application {
             + " ChildTickets int NOT NULL,\n "
             + " AdultTickets int NOT NULL,\n "
             + " TicketType int NOT NULL,\n "
-            + " AmountOfTickets INTEGER NOT NULL,\n "
+            + " AmountOfTickets int NOT NULL,\n "
             + " VacationId int NOT NULL\n "
             + ");";
     /*             + " CONSTRAINT FK_VacationUser FOREIGN KEY (VacationId)\n"
             + " REFERENCES Vacations(VacationId)\n "
             + " ON DELETE CASCADE\n"
             + " ON UPDATE CASCADE\n " */
+
+
+    // SQL statement for creating a FlightTickets table
+    private String PaymentsSql = "CREATE TABLE IF NOT EXISTS " + "Payments" + " (\n"
+            + " VacationId int NOT NULL PRIMARY KEY,\n"
+            + " Seller varchar(15) NOT NULL,\n"
+            + " Buyer varchar(15) NOT NULL,\n "
+            + " PaymentMethod varchar(15) NOT NULL,\n "
+            + " CreditNumber int NOT NULL,\n "
+            + " Date varchar(15) NOT NULL\n "
+            + ");";
+
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -83,6 +95,7 @@ public class Main extends Application {
         model.createNewTable(UsersSql);
         model.createNewTable(VacationsSql);
         model.createNewTable(FlightTicketsSql);
+        model.createNewTable(PaymentsSql);
         //model.addConstraintToTable("Vacations", "fk_vacation", "FOREIGN KEY", "user_name", "Users(user_name)");
         askedValues.put("DVacationCountry", "French");
         askedValues.put("DVacationCity", "Paris");
