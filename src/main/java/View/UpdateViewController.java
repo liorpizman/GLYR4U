@@ -14,7 +14,7 @@ public class UpdateViewController extends ViewController {
     @Override
     public void show() {
         super.show();
-        if (invalidUserName()) {
+        if (validUserName()) {
             update.setDisable(false);
         }
     }

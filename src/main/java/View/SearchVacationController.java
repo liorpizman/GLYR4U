@@ -82,12 +82,14 @@ public class SearchVacationController {
      * Opens publishing of a vacation window
      */
     public void publishVacation() {
+        /*
         if (!controller.isUserConnected()) {
             Alert a = new Alert(Alert.AlertType.INFORMATION);
             a.setContentText("You can't Publish if you aren't connected");
             a.show();
             return;
         }
+        */
         Stage stage = new Stage();
         stage.setResizable(true);
         stage.setTitle("Publish Vacation");
@@ -107,12 +109,14 @@ public class SearchVacationController {
      * Opens Account settings window
      */
     public void AccountSettings() {
+        /*
         if (!controller.isUserConnected()) {
             Alert a = new Alert(Alert.AlertType.INFORMATION);
             a.setContentText("You are not logged in");
             a.show();
             return;
         }
+        */
         Stage stage = new Stage();
         stage.setResizable(true);
         stage.setTitle("Account Settings");
@@ -147,12 +151,14 @@ public class SearchVacationController {
      * Opens Purchase window
      */
     private void openPurchase(String sellerID, String vacationID) {
+        /*
         if (!controller.isUserConnected()) {
             Alert a = new Alert(Alert.AlertType.INFORMATION);
-            a.setContentText("You can't purchase vacationse if you aren't connected");
+            a.setContentText("You can't purchase vacations if you aren't connected");
             a.show();
             return;
         }
+        */
         Stage stage = new Stage();
         stage.setResizable(true);
         stage.setTitle("Purchase Window, VacationID:" + vacationID + ", SellerID:" + sellerID);

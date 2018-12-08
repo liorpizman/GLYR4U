@@ -116,5 +116,11 @@ public class Vacation {
         return Transfers;
     }
 
+    public FlightTickets getFromOriginFlight(){
+        return FromOriginFlight;
+    }
 
+    public FlightTickets getFromDestFlight(){
+        return FromDestFlight;
+    }
 }

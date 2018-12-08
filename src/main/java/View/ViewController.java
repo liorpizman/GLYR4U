@@ -41,7 +41,7 @@ public class ViewController {
      * Shows relevant info for the given user (currentUser) for relevant windows(Read User, Update User)
      */
     public void show() {
-        if (invalidUserName()) {
+        if (validUserName()) {
             userName.setDisable(true);
             userPassword.setText(currentUser.getPassword());
             userPassword.setDisable(false);
@@ -59,7 +59,7 @@ public class ViewController {
     /**
      * Validation checks for the typed user name
      */
-    public boolean invalidUserName() {
+    public boolean validUserName() {
         String name = userName.getText();
         currentUser = searchUserData(name);
         if (name.isEmpty() || currentUser == null) {
@@ -110,6 +110,19 @@ public class ViewController {
      */
     public boolean IsCorrectPassword(String userName, String password) {
         return controller.IsCorrectPassword(userName, password);
+    }
+
+
+
+    public boolean isInteger(String s) {
+        try {
+            Integer.parseInt(s);
+        } catch (NumberFormatException e) {
+            return false;
+        } catch (NullPointerException e) {
+            return false;
+        }
+        return true;
     }
 
 }

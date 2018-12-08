@@ -1,6 +1,6 @@
 package View;
 
-public class DeleteVacationController extends ViewController {
+public class DeleteVacationController extends VacationController {
 
 
     public void deleteById() {

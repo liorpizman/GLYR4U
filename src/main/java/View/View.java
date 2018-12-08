@@ -123,7 +123,7 @@ public class View {
         try {
             Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("SearchVaction.fxml"));
             root.getStylesheets().add(getClass().getClassLoader().getResource("flightCSS.css").toExternalForm());
-            Scene scene = new Scene(root, 1200, 850);
+            Scene scene = new Scene(root, 1000, 850);
             stage.setScene(scene);
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.show();

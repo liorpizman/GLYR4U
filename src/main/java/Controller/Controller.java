@@ -10,6 +10,9 @@ import Model.FlightTickets;
 import Model.Model;
 import View.View;
 import javafx.scene.control.Alert;
+import sun.awt.image.IntegerComponentRaster;
+
+import java.util.ArrayList;
 
 public class Controller {
     private Model model;
@@ -136,7 +139,17 @@ public class Controller {
     }
 
     public boolean isUserConnected() {
-        return model.getCurrentUser() != null ;
+        return model.getCurrentUser() != null;
+    }
+
+
+    /**
+     * Search the vacation data and if exist in the database display the data
+     */
+    public ArrayList<Vacation> searchVacationData(String vacationID) {
+        ArrayList<Integer> tmpList = new ArrayList<>();
+        tmpList.add(Integer.parseInt(vacationID));
+        return model.GetVacationsInformation(tmpList);
     }
 
 }

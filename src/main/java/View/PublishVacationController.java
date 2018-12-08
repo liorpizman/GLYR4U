@@ -4,7 +4,7 @@ import javafx.scene.control.Alert;
 
 import java.time.LocalDate;
 
-public class PublishVacationController extends ViewController {
+public class PublishVacationController extends VacationController {
 
     public javafx.scene.control.TextField FromCountry;
     public javafx.scene.control.TextField FromCity;
