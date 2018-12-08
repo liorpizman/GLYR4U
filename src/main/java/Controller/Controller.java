@@ -11,6 +11,9 @@ import Model.Model;
 import View.View;
 import javafx.scene.control.Alert;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 public class Controller {
     private Model model;
     private View view;
@@ -136,7 +139,12 @@ public class Controller {
     }
 
     public boolean isUserConnected() {
-        return model.getCurrentUser() != null ;
+        return model.getCurrentUser() != null;
+    }
+
+    public ArrayList<Vacation> GetVacationsInformation(HashMap<String,String>askedValues) {//,String FieldToFind){
+        ArrayList<Integer> vacationsIdList = model.GetVacationsIdByField(askedValues);
+        return model.GetVacationsInformation(vacationsIdList);
     }
 
 }
