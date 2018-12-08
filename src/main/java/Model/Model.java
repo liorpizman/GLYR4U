@@ -1,5 +1,8 @@
 package Model;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 /**
  * This class preforming the logic of the project
  */
@@ -16,6 +19,10 @@ public class Model {
         dbManagement = new DBManagement();
     }
 
+    public void createNewDatabase(String fileName) {
+        dbManagement.createNewDatabase(fileName);
+    }
+
     /**
      * This method calls the function of table's creation in the data base
      *
@@ -23,6 +30,11 @@ public class Model {
      */
     public void createNewTable(String tableName) {
         dbManagement.createNewTable(tableName);
+    }
+
+    public void addConstraintToTable(String tableName, String constraintName,
+                                     String constraintType, String fieldName, String constraintCondition) {
+        dbManagement.addConstraintToTable(tableName, constraintName, constraintType, fieldName, constraintCondition);
     }
 
     /**
@@ -112,8 +124,26 @@ public class Model {
                 newFlightTickets.getTicketType(), newFlightTickets.getAmountOfTickets(), newFlightTickets.getVacationId());
     }
 
+    /**
+     * This method calls the DB function to get a list of all Vacations ID's that suitable to the user search
+     *
+     * @param askedValues
+     */
+    public ArrayList<Integer> GetVacationsIdByField(HashMap<String, String> askedValues) {
+        return dbManagement.GetVacationsIdByField("Vacations", askedValues);
+    }
 
-    public void UserLogIn(String UserName) {
+    /**
+     * This method get a list of Vacations ID's and return a list of the suitable vacation objects
+     *
+     * @param VacationsID
+     */
+    public ArrayList<Vacation> GetVacationsInformation(ArrayList<Integer> VacationsID) {//,String FieldToFind){
+        return dbManagement.GetVacationsInformation(VacationsID);
+    }
+
+
+        public void UserLogIn(String UserName) {
         this.CurrentUser = UserName;
     }
 

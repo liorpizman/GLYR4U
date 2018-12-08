@@ -15,7 +15,8 @@ public class Vacation {
     private static int VactionID = 200;
     private FlightTickets FromOriginFlight;
     private FlightTickets FromDestFlight;  /// if it is null - it is not exists
-    private Location VacationLocation;
+    private Location DVacationLocation;
+    private Location OVacationLocation;
     private String StartDate;
     private String EndDate;               /// use date picker in the gui and convert it to string
     private double Price;
@@ -29,12 +30,13 @@ public class Vacation {
     private Rank AccommodationRank;
     private boolean Transfers;
 
-    public Vacation(FlightTickets fromOriginFlight, FlightTickets fromDestFlight, Location vacationLocation,
-                    String startDate, String endDate, int price, String Baggagetype, String vacationType,
-                    String accommodationType, boolean accommodationIncluded, boolean transfers) {
+    public Vacation(FlightTickets fromOriginFlight, FlightTickets fromDestFlight, Location DVacationLocation,
+                    Location OVacationLocation, String startDate, String endDate, double price, String Baggagetype, String vacationType,
+                    String accommodationType, boolean accommodationIncluded, boolean Transfers) {
         FromOriginFlight = fromOriginFlight;
         FromDestFlight = fromDestFlight;
-        VacationLocation = vacationLocation;
+        DVacationLocation = DVacationLocation;
+        OVacationLocation = OVacationLocation;
         StartDate = startDate;
         EndDate = endDate;
         Price = price;
@@ -46,7 +48,7 @@ public class Vacation {
         AccommodationType = accommodationType;
         AccommodationIncluded = accommodationIncluded;
         AccommodationRank = Rank.good;
-        Transfers = transfers;
+        Transfers = Transfers;
     }
 
 
@@ -59,11 +61,11 @@ public class Vacation {
     }
 
     public String getVacationCountry() {
-        return VacationLocation.getCountry();
+        return DVacationLocation.getCountry();
     }
 
     public String getVacationCity() {
-        return VacationLocation.getCity();
+        return DVacationLocation.getCity();
     }
 
     public String getStartDate() {

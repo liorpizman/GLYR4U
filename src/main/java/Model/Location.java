@@ -6,7 +6,7 @@ public class Location {
     private String City;
 
 
-    public Location(String country,String city) {
+    public Location(String country, String city) {
         Country = country;
         City = city;
     }
