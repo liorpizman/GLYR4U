@@ -40,7 +40,6 @@ public class DBManagement {
      *
      * @param sql -  statement for creating a new table
      */
-
     public static void createNewTable(String sql) {
         // SQLite connection string
         System.out.println(System.getProperty("user.dir"));
@@ -54,28 +53,11 @@ public class DBManagement {
         }
     }
 
-    public static void addConstraintToTable(String tableName, String constraintName,
-                                            String constraintType, String fieldName, String constraintCondition) {
-        // SQLite connection string
-        System.out.println(System.getProperty("user.dir"));
-        String url = "jdbc:sqlite:" + System.getProperty("user.dir") + "\\v4uDB.db";
-        String sql = "ALTER TABLE " + tableName + " ADD CONSTRAINT " + constraintName + " " +
-                constraintType + " (" + fieldName + ") " + "REFERENCES " + constraintCondition;
-        try {
-            Connection conn = DriverManager.getConnection(url);
-            Statement stmt = conn.createStatement();
-            stmt.execute(sql);
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-
-    }
     /**
      * This method connect to the dataBase,and return the connection
      *
      * @return- the connection to the dataBase
      */
-
     private Connection connect() {
         String url = "jdbc:sqlite:" + System.getProperty("user.dir") + "\\v4uDB.db";
         Connection conn = null;
@@ -122,7 +104,6 @@ public class DBManagement {
      *
      * @param PrimaryKeyToDelete
      */
-
     public void deleteRecord(String PrimaryKeyToDelete, String sql) {   /// to delete user: sql="DELETE FROM Users WHERE user_name = ?" . to delete vacation sql=""
         // String sql = "DELETE FROM Users WHERE user_name = ?";
         try (Connection conn = this.connect();
@@ -199,12 +180,10 @@ public class DBManagement {
      * @param password
      * @return -True or False
      */
-
     public boolean confirmPassword(String userName, String password) {
         User currUser = find_User_Exists(userName);
         return (password.equals(currUser.getPassword())) ? true : false;
     }
-
 
     /**
      * This method checks if a current user exists in the DB
@@ -237,8 +216,10 @@ public class DBManagement {
      * @param VacationId
      * @param OriginFlightId
      * @param DestFlightId
-     * @param VacationCountry
-     * @param VacationCity
+     * @param DVacationCountry
+     * @param DVacationCity
+     * @param OVacationCountry
+     * @param OVacationCity
      * @param StartDate
      * @param EndDate
      * @param Price
@@ -252,37 +233,81 @@ public class DBManagement {
      * @param Transfers
      * @param user_name
      */
-    public void insertNewVacation(int VacationId, int OriginFlightId, int DestFlightId, String VacationCountry, String VacationCity,
-                                  String StartDate, String EndDate, double Price, String BaggageType, boolean HotVacation, int Status,
+    public void insertNewVacation(int VacationId, int OriginFlightId, int DestFlightId, String DVacationCountry, String DVacationCity,
+                                  String OVacationCountry, String OVacationCity, String StartDate, String EndDate, double Price, String BaggageType, boolean HotVacation, int Status,
                                   String VacationType, String AccommodationType, boolean AccommodationIncluded,
                                   int AccommodationRank, boolean Transfers, String user_name) {
-        String sql = "INSERT INTO Vacations(VacationId,OriginFlightId,DestFlightId,VacationCountry,VacationCity," +
-                "StartDate,EndDate,Price,BaggageType,HotVacation,Status," +
+        String sql = "INSERT INTO Vacations(VacationId,OriginFlightId,DestFlightId,DVacationCountry,DVacationCity," +
+                "OVacationCountry,OVacationCity,StartDate,EndDate,Price,BaggageType,HotVacation,Status," +
                 "VacationType,AccommodationType,AccommodationIncluded," +
-                "AccommodationRank,Transfers,user_name) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+                "AccommodationRank,Transfers,user_name) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         try {
             Connection conn = this.connect();
             PreparedStatement pstmt = conn.prepareStatement(sql);
             pstmt.setInt(1, VacationId);
             pstmt.setInt(2, OriginFlightId);
             pstmt.setInt(3, DestFlightId);
-            pstmt.setString(4, VacationCountry);
-            pstmt.setString(5, VacationCity);
-            pstmt.setString(6, StartDate);
-            pstmt.setString(7, EndDate);
-            pstmt.setDouble(8, Price);
-            pstmt.setString(9, BaggageType);
-            pstmt.setBoolean(10, HotVacation);
-            pstmt.setInt(11, Status);
-            pstmt.setString(12, VacationType);
-            pstmt.setString(13, AccommodationType);
-            pstmt.setBoolean(14, AccommodationIncluded);
-            pstmt.setInt(15, AccommodationRank);
-            pstmt.setBoolean(16, Transfers);
-            pstmt.setString(17, user_name);
+            pstmt.setString(4, DVacationCountry);
+            pstmt.setString(5, DVacationCity);
+            pstmt.setString(6, OVacationCountry);
+            pstmt.setString(7, OVacationCity);
+            pstmt.setString(8, StartDate);
+            pstmt.setString(9, EndDate);
+            pstmt.setDouble(10, Price);
+            pstmt.setString(11, BaggageType);
+            pstmt.setBoolean(12, HotVacation);
+            pstmt.setInt(13, Status);
+            pstmt.setString(14, VacationType);
+            pstmt.setString(15, AccommodationType);
+            pstmt.setBoolean(16, AccommodationIncluded);
+            pstmt.setInt(17, AccommodationRank);
+            pstmt.setBoolean(18, Transfers);
+            pstmt.setString(19, user_name);
             pstmt.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
+        }
+    }
+
+    /**
+     * This method deletes a record from the Vacations table in the DB by the VacationId
+     *
+     * @param VacationIdToDelete
+     */
+    public void deleteVacationRecord(String VacationIdToDelete) {
+        String sql = "DELETE FROM Vacations WHERE VacationId = ?";
+        try (Connection conn = this.connect();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, VacationIdToDelete);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    /**
+     * This method updates vacation details by the user that insert this vacation,
+     * and returns True or False if the update is done (or not)
+     *
+     * @param vacationId
+     * @param field     -The field that be update
+     * @param newData   -The new value of the field
+     * @return True or False
+     */
+    public boolean updateVacationRecord(int vacationId, String field, String newData) {
+        String sql = "UPDATE Vacations SET " + field + " = ? WHERE VacationId = ? ";
+
+        try (Connection conn = this.connect();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            // set the corresponding param [ instead of question marks (?) ]
+            pstmt.setString(1, newData);
+            pstmt.setInt(2, vacationId);
+            // update
+            pstmt.executeUpdate();
+            return true;
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return false;
         }
     }
 
@@ -386,12 +411,9 @@ public class DBManagement {
 
             try (Connection conn = this.connect();
                  PreparedStatement pstmt = conn.prepareStatement(sql)) {
-
                 // set the value
                 pstmt.setString(1, Ids[i].toString());
-                //
                 ResultSet rs = pstmt.executeQuery();
-                //rs.getObject(FieldToFind);
                 // loop through the result set
                 AllVacations.add(CreateVacationFromDB(rs.getString("VacationId"),
                         rs.getString("OriginFlightId"),
@@ -463,18 +485,12 @@ public class DBManagement {
      */
     public FlightTickets createFlightTicket(String FlightTicketValue) {
         String sql = "SELECT * FROM " + "FlightTickets" + " WHERE " + "TicketId" + " =?";
-
-
         try (Connection conn = this.connect();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
-
             // set the value
             pstmt.setString(1, FlightTicketValue);
-            //
             ResultSet rs = pstmt.executeQuery();
-            //rs.getObject(FieldToFind);
             // loop through the result set
-
             int[] Tickets = new int[]{rs.getInt("BabyTickets"), rs.getInt("ChildTickets"),
                     rs.getInt("AdultTickets")};
             return new FlightTickets(
@@ -515,7 +531,6 @@ public class DBManagement {
             pstmt.setString(6, PaymentDate);
 
             pstmt.executeUpdate();
-
             Connection conn2 = this.connect();
             PreparedStatement pstmt2 = conn2.prepareStatement(vacationSql);
             pstmt2.setInt(1, VacationId);
@@ -525,4 +540,3 @@ public class DBManagement {
         }
     }
 }
-
