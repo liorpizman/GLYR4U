@@ -505,13 +505,13 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Controller/Controller.java</url>
+          <url />
           <line>109</line>
           <properties />
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Model/DBManagement.java</url>
+          <url />
           <line>61</line>
           <properties />
           <option name="timeStamp" value="22" />
