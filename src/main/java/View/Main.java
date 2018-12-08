@@ -43,7 +43,7 @@ public class Main extends Application {
             + " AccommodationType varchar(15) NOT NULL,\n"
             + " AccommodationIncluded boolean NOT NULL,\n"
             + " AccommodationRank int NOT NULL,\n"
-            + " Parking boolean NOT NULL,\n"
+            + " Transfers boolean NOT NULL,\n"
             + " user_name varchar(10) NOT NULL\n "
             + ");";
             /*
@@ -81,8 +81,8 @@ public class Main extends Application {
             + " Seller varchar(15) NOT NULL,\n"
             + " Buyer varchar(15) NOT NULL,\n "
             + " PaymentMethod varchar(15) NOT NULL,\n "
-            + " CreditNumber int NOT NULL,\n "
-            + " Date varchar(15) NOT NULL\n "
+            + " CreditNumber varchar(20) NOT NULL,\n "
+            + " PaymentDate varchar(15) NOT NULL\n "
             + ");";
 
 
@@ -106,6 +106,7 @@ public class Main extends Application {
         askedValues.put("AccommodationRank", "");
 
         result = model.GetVacationsInformation(model.GetVacationsIdByField(askedValues));
+        //model.insertNewPayment(3, "gal", "gal", "credit", "12345678", "8/12/18");
         View view = new View();
         Controller controller = new Controller(model, view);
         view.setController(controller);

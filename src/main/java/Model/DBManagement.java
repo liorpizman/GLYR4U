@@ -98,7 +98,6 @@ public class DBManagement {
      * @param city
      * @param date
      */
-
     public void insertNewUser(String user_name, String password, String first_name, String last_name, String city, String date) {
         String sql = "INSERT INTO Users(user_name,password, first_name, last_name, city,date) VALUES(?,?, ?,?,?,?)";
 
@@ -166,9 +165,8 @@ public class DBManagement {
      * and Null if not
      *
      * @param userName
-     * @return
+     * @return User
      */
-
     public User find_User_Exists(String userName) {
         String sql = "SELECT user_name, password, first_name, last_name, city,date "
                 + "FROM Users WHERE user_name = ?";
@@ -213,6 +211,7 @@ public class DBManagement {
      *
      * @param userName
      * @param password
+     * @return -True or False
      */
     public boolean IsCorrectPassword(String userName, String password) {
         String sql = "SELECT password "
@@ -232,15 +231,35 @@ public class DBManagement {
         }
     }
 
-
+    /**
+     * This method insert a new vacation for sale to the vacation table in the dataBase
+     *
+     * @param VacationId
+     * @param OriginFlightId
+     * @param DestFlightId
+     * @param VacationCountry
+     * @param VacationCity
+     * @param StartDate
+     * @param EndDate
+     * @param Price
+     * @param BaggageType
+     * @param HotVacation
+     * @param Status
+     * @param VacationType
+     * @param AccommodationType
+     * @param AccommodationIncluded
+     * @param AccommodationRank
+     * @param Transfers
+     * @param user_name
+     */
     public void insertNewVacation(int VacationId, int OriginFlightId, int DestFlightId, String VacationCountry, String VacationCity,
                                   String StartDate, String EndDate, double Price, String BaggageType, boolean HotVacation, int Status,
                                   String VacationType, String AccommodationType, boolean AccommodationIncluded,
-                                  int AccommodationRank, boolean Parking, String user_name) {
+                                  int AccommodationRank, boolean Transfers, String user_name) {
         String sql = "INSERT INTO Vacations(VacationId,OriginFlightId,DestFlightId,VacationCountry,VacationCity," +
                 "StartDate,EndDate,Price,BaggageType,HotVacation,Status," +
                 "VacationType,AccommodationType,AccommodationIncluded," +
-                "AccommodationRank,Parking,user_name) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+                "AccommodationRank,Transfers,user_name) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         try {
             Connection conn = this.connect();
             PreparedStatement pstmt = conn.prepareStatement(sql);
@@ -259,7 +278,7 @@ public class DBManagement {
             pstmt.setString(13, AccommodationType);
             pstmt.setBoolean(14, AccommodationIncluded);
             pstmt.setInt(15, AccommodationRank);
-            pstmt.setBoolean(16, Parking);
+            pstmt.setBoolean(16, Transfers);
             pstmt.setString(17, user_name);
             pstmt.executeUpdate();
         } catch (SQLException e) {
@@ -267,7 +286,22 @@ public class DBManagement {
         }
     }
 
-
+    /**
+     * This method insert a new ticket flight for sale to the FlightTickets table in the dataBase
+     *
+     * @param TicketId
+     * @param Airline
+     * @param DestinationCountry
+     * @param DestinationCity
+     * @param OriginCountry
+     * @param OriginCity
+     * @param BabyTickets
+     * @param ChildTickets
+     * @param AdultTickets
+     * @param TicketType
+     * @param AmountOfTickets
+     * @param VacationId
+     */
     public void insertNewFlightTickets(int TicketId, String Airline, String DestinationCountry, String DestinationCity, String OriginCountry,
                                        String OriginCity, int BabyTickets, int ChildTickets, int AdultTickets, String TicketType,
                                        int AmountOfTickets, int VacationId) {
@@ -295,6 +329,13 @@ public class DBManagement {
         }
     }
 
+    /**
+     * This method select from the DB vacation tables all Vacations ID's that suitable to the user search
+     *
+     * @param TableName
+     * @param askedValues
+     * @return ArrayList<Integer> of vacations ID's
+     */
     public ArrayList<Integer> GetVacationsIdByField(String TableName, HashMap<String, String> askedValues) {//,String FieldToFind){
         ArrayList<Integer> VacationsID = new ArrayList<>();
         HashMap<Integer, String> searchValues = new HashMap<>();
@@ -305,15 +346,12 @@ public class DBManagement {
             if (!(askedValues.get(key).equals("")))
             {
                 numOfValues++;
-                if (numOfValues == 1)
-                    whereStatement = whereStatement + " " + key + " =?";
-                else
-                    whereStatement = whereStatement + " AND " + key + " =?";
+                whereStatement = whereStatement + " AND " + key + " =?";
                 searchValues.put(numOfValues, askedValues.get(key));
             }
         }
 
-        String sql = "SELECT * FROM " + TableName + " WHERE" + whereStatement;
+        String sql = "SELECT * FROM " + TableName + " WHERE Status =0" + whereStatement;
 
         try (Connection conn = this.connect();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
@@ -334,6 +372,12 @@ public class DBManagement {
         return VacationsID;
     }
 
+    /**
+     * This method get a list of Vacations ID's and return a list of the suitable vacation objects
+     *
+     * @param VacationsID
+     * @return ArrayList<Vacation> of suitable vacations objects
+     */
     public ArrayList<Vacation> GetVacationsInformation(ArrayList<Integer> VacationsID) {
         Object[] Ids = VacationsID.toArray();
         ArrayList<Vacation> AllVacations = new ArrayList<>();
@@ -376,8 +420,31 @@ public class DBManagement {
         return AllVacations;
     }
 
-
-    public Vacation CreateVacationFromDB(String vacationId, String OriginFlightId, String DestFlightId, String DVacationCountry,
+    /**
+     * This method get a list of Vacation parameters and return a new object containing them
+     *
+     * @param VacationId
+     * @param OriginFlightId
+     * @param DestFlightId
+     * @param DVacationCountry
+     * @param DVacationCity
+     * @param OVacationCountry
+     * @param OVacationCity
+     * @param StartDate
+     * @param EndDate
+     * @param Price
+     * @param BaggageType
+     * @param HotVacation
+     * @param Status
+     * @param VacationType
+     * @param AccommodationType
+     * @param AccommodationIncluded
+     * @param AccommodationRank
+     * @param Transfers
+     * @param user_name
+     * @return Vacation object
+     */
+    public Vacation CreateVacationFromDB(String VacationId, String OriginFlightId, String DestFlightId, String DVacationCountry,
                                          String DVacationCity, String OVacationCountry, String OVacationCity,String StartDate, String EndDate, String Price,
                                          String BaggageType, String HotVacation, String Status, String VacationType,
                                          String AccommodationType, String AccommodationIncluded, String AccommodationRank, String Transfers,
@@ -388,6 +455,12 @@ public class DBManagement {
                 Boolean.parseBoolean(AccommodationIncluded), Boolean.parseBoolean(Transfers));
     }
 
+    /**
+     * This method get a FlightTicket Id and return a new object of FlightTicket
+     *
+     * @param FlightTicketValue
+     * @return FlightTickets object
+     */
     public FlightTickets createFlightTicket(String FlightTicketValue) {
         String sql = "SELECT * FROM " + "FlightTickets" + " WHERE " + "TicketId" + " =?";
 
@@ -415,6 +488,57 @@ public class DBManagement {
         }
         return null;
     }
+
+    /**
+     * This method insert a new payment details of a vacation purchase to the dataBase
+     *
+     * @param VacationId
+     * @param Seller
+     * @param Buyer
+     * @param PaymentMethod
+     * @param CreditNumber
+     * @param PaymentDate
+     */
+    public void insertNewPayment(int VacationId, String Seller, String Buyer, String PaymentMethod,
+                                 String CreditNumber, String PaymentDate) {
+        String paySql = "INSERT INTO Payments(VacationId, Seller, Buyer, PaymentMethod, CreditNumber, PaymentDate) " +
+                "VALUES(?,?,?,?,?,?)";
+        String vacationSql = "UPDATE Vacations SET Status =1 WHERE VacationId =?";
+        try {
+            Connection conn = this.connect();
+            PreparedStatement pstmt = conn.prepareStatement(paySql);
+            pstmt.setInt(1, VacationId);
+            pstmt.setString(2, Seller);
+            pstmt.setString(3, Buyer);
+            pstmt.setString(4, PaymentMethod);
+            pstmt.setString(5, CreditNumber);
+            pstmt.setString(6, PaymentDate);
+
+            pstmt.executeUpdate();
+
+            Connection conn2 = this.connect();
+            PreparedStatement pstmt2 = conn2.prepareStatement(vacationSql);
+            pstmt2.setInt(1, VacationId);
+            pstmt2.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    /**
+     * This method get the details of a vacation purchase and update the DB payment table
+     *
+     * @param VacationId
+     * @param Seller
+     * @param Buyer
+     * @param PaymentMethod
+     * @param CreditNumber
+     * @param PaymentDate
+     */
+    /*public void insertNewPayment(int VacationId, String Seller, String Buyer, String PaymentMethod,
+                                 String CreditNumber, String PaymentDate) {
+        dbManagement.insertNewPayment(VacationId, Seller, Buyer, PaymentMethod, CreditNumber, PaymentDate);
+    }*/
 
 }
 

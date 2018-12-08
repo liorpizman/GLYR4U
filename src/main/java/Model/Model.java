@@ -97,7 +97,6 @@ public class Model {
 
     }
 
-
     /**
      * This method calls the function to insert new vacation
      *
@@ -142,8 +141,7 @@ public class Model {
         return dbManagement.GetVacationsInformation(VacationsID);
     }
 
-
-        public void UserLogIn(String UserName) {
+    public void UserLogIn(String UserName) {
         this.CurrentUser = UserName;
     }
 
