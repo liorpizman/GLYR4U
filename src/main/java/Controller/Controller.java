@@ -135,4 +135,8 @@ public class Controller {
         }
     }
 
+    public boolean isUserConnected() {
+        return model.getCurrentUser() != null ;
+    }
+
 }
