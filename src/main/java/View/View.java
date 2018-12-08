@@ -15,7 +15,8 @@ public class View {
     public javafx.scene.control.Button readUser;
     public javafx.scene.control.Button updateUser;
     public javafx.scene.control.Button deleteUser;
-    public ViewController viewController;
+    private ViewController viewController;
+    public SearchVacationController searchViewController;
     public static Controller controller;
     public javafx.scene.control.TextField userName;
     public javafx.scene.control.TextField userPassword;
@@ -30,7 +31,10 @@ public class View {
         this.controller = _controller;
         this.viewController = new ViewController();
         this.viewController.setController(controller);
+        this.searchViewController = new SearchVacationController();
+        searchViewController.setController(controller);
     }
+
 
     /**
      * Opens create user window when "create user" button is pushed
@@ -119,13 +123,14 @@ public class View {
         try {
             Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("SearchVaction.fxml"));
             root.getStylesheets().add(getClass().getClassLoader().getResource("flightCSS.css").toExternalForm());
-            Scene scene = new Scene(root, 1200, 800);
+            Scene scene = new Scene(root, 1200, 850);
             stage.setScene(scene);
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.show();
         } catch (Exception e) {
             e.getCause().printStackTrace();
         }
+//        SearchVacationController.setDisable();
     }
 
     /**
@@ -145,6 +150,63 @@ public class View {
         // get a handle to the stage
         Stage stage = (Stage) BackButton.getScene().getWindow();
         stage.close();
+    }
+
+    /**
+     * Opens vacation info window when the vacation info button was pressed
+     */
+    public void VacationInfoRun() {
+        Stage stage = new Stage();
+        stage.setResizable(true);
+        stage.setTitle("Vacation Info");
+        try {
+            Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("VacationInfoWindow.fxml"));
+            root.getStylesheets().add(getClass().getClassLoader().getResource("flightCSS.css").toExternalForm());
+            Scene scene = new Scene(root, 600, 500);
+            stage.setScene(scene);
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.show();
+        } catch (Exception e) {
+            e.getCause().printStackTrace();
+        }
+    }
+
+    /**
+     * Opens update vacation window when the update vacation button was pressed
+     */
+    public void UpdateVacationRun() {
+        Stage stage = new Stage();
+        stage.setResizable(true);
+        stage.setTitle("Update Vacation");
+        try {
+            Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("UpdateVacationWindow.fxml"));
+            root.getStylesheets().add(getClass().getClassLoader().getResource("flightCSS.css").toExternalForm());
+            Scene scene = new Scene(root, 600, 500);
+            stage.setScene(scene);
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.show();
+        } catch (Exception e) {
+            e.getCause().printStackTrace();
+        }
+    }
+
+    /**
+     * Opens delete vacation window when the delete vacation button was pressed
+     */
+    public void DeleteVacationRun() {
+        Stage stage = new Stage();
+        stage.setResizable(true);
+        stage.setTitle("Delete Vacation");
+        try {
+            Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("DeleteVacationWindow.fxml"));
+            root.getStylesheets().add(getClass().getClassLoader().getResource("flightCSS.css").toExternalForm());
+            Scene scene = new Scene(root, 600, 500);
+            stage.setScene(scene);
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.show();
+        } catch (Exception e) {
+            e.getCause().printStackTrace();
+        }
     }
 
 

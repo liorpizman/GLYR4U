@@ -24,6 +24,9 @@ public class ViewController {
     public javafx.scene.control.Button show;
     public javafx.scene.control.Button clear;
     public javafx.scene.control.Button BackButton;
+
+
+
     protected static Controller controller;
     protected static User currentUser;
 
@@ -88,7 +91,6 @@ public class ViewController {
         userBirthDate.setValue(LocalDate.of(2000, 01, 01));
     }
 
-
     /**
      * Opens mainWindow when the user press back button
      */
@@ -102,10 +104,12 @@ public class ViewController {
     }
 
 
-    /**
+
+     /**
      * Checks whether the user name and the passwords are exist in the DB
      */
     public boolean IsCorrectPassword(String userName, String password) {
         return controller.IsCorrectPassword(userName, password);
     }
+
 }
