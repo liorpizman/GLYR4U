@@ -32,7 +32,7 @@ public class Vacation {
 
     public Vacation(FlightTickets fromOriginFlight, FlightTickets fromDestFlight, Location dVacationLocation,
                     Location oVacationLocation, String startDate, String endDate, double price, String Baggagetype, String vacationType,
-                    String accommodationType, boolean accommodationIncluded, boolean Transfers) {
+                    String accommodationType, boolean accommodationIncluded, boolean transfers) {
         FromOriginFlight = fromOriginFlight;
         FromDestFlight = fromDestFlight;
         DVacationLocation = dVacationLocation;
@@ -48,9 +48,8 @@ public class Vacation {
         AccommodationType = accommodationType;
         AccommodationIncluded = accommodationIncluded;
         AccommodationRank = Rank.good;
-        Transfers = Transfers;
+        Transfers = transfers;
     }
-
 
     public int getFromOriginFlightId() {
         return FromOriginFlight.getTicketId();
@@ -60,12 +59,20 @@ public class Vacation {
         return FromDestFlight.getTicketId();
     }
 
-    public String getVacationCountry() {
+    public String getDVacationCountry() {
         return DVacationLocation.getCountry();
     }
 
-    public String getVacationCity() {
+    public String getDVacationCity() {
         return DVacationLocation.getCity();
+    }
+
+    public String getOVacationCountry() {
+        return OVacationLocation.getCountry();
+    }
+
+    public String getOVacationCity() {
+        return OVacationLocation.getCity();
     }
 
     public String getStartDate() {
