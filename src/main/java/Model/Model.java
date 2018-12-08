@@ -102,7 +102,6 @@ public class Model {
 
     }
 
-
     /**
      * This method calls the function to insert new vacation
      *
@@ -148,7 +147,22 @@ public class Model {
     }
 
 
-        public void UserLogIn(String UserName) {
+    /**
+     * This method get the details of a vacation purchase and update the DB payment table
+     *
+     * @param VacationId
+     * @param Seller
+     * @param Buyer
+     * @param PaymentMethod
+     * @param CreditNumber
+     * @param PaymentDate
+     */
+    public void insertNewPayment(int VacationId, String Seller, String Buyer, String PaymentMethod,
+                                 String CreditNumber, String PaymentDate) {
+        dbManagement.insertNewPayment(VacationId, Seller, Buyer, PaymentMethod, CreditNumber, PaymentDate);
+    }
+
+    public void UserLogIn(String UserName) {
         this.CurrentUser = UserName;
     }
 
