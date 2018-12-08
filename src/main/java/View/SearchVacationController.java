@@ -7,7 +7,17 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class SearchVacationController extends ViewController {
+    public javafx.scene.control.Button PurchaseButton1;
+    public javafx.scene.control.Button PurchaseButton2;
+    public javafx.scene.control.Button PurchaseButton3;
+    public javafx.scene.control.Button LogoutButton;
+    public javafx.scene.control.Button accountSettings;
 
+
+
+    public SearchVacationController(){
+        
+    }
     /**
      * Opens publishing of a vacation window
      */
