@@ -88,7 +88,6 @@ public class ViewController {
         userBirthDate.setValue(LocalDate.of(2000, 01, 01));
     }
 
-
     /**
      * Opens mainWindow when the user press back button
      */
@@ -108,4 +107,5 @@ public class ViewController {
     public boolean IsCorrectPassword(String userName, String password) {
         return controller.IsCorrectPassword(userName, password);
     }
+
 }

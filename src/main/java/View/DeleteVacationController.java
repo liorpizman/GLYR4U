@@ -1,4 +1,11 @@
 package View;
 
-public class DeleteVacationController {
+public class DeleteVacationController extends ViewController {
+
+
+    public void deleteById() {
+
+    }
+
+
 }
