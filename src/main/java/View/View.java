@@ -15,7 +15,8 @@ public class View {
     public javafx.scene.control.Button readUser;
     public javafx.scene.control.Button updateUser;
     public javafx.scene.control.Button deleteUser;
-    public ViewController viewController;
+    private ViewController viewController;
+    public SearchVacationController searchViewController;
     public static Controller controller;
     public javafx.scene.control.TextField userName;
     public javafx.scene.control.TextField userPassword;
@@ -30,7 +31,10 @@ public class View {
         this.controller = _controller;
         this.viewController = new ViewController();
         this.viewController.setController(controller);
+        this.searchViewController = new SearchVacationController();
+        searchViewController.setController(controller);
     }
+
 
     /**
      * Opens create user window when "create user" button is pushed
@@ -119,13 +123,14 @@ public class View {
         try {
             Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("SearchVaction.fxml"));
             root.getStylesheets().add(getClass().getClassLoader().getResource("flightCSS.css").toExternalForm());
-            Scene scene = new Scene(root, 1200, 800);
+            Scene scene = new Scene(root, 1200, 850);
             stage.setScene(scene);
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.show();
         } catch (Exception e) {
             e.getCause().printStackTrace();
         }
+//        SearchVacationController.setDisable();
     }
 
     /**
