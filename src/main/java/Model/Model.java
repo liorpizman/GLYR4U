@@ -169,9 +169,4 @@ public class Model {
     public void setCurrentUser(String userName) {
         this.CurrentUser = userName;
     }
-
-    public void GetVacationsIdByField(String TableName, String FieldName, String value) {
-        dbManagement.GetVacationsIdByField(TableName, FieldName, value);
-    }
-
 }
