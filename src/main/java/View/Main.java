@@ -90,22 +90,10 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
         Model model = new Model();
         //model.createNewDatabase("v4uDB");
-        HashMap<String, String> askedValues = new HashMap<>();
-        ArrayList<Vacation> result = new ArrayList<>();
         model.createNewTable(UsersSql);
         model.createNewTable(VacationsSql);
         model.createNewTable(FlightTicketsSql);
         model.createNewTable(PaymentsSql);
-        //model.addConstraintToTable("Vacations", "fk_vacation", "FOREIGN KEY", "user_name", "Users(user_name)");
-        askedValues.put("DVacationCountry", "French");
-        askedValues.put("DVacationCity", "Paris");
-        askedValues.put("OVacationCountry", "Israel");
-        askedValues.put("OVacationCity", "Tel-Aviv");
-        askedValues.put("StartDate", "");
-        askedValues.put("EndDate", "");
-        askedValues.put("AccommodationRank", "");
-        result = model.GetVacationsInformation(model.GetVacationsIdByField(askedValues));
-        model.insertNewPayment(3, "gal", "gal", "credit", "12345678", "8/12/18");
         View view = new View();
         Controller controller = new Controller(model, view);
         view.setController(controller);

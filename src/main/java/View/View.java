@@ -130,7 +130,6 @@ public class View {
         } catch (Exception e) {
             e.getCause().printStackTrace();
         }
-//        SearchVacationController.setDisable();
     }
 
     /**

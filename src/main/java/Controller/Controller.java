@@ -10,9 +10,9 @@ import Model.FlightTickets;
 import Model.Model;
 import View.View;
 import javafx.scene.control.Alert;
-import sun.awt.image.IntegerComponentRaster;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Controller {
     private Model model;
@@ -142,14 +142,9 @@ public class Controller {
         return model.getCurrentUser() != null;
     }
 
-
-    /**
-     * Search the vacation data and if exist in the database display the data
-     */
-    public ArrayList<Vacation> searchVacationData(String vacationID) {
-        ArrayList<Integer> tmpList = new ArrayList<>();
-        tmpList.add(Integer.parseInt(vacationID));
-        return model.GetVacationsInformation(tmpList);
+    public ArrayList<Vacation> GetVacationsInformation(HashMap<String,String>askedValues) {//,String FieldToFind){
+        ArrayList<Integer> vacationsIdList = model.GetVacationsIdByField(askedValues);
+        return model.GetVacationsInformation(vacationsIdList);
     }
 
 }

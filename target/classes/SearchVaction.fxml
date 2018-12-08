@@ -14,11 +14,11 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="840.0" prefWidth="1209.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.SearchVacationController" >
     <children>
         <DatePicker fx:id="arrivalDate" layoutX="353.0" layoutY="33.0" />
-        <Button fx:id="nextVacations" layoutX="619.0" layoutY="766.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="83.0" text="Next" />
+        <Button fx:id="nextButton" layoutX="619.0" layoutY="766.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="83.0" text="Next" />
         <Button fx:id="BackButton" layoutX="48.0" layoutY="782.0" mnemonicParsing="false" onAction="#backHome" prefHeight="32.0" prefWidth="83.0" text="Back" />
         <DatePicker fx:id="departureDate" layoutX="353.0" layoutY="80.0" />
         <ChoiceBox fx:id="flightClassChoice" layoutX="660.0" layoutY="81.0" prefWidth="150.0" />
-        <ChoiceBox fx:id="accomodationChoice" layoutX="660.0" layoutY="33.0" prefWidth="150.0" />
+        <ChoiceBox fx:id="accommodationChoice" layoutX="660.0" layoutY="33.0" prefWidth="150.0" />
         <CheckBox fx:id="roundTripCheck" layoutX="353.0" layoutY="123.0" mnemonicParsing="false" text="Round Trip" />
         <Accordion layoutX="54.0" layoutY="172.0" prefHeight="580.0" prefWidth="1120.0">
             <panes>
@@ -165,7 +165,7 @@
                 </TitledPane>
             </panes>
         </Accordion>
-        <Button id="accountButton" fx:id="accountSettings" layoutX="947.0" layoutY="785.0" mnemonicParsing="false" onAction="#AccountSettings" prefHeight="32.0" prefWidth="121.0" text="Account Settings" />
+        <Button fx:id="accountSettings" layoutX="947.0" layoutY="785.0" mnemonicParsing="false" onAction="#AccountSettings" prefHeight="32.0" prefWidth="121.0" text="Account Settings" />
         <Text layoutX="29.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="From:" />
         <Text layoutX="34.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="To:" wrappingWidth="35.0000165104866" />
         <Text layoutX="295.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Arrival:" />
@@ -184,15 +184,15 @@
         <Text fill="#e11c1c" layoutX="19.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*" wrappingWidth="10.351564407348633" />
         <Text fill="#e11c1c" layoutX="24.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*" wrappingWidth="10.351575642824173" />
         <Text fill="#e11c1c" layoutX="25.0" layoutY="136.0" strokeType="OUTSIDE" strokeWidth="0.0" text="* Required fields" wrappingWidth="101.00001315772533" />
-        <Button fx:id="SearchButton" layoutX="1033.0" layoutY="116.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="121.0" text="Search" />
+        <Button fx:id="SearchButton" onAction="#search" layoutX="1033.0" layoutY="116.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="121.0" text="Search" />
         <TextField fx:id="toCity" layoutX="158.0" layoutY="77.0" prefHeight="25.0" prefWidth="83.0" />
         <TextField fx:id="fromCountry" layoutX="76.0" layoutY="38.0" prefHeight="25.0" prefWidth="83.0" />
         <TextField fx:id="fromCity" layoutX="158.0" layoutY="38.0" prefHeight="25.0" prefWidth="83.0" />
         <Button fx:id="previousButton" layoutX="514.0" layoutY="766.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="83.0" text="Previous" />
         <Button fx:id="publishButton" layoutX="822.0" layoutY="785.0" mnemonicParsing="false" onAction="#publishVacation" prefHeight="32.0" prefWidth="121.0" text="Publish Vaction" />
-        <ChoiceBox id="adultsChoice" layoutX="870.0" layoutY="86.0" prefHeight="25.0" prefWidth="44.0" />
-        <ChoiceBox id="childrenChoice" layoutX="919.0" layoutY="86.0" prefHeight="17.0" prefWidth="44.0" />
-        <ChoiceBox id="babiesChoice" layoutX="970.0" layoutY="86.0" prefHeight="25.0" prefWidth="44.0" />
+        <ChoiceBox fx:id="adultsChoice" layoutX="870.0" layoutY="86.0" prefHeight="25.0" prefWidth="44.0" />
+        <ChoiceBox fx:id="childrenChoice" layoutX="919.0" layoutY="86.0" prefHeight="17.0" prefWidth="44.0" />
+        <ChoiceBox fx:id="babiesChoice" layoutX="970.0" layoutY="86.0" prefHeight="25.0" prefWidth="44.0" />
         <Button  fx:id="LogoutButton" layoutX="1074.0" layoutY="785.0" mnemonicParsing="false" onAction="#logOut" prefHeight="32.0" prefWidth="121.0" text="Log out" />
     </children>
 </AnchorPane>
