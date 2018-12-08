@@ -15,7 +15,6 @@ import java.util.Dictionary;
 import java.util.HashMap;
 
 public class DBManagement {
-
     /**
      * This method create new dataBase
      *
@@ -415,7 +414,7 @@ public class DBManagement {
                 pstmt.setString(1, Ids[i].toString());
                 ResultSet rs = pstmt.executeQuery();
                 // loop through the result set
-                AllVacations.add(CreateVacationFromDB(rs.getString("VacationId"),
+                AllVacations.add(CreateVacationFromDB(rs.getInt("VacationId"),
                         rs.getString("OriginFlightId"),
                         rs.getString("DestFlightId"),
                         rs.getString("DVacationCountry"),
@@ -466,12 +465,13 @@ public class DBManagement {
      * @param user_name
      * @return Vacation object
      */
-    public Vacation CreateVacationFromDB(String VacationId, String OriginFlightId, String DestFlightId, String DVacationCountry,
-                                         String DVacationCity, String OVacationCountry, String OVacationCity,String StartDate, String EndDate, String Price,
+    public Vacation CreateVacationFromDB(int VacationId, String OriginFlightId, String DestFlightId,
+                                         String DVacationCountry, String DVacationCity, String OVacationCountry,
+                                         String OVacationCity,String StartDate, String EndDate, String Price,
                                          String BaggageType, String HotVacation, String Status, String VacationType,
-                                         String AccommodationType, String AccommodationIncluded, String AccommodationRank, String Transfers,
-                                         String user_name) {
-        return new Vacation(createFlightTicket(OriginFlightId), createFlightTicket(DestFlightId),
+                                         String AccommodationType, String AccommodationIncluded,
+                                         String AccommodationRank, String Transfers, String user_name) {
+        return new Vacation(VacationId, createFlightTicket(OriginFlightId), createFlightTicket(DestFlightId),
                 new Location(DVacationCountry, DVacationCity), new Location(OVacationCountry, OVacationCity),
                 StartDate, EndDate, Double.parseDouble(Price), BaggageType, VacationType, AccommodationType,
                 Boolean.parseBoolean(AccommodationIncluded), Boolean.parseBoolean(Transfers));

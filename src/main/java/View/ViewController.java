@@ -2,16 +2,10 @@ package View;
 /**
  * ViewController is the father class for each window controller of the CRUD GUI
  */
-
 import Controller.Controller;
 import Model.User;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
-
 import java.time.LocalDate;
 
 public class ViewController {
@@ -24,9 +18,6 @@ public class ViewController {
     public javafx.scene.control.Button show;
     public javafx.scene.control.Button clear;
     public javafx.scene.control.Button BackButton;
-
-
-
     protected static Controller controller;
     protected static User currentUser;
 
@@ -102,8 +93,6 @@ public class ViewController {
         Stage stage = (Stage) BackButton.getScene().getWindow();
         stage.close();
     }
-
-
 
      /**
      * Checks whether the user name and the passwords are exist in the DB

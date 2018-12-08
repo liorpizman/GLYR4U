@@ -12,7 +12,6 @@ enum Rank {
 }
 
 public class Vacation {
-    private static int VactionID = 200;
     private FlightTickets FromOriginFlight;
     private FlightTickets FromDestFlight;  /// if it is null - it is not exists
     private Location DVacationLocation;
@@ -30,9 +29,9 @@ public class Vacation {
     private Rank AccommodationRank;
     private boolean Transfers;
 
-    public Vacation(FlightTickets fromOriginFlight, FlightTickets fromDestFlight, Location dVacationLocation,
-                    Location oVacationLocation, String startDate, String endDate, double price, String Baggagetype, String vacationType,
-                    String accommodationType, boolean accommodationIncluded, boolean transfers) {
+    public Vacation(int vactionId, FlightTickets fromOriginFlight, FlightTickets fromDestFlight, Location dVacationLocation,
+                    Location oVacationLocation, String startDate, String endDate, double price, String Baggagetype,
+                    String vacationType, String accommodationType, boolean accommodationIncluded, boolean transfers) {
         FromOriginFlight = fromOriginFlight;
         FromDestFlight = fromDestFlight;
         DVacationLocation = dVacationLocation;
@@ -40,7 +39,7 @@ public class Vacation {
         StartDate = startDate;
         EndDate = endDate;
         Price = price;
-        VactionId = VactionID++;
+        VactionId = vactionId;
         BaggageType = Baggagetype;
         HotVacation = false;
         Status = VacationStatus.ForSale;
@@ -122,6 +121,4 @@ public class Vacation {
     public boolean isTransfers() {
         return Transfers;
     }
-
-
 }

@@ -11,6 +11,8 @@ import Model.Model;
 import View.View;
 import javafx.scene.control.Alert;
 
+import java.util.ArrayList;
+
 public class Controller {
     private Model model;
     private View view;
@@ -84,6 +86,16 @@ public class Controller {
      */
     public void insertFlightTickets(FlightTickets newFlightTickets) {
         model.insertFlightTickets(newFlightTickets);
+    }
+
+
+    /**
+     * This method get a list of Vacations ID's and return a list of the suitable vacation objects
+     *
+     * @param VacationsID
+     */
+    public ArrayList<Vacation> GetVacationsInformation(ArrayList<Integer> VacationsID) {//,String FieldToFind){
+        return model.GetVacationsInformation(VacationsID);
     }
 
 
