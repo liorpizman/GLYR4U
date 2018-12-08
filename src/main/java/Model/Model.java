@@ -10,6 +10,11 @@ import java.util.HashMap;
 public class Model {
 
     private DBManagement dbManagement;
+
+    public String getCurrentUser() {
+        return CurrentUser;
+    }
+
     private String CurrentUser;  // the user that logged in the DB
 
     /**
