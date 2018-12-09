@@ -114,28 +114,33 @@ public class Controller {
     /**
      * When users applies for log in
      */
-    public void logIn(String _userName, String _password) {
+    public boolean logIn(String _userName, String _password) {
         if (_userName.isEmpty()) {
             Alert a = new Alert(Alert.AlertType.INFORMATION);
-            a.setContentText("You didn't entered your user name, please entered.");
+            a.setContentText("You didn't entered your user name,Please enter.");
             a.show();
+            return false;
         } else if (_password.isEmpty()) {
             Alert a = new Alert(Alert.AlertType.INFORMATION);
-            a.setContentText("You didn't entered your password, please entered.");
+            a.setContentText("You didn't entered your password, Please enter.");
             a.show();
+            return false;
         } else {
             if (searchUserData(_userName) != null) {
                 if (IsCorrectPassword(_userName, _password)) {
                     setCurrentUserInSystem(_userName);
+                    return true;
                     //Model.CurrentUser = _userName;
                     //close current stage and move to LoggedUserWindow (MAYBE SHOULD EXIT FROM MAIN STAGE TOO)
                 } else {
                     Alert a = new Alert(Alert.AlertType.INFORMATION);
-                    a.setContentText("The user name or password is incorrect./nPlease try again!");
+                    a.setContentText("The user name or password is incorrect.\nPlease try again!");
                     a.show();
+                    return false;
                 }
             }
         }
+        return false;
     }
 
     public boolean isUserConnected() {
@@ -150,6 +155,7 @@ public class Controller {
     public ArrayList<Integer> GetVacationsIdByField(HashMap<String, String> askedValues) {
         return model.GetVacationsIdByField(askedValues);
     }
+
     /**
      * This method get a list of Vacations ID's and return a list of the suitable vacation objects
      *

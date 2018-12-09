@@ -198,7 +198,8 @@ public class DBManagement {
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, userName);
             ResultSet rs = pstmt.executeQuery();
-            if (rs.getObject(password) != password) {
+            String tmp =rs.getString("password");
+            if (!rs.getString("password").equals(password)) {
                 return false;
             } else {
                 return true;

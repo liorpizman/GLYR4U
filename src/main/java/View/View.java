@@ -139,7 +139,9 @@ public class View {
      * check whether the user's details are correct
      */
     public void logIn() {
-        controller.logIn(userName.getText(), userPassword.getText());
+        if (controller.logIn(userName.getText(), userPassword.getText())) {
+            searchVacation();
+        }
     }
 
     /**
