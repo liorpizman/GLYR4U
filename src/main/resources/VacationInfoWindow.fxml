@@ -37,7 +37,7 @@
         <Button fx:id="BackButton" layoutX="21.0" layoutY="469.0" mnemonicParsing="false" onAction="#backHome"
                 text="Back"/>
         <Text layoutX="41.0" layoutY="421.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="98.58398374915123"/>
-        <CheckBox id="TransfersRead" layoutX="41.0" layoutY="438.0" mnemonicParsing="false" text="Transfers"/>
+        <CheckBox fx:id="TransfersRead" layoutX="41.0" layoutY="438.0" mnemonicParsing="false" text="Transfers"/>
         <Text layoutX="34.0" layoutY="229.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Accommodation         Rank:"
               wrappingWidth="90.12890915572643"/>
         <TextField fx:id="ArrivalRead" disable="true" layoutX="127.0" layoutY="115.0"/>
