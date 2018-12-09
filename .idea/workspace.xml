@@ -6,12 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="a7a8455e-493c-43ce-a196-677db546d8f7" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/Controller.java" afterPath="$PROJECT_DIR$/src/main/java/Controller/Controller.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/UpdateVacationController.java" afterPath="$PROJECT_DIR$/src/main/java/View/UpdateVacationController.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/VacationController.java" afterPath="$PROJECT_DIR$/src/main/java/View/VacationController.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/View.java" afterPath="$PROJECT_DIR$/src/main/java/View/View.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/UpdateVacationWindow.fxml" afterPath="$PROJECT_DIR$/src/main/resources/UpdateVacationWindow.fxml" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/VacationInfoWindow.fxml" afterPath="$PROJECT_DIR$/src/main/resources/VacationInfoWindow.fxml" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Controller/Controller.class" afterPath="$PROJECT_DIR$/target/classes/Controller/Controller.class" />
+      <change beforePath="$PROJECT_DIR$/target/classes/View/View.class" afterPath="$PROJECT_DIR$/target/classes/View/View.class" />
       <change beforePath="$PROJECT_DIR$/v4uDB.db" afterPath="$PROJECT_DIR$/v4uDB.db" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
@@ -54,7 +50,7 @@
       <file leaf-file-name="VacationController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/View/VacationController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1937">
+            <state relative-caret-position="572">
               <caret line="100" column="0" lean-forward="false" selection-start-line="100" selection-start-column="0" selection-end-line="100" selection-end-column="0" />
               <folding />
             </state>
@@ -507,7 +503,7 @@
       <workItem from="1544299219045" duration="4098000" />
       <workItem from="1544309809898" duration="6819000" />
       <workItem from="1544340958995" duration="2111000" />
-      <workItem from="1544343180174" duration="5568000" />
+      <workItem from="1544343180174" duration="5810000" />
     </task>
     <task id="LOCAL-00001" summary="add search flights details from DB">
       <created>1544226641829</created>
@@ -572,11 +568,18 @@
       <option name="project" value="LOCAL" />
       <updated>1544343245955</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="adding log in to GUI">
+      <created>1544348798962</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1544348798962</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="93847000" />
+    <option name="totallyTimeSpent" value="94089000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1936" height="1176" extended-state="6" />
@@ -1038,7 +1041,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/View/VacationController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1937">
+        <state relative-caret-position="572">
           <caret line="100" column="0" lean-forward="false" selection-start-line="100" selection-start-column="0" selection-end-line="100" selection-end-column="0" />
           <folding />
         </state>
