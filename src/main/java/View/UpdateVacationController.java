@@ -226,7 +226,7 @@ public class UpdateVacationController extends VacationController {
                 //controller.updateFlightTickets(destTicket);
                 Vacation newVacation = new Vacation(_vactionId, originTicket, destTicket, destLocation, originLocation,
                         _arrival.toString(), _departure.toString(), _price, _baggage, _vacationType, _accommodation,
-                        true, _transfers,RANK,);
+                        true, _transfers,RANK,controller.getCurrentUserName());
 
                 if (controller.updateVacation(newVacation)) {
                     Alert a = new Alert(Alert.AlertType.INFORMATION);

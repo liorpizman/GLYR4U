@@ -100,6 +100,7 @@ public class PublishVacationController extends ViewController {
             Alert a = new Alert(Alert.AlertType.INFORMATION);
             a.setContentText("You didn't entered a valid price.\nPlease fill this field.");
             a.show();
+            return;
         }
 
         String _baggage = Baggage.getValue().toString();
@@ -111,18 +112,22 @@ public class PublishVacationController extends ViewController {
             Alert a = new Alert(Alert.AlertType.INFORMATION);
             a.setContentText("You didn't entered the origin country.\nPlease fill this field.");
             a.show();
+            return;
         } else if (_fromCity.isEmpty()) {
             Alert a = new Alert(Alert.AlertType.INFORMATION);
             a.setContentText("You didn't entered the origin city.\nPlease fill this field.");
             a.show();
+            return;
         } else if (_toCountry.isEmpty()) {
             Alert a = new Alert(Alert.AlertType.INFORMATION);
             a.setContentText("You didn't entered the destination country.\nPlease fill this field.");
             a.show();
+            return;
         } else if (_toCity.isEmpty()) {
             Alert a = new Alert(Alert.AlertType.INFORMATION);
             a.setContentText("You didn't entered the destination city.\nPlease fill this field.");
             a.show();
+            return;
         } else {
             ArrayList<Integer> VacationsID = new ArrayList<>();
             Location originLocation = new Location(_fromCountry, _fromCity);
@@ -137,7 +142,7 @@ public class PublishVacationController extends ViewController {
             controller.insertFlightTickets(destTicket);
             Vacation newVacation = new Vacation(_vactionId, originTicket, destTicket, destLocation, originLocation,
                     _arrival.toString(), _departure.toString(), _price, _baggage, _vacationType, _accommodation,
-                    true, _transfers, RANK, );
+                    true, _transfers, RANK, controller.getCurrentUserName());
             controller.insertVacation(newVacation);
             VacationsID.add(_vactionId);
             if ((controller.GetVacationsInformation(VacationsID)).size() != 0) {
