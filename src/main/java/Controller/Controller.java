@@ -195,6 +195,14 @@ public class Controller {
         return model.updateVacation(newVacation);
     }
 
+    /**
+     * This method deletes all the Vacations records in table that belong to user that was deleted and not sold yet.
+     *
+     * @param userName
+     */
+    public void deleteVacationOfDeletedUser(String userName) {
+        model.deleteVacationOfDeletedUser(userName);
+    }
 
     /**
      * This method deletes a record from the Vacations table in the DB by the VacationId

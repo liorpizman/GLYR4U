@@ -117,6 +117,16 @@ public class Model {
     public boolean deleteVacationRecord(String VacationIdToDelete) {
         return dbManagement.deleteVacationRecord(VacationIdToDelete, getCurrentUser());
     }
+
+    /**
+     * This method deletes all the Vacations records in table that belong to user that was deleted and not sold yet.
+     *
+     * @param userName
+     */
+    public void deleteVacationOfDeletedUser(String userName) {
+        dbManagement.deleteVacationOfDeletedUser(userName);
+    }
+
     /**
      * This method calls a function to update each field which was changed
      *
