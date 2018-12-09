@@ -32,19 +32,19 @@ public class ViewController {
      * Shows relevant info for the given user (currentUser) for relevant windows(Read User, Update User)
      */
     public void show() {
-        if (validUserName()) {
-            userName.setDisable(true);
-            userPassword.setText(currentUser.getPassword());
-            userPassword.setDisable(false);
-            userFirstName.setText(currentUser.getFirst_name());
-            userFirstName.setDisable(false);
-            userLastName.setText(currentUser.getLast_name());
-            userLastName.setDisable(false);
-            userCity.setText(currentUser.getCity());
-            userCity.setDisable(false);
-            userBirthDate.setValue(LocalDate.parse(currentUser.getDate()));
-            userBirthDate.setDisable(false);
-        }
+        currentUser = searchUserData(controller.getCurrentUserName());
+        userName.setText(currentUser.getUser_name());
+        userName.setDisable(true);
+        userPassword.setText(currentUser.getPassword());
+        userPassword.setDisable(false);
+        userFirstName.setText(currentUser.getFirst_name());
+        userFirstName.setDisable(false);
+        userLastName.setText(currentUser.getLast_name());
+        userLastName.setDisable(false);
+        userCity.setText(currentUser.getCity());
+        userCity.setDisable(false);
+        userBirthDate.setValue(LocalDate.parse(currentUser.getDate()));
+        userBirthDate.setDisable(false);
     }
 
     /**
@@ -73,8 +73,7 @@ public class ViewController {
      * Clears all fields from user data, to start new search
      */
     public void clearUserData() {
-        userName.setDisable(false);
-        userName.clear();
+        userName.setDisable(true);
         userPassword.clear();
         userFirstName.clear();
         userLastName.clear();

@@ -140,6 +140,7 @@ public class View {
      */
     public void logIn() {
         if (controller.logIn(userName.getText(), userPassword.getText())) {
+            controller.setCurrentUserInSystem(userName.getText());
             searchVacation();
         }
     }
@@ -212,6 +213,4 @@ public class View {
             e.getCause().printStackTrace();
         }
     }
-
-
 }

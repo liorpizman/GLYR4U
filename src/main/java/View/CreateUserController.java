@@ -6,7 +6,7 @@ import java.time.LocalDate;
 /**
  * This class controls the Create User Window
  */
-public class CreateViewController extends ViewController {
+public class CreateUserController extends ViewController {
     public javafx.scene.control.TextField userName;
     public javafx.scene.control.TextField userPassword;
     public javafx.scene.control.TextField userFirstName;
