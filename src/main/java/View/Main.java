@@ -7,13 +7,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import Model.Model;
-import Model.Vacation;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 
 public class Main extends Application {
-
     // SQL statement for creating a Users table
     private String UsersSql = "CREATE TABLE IF NOT EXISTS " + "Users" + " (\n"
             + " user_name varchar(10) NOT NULL PRIMARY KEY,\n"
@@ -69,11 +65,10 @@ public class Main extends Application {
             + " AmountOfTickets int NOT NULL,\n "
             + " VacationId int NOT NULL\n "
             + ");";
-    /*             + " CONSTRAINT FK_VacationUser FOREIGN KEY (VacationId)\n"
+            /* + " CONSTRAINT FK_VacationUser FOREIGN KEY (VacationId)\n"
             + " REFERENCES Vacations(VacationId)\n "
             + " ON DELETE CASCADE\n"
             + " ON UPDATE CASCADE\n " */
-
 
     // SQL statement for creating a FlightTickets table
     private String PaymentsSql = "CREATE TABLE IF NOT EXISTS " + "Payments" + " (\n"
@@ -84,7 +79,6 @@ public class Main extends Application {
             + " CreditNumber varchar(20) NOT NULL,\n "
             + " PaymentDate varchar(15) NOT NULL\n "
             + ");";
-
 
     @Override
     public void start(Stage primaryStage) throws Exception {

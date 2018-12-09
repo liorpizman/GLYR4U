@@ -12,10 +12,10 @@
     <children>
         <Text layoutX="25.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="From:"/>
         <Text layoutX="32.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" text="To:"/>
-        <TextField id="FromCountryUpdate" disable="true" layoutX="71.0" layoutY="49.0" prefHeight="25.0"
+        <TextField fx:id="FromCountryUpdate" disable="true" layoutX="71.0" layoutY="49.0" prefHeight="25.0"
                    prefWidth="90.0"/>
-        <TextField id="ToCountyUpdate" disable="true" layoutX="70.0" layoutY="82.0" prefHeight="25.0" prefWidth="90.0"/>
-        <TextField id="FromCityUpdate" disable="true" layoutX="185.0" layoutY="48.0" prefHeight="25.0"
+        <TextField fx:id="ToCountyUpdate" disable="true" layoutX="70.0" layoutY="82.0" prefHeight="25.0" prefWidth="90.0"/>
+        <TextField fx:id="FromCityUpdate" disable="true" layoutX="185.0" layoutY="48.0" prefHeight="25.0"
                    prefWidth="90.0"/>
         <TextField id="ToCityUpdate" disable="true" layoutX="186.0" layoutY="82.0" prefHeight="25.0" prefWidth="90.0"/>
         <Text layoutX="211.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="City"/>
@@ -24,7 +24,7 @@
         <Text layoutX="33.0" layoutY="129.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Arrival:"/>
         <Text layoutX="33.0" layoutY="164.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Departure:"/>
         <Text layoutX="33.0" layoutY="202.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Accommodation:"/>
-        <Text id="FlightClass" layoutX="34.0" layoutY="271.0" strokeType="OUTSIDE" strokeWidth="0.0"
+        <Text fx:id="FlightClass" layoutX="34.0" layoutY="271.0" strokeType="OUTSIDE" strokeWidth="0.0"
               text="Flight Class:"/>
         <Text layoutX="35.0" layoutY="319.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Travellers Amount:"/>
         <Text layoutX="146.0" layoutY="300.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Adults"/>
@@ -40,19 +40,19 @@
         <CheckBox id="TransfersUpdate" layoutX="41.0" layoutY="438.0" mnemonicParsing="false" text="Transfers"/>
         <Text layoutX="34.0" layoutY="229.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Accommodation         Rank:"
               wrappingWidth="90.12890915572643"/>
-        <TextField id="ArrivalUpdate" disable="true" layoutX="127.0" layoutY="115.0"/>
-        <TextField id="AccommodationUpdate" disable="true" layoutX="128.0" layoutY="185.0"/>
-        <TextField id="DepartureUpdate" disable="true" layoutX="128.0" layoutY="149.0"/>
-        <TextField id="VacationTypeUpdate" disable="true" layoutX="139.0" layoutY="406.0"/>
-        <TextField id="BaggageUpdate" disable="true" layoutX="139.0" layoutY="372.0"/>
-        <TextField id="PriceUpdate" disable="true" layoutX="139.0" layoutY="339.0"/>
-        <TextField id="AccommodationRankUpdate" disable="true" layoutX="128.0" layoutY="221.0"/>
-        <TextField id="AdultsUpdate" disable="true" layoutX="139.0" layoutY="302.0" prefHeight="25.0" prefWidth="42.0"/>
-        <TextField id="ChildernUpdate" disable="true" layoutX="192.0" layoutY="302.0" prefHeight="25.0"
+        <TextField fx:id="ArrivalUpdate" disable="true" layoutX="127.0" layoutY="115.0"/>
+        <TextField fx:id="AccommodationUpdate" disable="true" layoutX="128.0" layoutY="185.0"/>
+        <TextField fx:id="DepartureUpdate" disable="true" layoutX="128.0" layoutY="149.0"/>
+        <TextField fx:id="VacationTypeUpdate" disable="true" layoutX="139.0" layoutY="406.0"/>
+        <TextField fx:id="BaggageUpdate" disable="true" layoutX="139.0" layoutY="372.0"/>
+        <TextField fx:id="PriceUpdate" disable="true" layoutX="139.0" layoutY="339.0"/>
+        <TextField fx:id="AccommodationRankUpdate" disable="true" layoutX="128.0" layoutY="221.0"/>
+        <TextField fx:id="AdultsUpdate" disable="true" layoutX="139.0" layoutY="302.0" prefHeight="25.0" prefWidth="42.0"/>
+        <TextField fx:id="ChildernUpdate" disable="true" layoutX="192.0" layoutY="302.0" prefHeight="25.0"
                    prefWidth="42.0"/>
-        <TextField id="BabiesUpdate" disable="true" layoutX="245.0" layoutY="302.0" prefHeight="25.0" prefWidth="42.0"/>
-        <TextField id="FlightClassUpdate" disable="true" layoutX="128.0" layoutY="255.0"/>
-        <TextField id="VacationIDUpdate" layoutX="97.0" layoutY="5.0" prefHeight="25.0" prefWidth="122.0"/>
+        <TextField fx:id="BabiesUpdate" disable="true" layoutX="245.0" layoutY="302.0" prefHeight="25.0" prefWidth="42.0"/>
+        <TextField fx:id="FlightClassUpdate" disable="true" layoutX="128.0" layoutY="255.0"/>
+        <TextField fx:id="VacationIDUpdate" layoutX="97.0" layoutY="5.0" prefHeight="25.0" prefWidth="122.0"/>
         <Button layoutX="223.0" layoutY="4.0" mnemonicParsing="false" onAction="#showVacation" text="Show"/>
     </children>
 </AnchorPane>
