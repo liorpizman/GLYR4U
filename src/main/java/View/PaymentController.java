@@ -25,8 +25,10 @@ public class PaymentController extends ViewController {
             return;
         }
 
+        /*
         controller.insertNewPayment( int VacationId, String Seller, controller.getCurrentUserName(), _paymentMethodChoice,
-                _creditNumber, _paymentDate.toString())
+                _creditNumber, _paymentDate.toString());
+    */
     }
 
 

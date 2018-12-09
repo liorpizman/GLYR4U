@@ -7,6 +7,7 @@ import javafx.scene.control.Alert;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class PublishVacationController extends ViewController {
     private static int VactionID = 200;
@@ -37,7 +38,11 @@ public class PublishVacationController extends ViewController {
     public javafx.scene.control.CheckBox Transfers;
 
     public void publishVacation() {
-        int _vactionId = VactionID++;
+        Random r = new Random();
+        int low = VactionID;
+        int high = VactionID * 5;
+        int _vactionId = r.nextInt(high - low) + low;
+        VactionID += 100;
         String _fromCountry = FromCountry.getText();
         String _fromCity = FromCity.getText();
         String _toCountry = ToCountry.getText();
@@ -147,7 +152,7 @@ public class PublishVacationController extends ViewController {
             VacationsID.add(_vactionId);
             if ((controller.GetVacationsInformation(VacationsID)).size() != 0) {
                 Alert a = new Alert(Alert.AlertType.INFORMATION);
-                a.setContentText("The vacation published successfully.");
+                a.setContentText("The vacation published successfully.\n" + "Your Vacation ID in the system is: " + _vactionId);
                 a.show();
             } else {
                 Alert a = new Alert(Alert.AlertType.INFORMATION);

@@ -1,6 +1,8 @@
 package Model;
 
 
+import java.util.Random;
+
 public class FlightTickets {
 
     static int TicketID = 100;////// key of the object
@@ -21,8 +23,14 @@ public class FlightTickets {
         TravelersType = travelersType;
         AmountOfTickets = CalculateAmountOfTickets(travelersType);
         TicketType = TypeOfTicket;
-        TicketId = TicketID++;
+
         VacationId = vacationId;
+
+        Random r = new Random();
+        int low = TicketID;
+        int high = TicketID * 5;
+        TicketId = r.nextInt(high - low) + low;
+        TicketID += 100;
     }
 
     private int CalculateAmountOfTickets(int[] travelersType) {
