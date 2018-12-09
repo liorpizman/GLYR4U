@@ -123,13 +123,13 @@ public class SearchVacationController {
         askedFields.put("AccommodationType", (String) accommodationChoice.getValue());
         ArrayList<Integer> vacationIntIDs = controller.GetVacationsIdByField(askedFields);
         vacationIDs = new String[vacationIntIDs.size()];
-        firstVacationIndex = 0 ;
+        firstVacationIndex = 0;
         for (int i = 0; i < vacationIntIDs.size(); i++) {
             vacationIDs[i] = vacationIntIDs.get(i).toString();
         }
         ArrayList<Integer> removeKeys = new ArrayList<Integer>();
         vacationsList = controller.GetVacationsInformation(vacationIntIDs);
-        if (vacationsList.size() ==0){
+        if (vacationsList.size() == 0) {
             Alert a = new Alert(Alert.AlertType.INFORMATION);
             a.setContentText("No Search Results, pls try different options ");
             a.show();
@@ -173,22 +173,42 @@ public class SearchVacationController {
 
     public void SetAllResults(int i) {
         if (i < vacationsList.size()) {
+            if (vacationsList.get(i).getUserID().equals(controller.getCurrentUserName())){
+                PurchaseButton1.setDisable(true);
+            }
+            else{
+                PurchaseButton1.setDisable(false);
+            }
             SetResultFields1(vacationsList.get(i));
-            PurchaseButton1.setDisable(false);
         }
         if (i + 1 < vacationsList.size()) {
+            if (vacationsList.get(i+1).getUserID().equals(controller.getCurrentUserName())){
+                PurchaseButton2.setDisable(true);
+            }
+            else{
+                PurchaseButton2.setDisable(false);
+            }
             SetResultFields2(vacationsList.get(i + 1));
-            PurchaseButton2.setDisable(false);
 
         }
         if (i + 2 < vacationsList.size()) {
+            if (vacationsList.get(i).getUserID().equals(controller.getCurrentUserName())){
+                PurchaseButton3.setDisable(true);
+            }
+            else{
+                PurchaseButton3.setDisable(false);
+            }
             SetResultFields3(vacationsList.get(i + 2));
-            PurchaseButton3.setDisable(false);
         }
         if (i + 3 >= vacationsList.size()) {
             nextButton.setDisable(true);
         } else {
             nextButton.setDisable(false);
+        }
+        if (i - 3 < 0) {
+            previousButton.setDisable(true);
+        } else {
+            previousButton.setDisable(false);
         }
 
     }
@@ -203,19 +223,18 @@ public class SearchVacationController {
         amounts1.setText(Integer.toString(_currentVacation.getFromOriginFlight().getAmountOfTickets()));
         arrivalDate1.setText((_currentVacation.getStartDate()));
         flightClass1.setText(_currentVacation.getFromOriginFlightClass());
-        if (_currentVacation.getAccommodationType()!=null && !_currentVacation.getAccommodationType().equals("")){
-            accommodationType1.setText((_currentVacation.getAccommodationType()));
-        }
-        else{
-
-        }
+        accommodationType1.setText((_currentVacation.getAccommodationType()));
         accommodationRank1.setText(Integer.toString(_currentVacation.getAccommodationRank()));
         vacationType1.setText((_currentVacation.getVacationType()));
         baggage1.setText((_currentVacation.getBaggageType()));
         price1.setText(Double.toString(_currentVacation.getPrice()));
         publishedBy1.setText(_currentVacation.getUserID());
         departureDate1.setText(_currentVacation.getEndDate());
-        ticketType1.setText(_currentVacation.getFromOriginFlight().getTicketType());
+        if (_currentVacation.getFromDestFlight() == null) {
+            ticketType1.setText("One Way Flight");
+        } else {
+            ticketType1.setText("Round Trip");
+        }
 
         if (_currentVacation.isTransfers()) {
             transfersCheck1.setText("Yes");
@@ -234,19 +253,18 @@ public class SearchVacationController {
         arrivalDate2.setText((_currentVacation.getStartDate()));
         flightClass2.setText(_currentVacation.getFromOriginFlightClass());
         amounts2.setText(Integer.toString(_currentVacation.getFromOriginFlight().getAmountOfTickets()));
-        if (_currentVacation.getAccommodationType()!=null && !_currentVacation.getAccommodationType().equals("")){
-            accommodationType2.setText((_currentVacation.getAccommodationType()));
-        }
-        else{
-
-        }
+        accommodationType2.setText((_currentVacation.getAccommodationType()));
         accommodationRank2.setText(Integer.toString(_currentVacation.getAccommodationRank()));
         vacationType2.setText((_currentVacation.getVacationType()));
         baggage2.setText((_currentVacation.getBaggageType()));
         price2.setText(Double.toString(_currentVacation.getPrice()));
         publishedBy2.setText(_currentVacation.getUserID());
         departureDate2.setText(_currentVacation.getEndDate());
-        ticketType2.setText(_currentVacation.getFromOriginFlight().getTicketType());
+        if (_currentVacation.getFromDestFlight() == null) {
+            ticketType2.setText("One Way Flight");
+        } else {
+            ticketType2.setText("Round Trip");
+        }
         if (_currentVacation.isTransfers()) {
             transfersCheck2.setText("Yes");
         } else {
@@ -264,19 +282,18 @@ public class SearchVacationController {
         arrivalDate3.setText((_currentVacation.getStartDate()));
         flightClass3.setText(_currentVacation.getFromOriginFlightClass());
         amounts3.setText(Integer.toString(_currentVacation.getFromOriginFlight().getAmountOfTickets()));
-        if (_currentVacation.getAccommodationType()!=null && !_currentVacation.getAccommodationType().equals("")){
-            accommodationType3.setText((_currentVacation.getAccommodationType()));
-        }
-        else{
-
-        }
+        accommodationType3.setText((_currentVacation.getAccommodationType()));
         accommodationRank3.setText(Integer.toString(_currentVacation.getAccommodationRank()));
         vacationType3.setText((_currentVacation.getVacationType()));
         baggage3.setText((_currentVacation.getBaggageType()));
         price3.setText(Double.toString(_currentVacation.getPrice()));
         publishedBy3.setText(_currentVacation.getUserID());
         departureDate3.setText(_currentVacation.getEndDate());
-        ticketType3.setText(_currentVacation.getFromOriginFlight().getTicketType());
+        if (_currentVacation.getFromDestFlight() == null) {
+            ticketType3.setText("One Way Flight");
+        } else {
+            ticketType3.setText("Round Trip");
+        }
         if (_currentVacation.isTransfers()) {
             transfersCheck3.setText("Yes");
         } else {
@@ -304,27 +321,33 @@ public class SearchVacationController {
      * Notifying the Purchase window which vacationID is sold and who is the Seller
      */
     public void Purchase1() {
-        openPurchase(publishedBy1.getText(), vacationIDs[firstVacationIndex]);
+        PurchaseButton1.setDisable(true);
+        openPurchase(publishedBy1.getText(), vacationIDs[firstVacationIndex], Double.parseDouble(price1.getText()));
     }
 
     public void Purchase2() {
-        openPurchase(publishedBy2.getText(), vacationIDs[firstVacationIndex + 1]);
+        PurchaseButton2.setDisable(true);
+        openPurchase(publishedBy2.getText(), vacationIDs[firstVacationIndex + 1], Double.parseDouble(price2.getText()));
     }
 
     public void Purchase3() {
-        openPurchase(publishedBy3.getText(), vacationIDs[firstVacationIndex + 2]);
+        PurchaseButton3.setDisable(true);
+        openPurchase(publishedBy3.getText(), vacationIDs[firstVacationIndex + 2], Double.parseDouble(price3.getText()));
     }
 
     /**
      * Opens Purchase window
      */
-    private void openPurchase(String sellerID, String vacationID) {
+    private void openPurchase(String sellerID, String vacationID, double price) {
         if (!controller.isUserConnected()) {
             Alert a = new Alert(Alert.AlertType.INFORMATION);
             a.setContentText("You can't purchase vacationse if you aren't connected");
             a.show();
             return;
         }
+        controller.setCurrentVacation(vacationID);
+        controller.setCurrrentSeller(sellerID);
+        controller.setCurrentPrice(price);
         Stage stage = new Stage();
         stage.setResizable(true);
         stage.setTitle("Purchase Window, VacationID:" + vacationID + ", SellerID:" + sellerID);
@@ -401,7 +424,7 @@ public class SearchVacationController {
         try {
             Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("AccountSettings.fxml"));
             root.getStylesheets().add(getClass().getClassLoader().getResource("flightCSS.css").toExternalForm());
-            Scene scene = new Scene(root, 600, 500);
+            Scene scene = new Scene(root, 400, 470);
             stage.setScene(scene);
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.show();
@@ -421,12 +444,15 @@ public class SearchVacationController {
             return;
         }
         controller.setCurrentUserInSystem(null);
+        backHome();
+        /*
         PurchaseButton1.setDisable(true);
         PurchaseButton1.setDisable(true);
         PurchaseButton1.setDisable(true);
         LogoutButton.setDisable(true);
         accountSettings.setDisable(true);
         publishButton.setDisable(true);
+        */
     }
 }
 

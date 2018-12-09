@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a7a8455e-493c-43ce-a196-677db546d8f7" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/FlightTickets.java" afterPath="$PROJECT_DIR$/src/main/java/Model/FlightTickets.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/PublishVacationController.java" afterPath="$PROJECT_DIR$/src/main/java/View/PublishVacationController.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/PublishVacation.fxml" afterPath="$PROJECT_DIR$/src/main/resources/PublishVacation.fxml" />
-      <change beforePath="$PROJECT_DIR$/v4uDB.db" afterPath="$PROJECT_DIR$/v4uDB.db" />
+    <list default="true" id="a7a8455e-493c-43ce-a196-677db546d8f7" name="Default" comment="update fxml">
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/Controller.java" afterPath="$PROJECT_DIR$/src/main/java/Controller/Controller.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/PaymentController.java" afterPath="$PROJECT_DIR$/src/main/java/View/PaymentController.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/SearchVacationController.java" afterPath="$PROJECT_DIR$/src/main/java/View/SearchVacationController.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/PurchaseWindow.fxml" afterPath="$PROJECT_DIR$/src/main/resources/PurchaseWindow.fxml" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -26,8 +25,8 @@
       <file leaf-file-name="PublishVacationController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/View/PublishVacationController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="577">
-              <caret line="150" column="30" lean-forward="true" selection-start-line="150" selection-start-column="30" selection-end-line="150" selection-end-column="30" />
+            <state relative-caret-position="2431">
+              <caret line="150" column="30" lean-forward="false" selection-start-line="150" selection-start-column="30" selection-end-line="150" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -36,7 +35,7 @@
       <file leaf-file-name="DBManagement.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Model/DBManagement.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
+            <state relative-caret-position="4233">
               <caret line="249" column="39" lean-forward="false" selection-start-line="249" selection-start-column="39" selection-end-line="249" selection-end-column="39" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -59,11 +58,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PublishVacation.fxml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="PublishVacation.fxml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/PublishVacation.fxml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="343">
-              <caret line="21" column="102" lean-forward="true" selection-start-line="21" selection-start-column="102" selection-end-line="21" selection-end-column="102" />
+            <state relative-caret-position="394">
+              <caret line="24" column="106" lean-forward="true" selection-start-line="24" selection-start-column="106" selection-end-line="24" selection-end-column="106" />
               <folding />
             </state>
           </provider>
@@ -72,10 +71,30 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="SearchVacationController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/View/SearchVacationController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1612">
+              <caret line="87" column="47" lean-forward="false" selection-start-line="87" selection-start-column="47" selection-end-line="87" selection-end-column="47" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PaymentController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/View/PaymentController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="398">
+              <caret line="24" column="5" lean-forward="false" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="Vacation.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Model/Vacation.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-127">
+            <state relative-caret-position="459">
               <caret line="28" column="16" lean-forward="false" selection-start-line="28" selection-start-column="12" selection-end-line="28" selection-end-column="16" />
               <folding />
             </state>
@@ -85,7 +104,7 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/View/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="393">
+            <state relative-caret-position="578">
               <caret line="40" column="25" lean-forward="false" selection-start-line="40" selection-start-column="25" selection-end-line="40" selection-end-column="25" />
               <folding />
             </state>
@@ -95,7 +114,7 @@
       <file leaf-file-name="FlightTickets.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Model/FlightTickets.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="284">
+            <state relative-caret-position="544">
               <caret line="32" column="23" lean-forward="false" selection-start-line="32" selection-start-column="23" selection-end-line="32" selection-end-column="23" />
               <folding />
             </state>
@@ -105,14 +124,9 @@
       <file leaf-file-name="Controller.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Controller/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-149">
+            <state relative-caret-position="1037">
               <caret line="77" column="16" lean-forward="false" selection-start-line="77" selection-start-column="16" selection-end-line="77" selection-end-column="16" />
-              <folding>
-                <element signature="e#1520#1521#0" expanded="true" />
-                <element signature="e#1583#1584#0" expanded="true" />
-                <element signature="e#1766#1767#0" expanded="true" />
-                <element signature="e#1815#1816#0" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -120,7 +134,7 @@
       <file leaf-file-name="Model.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Model/Model.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1581">
+            <state relative-caret-position="1615">
               <caret line="104" column="28" lean-forward="false" selection-start-line="104" selection-start-column="28" selection-end-line="104" selection-end-column="28" />
               <folding>
                 <element signature="e#227#228#0" expanded="true" />
@@ -273,7 +287,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -346,6 +359,7 @@
       </pane>
       <pane id="Scope" />
       <pane id="AndroidView" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -504,6 +518,7 @@
       <workItem from="1544348893450" duration="17523000" />
       <workItem from="1544367852348" duration="856000" />
       <workItem from="1544375998199" duration="365000" />
+      <workItem from="1544376415961" duration="275000" />
     </task>
     <task id="LOCAL-00001" summary="add search flights details from DB">
       <created>1544226641829</created>
@@ -600,7 +615,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="110593000" />
+    <option name="totallyTimeSpent" value="110868000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1936" height="1176" extended-state="6" />
@@ -613,8 +628,8 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32928178" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28127939" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32928178" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -624,8 +639,8 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.47513813" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -682,7 +697,8 @@
     <MESSAGE value="fixed user info" />
     <MESSAGE value="fixed delete vacation with user ownership" />
     <MESSAGE value="update Counters" />
-    <option name="LAST_COMMIT_MESSAGE" value="update Counters" />
+    <MESSAGE value="update fxml" />
+    <option name="LAST_COMMIT_MESSAGE" value="update fxml" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -756,13 +772,6 @@
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_161/src.zip!/java/lang/Integer.java" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_161/src.zip!/java/lang/NumberFormatException.java" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_161/javafx-src.zip!/com/sun/javafx/application/LauncherImpl.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/View/PaymentController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="24" column="5" lean-forward="false" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Model/Location.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
@@ -798,14 +807,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/View/SearchVacationController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="70">
-          <caret line="87" column="47" lean-forward="false" selection-start-line="87" selection-start-column="47" selection-end-line="87" selection-end-column="47" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -965,7 +966,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Model/Model.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1581">
+        <state relative-caret-position="1615">
           <caret line="104" column="28" lean-forward="false" selection-start-line="104" selection-start-column="28" selection-end-line="104" selection-end-column="28" />
           <folding>
             <element signature="e#227#228#0" expanded="true" />
@@ -978,7 +979,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Model/Vacation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-127">
+        <state relative-caret-position="459">
           <caret line="28" column="16" lean-forward="false" selection-start-line="28" selection-start-column="12" selection-end-line="28" selection-end-column="16" />
           <folding />
         </state>
@@ -986,7 +987,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/View/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="393">
+        <state relative-caret-position="578">
           <caret line="40" column="25" lean-forward="false" selection-start-line="40" selection-start-column="25" selection-end-line="40" selection-end-column="25" />
           <folding />
         </state>
@@ -994,7 +995,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Model/FlightTickets.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="284">
+        <state relative-caret-position="544">
           <caret line="32" column="23" lean-forward="false" selection-start-line="32" selection-start-column="23" selection-end-line="32" selection-end-column="23" />
           <folding />
         </state>
@@ -1002,28 +1003,23 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/View/PublishVacationController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="577">
-          <caret line="150" column="30" lean-forward="true" selection-start-line="150" selection-start-column="30" selection-end-line="150" selection-end-column="30" />
+        <state relative-caret-position="2431">
+          <caret line="150" column="30" lean-forward="false" selection-start-line="150" selection-start-column="30" selection-end-line="150" selection-end-column="30" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Controller/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-149">
+        <state relative-caret-position="1037">
           <caret line="77" column="16" lean-forward="false" selection-start-line="77" selection-start-column="16" selection-end-line="77" selection-end-column="16" />
-          <folding>
-            <element signature="e#1520#1521#0" expanded="true" />
-            <element signature="e#1583#1584#0" expanded="true" />
-            <element signature="e#1766#1767#0" expanded="true" />
-            <element signature="e#1815#1816#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Model/DBManagement.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
+        <state relative-caret-position="4233">
           <caret line="249" column="39" lean-forward="false" selection-start-line="249" selection-start-column="39" selection-end-line="249" selection-end-column="39" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1047,13 +1043,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/PublishVacation.fxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="343">
-          <caret line="21" column="102" lean-forward="true" selection-start-line="21" selection-start-column="102" selection-end-line="21" selection-end-column="102" />
+        <state relative-caret-position="394">
+          <caret line="24" column="106" lean-forward="true" selection-start-line="24" selection-start-column="106" selection-end-line="24" selection-end-column="106" />
           <folding />
         </state>
       </provider>
       <provider editor-type-id="JavaFX-Scene-Builder">
         <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/View/SearchVacationController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1612">
+          <caret line="87" column="47" lean-forward="false" selection-start-line="87" selection-start-column="47" selection-end-line="87" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/View/PaymentController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="398">
+          <caret line="24" column="5" lean-forward="false" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
+          <folding />
+        </state>
       </provider>
     </entry>
   </component>
