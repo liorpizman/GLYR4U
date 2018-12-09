@@ -86,6 +86,8 @@ public class PublishVacationController extends ViewController {
             travelersType[2] = _adults;
             FlightTickets originTicket = new FlightTickets(_airline, destLocation, originLocation, travelersType, _flightClass, _vactionId);
             FlightTickets destTicket = new FlightTickets(_airline, originLocation, destLocation, travelersType, _flightClass, _vactionId);
+            controller.insertFlightTickets(originTicket);
+            controller.insertFlightTickets(destTicket);
             Vacation newVacation = new Vacation(_vactionId, originTicket, destTicket, destLocation, originLocation,
                     _arrival.toString(), _departure.toString(), _price, _baggage, _vacationType, _accommodation,
                     true,  _transfers);

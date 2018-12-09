@@ -330,7 +330,7 @@ public class DBManagement {
     public void insertNewFlightTickets(int TicketId, String Airline, String DestinationCountry, String DestinationCity, String OriginCountry,
                                        String OriginCity, int BabyTickets, int ChildTickets, int AdultTickets, String TicketType,
                                        int AmountOfTickets, int VacationId) {
-        String sql = "INSERT INTO Vacations(TicketId,Airline,DestinationCountry,DestinationCity,OriginCountry," +
+        String sql = "INSERT INTO FlightTickets(TicketId,Airline,DestinationCountry,DestinationCity,OriginCountry," +
                 "OriginCity,BabyTickets,ChildTickets,AdultTickets,TicketType," +
                 "AmountOfTickets,VacationId) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)";
         try {
