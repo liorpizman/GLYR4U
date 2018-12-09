@@ -7,8 +7,12 @@ import Controller.Controller;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+
+import java.util.Optional;
 
 public class View {
     public javafx.scene.control.Button createUser;
@@ -22,6 +26,7 @@ public class View {
     public javafx.scene.control.TextField userName;
     public javafx.scene.control.TextField userPassword;
     public javafx.scene.control.Button BackButton;
+    public javafx.scene.control.Button ExitButton;
 
     /**
      * Setting the view's controller. implement mvc paradigm
@@ -100,18 +105,25 @@ public class View {
      * Opens delete user window when "delete user" button is pushed
      */
     public void deleteUser() {
-        Stage stage = new Stage();
-        stage.setResizable(true);
-        stage.setTitle("Delete User");
-        try {
-            Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("DeleteUser.fxml"));
-            root.getStylesheets().add(getClass().getClassLoader().getResource("flightCSS.css").toExternalForm());
-            Scene scene = new Scene(root, 600, 500);
-            stage.setScene(scene);
-            stage.initModality(Modality.APPLICATION_MODAL);
-            stage.show();
-        } catch (Exception e) {
-            e.getCause().printStackTrace();
+        if(controller.getCurrentUserName()!=null){
+            Stage stage = new Stage();
+            stage.setResizable(true);
+            stage.setTitle("Delete User");
+            try {
+                Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("DeleteUser.fxml"));
+                root.getStylesheets().add(getClass().getClassLoader().getResource("flightCSS.css").toExternalForm());
+                Scene scene = new Scene(root, 600, 500);
+                stage.setScene(scene);
+                stage.initModality(Modality.APPLICATION_MODAL);
+                stage.show();
+            } catch (Exception e) {
+                e.getCause().printStackTrace();
+            }
+        }
+        else{
+            Alert a = new Alert(Alert.AlertType.INFORMATION);
+            a.setContentText("You must be logged in to delete your user!");
+            a.show();
         }
     }
 
@@ -213,4 +225,19 @@ public class View {
             e.getCause().printStackTrace();
         }
     }
+
+    /**
+     * Exit the system
+     */
+    public void exitSystem() {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setContentText("Are you sure you want to exit?");
+        Optional<ButtonType> result = alert.showAndWait();
+        if(result.get()== ButtonType.OK){
+            Stage stage = (Stage) ExitButton.getScene().getWindow();
+            stage.close();
+        }
+    }
+
+
 }
