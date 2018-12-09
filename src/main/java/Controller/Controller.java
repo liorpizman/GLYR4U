@@ -139,6 +139,11 @@ public class Controller {
                     return false;
                 }
             }
+            else{
+                Alert a = new Alert(Alert.AlertType.INFORMATION);
+                a.setContentText("The user name or password is incorrect.\nPlease try again!");
+                a.show();
+            }
         }
         return false;
     }
