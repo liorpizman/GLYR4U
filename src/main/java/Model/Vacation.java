@@ -8,7 +8,7 @@ enum VacationStatus {
 }
 
 enum Rank {
-    bad, likely, good, veryGood, excellent;
+    bad, likely, good, veryGood, excellent
 }
 
 public class Vacation {
@@ -28,10 +28,11 @@ public class Vacation {
     private boolean AccommodationIncluded;
     private Rank AccommodationRank;
     private boolean Transfers;
+    private String userID;
 
     public Vacation(int vactionId, FlightTickets fromOriginFlight, FlightTickets fromDestFlight, Location dVacationLocation,
                     Location oVacationLocation, String startDate, String endDate, double price, String Baggagetype,
-                    String vacationType, String accommodationType, boolean accommodationIncluded, boolean transfers) {
+                    String vacationType, String accommodationType, boolean accommodationIncluded, boolean transfers,int accommodationRank, String _userID) {
         FromOriginFlight = fromOriginFlight;
         FromDestFlight = fromDestFlight;
         DVacationLocation = dVacationLocation;
@@ -46,8 +47,9 @@ public class Vacation {
         VacationType = vacationType;
         AccommodationType = accommodationType;
         AccommodationIncluded = accommodationIncluded;
-        AccommodationRank = Rank.good;
+        AccommodationRank = Rank.values()[accommodationRank];
         Transfers = transfers;
+        userID = _userID;
     }
 
     public FlightTickets getFromOriginFlight() {
@@ -130,15 +132,15 @@ public class Vacation {
         return Transfers;
     }
 
+    public String getUserID() {
+        return userID;
+    }
 
-
-
-
-    public String getFromOriginFlightAirline(){
+    public String getFromOriginFlightAirline() {
         return FromOriginFlight.getAirline();
     }
 
-    public String getFromOriginFlightClass(){
+    public String getFromOriginFlightClass() {
         return FromOriginFlight.getTicketType();
     }
 }
