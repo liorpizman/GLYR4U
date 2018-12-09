@@ -14,8 +14,8 @@
         <Text layoutX="25.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="From:" />
         <Text layoutX="32.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text="To:" />
         <TextField fx:id="FromCountry" layoutX="71.0" layoutY="44.0" prefHeight="25.0" prefWidth="90.0" />
-        <TextField fx:id="FromCity" layoutX="70.0" layoutY="79.0" prefHeight="25.0" prefWidth="90.0" />
-        <TextField fx:id="ToCountry" layoutX="185.0" layoutY="43.0" prefHeight="25.0" prefWidth="90.0" />
+        <TextField fx:id="ToCountry" layoutX="70.0" layoutY="79.0" prefHeight="25.0" prefWidth="90.0" />
+        <TextField fx:id="FromCity" layoutX="185.0" layoutY="43.0" prefHeight="25.0" prefWidth="90.0" />
         <TextField fx:id="ToCity" layoutX="186.0" layoutY="78.0" prefHeight="25.0" prefWidth="90.0" />
         <Text layoutX="211.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="City" />
         <Text layoutX="88.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Country" />

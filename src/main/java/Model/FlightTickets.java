@@ -30,7 +30,7 @@ public class FlightTickets {
         int low = TicketID;
         int high = TicketID * 5;
         TicketId = r.nextInt(high - low) + low;
-        TicketID += 100;
+        TicketID += 500;
     }
 
     private int CalculateAmountOfTickets(int[] travelersType) {
