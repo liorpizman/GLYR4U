@@ -35,7 +35,7 @@
         <CheckBox fx:id="roundTripCheck" layoutX="353.0" layoutY="123.0" mnemonicParsing="false" text="Round Trip"/>
         <Accordion layoutX="69.0" layoutY="147.0" prefHeight="409.0" prefWidth="866.0">
             <panes>
-                <TitledPane animated="false" prefHeight="369.0" prefWidth="947.0" text="untitled">
+                <TitledPane fx:id="titledPane1" animated="false" prefHeight="369.0" prefWidth="947.0" >
                     <content>
                         <AnchorPane id="titledPane1" minHeight="0.0" minWidth="0.0" prefHeight="358.0"
                                     prefWidth="944.0">
@@ -76,9 +76,9 @@
                                       text="Accomodation        Rank:" wrappingWidth="79.79297043196857"/>
                                 <TextField fx:id="accomodationRank1" disable="true" layoutX="423.0" layoutY="69.0"
                                            prefHeight="25.0" prefWidth="36.0"/>
-                                <TextField layoutX="103.0" layoutY="285.0" prefHeight="25.0" prefWidth="35.0"/>
-                                <TextField layoutX="153.0" layoutY="285.0" prefHeight="25.0" prefWidth="35.0"/>
-                                <TextField layoutX="201.0" layoutY="285.0" prefHeight="25.0" prefWidth="35.0"/>
+                                <TextField fx:id="adults1" layoutX="103.0" layoutY="285.0" prefHeight="25.0" prefWidth="35.0"/>
+                                <TextField fx:id="children1" layoutX="153.0" layoutY="285.0" prefHeight="25.0" prefWidth="35.0"/>
+                                <TextField fx:id="babies1" layoutX="201.0" layoutY="285.0" prefHeight="25.0" prefWidth="35.0"/>
                                 <Text layoutX="104.0" layoutY="280.0" strokeType="OUTSIDE" strokeWidth="0.0"
                                       text="Adults"/>
                                 <Text layoutX="201.0" layoutY="280.0" strokeType="OUTSIDE" strokeWidth="0.0"
@@ -120,9 +120,9 @@
                         </AnchorPane>
                     </content>
                 </TitledPane>
-                <TitledPane animated="false" prefHeight="419.0" prefWidth="975.0" text="untitled">
+                <TitledPane fx:id="titledPane2" animated="false" prefHeight="419.0" prefWidth="975.0" >
                     <content>
-                        <AnchorPane id="titledPane2" minHeight="0.0" minWidth="0.0" prefHeight="180.0"
+                        <AnchorPane  minHeight="0.0" minWidth="0.0" prefHeight="180.0"
                                     prefWidth="200.0">
                             <children>
                                 <TextField fx:id="airline2" disable="true" layoutX="102.0" layoutY="94.0"
@@ -161,9 +161,12 @@
                                       text="Accomodation        Rank:" wrappingWidth="79.79297043196857"/>
                                 <TextField fx:id="accomodationRank2" disable="true" layoutX="423.0" layoutY="69.0"
                                            prefHeight="25.0" prefWidth="36.0"/>
-                                <TextField layoutX="103.0" layoutY="285.0" prefHeight="25.0" prefWidth="35.0"/>
-                                <TextField layoutX="153.0" layoutY="285.0" prefHeight="25.0" prefWidth="35.0"/>
-                                <TextField layoutX="201.0" layoutY="285.0" prefHeight="25.0" prefWidth="35.0"/>
+                                <TextField fx:id="adults2" layoutX="103.0" layoutY="285.0" prefHeight="25.0"
+                                           prefWidth="35.0"/>
+                                <TextField fx:id="children2" layoutX="153.0" layoutY="285.0" prefHeight="25.0"
+                                           prefWidth="35.0"/>
+                                <TextField fx:id="babies2" layoutX="201.0" layoutY="285.0" prefHeight="25.0"
+                                           prefWidth="35.0"/>
                                 <Text layoutX="104.0" layoutY="280.0" strokeType="OUTSIDE" strokeWidth="0.0"
                                       text="Adults"/>
                                 <Text layoutX="201.0" layoutY="280.0" strokeType="OUTSIDE" strokeWidth="0.0"
@@ -205,9 +208,9 @@
                         </AnchorPane>
                     </content>
                 </TitledPane>
-                <TitledPane animated="false" text="untitled">
+                <TitledPane fx:id="titledPane3" animated="false" >
                     <content>
-                        <AnchorPane id="titledPane3" minHeight="0.0" minWidth="0.0" prefHeight="180.0"
+                        <AnchorPane  minHeight="0.0" minWidth="0.0" prefHeight="180.0"
                                     prefWidth="200.0">
                             <children>
                                 <TextField fx:id="airline3" disable="true" layoutX="102.0" layoutY="94.0"
@@ -246,9 +249,12 @@
                                       text="Accomodation        Rank:" wrappingWidth="79.79297043196857"/>
                                 <TextField fx:id="accomodationRank3" disable="true" layoutX="423.0" layoutY="69.0"
                                            prefHeight="25.0" prefWidth="36.0"/>
-                                <TextField layoutX="103.0" layoutY="285.0" prefHeight="25.0" prefWidth="35.0"/>
-                                <TextField layoutX="153.0" layoutY="285.0" prefHeight="25.0" prefWidth="35.0"/>
-                                <TextField layoutX="201.0" layoutY="285.0" prefHeight="25.0" prefWidth="35.0"/>
+                                <TextField fx:id="adults3" layoutX="103.0" layoutY="285.0" prefHeight="25.0"
+                                           prefWidth="35.0"/>
+                                <TextField fx:id="children3" layoutX="153.0" layoutY="285.0" prefHeight="25.0"
+                                           prefWidth="35.0"/>
+                                <TextField fx:id="babies3" layoutX="201.0" layoutY="285.0" prefHeight="25.0"
+                                           prefWidth="35.0"/>
                                 <Text layoutX="104.0" layoutY="280.0" strokeType="OUTSIDE" strokeWidth="0.0"
                                       text="Adults"/>
                                 <Text layoutX="201.0" layoutY="280.0" strokeType="OUTSIDE" strokeWidth="0.0"

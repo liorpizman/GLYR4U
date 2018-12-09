@@ -27,7 +27,7 @@ public class SearchVacationController {
     public javafx.scene.control.ChoiceBox childrenChoice;
     public javafx.scene.control.ChoiceBox babiesChoice;
 
-    //public javafx.scene.control.TextField[] aa;
+    public javafx.scene.control.TitledPane titledPane1;
     public javafx.scene.control.TextField fromCountry1;
     public javafx.scene.control.TextField fromCity1;
     public javafx.scene.control.TextField toCountry1;
@@ -36,6 +36,9 @@ public class SearchVacationController {
     public javafx.scene.control.TextField arrivalDate1;
     public javafx.scene.control.TextField departureDate1;
     public javafx.scene.control.TextField flightClass1;
+    public javafx.scene.control.TextField adults1;
+    public javafx.scene.control.TextField children1;
+    public javafx.scene.control.TextField babies1;
     public javafx.scene.control.TextField accomodationType1;
     public javafx.scene.control.TextField accomodationRank1;
     public javafx.scene.control.TextField vacationType1;
@@ -44,7 +47,7 @@ public class SearchVacationController {
     public javafx.scene.control.CheckBox transfersCheck1;
     public javafx.scene.control.TextField publishedBy1;
 
-
+    public javafx.scene.control.TitledPane titledPane2;
     public javafx.scene.control.TextField fromCountry2;
     public javafx.scene.control.TextField fromCity2;
     public javafx.scene.control.TextField toCountry2;
@@ -53,6 +56,9 @@ public class SearchVacationController {
     public javafx.scene.control.TextField arrivalDate2;
     public javafx.scene.control.TextField departureDate2;
     public javafx.scene.control.TextField flightClass2;
+    public javafx.scene.control.TextField adults2;
+    public javafx.scene.control.TextField children2;
+    public javafx.scene.control.TextField babies2;
     public javafx.scene.control.TextField accomodationType2;
     public javafx.scene.control.TextField accomodationRank2;
     public javafx.scene.control.TextField vacationType2;
@@ -61,6 +67,7 @@ public class SearchVacationController {
     public javafx.scene.control.CheckBox transfersCheck2;
     public javafx.scene.control.TextField publishedBy2;
 
+    public javafx.scene.control.TitledPane titledPane3;
     public javafx.scene.control.TextField fromCountry3;
     public javafx.scene.control.TextField fromCity3;
     public javafx.scene.control.TextField toCountry3;
@@ -69,6 +76,9 @@ public class SearchVacationController {
     public javafx.scene.control.TextField arrivalDate3;
     public javafx.scene.control.TextField departureDate3;
     public javafx.scene.control.TextField flightClass3;
+    public javafx.scene.control.TextField adults3;
+    public javafx.scene.control.TextField children3;
+    public javafx.scene.control.TextField babies3;
     public javafx.scene.control.TextField accomodationType3;
     public javafx.scene.control.TextField accomodationRank3;
     public javafx.scene.control.TextField vacationType3;
@@ -102,6 +112,9 @@ public class SearchVacationController {
         controller = _controller;
     }
 
+    /**
+     * handles search button clicked event, setting search results to tabs.
+     */
     public void search() {
         HashMap<String, String> askedFields = new HashMap<String, String>();
 //        searchTest();
@@ -153,18 +166,17 @@ public class SearchVacationController {
 
 
     public void SetAllResults(int i) {
-        Vacation[] VacationsArray = (Vacation[]) vacationsList.toArray();
-        if (i < VacationsArray.length) {
-            SetResultFields1(VacationsArray[i]);
+        if (i < vacationsList.size()) {
+            SetResultFields1(vacationsList.get(i));
             PurchaseButton1.setDisable(false);
         }
-        if (i + 1 < VacationsArray.length) {
-            SetResultFields2(VacationsArray[i + 1]);
+        if (i + 1 < vacationsList.size()) {
+            SetResultFields2(vacationsList.get(i + 1));
             PurchaseButton2.setDisable(false);
 
         }
-        if (i + 2 < VacationsArray.length) {
-            SetResultFields3(VacationsArray[i + 2]);
+        if (i + 2 < vacationsList.size()) {
+            SetResultFields3(vacationsList.get(i + 2));
             PurchaseButton3.setDisable(false);
         }
         if (i + 3 >= vacationsList.size()) {
@@ -176,6 +188,7 @@ public class SearchVacationController {
     }
 
     public void SetResultFields1(Vacation _currentVacation) {
+        titledPane1.setText(""); // _currentVacation.toString()
         fromCountry1.setText(_currentVacation.getOVacationCountry());
         fromCity1.setText((_currentVacation.getOVacationCity()));
         airline1.setText(_currentVacation.getFromOriginFlightAirline());
@@ -195,6 +208,7 @@ public class SearchVacationController {
     }
 
     public void SetResultFields2(Vacation _currentVacation) {
+        titledPane2.setText(""); // _currentVacation.toString()
         fromCountry2.setText(_currentVacation.getOVacationCountry());
         fromCity2.setText((_currentVacation.getOVacationCity()));
         airline2.setText(_currentVacation.getFromOriginFlightAirline());
@@ -214,6 +228,7 @@ public class SearchVacationController {
     }
 
     public void SetResultFields3(Vacation _currentVacation) {
+        titledPane3.setText(""); // _currentVacation.toString()
         fromCountry3.setText(_currentVacation.getOVacationCountry());
         fromCity3.setText((_currentVacation.getOVacationCity()));
         airline3.setText(_currentVacation.getFromOriginFlightAirline());
@@ -260,8 +275,7 @@ public class SearchVacationController {
     }
 
     public void Purchase3() {
-
-        openPurchase(publishedBy3.getText(), vacationIDs[firstVacationIndex + 1]);
+        openPurchase(publishedBy3.getText(), vacationIDs[firstVacationIndex + 2]);
     }
 
     /**
