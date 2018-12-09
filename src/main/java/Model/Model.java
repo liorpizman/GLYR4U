@@ -15,7 +15,7 @@ public class Model {
         return CurrentUser;
     }
 
-    private String CurrentUser;  // the user that logged in the DB
+    public static String CurrentUser;  // the user that logged in the DB
 
     public void createNewDatabase(String fileName) {
         dbManagement.createNewDatabase(fileName);
@@ -232,6 +232,6 @@ public class Model {
      * @param userName
      */
     public void setCurrentUser(String userName) {
-        this.CurrentUser = userName;
+        CurrentUser = userName;
     }
 }

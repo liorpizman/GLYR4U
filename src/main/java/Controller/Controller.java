@@ -110,6 +110,9 @@ public class Controller {
         model.setCurrentUser(userName);
     }
 
+    public String getCurrentUserName() {
+        return model.CurrentUser;
+    }
 
     /**
      * When users applies for log in

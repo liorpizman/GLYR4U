@@ -5,7 +5,7 @@ package View;
 import Model.User;
 import javafx.scene.control.Alert;
 
-public class UpdateViewController extends ViewController {
+public class UpdateUserController extends ViewController {
     public javafx.scene.control.Button update;
 
     /**
@@ -14,9 +14,8 @@ public class UpdateViewController extends ViewController {
     @Override
     public void show() {
         super.show();
-        if (validUserName()) {
-            update.setDisable(false);
-        }
+        userName.setDisable(true);
+        update.setDisable(false);
     }
 
     /**
