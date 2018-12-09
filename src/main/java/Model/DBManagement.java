@@ -269,6 +269,45 @@ public class DBManagement {
     }
 
     /**
+     * This method deletes all the Vacations records in table that belong to user that was deleted and not sold yet.
+     *
+     * @param userName
+     */
+    public void deleteVacationOfDeletedUser(String userName) {
+        ArrayList<Integer> VacationsID = new ArrayList<>();
+        String sql = "SELECT * FROM Vacations WHERE user_name=? AND Status =0";
+        String sql1 = "DELETE FROM Vacations WHERE user_name=? AND Status =0";
+        String sql2 = "DELETE FROM FlightTickets WHERE VacationId = ?";
+        try (Connection conn = this.connect();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, userName);
+            ResultSet rs = pstmt.executeQuery();
+            while (rs.next()) {
+                VacationsID.add((int) rs.getObject(("VacationId")));
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        try (Connection conn1 = this.connect();
+             PreparedStatement pstmt1 = conn1.prepareStatement(sql1)) {
+            pstmt1.setString(1, userName);
+            pstmt1.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        try (Connection conn2 = this.connect();
+             PreparedStatement pstmt2 = conn2.prepareStatement(sql2)) {
+            for (int i = 0; i < VacationsID.size(); i++)
+            {
+                pstmt2.setString(1, VacationsID.get(i).toString());
+                pstmt2.executeUpdate();
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    /**
      * This method deletes a record from the Vacations table in the DB by the VacationId
      *
      * @param VacationIdToDelete

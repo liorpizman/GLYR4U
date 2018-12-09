@@ -15,6 +15,7 @@ public class DeleteUserController extends ViewController {
      */
     public void deleteUser() {
         if (controller.deleteUser(controller.getCurrentUserName(), userPassword.getText())) {
+            controller.deleteVacationOfDeletedUser(controller.getCurrentUserName());
             Alert a = new Alert(Alert.AlertType.INFORMATION);
             a.setContentText("The user is deleted.");
             a.show();
