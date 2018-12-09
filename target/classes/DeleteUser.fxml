@@ -5,12 +5,10 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="280.0" prefWidth="446.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.DeleteViewController">
+<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="280.0" prefWidth="446.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.DeleteUserController">
    <children>
-      <Text layoutX="87.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User Name" />
-      <TextField fx:id="userName" layoutX="168.0" layoutY="64.0" />
-      <Text layoutX="87.0" layoutY="131.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" />
-      <TextField fx:id="userPassword" layoutX="168.0" layoutY="114.0" />
+      <Text layoutX="87.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" />
+      <TextField fx:id="userPassword" layoutX="168.0" layoutY="100.0" />
       <Button fx:id="delete" layoutX="200" layoutY="200.0" mnemonicParsing="false" onAction="#deleteUser" text="Delete" />
       <Button fx:id="clear" layoutX="280.0" layoutY="200.0" mnemonicParsing="false" onAction="#clearUserData" text="Clear" />
       <Button fx:id="BackButton" layoutX="24.0" layoutY="241.0" mnemonicParsing="false" onAction="#backHome" prefHeight="25.0" prefWidth="43.0" text="Back" />

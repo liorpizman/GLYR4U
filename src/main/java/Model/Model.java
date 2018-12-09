@@ -115,7 +115,7 @@ public class Model {
      * @param VacationIdToDelete
      */
     public void deleteVacationRecord(String VacationIdToDelete) {
-        dbManagement.deleteVacationRecord(VacationIdToDelete);
+        dbManagement.deleteVacationRecord(VacationIdToDelete, getCurrentUser());
     }
     /**
      * This method calls a function to update each field which was changed
