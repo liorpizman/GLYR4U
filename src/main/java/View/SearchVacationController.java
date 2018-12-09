@@ -173,29 +173,26 @@ public class SearchVacationController {
 
     public void SetAllResults(int i) {
         if (i < vacationsList.size()) {
-            if (vacationsList.get(i).getUserID().equals(controller.getCurrentUserName())){
+            if (vacationsList.get(i).getUserID().equals(controller.getCurrentUserName())) {
                 PurchaseButton1.setDisable(true);
-            }
-            else{
+            } else {
                 PurchaseButton1.setDisable(false);
             }
             SetResultFields1(vacationsList.get(i));
         }
         if (i + 1 < vacationsList.size()) {
-            if (vacationsList.get(i+1).getUserID().equals(controller.getCurrentUserName())){
+            if (vacationsList.get(i + 1).getUserID().equals(controller.getCurrentUserName())) {
                 PurchaseButton2.setDisable(true);
-            }
-            else{
+            } else {
                 PurchaseButton2.setDisable(false);
             }
             SetResultFields2(vacationsList.get(i + 1));
 
         }
         if (i + 2 < vacationsList.size()) {
-            if (vacationsList.get(i).getUserID().equals(controller.getCurrentUserName())){
+            if (vacationsList.get(i).getUserID().equals(controller.getCurrentUserName())) {
                 PurchaseButton3.setDisable(true);
-            }
-            else{
+            } else {
                 PurchaseButton3.setDisable(false);
             }
             SetResultFields3(vacationsList.get(i + 2));
@@ -249,6 +246,7 @@ public class SearchVacationController {
         fromCity2.setText((_currentVacation.getOVacationCity()));
         fromCity2.setText((_currentVacation.getOVacationCity()));
         toCountry2.setText(_currentVacation.getDVacationCountry());
+        toCity2.setText(_currentVacation.getDVacationCity());
         airline2.setText(_currentVacation.getFromOriginFlightAirline());
         arrivalDate2.setText((_currentVacation.getStartDate()));
         flightClass2.setText(_currentVacation.getFromOriginFlightClass());
@@ -278,6 +276,7 @@ public class SearchVacationController {
         fromCity3.setText((_currentVacation.getOVacationCity()));
         fromCity3.setText((_currentVacation.getOVacationCity()));
         toCountry3.setText(_currentVacation.getDVacationCountry());
+        toCity3.setText(_currentVacation.getDVacationCity());
         airline3.setText(_currentVacation.getFromOriginFlightAirline());
         arrivalDate3.setText((_currentVacation.getStartDate()));
         flightClass3.setText(_currentVacation.getFromOriginFlightClass());
