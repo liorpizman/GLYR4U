@@ -6,14 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="a7a8455e-493c-43ce-a196-677db546d8f7" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/Controller.java" afterPath="$PROJECT_DIR$/src/main/java/Controller/Controller.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/DBManagement.java" afterPath="$PROJECT_DIR$/src/main/java/Model/DBManagement.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/VacationController.java" afterPath="$PROJECT_DIR$/src/main/java/View/VacationController.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/View.java" afterPath="$PROJECT_DIR$/src/main/java/View/View.java" />
       <change beforePath="$PROJECT_DIR$/target/classes/Controller/Controller.class" afterPath="$PROJECT_DIR$/target/classes/Controller/Controller.class" />
       <change beforePath="$PROJECT_DIR$/target/classes/SearchVaction.fxml" afterPath="$PROJECT_DIR$/target/classes/SearchVaction.fxml" />
       <change beforePath="$PROJECT_DIR$/target/classes/View/SearchVacationController.class" afterPath="$PROJECT_DIR$/target/classes/View/SearchVacationController.class" />
-      <change beforePath="$PROJECT_DIR$/v4uDB.db" afterPath="$PROJECT_DIR$/v4uDB.db" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -45,7 +40,7 @@
       <file leaf-file-name="VacationController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/View/VacationController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="59">
+            <state relative-caret-position="-253">
               <caret line="78" column="59" lean-forward="false" selection-start-line="78" selection-start-column="59" selection-end-line="78" selection-end-column="59" />
               <folding />
             </state>
@@ -514,7 +509,7 @@
       <workItem from="1544299219045" duration="4098000" />
       <workItem from="1544309809898" duration="6819000" />
       <workItem from="1544340958995" duration="2111000" />
-      <workItem from="1544343180174" duration="9000" />
+      <workItem from="1544343180174" duration="55000" />
     </task>
     <task id="LOCAL-00001" summary="add search flights details from DB">
       <created>1544226641829</created>
@@ -565,11 +560,18 @@
       <option name="project" value="LOCAL" />
       <updated>1544342379207</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="adding log in to GUI">
+      <created>1544343224249</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1544343224249</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="88288000" />
+    <option name="totallyTimeSpent" value="88334000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1936" height="1176" extended-state="6" />
@@ -909,8 +911,8 @@
         <state relative-caret-position="446">
           <caret line="225" column="0" lean-forward="false" selection-start-line="225" selection-start-column="0" selection-end-line="225" selection-end-column="0" />
           <folding>
-            <element signature="e#2250#2251#0" expanded="true" />
-            <element signature="e#2312#2313#0" expanded="true" />
+            <element signature="e#2250#2251#0" expanded="false" />
+            <element signature="e#2312#2313#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1012,7 +1014,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/View/VacationController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="59">
+        <state relative-caret-position="-253">
           <caret line="78" column="59" lean-forward="false" selection-start-line="78" selection-start-column="59" selection-end-line="78" selection-end-column="59" />
           <folding />
         </state>
