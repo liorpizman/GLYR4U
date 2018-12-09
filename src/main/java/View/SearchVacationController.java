@@ -114,6 +114,18 @@ public class SearchVacationController {
     public void search() {
         HashMap<String, String> askedFields = new HashMap<String, String>();
 //        searchTest();
+        if ( (fromCountry == null ||fromCountry.getText().isEmpty() )||
+                (fromCity == null ||fromCity.getText().isEmpty() )||
+                (toCountry == null ||toCountry.getText().isEmpty() )||
+                (toCity == null ||toCity.getText().isEmpty() )||
+                (arrivalDate == null ||arrivalDate.getValue()==null ||arrivalDate.getValue().toString().isEmpty() )||
+                (departureDate == null ||departureDate.getValue()==null || departureDate.getValue().toString().isEmpty() )
+                ) {
+            Alert a = new Alert(Alert.AlertType.INFORMATION);
+            a.setContentText("Not all fields have been filled correctly, please fill all fields ");
+            a.show();
+            return;
+        }
         askedFields.put("OVacationCountry", fromCountry.getText());
         askedFields.put("OVacationCity", fromCity.getText());
         askedFields.put("DVacationCountry", toCountry.getText());
@@ -131,7 +143,7 @@ public class SearchVacationController {
         vacationsList = controller.GetVacationsInformation(vacationIntIDs);
         if (vacationsList.size() == 0) {
             Alert a = new Alert(Alert.AlertType.INFORMATION);
-            a.setContentText("No Search Results, pls try different options ");
+            a.setContentText("No Search Results, please try different options ");
             a.show();
             return;
         }
