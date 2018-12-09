@@ -29,7 +29,7 @@
         <ChoiceBox fx:id="Accommodation" layoutX="144.0" layoutY="184.0" prefHeight="25.0" prefWidth="137.0" value="Hotel">
             <String fx:value="Hotel" />
             <String fx:value="Room" />
-            <String fx:value="Zimmer" />
+            <String fx:value="Cabins" />
         </ChoiceBox>
         <ChoiceBox fx:id="FlightClass" layoutX="145.0" layoutY="252.0" prefHeight="25.0" prefWidth="137.0" value="Basic Class">
             <String fx:value="Basic Class" />

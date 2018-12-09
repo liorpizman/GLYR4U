@@ -129,4 +129,16 @@ public class Vacation {
     public boolean isTransfers() {
         return Transfers;
     }
+
+
+
+
+
+    public String getFromOriginFlightAirline(){
+        return FromOriginFlight.getAirline();
+    }
+
+    public String getFromOriginFlightClass(){
+        return FromOriginFlight.getTicketType();
+    }
 }
