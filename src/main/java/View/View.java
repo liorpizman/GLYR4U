@@ -185,7 +185,7 @@ public class View {
         try {
             Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("UpdateVacationWindow.fxml"));
             root.getStylesheets().add(getClass().getClassLoader().getResource("flightCSS.css").toExternalForm());
-            Scene scene = new Scene(root, 600, 500);
+            Scene scene = new Scene(root, 600, 600);
             stage.setScene(scene);
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.show();
