@@ -21,11 +21,8 @@ public class SearchVacationController {
     public javafx.scene.control.DatePicker arrivalDate;
     public javafx.scene.control.DatePicker departureDate;
     public javafx.scene.control.CheckBox roundTripCheck;
-    public javafx.scene.control.ChoiceBox flightClassChoice;
     public javafx.scene.control.ChoiceBox accommodationChoice;
-    public javafx.scene.control.ChoiceBox adultsChoice;
-    public javafx.scene.control.ChoiceBox childrenChoice;
-    public javafx.scene.control.ChoiceBox babiesChoice;
+
 
     public javafx.scene.control.TitledPane titledPane1;
     public javafx.scene.control.TextField fromCountry1;
@@ -36,16 +33,16 @@ public class SearchVacationController {
     public javafx.scene.control.TextField arrivalDate1;
     public javafx.scene.control.TextField departureDate1;
     public javafx.scene.control.TextField flightClass1;
-    public javafx.scene.control.TextField adults1;
-    public javafx.scene.control.TextField children1;
-    public javafx.scene.control.TextField babies1;
-    public javafx.scene.control.TextField accomodationType1;
-    public javafx.scene.control.TextField accomodationRank1;
+    public javafx.scene.control.TextField amounts1;
+    public javafx.scene.control.TextField accommodationType1;
+    public javafx.scene.control.TextField accommodationRank1;
     public javafx.scene.control.TextField vacationType1;
     public javafx.scene.control.TextField baggage1;
     public javafx.scene.control.TextField price1;
     public javafx.scene.control.CheckBox transfersCheck1;
     public javafx.scene.control.TextField publishedBy1;
+    public javafx.scene.control.TextField ticketType1;
+
 
     public javafx.scene.control.TitledPane titledPane2;
     public javafx.scene.control.TextField fromCountry2;
@@ -56,16 +53,16 @@ public class SearchVacationController {
     public javafx.scene.control.TextField arrivalDate2;
     public javafx.scene.control.TextField departureDate2;
     public javafx.scene.control.TextField flightClass2;
-    public javafx.scene.control.TextField adults2;
-    public javafx.scene.control.TextField children2;
-    public javafx.scene.control.TextField babies2;
-    public javafx.scene.control.TextField accomodationType2;
-    public javafx.scene.control.TextField accomodationRank2;
+    public javafx.scene.control.TextField amounts2;
+    public javafx.scene.control.TextField accommodationType2;
+    public javafx.scene.control.TextField accommodationRank2;
     public javafx.scene.control.TextField vacationType2;
     public javafx.scene.control.TextField baggage2;
     public javafx.scene.control.TextField price2;
     public javafx.scene.control.CheckBox transfersCheck2;
     public javafx.scene.control.TextField publishedBy2;
+    public javafx.scene.control.TextField ticketType2;
+
 
     public javafx.scene.control.TitledPane titledPane3;
     public javafx.scene.control.TextField fromCountry3;
@@ -76,16 +73,15 @@ public class SearchVacationController {
     public javafx.scene.control.TextField arrivalDate3;
     public javafx.scene.control.TextField departureDate3;
     public javafx.scene.control.TextField flightClass3;
-    public javafx.scene.control.TextField adults3;
-    public javafx.scene.control.TextField children3;
-    public javafx.scene.control.TextField babies3;
-    public javafx.scene.control.TextField accomodationType3;
-    public javafx.scene.control.TextField accomodationRank3;
+    public javafx.scene.control.TextField amounts3;
+    public javafx.scene.control.TextField accommodationType3;
+    public javafx.scene.control.TextField accommodationRank3;
     public javafx.scene.control.TextField vacationType3;
     public javafx.scene.control.TextField baggage3;
     public javafx.scene.control.TextField price3;
     public javafx.scene.control.CheckBox transfersCheck3;
     public javafx.scene.control.TextField publishedBy3;
+    public javafx.scene.control.TextField ticketType3;
 
     public javafx.scene.control.Button PurchaseButton1;
     public javafx.scene.control.Button PurchaseButton2;
@@ -122,22 +118,32 @@ public class SearchVacationController {
         askedFields.put("OVacationCity", fromCity.getText());
         askedFields.put("DVacationCountry", toCountry.getText());
         askedFields.put("DVacationCity", toCity.getText());
-        askedFields.put("BabyTickets", (String) babiesChoice.getValue());
-        askedFields.put("ChildTickets", (String) childrenChoice.getValue());
-        askedFields.put("AdultTickets", (String) adultsChoice.getValue());
         askedFields.put("StartDate", arrivalDate.getValue().toString());
         askedFields.put("EndDate", departureDate.getValue().toString());
         askedFields.put("AccommodationType", (String) accommodationChoice.getValue());
-        askedFields.put("TicketType", (String) flightClassChoice.getValue());
         ArrayList<Integer> vacationIntIDs = controller.GetVacationsIdByField(askedFields);
-
+        vacationIDs = new String[vacationIntIDs.size()];
+        firstVacationIndex = 0 ;
         for (int i = 0; i < vacationIntIDs.size(); i++) {
             vacationIDs[i] = vacationIntIDs.get(i).toString();
         }
+        ArrayList<Integer> removeKeys = new ArrayList<Integer>();
         vacationsList = controller.GetVacationsInformation(vacationIntIDs);
+        if (vacationsList.size() ==0){
+            Alert a = new Alert(Alert.AlertType.INFORMATION);
+            a.setContentText("No Search Results, pls try different options ");
+            a.show();
+            return;
+        }
+        for (int i = 0; i < vacationsList.size(); i++) {
+            if (roundTripCheck.isSelected())
+                if (vacationsList.get(i).getFromDestFlight() == null)
+                    removeKeys.add(i);
+        }
+        for (int i = 0; i < removeKeys.size(); i++) {
+            vacationsList.remove(removeKeys.get(i));
+        }
         SetAllResults(0);
-        // Vacation [] VacationsArray = (Vacation[])vacationsList.toArray();
-
     }
 
     /**
@@ -191,67 +197,98 @@ public class SearchVacationController {
         titledPane1.setText(""); // _currentVacation.toString()
         fromCountry1.setText(_currentVacation.getOVacationCountry());
         fromCity1.setText((_currentVacation.getOVacationCity()));
+        toCountry1.setText(_currentVacation.getDVacationCountry());
+        toCity1.setText(_currentVacation.getDVacationCity());
         airline1.setText(_currentVacation.getFromOriginFlightAirline());
+        amounts1.setText(Integer.toString(_currentVacation.getFromOriginFlight().getAmountOfTickets()));
         arrivalDate1.setText((_currentVacation.getStartDate()));
         flightClass1.setText(_currentVacation.getFromOriginFlightClass());
-        accomodationType1.setText((_currentVacation.getAccommodationType()));
-        accomodationRank1.setText(Integer.toString(_currentVacation.getAccommodationRank()));
+        if (_currentVacation.getAccommodationType()!=null && !_currentVacation.getAccommodationType().equals("")){
+            accommodationType1.setText((_currentVacation.getAccommodationType()));
+        }
+        else{
+
+        }
+        accommodationRank1.setText(Integer.toString(_currentVacation.getAccommodationRank()));
         vacationType1.setText((_currentVacation.getVacationType()));
         baggage1.setText((_currentVacation.getBaggageType()));
         price1.setText(Double.toString(_currentVacation.getPrice()));
+        publishedBy1.setText(_currentVacation.getUserID());
+        departureDate1.setText(_currentVacation.getEndDate());
+        ticketType1.setText(_currentVacation.getFromOriginFlight().getTicketType());
+
         if (_currentVacation.isTransfers()) {
             transfersCheck1.setText("Yes");
         } else {
             transfersCheck1.setText("No");
         }
-        //publishedBy1.setText((VacationsArray[i].))
     }
 
     public void SetResultFields2(Vacation _currentVacation) {
         titledPane2.setText(""); // _currentVacation.toString()
         fromCountry2.setText(_currentVacation.getOVacationCountry());
         fromCity2.setText((_currentVacation.getOVacationCity()));
+        fromCity2.setText((_currentVacation.getOVacationCity()));
+        toCountry2.setText(_currentVacation.getDVacationCountry());
         airline2.setText(_currentVacation.getFromOriginFlightAirline());
         arrivalDate2.setText((_currentVacation.getStartDate()));
         flightClass2.setText(_currentVacation.getFromOriginFlightClass());
-        accomodationType2.setText((_currentVacation.getAccommodationType()));
-        accomodationRank2.setText(Integer.toString(_currentVacation.getAccommodationRank()));
+        amounts2.setText(Integer.toString(_currentVacation.getFromOriginFlight().getAmountOfTickets()));
+        if (_currentVacation.getAccommodationType()!=null && !_currentVacation.getAccommodationType().equals("")){
+            accommodationType2.setText((_currentVacation.getAccommodationType()));
+        }
+        else{
+
+        }
+        accommodationRank2.setText(Integer.toString(_currentVacation.getAccommodationRank()));
         vacationType2.setText((_currentVacation.getVacationType()));
         baggage2.setText((_currentVacation.getBaggageType()));
         price2.setText(Double.toString(_currentVacation.getPrice()));
+        publishedBy2.setText(_currentVacation.getUserID());
+        departureDate2.setText(_currentVacation.getEndDate());
+        ticketType2.setText(_currentVacation.getFromOriginFlight().getTicketType());
         if (_currentVacation.isTransfers()) {
             transfersCheck2.setText("Yes");
         } else {
             transfersCheck2.setText("No");
         }
-        //publishedBy1.setText((VacationsArray[i].))
     }
 
     public void SetResultFields3(Vacation _currentVacation) {
         titledPane3.setText(""); // _currentVacation.toString()
         fromCountry3.setText(_currentVacation.getOVacationCountry());
         fromCity3.setText((_currentVacation.getOVacationCity()));
+        fromCity3.setText((_currentVacation.getOVacationCity()));
+        toCountry3.setText(_currentVacation.getDVacationCountry());
         airline3.setText(_currentVacation.getFromOriginFlightAirline());
         arrivalDate3.setText((_currentVacation.getStartDate()));
         flightClass3.setText(_currentVacation.getFromOriginFlightClass());
-        accomodationType3.setText((_currentVacation.getAccommodationType()));
-        accomodationRank3.setText(Integer.toString(_currentVacation.getAccommodationRank()));
+        amounts3.setText(Integer.toString(_currentVacation.getFromOriginFlight().getAmountOfTickets()));
+        if (_currentVacation.getAccommodationType()!=null && !_currentVacation.getAccommodationType().equals("")){
+            accommodationType3.setText((_currentVacation.getAccommodationType()));
+        }
+        else{
+
+        }
+        accommodationRank3.setText(Integer.toString(_currentVacation.getAccommodationRank()));
         vacationType3.setText((_currentVacation.getVacationType()));
         baggage3.setText((_currentVacation.getBaggageType()));
         price3.setText(Double.toString(_currentVacation.getPrice()));
+        publishedBy3.setText(_currentVacation.getUserID());
+        departureDate3.setText(_currentVacation.getEndDate());
+        ticketType3.setText(_currentVacation.getFromOriginFlight().getTicketType());
         if (_currentVacation.isTransfers()) {
             transfersCheck3.setText("Yes");
         } else {
             transfersCheck3.setText("No");
         }
-        //publishedBy1.setText((VacationsArray[i].))
     }
 
     public void next() {
         firstVacationIndex += 3;
         SetAllResults(firstVacationIndex);
         if (firstVacationIndex + 3 >= vacationsList.size()) {
-            previousButton.setDisable(true);
+            nextButton.setDisable(true);
         }
     }
 
@@ -259,7 +296,7 @@ public class SearchVacationController {
         firstVacationIndex -= 3;
         SetAllResults(firstVacationIndex);
         if (firstVacationIndex == 0) {
-            nextButton.setDisable(true);
+            previousButton.setDisable(true);
         }
     }
 

@@ -7,6 +7,7 @@ import javafx.scene.control.Alert;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class PublishVacationController extends ViewController {
     private static int VactionID = 200;
@@ -37,7 +38,11 @@ public class PublishVacationController extends ViewController {
     public javafx.scene.control.CheckBox Transfers;
 
     public void publishVacation() {
-        int _vactionId = VactionID++;
+        Random r = new Random();
+        int low = VactionID;
+        int high = VactionID * 5;
+        int _vactionId = r.nextInt(high - low) + low;
+        VactionID += 100;
         String _fromCountry = FromCountry.getText();
         String _fromCity = FromCity.getText();
         String _toCountry = ToCountry.getText();
@@ -50,6 +55,20 @@ public class PublishVacationController extends ViewController {
         String _accommodation = Accommodation.getValue().toString();
         String _accommodationRank = AccommodationRank.getValue().toString();
         String _flightClass = FlightClass.getValue().toString();
+
+
+        int RANK = 0;
+        if (_accommodationRank.equals("Bad")) {
+            RANK = 0;
+        } else if (_accommodationRank.equals("Likely")) {
+            RANK = 1;
+        } else if (_accommodationRank.equals("Good")) {
+            RANK = 2;
+        } else if (_accommodationRank.equals("Very Good")) {
+            RANK = 3;
+        } else if (_accommodationRank.equals("Excellent")) {
+            RANK = 4;
+        }
 
         int _adults, _children, _babies;
         try {
@@ -86,6 +105,7 @@ public class PublishVacationController extends ViewController {
             Alert a = new Alert(Alert.AlertType.INFORMATION);
             a.setContentText("You didn't entered a valid price.\nPlease fill this field.");
             a.show();
+            return;
         }
 
         String _baggage = Baggage.getValue().toString();
@@ -97,18 +117,22 @@ public class PublishVacationController extends ViewController {
             Alert a = new Alert(Alert.AlertType.INFORMATION);
             a.setContentText("You didn't entered the origin country.\nPlease fill this field.");
             a.show();
+            return;
         } else if (_fromCity.isEmpty()) {
             Alert a = new Alert(Alert.AlertType.INFORMATION);
             a.setContentText("You didn't entered the origin city.\nPlease fill this field.");
             a.show();
+            return;
         } else if (_toCountry.isEmpty()) {
             Alert a = new Alert(Alert.AlertType.INFORMATION);
             a.setContentText("You didn't entered the destination country.\nPlease fill this field.");
             a.show();
+            return;
         } else if (_toCity.isEmpty()) {
             Alert a = new Alert(Alert.AlertType.INFORMATION);
             a.setContentText("You didn't entered the destination city.\nPlease fill this field.");
             a.show();
+            return;
         } else {
             ArrayList<Integer> VacationsID = new ArrayList<>();
             Location originLocation = new Location(_fromCountry, _fromCity);
@@ -123,12 +147,12 @@ public class PublishVacationController extends ViewController {
             controller.insertFlightTickets(destTicket);
             Vacation newVacation = new Vacation(_vactionId, originTicket, destTicket, destLocation, originLocation,
                     _arrival.toString(), _departure.toString(), _price, _baggage, _vacationType, _accommodation,
-                    true, _transfers);
+                    true, _transfers, RANK, controller.getCurrentUserName());
             controller.insertVacation(newVacation);
             VacationsID.add(_vactionId);
             if ((controller.GetVacationsInformation(VacationsID)).size() != 0) {
                 Alert a = new Alert(Alert.AlertType.INFORMATION);
-                a.setContentText("The vacation published successfully.");
+                a.setContentText("The vacation published successfully.\n" + "Your Vacation ID in the system is: " + _vactionId);
                 a.show();
             } else {
                 Alert a = new Alert(Alert.AlertType.INFORMATION);

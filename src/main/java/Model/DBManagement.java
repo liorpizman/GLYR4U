@@ -384,8 +384,7 @@ public class DBManagement {
         String whereStatement = "";
 
         for (String key : askedValues.keySet()) {
-            if (!(askedValues.get(key).equals("")))
-            {
+            if (askedValues.get(key) != null && !(askedValues.get(key).equals(""))) {
                 numOfValues++;
                 whereStatement = whereStatement + " AND " + key + " =?";
                 searchValues.put(numOfValues, askedValues.get(key));
@@ -396,8 +395,7 @@ public class DBManagement {
 
         try (Connection conn = this.connect();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            for (int i = 1; i <= numOfValues; i++)
-            {
+            for (int i = 1; i <= numOfValues; i++) {
                 // set the value
                 pstmt.setString(i, searchValues.get(i));
             }
@@ -412,7 +410,6 @@ public class DBManagement {
         }
         return VacationsID;
     }
-
     /**
      * This method get a list of Vacations ID's and return a list of the suitable vacation objects
      *
@@ -484,14 +481,14 @@ public class DBManagement {
      */
     public Vacation CreateVacationFromDB(int VacationId, String OriginFlightId, String DestFlightId,
                                          String DVacationCountry, String DVacationCity, String OVacationCountry,
-                                         String OVacationCity,String StartDate, String EndDate, String Price,
+                                         String OVacationCity, String StartDate, String EndDate, String Price,
                                          String BaggageType, String HotVacation, String Status, String VacationType,
                                          String AccommodationType, String AccommodationIncluded,
                                          String AccommodationRank, String Transfers, String user_name) {
         return new Vacation(VacationId, createFlightTicket(OriginFlightId), createFlightTicket(DestFlightId),
                 new Location(DVacationCountry, DVacationCity), new Location(OVacationCountry, OVacationCity),
                 StartDate, EndDate, Double.parseDouble(Price), BaggageType, VacationType, AccommodationType,
-                Boolean.parseBoolean(AccommodationIncluded), Boolean.parseBoolean(Transfers));
+                Boolean.parseBoolean(AccommodationIncluded), Boolean.parseBoolean(Transfers),Integer.parseInt(AccommodationRank),user_name);
     }
 
     /**

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import javafx.scene.control.Accordion?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
@@ -11,359 +12,173 @@
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.text.TextFlow?>
 
-<?import java.lang.String?>
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="652.0"
-            prefWidth="1040.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="View.SearchVacationController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="652.0" prefWidth="1040.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.SearchVacationController">
     <children>
-        <DatePicker fx:id="arrivalDate" layoutX="353.0" layoutY="33.0"/>
-        <Button fx:id="nextButton" onAction="#next" disable="true" layoutX="481.0" layoutY="577.0"
-                mnemonicParsing="false" prefHeight="32.0" prefWidth="83.0" text="Next"/>
-        <Button fx:id="BackButton" layoutX="52.0" layoutY="577.0" mnemonicParsing="false" onAction="#backHome"
-                prefHeight="32.0" prefWidth="83.0" text="Back"/>
-        <DatePicker fx:id="departureDate" layoutX="353.0" layoutY="80.0"/>
-        <ChoiceBox fx:id="flightClassChoice" layoutX="660.0" layoutY="81.0" prefWidth="150.0">
-            <String fx:value="Basic Class"/>
-            <String fx:value="First Class"/>
-            <String fx:value="Business Class"/>
+        <DatePicker fx:id="arrivalDate" layoutX="353.0" layoutY="33.0" />
+        <Button fx:id="nextButton" disable="true" layoutX="481.0" layoutY="577.0" mnemonicParsing="false" onAction="#next" prefHeight="32.0" prefWidth="83.0" text="Next" />
+        <Button fx:id="BackButton" layoutX="52.0" layoutY="577.0" mnemonicParsing="false" onAction="#backHome" prefHeight="32.0" prefWidth="83.0" text="Back" />
+        <DatePicker fx:id="departureDate" layoutX="353.0" layoutY="80.0" />
+        <ChoiceBox fx:id="accommodationChoice" layoutX="660.0" layoutY="58.0" prefWidth="150.0">
+            <String fx:value="Hotel" />
+            <String fx:value="Room" />
+            <String fx:value="Cabins" />
         </ChoiceBox>
-        <ChoiceBox fx:id="accommodationChoice" layoutX="660.0" layoutY="33.0" prefWidth="150.0">
-            <String fx:value="Hotel"/>
-            <String fx:value="Room"/>
-            <String fx:value="Cabins"/>
-        </ChoiceBox>
-        <CheckBox fx:id="roundTripCheck" layoutX="353.0" layoutY="123.0" mnemonicParsing="false" text="Round Trip"/>
+        <CheckBox fx:id="roundTripCheck" layoutX="389.0" layoutY="115.0" mnemonicParsing="false" text="Round Trip" />
         <Accordion layoutX="69.0" layoutY="147.0" prefHeight="409.0" prefWidth="866.0">
             <panes>
-                <TitledPane fx:id="titledPane1" animated="false" prefHeight="369.0" prefWidth="947.0" >
+                <TitledPane fx:id="titledPane1" animated="false" prefHeight="369.0" prefWidth="947.0">
                     <content>
-                        <AnchorPane id="titledPane1" minHeight="0.0" minWidth="0.0" prefHeight="358.0"
-                                    prefWidth="944.0">
+                        <AnchorPane id="titledPane1" minHeight="0.0" minWidth="0.0" prefHeight="358.0" prefWidth="944.0">
                             <children>
-                                <TextField fx:id="airline1" disable="true" layoutX="102.0" layoutY="94.0"
-                                           prefHeight="25.0" prefWidth="160.0"/>
-                                <TextField fx:id="toCountry1" disable="true" layoutX="102.0" layoutY="57.0"
-                                           prefHeight="25.0" prefWidth="83.0"/>
-                                <TextField fx:id="toCity1" disable="true" layoutX="184.0" layoutY="57.0"
-                                           prefHeight="25.0" prefWidth="83.0"/>
-                                <TextField fx:id="fromCountry1" disable="true" layoutX="102.0" layoutY="22.0"
-                                           prefHeight="25.0" prefWidth="83.0"/>
-                                <TextField fx:id="fromCity1" disable="true" layoutX="184.0" layoutY="22.0"
-                                           prefHeight="25.0" prefWidth="83.0"/>
-                                <Text layoutX="26.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="From"
-                                      wrappingWidth="36.351593658328056"/>
-                                <Text layoutX="33.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="To"
-                                      wrappingWidth="20.208999574184418"/>
-                                <Text layoutX="22.0" layoutY="111.0" strokeType="OUTSIDE" strokeWidth="0.0"
-                                      text="Airline:" wrappingWidth="42.08789223432541"/>
-                                <TextField fx:id="flightClass1" disable="true" layoutX="102.0" layoutY="128.0"
-                                           prefHeight="25.0" prefWidth="159.0"/>
-                                <Text layoutX="25.0" layoutY="181.0" strokeType="OUTSIDE" strokeWidth="0.0"
-                                      text="Arrival:"/>
-                                <Text layoutX="15.0" layoutY="219.0" strokeType="OUTSIDE" strokeWidth="0.0"
-                                      text="Departure:"/>
-                                <TextField fx:id="arrivalDate1" disable="true" layoutX="102.0" layoutY="164.0"
-                                           prefHeight="25.0" prefWidth="160.0"/>
-                                <TextField fx:id="departureDate1" disable="true" layoutX="103.0" layoutY="202.0"
-                                           prefHeight="25.0" prefWidth="160.0"/>
-                                <Text layoutX="335.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0"
-                                      text="Accomodation"/>
-                                <TextField fx:id="accomodationType1" disable="true" layoutX="423.0" layoutY="22.0"
-                                           prefHeight="25.0" prefWidth="160.0"/>
-                                <Text layoutX="23.0" layoutY="137.0" strokeType="OUTSIDE" strokeWidth="0.0"
-                                      text="Flight Class:" wrappingWidth="42.08789223432541"/>
-                                <Text layoutX="334.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0"
-                                      text="Accomodation        Rank:" wrappingWidth="79.79297043196857"/>
-                                <TextField fx:id="accomodationRank1" disable="true" layoutX="423.0" layoutY="69.0"
-                                           prefHeight="25.0" prefWidth="36.0"/>
-                                <TextField fx:id="adults1" layoutX="103.0" layoutY="285.0" prefHeight="25.0" prefWidth="35.0"/>
-                                <TextField fx:id="children1" layoutX="153.0" layoutY="285.0" prefHeight="25.0" prefWidth="35.0"/>
-                                <TextField fx:id="babies1" layoutX="201.0" layoutY="285.0" prefHeight="25.0" prefWidth="35.0"/>
-                                <Text layoutX="104.0" layoutY="280.0" strokeType="OUTSIDE" strokeWidth="0.0"
-                                      text="Adults"/>
-                                <Text layoutX="201.0" layoutY="280.0" strokeType="OUTSIDE" strokeWidth="0.0"
-                                      text="Babies" wrappingWidth="34.99999849498272"/>
-                                <Text layoutX="148.0" layoutY="280.0" strokeType="OUTSIDE" strokeWidth="0.0"
-                                      text="Children"/>
-                                <Text layoutX="120.0" layoutY="255.0" strokeType="OUTSIDE" strokeWidth="0.0"
-                                      text="Travellers Amount:" wrappingWidth="100.99999849498272"/>
-                                <Text layoutX="340.0" layoutY="133.0" strokeType="OUTSIDE" strokeWidth="0.0"
-                                      text="Baggage"/>
-                                <TextField fx:id="baggage1" disable="true" layoutX="423.0" layoutY="116.0"
-                                           prefHeight="25.0" prefWidth="80.0"/>
-                                <Text layoutX="339.0" layoutY="169.0" strokeType="OUTSIDE" strokeWidth="0.0"
-                                      text="Vaction Type"/>
-                                <TextField fx:id="vacationType1" disable="true" layoutX="423.0" layoutY="152.0"
-                                           prefHeight="25.0" prefWidth="80.0"/>
-                                <Text layoutX="349.0" layoutY="211.0" strokeType="OUTSIDE" strokeWidth="0.0"
-                                      text="Price:"/>
-                                <TextField fx:id="price1" disable="true" layoutX="423.0" layoutY="194.0"
-                                           prefHeight="25.0" prefWidth="80.0"/>
-                                <TextFlow fx:id="Description1" accessibleText="descriptionText" disable="true"
-                                          layoutX="648.0" layoutY="55.0" prefHeight="172.0" prefWidth="192.0"/>
-                                <CheckBox fx:id="transfersCheck1" disable="true" layoutX="486.0" layoutY="73.0"
-                                          mnemonicParsing="false" text="Transfers"/>
-                                <Button fx:id="PurchaseButton1" disable="true" layoutX="683.0" layoutY="257.0"
-                                        mnemonicParsing="false" onAction="#Purchase1" prefHeight="32.0"
-                                        prefWidth="121.0" text="Purchase"/>
-                                <Text layoutX="339.0" layoutY="289.0" strokeType="OUTSIDE" strokeWidth="0.0"
-                                      text="Publishd By" wrappingWidth="63.35157795622945"/>
-                                <TextField fx:id="publishedBy1" disable="true" layoutX="423.0" layoutY="273.0"
-                                           prefHeight="25.0" prefWidth="160.0"/>
-                                <Text layoutX="712.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0"
-                                      text="Descriprion" wrappingWidth="63.35157795622945"/>
-                                <Text layoutX="104.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0"
-                                      text="Country"/>
-                                <Text layoutX="192.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0"
-                                      text="City"/>
+                                <TextField fx:id="airline1" disable="true" layoutX="102.0" layoutY="94.0" prefHeight="25.0" prefWidth="160.0" />
+                                <TextField fx:id="toCountry1" disable="true" layoutX="102.0" layoutY="57.0" prefHeight="25.0" prefWidth="83.0" />
+                                <TextField fx:id="toCity1" disable="true" layoutX="184.0" layoutY="57.0" prefHeight="25.0" prefWidth="83.0" />
+                                <TextField fx:id="fromCountry1" disable="true" layoutX="102.0" layoutY="22.0" prefHeight="25.0" prefWidth="83.0" />
+                                <TextField fx:id="fromCity1" disable="true" layoutX="184.0" layoutY="22.0" prefHeight="25.0" prefWidth="83.0" />
+                                <Text layoutX="26.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="From" wrappingWidth="36.351593658328056" />
+                                <Text layoutX="33.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="To" wrappingWidth="20.208999574184418" />
+                                <Text layoutX="22.0" layoutY="111.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Airline:" wrappingWidth="42.08789223432541" />
+                                <TextField fx:id="flightClass1" disable="true" layoutX="102.0" layoutY="128.0" prefHeight="25.0" prefWidth="159.0" />
+                                <Text layoutX="25.0" layoutY="181.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Arrival:" />
+                                <Text layoutX="15.0" layoutY="219.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Departure:" />
+                                <TextField fx:id="arrivalDate1" disable="true" layoutX="102.0" layoutY="164.0" prefHeight="25.0" prefWidth="160.0" />
+                                <TextField fx:id="departureDate1" disable="true" layoutX="103.0" layoutY="202.0" prefHeight="25.0" prefWidth="160.0" />
+                                <Text layoutX="335.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Accommodation" />
+                                <TextField fx:id="accommodationType1" disable="true" layoutX="423.0" layoutY="22.0" prefHeight="25.0" prefWidth="160.0" />
+                                <Text layoutX="23.0" layoutY="137.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Flight Class:" wrappingWidth="42.08789223432541" />
+                                <Text layoutX="334.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Accommodation        Rank:" wrappingWidth="79.79297043196857" />
+                                <TextField fx:id="accommodationRank1" disable="true" layoutX="423.0" layoutY="69.0" prefHeight="25.0" prefWidth="36.0" />
+                                <TextField fx:id="amounts1" disable="true" layoutX="152.0" layoutY="273.0" prefHeight="25.0" prefWidth="36.0" />
+                                <Text layoutX="15.0" layoutY="290.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Travellers Amount:" wrappingWidth="100.99999849498272" />
+                                <Text layoutX="340.0" layoutY="133.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Baggage" />
+                                <TextField fx:id="baggage1" disable="true" layoutX="423.0" layoutY="116.0" prefHeight="25.0" prefWidth="80.0" />
+                                <Text layoutX="339.0" layoutY="169.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vaction Type" />
+                                <TextField fx:id="vacationType1" disable="true" layoutX="423.0" layoutY="152.0" prefHeight="25.0" prefWidth="80.0" />
+                                <Text layoutX="349.0" layoutY="211.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Price:" />
+                                <TextField fx:id="price1" disable="true" layoutX="423.0" layoutY="194.0" prefHeight="25.0" prefWidth="80.0" />
+                                <TextFlow fx:id="Description1" accessibleText="descriptionText" disable="true" layoutX="648.0" layoutY="55.0" prefHeight="172.0" prefWidth="192.0" />
+                                <CheckBox fx:id="transfersCheck1" disable="true" layoutX="486.0" layoutY="73.0" mnemonicParsing="false" text="Transfers" />
+                                <Button fx:id="PurchaseButton1" disable="true" layoutX="683.0" layoutY="257.0" mnemonicParsing="false" onAction="#Purchase1" prefHeight="32.0" prefWidth="121.0" text="Purchase" />
+                                <Text layoutX="339.0" layoutY="289.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Publishd By" wrappingWidth="63.35157795622945" />
+                                <TextField fx:id="publishedBy1" disable="true" layoutX="423.0" layoutY="273.0" prefHeight="25.0" prefWidth="160.0" />
+                                <Text layoutX="712.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Descriprion" wrappingWidth="63.35157795622945" />
+                                <Text layoutX="104.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Country" />
+                                <Text layoutX="192.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="City" />
+                                <Text layoutX="14.0" layoutY="255.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ticket Type:" />
+                                <TextField fx:id="ticketType1"  disable="true" layoutX="102.0" layoutY="238.0" prefHeight="25.0" prefWidth="160.0" />
                             </children>
                         </AnchorPane>
                     </content>
                 </TitledPane>
-                <TitledPane fx:id="titledPane2" animated="false" prefHeight="419.0" prefWidth="975.0" >
+                <TitledPane fx:id="titledPane2" animated="false" prefHeight="419.0" prefWidth="975.0">
                     <content>
-                        <AnchorPane  minHeight="0.0" minWidth="0.0" prefHeight="180.0"
-                                    prefWidth="200.0">
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                             <children>
-                                <TextField fx:id="airline2" disable="true" layoutX="102.0" layoutY="94.0"
-                                           prefHeight="25.0" prefWidth="160.0"/>
-                                <TextField fx:id="toCountry2" disable="true" layoutX="102.0" layoutY="57.0"
-                                           prefHeight="25.0" prefWidth="83.0"/>
-                                <TextField fx:id="toCity2" disable="true" layoutX="184.0" layoutY="57.0"
-                                           prefHeight="25.0" prefWidth="83.0"/>
-                                <TextField fx:id="fromCountry2" disable="true" layoutX="102.0" layoutY="22.0"
-                                           prefHeight="25.0" prefWidth="83.0"/>
-                                <TextField fx:id="fromCity2" disable="true" layoutX="184.0" layoutY="22.0"
-                                           prefHeight="25.0" prefWidth="83.0"/>
-                                <Text layoutX="26.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="From"
-                                      wrappingWidth="36.351593658328056"/>
-                                <Text layoutX="33.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="To"
-                                      wrappingWidth="20.208999574184418"/>
-                                <Text layoutX="22.0" layoutY="111.0" strokeType="OUTSIDE" strokeWidth="0.0"
-                                      text="Airline:" wrappingWidth="42.08789223432541"/>
-                                <TextField fx:id="flightClass2" disable="true" layoutX="102.0" layoutY="128.0"
-                                           prefHeight="25.0" prefWidth="159.0"/>
-                                <Text layoutX="25.0" layoutY="181.0" strokeType="OUTSIDE" strokeWidth="0.0"
-                                      text="Arrival:"/>
-                                <Text layoutX="15.0" layoutY="219.0" strokeType="OUTSIDE" strokeWidth="0.0"
-                                      text="Departure:"/>
-                                <TextField fx:id="arrivalDate2" disable="true" layoutX="102.0" layoutY="164.0"
-                                           prefHeight="25.0" prefWidth="160.0"/>
-                                <TextField fx:id="departureDate2" disable="true" layoutX="103.0" layoutY="202.0"
-                                           prefHeight="25.0" prefWidth="160.0"/>
-                                <Text layoutX="335.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0"
-                                      text="Accomodation"/>
-                                <TextField fx:id="accomodationType2" disable="true" layoutX="423.0" layoutY="22.0"
-                                           prefHeight="25.0" prefWidth="160.0"/>
-                                <Text layoutX="23.0" layoutY="137.0" strokeType="OUTSIDE" strokeWidth="0.0"
-                                      text="Flight Class:" wrappingWidth="42.08789223432541"/>
-                                <Text layoutX="334.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0"
-                                      text="Accomodation        Rank:" wrappingWidth="79.79297043196857"/>
-                                <TextField fx:id="accomodationRank2" disable="true" layoutX="423.0" layoutY="69.0"
-                                           prefHeight="25.0" prefWidth="36.0"/>
-                                <TextField fx:id="adults2" layoutX="103.0" layoutY="285.0" prefHeight="25.0"
-                                           prefWidth="35.0"/>
-                                <TextField fx:id="children2" layoutX="153.0" layoutY="285.0" prefHeight="25.0"
-                                           prefWidth="35.0"/>
-                                <TextField fx:id="babies2" layoutX="201.0" layoutY="285.0" prefHeight="25.0"
-                                           prefWidth="35.0"/>
-                                <Text layoutX="104.0" layoutY="280.0" strokeType="OUTSIDE" strokeWidth="0.0"
-                                      text="Adults"/>
-                                <Text layoutX="201.0" layoutY="280.0" strokeType="OUTSIDE" strokeWidth="0.0"
-                                      text="Babies" wrappingWidth="34.99999849498272"/>
-                                <Text layoutX="148.0" layoutY="280.0" strokeType="OUTSIDE" strokeWidth="0.0"
-                                      text="Children"/>
-                                <Text layoutX="120.0" layoutY="255.0" strokeType="OUTSIDE" strokeWidth="0.0"
-                                      text="Travellers Amount:" wrappingWidth="100.99999849498272"/>
-                                <Text layoutX="340.0" layoutY="133.0" strokeType="OUTSIDE" strokeWidth="0.0"
-                                      text="Baggage"/>
-                                <TextField fx:id="baggage2" disable="true" layoutX="423.0" layoutY="116.0"
-                                           prefHeight="25.0" prefWidth="80.0"/>
-                                <Text layoutX="339.0" layoutY="169.0" strokeType="OUTSIDE" strokeWidth="0.0"
-                                      text="Vaction Type"/>
-                                <TextField fx:id="vacationType2" disable="true" layoutX="423.0" layoutY="152.0"
-                                           prefHeight="25.0" prefWidth="80.0"/>
-                                <Text layoutX="349.0" layoutY="211.0" strokeType="OUTSIDE" strokeWidth="0.0"
-                                      text="Price:"/>
-                                <TextField fx:id="price2" disable="true" layoutX="423.0" layoutY="194.0"
-                                           prefHeight="25.0" prefWidth="80.0"/>
-                                <TextFlow fx:id="Description2" accessibleText="descriptionText" disable="true"
-                                          layoutX="652.0" layoutY="61.0" prefHeight="161.0" prefWidth="199.0"/>
-                                <CheckBox fx:id="transfersCheck2" disable="true" layoutX="486.0" layoutY="73.0"
-                                          mnemonicParsing="false" text="Transfers"/>
-                                <Button fx:id="PurchaseButton2" disable="true" layoutX="691.0" layoutY="257.0"
-                                        mnemonicParsing="false" onAction="#Purchase2" prefHeight="32.0"
-                                        prefWidth="121.0" text="Purchase"/>
-                                <Text layoutX="339.0" layoutY="289.0" strokeType="OUTSIDE" strokeWidth="0.0"
-                                      text="Publishd By" wrappingWidth="63.35157795622945"/>
-                                <TextField fx:id="publishedBy2" disable="true" layoutX="423.0" layoutY="273.0"
-                                           prefHeight="25.0" prefWidth="160.0"/>
-                                <Text layoutX="712.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0"
-                                      text="Descriprion" wrappingWidth="63.35157795622945"/>
-                                <Text layoutX="104.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0"
-                                      text="Country"/>
-                                <Text layoutX="192.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0"
-                                      text="City"/>
+                                <TextField fx:id="airline2" disable="true" layoutX="102.0" layoutY="94.0" prefHeight="25.0" prefWidth="160.0" />
+                                <TextField fx:id="toCountry2" disable="true" layoutX="102.0" layoutY="57.0" prefHeight="25.0" prefWidth="83.0" />
+                                <TextField fx:id="toCity2" disable="true" layoutX="184.0" layoutY="57.0" prefHeight="25.0" prefWidth="83.0" />
+                                <TextField fx:id="fromCountry2" disable="true" layoutX="102.0" layoutY="22.0" prefHeight="25.0" prefWidth="83.0" />
+                                <TextField fx:id="fromCity2" disable="true" layoutX="184.0" layoutY="22.0" prefHeight="25.0" prefWidth="83.0" />
+                                <Text layoutX="26.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="From" wrappingWidth="36.351593658328056" />
+                                <Text layoutX="33.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="To" wrappingWidth="20.208999574184418" />
+                                <Text layoutX="22.0" layoutY="111.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Airline:" wrappingWidth="42.08789223432541" />
+                                <TextField fx:id="flightClass2" disable="true" layoutX="102.0" layoutY="128.0" prefHeight="25.0" prefWidth="159.0" />
+                                <Text layoutX="25.0" layoutY="181.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Arrival:" />
+                                <Text layoutX="15.0" layoutY="219.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Departure:" />
+                                <TextField fx:id="arrivalDate2" disable="true" layoutX="102.0" layoutY="164.0" prefHeight="25.0" prefWidth="160.0" />
+                                <TextField fx:id="departureDate2" disable="true" layoutX="103.0" layoutY="202.0" prefHeight="25.0" prefWidth="160.0" />
+                                <Text layoutX="335.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Accommodation" />
+                                <TextField fx:id="accommodationType2" disable="true" layoutX="423.0" layoutY="22.0" prefHeight="25.0" prefWidth="160.0" />
+                                <Text layoutX="23.0" layoutY="137.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Flight Class:" wrappingWidth="42.08789223432541" />
+                                <Text layoutX="334.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Accommodation        Rank:" wrappingWidth="79.79297043196857" />
+                                <TextField fx:id="accommodationRank2" disable="true" layoutX="423.0" layoutY="69.0" prefHeight="25.0" prefWidth="36.0" />
+                                <TextField fx:id="amounts2" disable="true" layoutX="165.0" layoutY="272.0" prefHeight="25.0" prefWidth="35.0" />
+                                <Text layoutX="15.0" layoutY="289.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Travellers Amount:" wrappingWidth="100.99999849498272" />
+                                <Text layoutX="340.0" layoutY="133.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Baggage" />
+                                <TextField fx:id="baggage2" disable="true" layoutX="423.0" layoutY="116.0" prefHeight="25.0" prefWidth="80.0" />
+                                <Text layoutX="339.0" layoutY="169.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vaction Type" />
+                                <TextField fx:id="vacationType2" disable="true" layoutX="423.0" layoutY="152.0" prefHeight="25.0" prefWidth="80.0" />
+                                <Text layoutX="349.0" layoutY="211.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Price:" />
+                                <TextField fx:id="price2" disable="true" layoutX="423.0" layoutY="194.0" prefHeight="25.0" prefWidth="80.0" />
+                                <TextFlow fx:id="Description2" accessibleText="descriptionText" disable="true" layoutX="652.0" layoutY="61.0" prefHeight="161.0" prefWidth="199.0" />
+                                <CheckBox fx:id="transfersCheck2" disable="true" layoutX="486.0" layoutY="73.0" mnemonicParsing="false" text="Transfers" />
+                                <Button fx:id="PurchaseButton2" disable="true" layoutX="691.0" layoutY="257.0" mnemonicParsing="false" onAction="#Purchase2" prefHeight="32.0" prefWidth="121.0" text="Purchase" />
+                                <Text layoutX="339.0" layoutY="289.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Publishd By" wrappingWidth="63.35157795622945" />
+                                <TextField fx:id="publishedBy2" disable="true" layoutX="423.0" layoutY="273.0" prefHeight="25.0" prefWidth="160.0" />
+                                <Text layoutX="712.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Descriprion" wrappingWidth="63.35157795622945" />
+                                <Text layoutX="104.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Country" />
+                                <Text layoutX="192.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="City" />
+                                <Text layoutX="14.0" layoutY="255.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ticket Type:" />
+                                <TextField fx:id="ticketType2"  disable="true" layoutX="102.0" layoutY="238.0" prefHeight="25.0" prefWidth="160.0" />
                             </children>
                         </AnchorPane>
                     </content>
                 </TitledPane>
-                <TitledPane fx:id="titledPane3" animated="false" >
+                <TitledPane fx:id="titledPane3" animated="false">
                     <content>
-                        <AnchorPane  minHeight="0.0" minWidth="0.0" prefHeight="180.0"
-                                    prefWidth="200.0">
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                             <children>
-                                <TextField fx:id="airline3" disable="true" layoutX="102.0" layoutY="94.0"
-                                           prefHeight="25.0" prefWidth="160.0"/>
-                                <TextField fx:id="toCountry3" disable="true" layoutX="102.0" layoutY="57.0"
-                                           prefHeight="25.0" prefWidth="83.0"/>
-                                <TextField fx:id="toCity3" disable="true" layoutX="184.0" layoutY="57.0"
-                                           prefHeight="25.0" prefWidth="83.0"/>
-                                <TextField fx:id="fromCountry3" disable="true" layoutX="102.0" layoutY="22.0"
-                                           prefHeight="25.0" prefWidth="83.0"/>
-                                <TextField fx:id="fromCity3" disable="true" layoutX="184.0" layoutY="22.0"
-                                           prefHeight="25.0" prefWidth="83.0"/>
-                                <Text layoutX="26.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="From"
-                                      wrappingWidth="36.351593658328056"/>
-                                <Text layoutX="33.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="To"
-                                      wrappingWidth="20.208999574184418"/>
-                                <Text layoutX="22.0" layoutY="111.0" strokeType="OUTSIDE" strokeWidth="0.0"
-                                      text="Airline:" wrappingWidth="42.08789223432541"/>
-                                <TextField fx:id="flightClass3" disable="true" layoutX="102.0" layoutY="128.0"
-                                           prefHeight="25.0" prefWidth="159.0"/>
-                                <Text layoutX="25.0" layoutY="181.0" strokeType="OUTSIDE" strokeWidth="0.0"
-                                      text="Arrival:"/>
-                                <Text layoutX="15.0" layoutY="219.0" strokeType="OUTSIDE" strokeWidth="0.0"
-                                      text="Departure:"/>
-                                <TextField fx:id="arrivalDate3" disable="true" layoutX="102.0" layoutY="164.0"
-                                           prefHeight="25.0" prefWidth="160.0"/>
-                                <TextField fx:id="departureDate3" disable="true" layoutX="103.0" layoutY="202.0"
-                                           prefHeight="25.0" prefWidth="160.0"/>
-                                <Text layoutX="335.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0"
-                                      text="Accomodation"/>
-                                <TextField fx:id="accomodationType3" disable="true" layoutX="423.0" layoutY="22.0"
-                                           prefHeight="25.0" prefWidth="160.0"/>
-                                <Text layoutX="23.0" layoutY="137.0" strokeType="OUTSIDE" strokeWidth="0.0"
-                                      text="Flight Class:" wrappingWidth="42.08789223432541"/>
-                                <Text layoutX="334.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0"
-                                      text="Accomodation        Rank:" wrappingWidth="79.79297043196857"/>
-                                <TextField fx:id="accomodationRank3" disable="true" layoutX="423.0" layoutY="69.0"
-                                           prefHeight="25.0" prefWidth="36.0"/>
-                                <TextField fx:id="adults3" layoutX="103.0" layoutY="285.0" prefHeight="25.0"
-                                           prefWidth="35.0"/>
-                                <TextField fx:id="children3" layoutX="153.0" layoutY="285.0" prefHeight="25.0"
-                                           prefWidth="35.0"/>
-                                <TextField fx:id="babies3" layoutX="201.0" layoutY="285.0" prefHeight="25.0"
-                                           prefWidth="35.0"/>
-                                <Text layoutX="104.0" layoutY="280.0" strokeType="OUTSIDE" strokeWidth="0.0"
-                                      text="Adults"/>
-                                <Text layoutX="201.0" layoutY="280.0" strokeType="OUTSIDE" strokeWidth="0.0"
-                                      text="Babies" wrappingWidth="34.99999849498272"/>
-                                <Text layoutX="148.0" layoutY="280.0" strokeType="OUTSIDE" strokeWidth="0.0"
-                                      text="Children"/>
-                                <Text layoutX="120.0" layoutY="255.0" strokeType="OUTSIDE" strokeWidth="0.0"
-                                      text="Travellers Amount:" wrappingWidth="100.99999849498272"/>
-                                <Text layoutX="340.0" layoutY="133.0" strokeType="OUTSIDE" strokeWidth="0.0"
-                                      text="Baggage"/>
-                                <TextField fx:id="baggage3" disable="true" layoutX="423.0" layoutY="116.0"
-                                           prefHeight="25.0" prefWidth="80.0"/>
-                                <Text layoutX="339.0" layoutY="169.0" strokeType="OUTSIDE" strokeWidth="0.0"
-                                      text="Vaction Type"/>
-                                <TextField fx:id="vacationType3" disable="true" layoutX="423.0" layoutY="152.0"
-                                           prefHeight="25.0" prefWidth="80.0"/>
-                                <Text layoutX="349.0" layoutY="211.0" strokeType="OUTSIDE" strokeWidth="0.0"
-                                      text="Price:"/>
-                                <TextField fx:id="price3" disable="true" layoutX="423.0" layoutY="194.0"
-                                           prefHeight="25.0" prefWidth="80.0"/>
-                                <TextFlow fx:id="Description3" accessibleText="descriptionText" disable="true"
-                                          layoutX="631.0" layoutY="63.0" prefHeight="178.0" prefWidth="208.0"/>
-                                <CheckBox fx:id="transfersCheck3" disable="true" layoutX="486.0" layoutY="73.0"
-                                          mnemonicParsing="false" text="Transfers"/>
-                                <Button fx:id="PurchaseButton3" disable="true" layoutX="675.0" layoutY="257.0"
-                                        mnemonicParsing="false" onAction="#Purchase3" prefHeight="32.0"
-                                        prefWidth="121.0" text="Purchase"/>
-                                <Text layoutX="339.0" layoutY="289.0" strokeType="OUTSIDE" strokeWidth="0.0"
-                                      text="Publishd By" wrappingWidth="63.35157795622945"/>
-                                <TextField fx:id="publishedBy3" disable="true" layoutX="423.0" layoutY="273.0"
-                                           prefHeight="25.0" prefWidth="160.0"/>
-                                <Text layoutX="697.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0"
-                                      text="Descriprion" wrappingWidth="63.35157795622945"/>
-                                <Text layoutX="104.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0"
-                                      text="Country"/>
-                                <Text layoutX="192.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0"
-                                      text="City"/>
+                                <TextField fx:id="airline3" disable="true" layoutX="102.0" layoutY="94.0" prefHeight="25.0" prefWidth="160.0" />
+                                <TextField fx:id="toCountry3" disable="true" layoutX="102.0" layoutY="57.0" prefHeight="25.0" prefWidth="83.0" />
+                                <TextField fx:id="toCity3" disable="true" layoutX="184.0" layoutY="57.0" prefHeight="25.0" prefWidth="83.0" />
+                                <TextField fx:id="fromCountry3" disable="true" layoutX="102.0" layoutY="22.0" prefHeight="25.0" prefWidth="83.0" />
+                                <TextField fx:id="fromCity3" disable="true" layoutX="184.0" layoutY="22.0" prefHeight="25.0" prefWidth="83.0" />
+                                <Text layoutX="26.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="From" wrappingWidth="36.351593658328056" />
+                                <Text layoutX="33.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="To" wrappingWidth="20.208999574184418" />
+                                <Text layoutX="22.0" layoutY="111.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Airline:" wrappingWidth="42.08789223432541" />
+                                <TextField fx:id="flightClass3" disable="true" layoutX="102.0" layoutY="128.0" prefHeight="25.0" prefWidth="159.0" />
+                                <Text layoutX="25.0" layoutY="181.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Arrival:" />
+                                <Text layoutX="15.0" layoutY="219.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Departure:" />
+                                <TextField fx:id="arrivalDate3" disable="true" layoutX="102.0" layoutY="164.0" prefHeight="25.0" prefWidth="160.0" />
+                                <TextField fx:id="departureDate3" disable="true" layoutX="103.0" layoutY="202.0" prefHeight="25.0" prefWidth="160.0" />
+                                <Text layoutX="335.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Accommodation" />
+                                <TextField fx:id="accommodationType3" disable="true" layoutX="423.0" layoutY="22.0" prefHeight="25.0" prefWidth="160.0" />
+                                <Text layoutX="23.0" layoutY="137.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Flight Class:" wrappingWidth="42.08789223432541" />
+                                <Text layoutX="334.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Accommodation        Rank:" wrappingWidth="79.79297043196857" />
+                                <TextField fx:id="accommodationRank3" disable="true" layoutX="423.0" layoutY="69.0" prefHeight="25.0" prefWidth="36.0" />
+                                <TextField fx:id="amounts3" disable="true" layoutX="151.0" layoutY="277.0" prefHeight="25.0" prefWidth="35.0" />
+                                <Text layoutX="14.0" layoutY="294.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Travellers Amount:" wrappingWidth="100.99999849498272" />
+                                <Text layoutX="340.0" layoutY="133.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Baggage" />
+                                <TextField fx:id="baggage3" disable="true" layoutX="423.0" layoutY="116.0" prefHeight="25.0" prefWidth="80.0" />
+                                <Text layoutX="339.0" layoutY="169.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vaction Type" />
+                                <TextField fx:id="vacationType3" disable="true" layoutX="423.0" layoutY="152.0" prefHeight="25.0" prefWidth="80.0" />
+                                <Text layoutX="349.0" layoutY="211.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Price:" />
+                                <TextField fx:id="price3" disable="true" layoutX="423.0" layoutY="194.0" prefHeight="25.0" prefWidth="80.0" />
+                                <TextFlow fx:id="Description3" accessibleText="descriptionText" disable="true" layoutX="631.0" layoutY="63.0" prefHeight="178.0" prefWidth="208.0" />
+                                <CheckBox fx:id="transfersCheck3" disable="true" layoutX="486.0" layoutY="73.0" mnemonicParsing="false" text="Transfers" />
+                                <Button fx:id="PurchaseButton3" disable="true" layoutX="675.0" layoutY="257.0" mnemonicParsing="false" onAction="#Purchase3" prefHeight="32.0" prefWidth="121.0" text="Purchase" />
+                                <Text layoutX="339.0" layoutY="289.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Publishd By" wrappingWidth="63.35157795622945" />
+                                <TextField fx:id="publishedBy3" disable="true" layoutX="423.0" layoutY="273.0" prefHeight="25.0" prefWidth="160.0" />
+                                <Text layoutX="697.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Descriprion" wrappingWidth="63.35157795622945" />
+                                <Text layoutX="104.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Country" />
+                                <Text layoutX="192.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="City" />
+                                <Text layoutX="14.0" layoutY="258.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ticket Type:" />
+                                <TextField fx:id="ticketType3"  disable="true" layoutX="102.0" layoutY="241.0" prefHeight="25.0" prefWidth="160.0" />
                             </children>
                         </AnchorPane>
                     </content>
                 </TitledPane>
             </panes>
         </Accordion>
-        <Button fx:id="accountSettings" layoutX="783.0" layoutY="577.0" mnemonicParsing="false"
-                onAction="#AccountSettings" prefHeight="32.0" prefWidth="121.0" text="Account Settings"/>
-        <Text layoutX="29.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="From:"/>
-        <Text layoutX="34.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="To:"
-              wrappingWidth="35.0000165104866"/>
-        <Text layoutX="295.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Arrival:"/>
-        <Text layoutX="875.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Adults"/>
-        <Text layoutX="972.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Babies"
-              wrappingWidth="34.99999849498272"/>
-        <Text layoutX="919.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Children"/>
-        <Text layoutX="891.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Travellers Amount:"
-              wrappingWidth="100.99999849498272"/>
-        <Text layoutX="308.0" layoutY="97.0" strokeType="OUTSIDE" strokeWidth="0.0"/>
-        <Text layoutX="285.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Departure:"/>
-        <Text layoutX="555.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Accomodation:"/>
-        <Text layoutX="555.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Flight Class:"
-              wrappingWidth="63.35157564282417"/>
-        <TextField fx:id="toCountry" layoutX="76.0" layoutY="77.0" prefHeight="25.0" prefWidth="83.0"/>
-        <Text layoutX="89.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Country"/>
-        <Text layoutX="177.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="City"/>
-        <Text fill="#e11c1c" layoutX="882.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*"
-              wrappingWidth="36.35157564282417"/>
-        <Text fill="#e11c1c" layoutX="19.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*"
-              wrappingWidth="10.351564407348633"/>
-        <Text fill="#e11c1c" layoutX="24.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*"
-              wrappingWidth="10.351575642824173"/>
-        <Text fill="#e11c1c" layoutX="25.0" layoutY="136.0" strokeType="OUTSIDE" strokeWidth="0.0"
-              text="* Required fields" wrappingWidth="101.00001315772533"/>
-        <Button fx:id="SearchButton" layoutX="882.0" layoutY="98.0" mnemonicParsing="false" onAction="#search"
-                prefHeight="32.0" prefWidth="121.0" text="Search"/>
-        <TextField fx:id="toCity" layoutX="158.0" layoutY="77.0" prefHeight="25.0" prefWidth="83.0"/>
-        <TextField fx:id="fromCountry" layoutX="76.0" layoutY="38.0" prefHeight="25.0" prefWidth="83.0"/>
-        <TextField fx:id="fromCity" layoutX="158.0" layoutY="38.0" prefHeight="25.0" prefWidth="83.0"/>
-        <Button fx:id="previousButton" disable="true" onAction="#previous" layoutX="400.0" layoutY="577.0"
-                mnemonicParsing="false" prefHeight="32.0" prefWidth="83.0" text="Previous"/>
-        <Button fx:id="publishButton" layoutX="662.0" layoutY="577.0" mnemonicParsing="false"
-                onAction="#publishVacation" prefHeight="32.0" prefWidth="121.0" text="Publish Vaction"/>
-        <ChoiceBox fx:id="adultsChoice" layoutX="870.0" layoutY="66.0" prefHeight="25.0" prefWidth="44.0">
-            <String fx:value="1"/>
-            <String fx:value="2"/>
-            <String fx:value="3"/>
-            <String fx:value="4"/>
-            <String fx:value="5"/>
-            <String fx:value="6"/>
-            <String fx:value="7"/>
-            <String fx:value="8"/>
-        </ChoiceBox>
-        <ChoiceBox fx:id="childrenChoice" layoutX="920.0" layoutY="65.0" prefHeight="17.0" prefWidth="44.0">
-            <String fx:value="0"/>
-            <String fx:value="1"/>
-            <String fx:value="2"/>
-            <String fx:value="3"/>
-            <String fx:value="4"/>
-            <String fx:value="5"/>
-            <String fx:value="6"/>
-            <String fx:value="7"/>
-            <String fx:value="8"/>
-        </ChoiceBox>
-        <ChoiceBox fx:id="babiesChoice" layoutX="970.0" layoutY="66.0" prefHeight="25.0" prefWidth="44.0">
-            <String fx:value="0"/>
-            <String fx:value="1"/>
-            <String fx:value="2"/>
-            <String fx:value="3"/>
-            <String fx:value="4"/>
-        </ChoiceBox>
-        <Button fx:id="LogoutButton" layoutX="902.0" layoutY="577.0" mnemonicParsing="false" onAction="#logOut"
-                prefHeight="32.0" prefWidth="121.0" text="Log out"/>
+        <Button fx:id="accountSettings" layoutX="783.0" layoutY="577.0" mnemonicParsing="false" onAction="#AccountSettings" prefHeight="32.0" prefWidth="121.0" text="Account Settings" />
+        <Text layoutX="29.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="From:" />
+        <Text layoutX="34.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="To:" wrappingWidth="35.0000165104866" />
+        <Text layoutX="295.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Arrival:" />
+        <Text layoutX="308.0" layoutY="97.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+        <Text layoutX="285.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Departure:" />
+        <Text layoutX="556.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Accommodation:" />
+        <TextField fx:id="toCountry" layoutX="76.0" layoutY="77.0" prefHeight="25.0" prefWidth="83.0" />
+        <Text layoutX="89.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Country" />
+        <Text layoutX="177.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="City" />
+        <Text fill="#e11c1c" layoutX="19.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*" wrappingWidth="10.351564407348633" />
+        <Text fill="#e11c1c" layoutX="24.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*" wrappingWidth="10.351575642824173" />
+        <Text fill="#e11c1c" layoutX="25.0" layoutY="136.0" strokeType="OUTSIDE" strokeWidth="0.0" text="* Required fields" wrappingWidth="101.00001315772533" />
+        <Button fx:id="SearchButton" layoutX="875.0" layoutY="55.0" mnemonicParsing="false" onAction="#search" prefHeight="32.0" prefWidth="121.0" text="Search" />
+        <TextField fx:id="toCity" layoutX="158.0" layoutY="77.0" prefHeight="25.0" prefWidth="83.0" />
+        <TextField fx:id="fromCountry" layoutX="76.0" layoutY="38.0" prefHeight="25.0" prefWidth="83.0" />
+        <TextField fx:id="fromCity" layoutX="158.0" layoutY="38.0" prefHeight="25.0" prefWidth="83.0" />
+        <Button fx:id="previousButton" disable="true" layoutX="400.0" layoutY="577.0" mnemonicParsing="false" onAction="#previous" prefHeight="32.0" prefWidth="83.0" text="Previous" />
+        <Button fx:id="publishButton" layoutX="662.0" layoutY="577.0" mnemonicParsing="false" onAction="#publishVacation" prefHeight="32.0" prefWidth="121.0" text="Publish Vaction" />
+        <Button fx:id="LogoutButton" layoutX="902.0" layoutY="577.0" mnemonicParsing="false" onAction="#logOut" prefHeight="32.0" prefWidth="121.0" text="Log out" />
     </children>
 </AnchorPane>

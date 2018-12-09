@@ -106,8 +106,7 @@ public class UpdateVacationController extends VacationController {
 
                 updateButton.setDisable(false);
             }
-        }
-        else{
+        } else {
             Alert a = new Alert(Alert.AlertType.INFORMATION);
             a.setContentText("You didn't entered a valid vacation id.\nPlease try again!.");
             a.show();
@@ -132,6 +131,21 @@ public class UpdateVacationController extends VacationController {
             String _accommodation = AccommodationUpdate.getValue().toString();
             String _accommodationRank = AccommodationRankUpdate.getValue().toString();
             String _flightClass = FlightClassUpdate.getValue().toString();
+
+
+            int RANK=0;
+            if (_accommodationRank.equals("Bad")) {
+                RANK = 0;
+            } else if (_accommodationRank.equals("Likely")) {
+                RANK = 1;
+            } else if (_accommodationRank.equals("Good")) {
+                RANK = 2;
+            } else if (_accommodationRank.equals("Very Good")) {
+                RANK = 3;
+            } else if (_accommodationRank.equals("Excellent")) {
+                RANK = 4;
+            }
+
 
             int _adults, _children, _babies;
             try {
@@ -212,7 +226,7 @@ public class UpdateVacationController extends VacationController {
                 //controller.updateFlightTickets(destTicket);
                 Vacation newVacation = new Vacation(_vactionId, originTicket, destTicket, destLocation, originLocation,
                         _arrival.toString(), _departure.toString(), _price, _baggage, _vacationType, _accommodation,
-                        true, _transfers);
+                        true, _transfers,RANK,controller.getCurrentUserName());
 
                 if (controller.updateVacation(newVacation)) {
                     Alert a = new Alert(Alert.AlertType.INFORMATION);

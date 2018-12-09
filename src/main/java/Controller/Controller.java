@@ -200,4 +200,22 @@ public class Controller {
     public void deleteVacationRecord(String VacationIdToDelete) {
         model.deleteVacationRecord(VacationIdToDelete);
     }
+
+
+
+    /**
+     * This method get the details of a vacation purchase and update the DB payment table
+     *
+     * @param VacationId
+     * @param Seller
+     * @param Buyer
+     * @param PaymentMethod
+     * @param CreditNumber
+     * @param PaymentDate
+     */
+    public void insertNewPayment(int VacationId, String Seller, String Buyer, String PaymentMethod,
+                                 String CreditNumber, String PaymentDate) {
+        model.insertNewPayment(VacationId, Seller, Buyer, PaymentMethod, CreditNumber, PaymentDate);
+    }
+
 }
