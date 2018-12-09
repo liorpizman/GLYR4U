@@ -85,7 +85,6 @@ public class VacationController {
         return controller.searchVacationData(vacationID);
     }
 
-
     /**
      * Shows relevant info for vacation id
      */
