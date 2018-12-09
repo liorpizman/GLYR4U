@@ -432,7 +432,7 @@ public class DBManagement {
                         rs.getString("AccommodationType"),
                         rs.getString("AccommodationIncluded"),
                         rs.getString("AccommodationRank"),
-                        rs.getString("Parking"),
+                        rs.getString("Transfers"),
                         rs.getString("user_name")));
 
             } catch (SQLException e) {

@@ -14,17 +14,17 @@
     <children>
         <Text layoutX="25.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="From:"/>
         <Text layoutX="32.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text="To:"/>
-        <TextField layoutX="71.0" layoutY="44.0" prefHeight="25.0" prefWidth="90.0"/>
-        <TextField layoutX="70.0" layoutY="79.0" prefHeight="25.0" prefWidth="90.0"/>
-        <TextField layoutX="185.0" layoutY="43.0" prefHeight="25.0" prefWidth="90.0"/>
-        <TextField layoutX="186.0" layoutY="78.0" prefHeight="25.0" prefWidth="90.0"/>
+        <TextField fx:id="FromCountry" layoutX="71.0" layoutY="44.0" prefHeight="25.0" prefWidth="90.0"/>
+        <TextField fx:id="FromCity" layoutX="70.0" layoutY="79.0" prefHeight="25.0" prefWidth="90.0"/>
+        <TextField fx:id="ToCountry" layoutX="185.0" layoutY="43.0" prefHeight="25.0" prefWidth="90.0"/>
+        <TextField fx:id="ToCity" layoutX="186.0" layoutY="78.0" prefHeight="25.0" prefWidth="90.0"/>
         <Text layoutX="211.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="City"/>
         <Text layoutX="88.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Country"/>
         <Text layoutX="11.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vacation:"/>
         <Text layoutX="33.0" layoutY="129.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Arrival:"/>
         <Text layoutX="33.0" layoutY="164.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Departure:"/>
-        <DatePicker layoutX="141.0" layoutY="111.0" prefHeight="25.0" prefWidth="137.0"/>
-        <DatePicker layoutX="143.0" layoutY="148.0" prefHeight="25.0" prefWidth="137.0"/>
+        <DatePicker fx:id="Arrival" layoutX="141.0" layoutY="111.0" prefHeight="25.0" prefWidth="137.0"/>
+        <DatePicker fx:id="Departure" layoutX="143.0" layoutY="148.0" prefHeight="25.0" prefWidth="137.0"/>
         <Text layoutX="33.0" layoutY="202.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Accommodation:"/>
         <Text layoutX="34.0" layoutY="271.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Flight Class:"/>
         <ChoiceBox fx:id="Accommodation" layoutX="144.0" layoutY="184.0" prefHeight="25.0" prefWidth="137.0"
@@ -44,12 +44,7 @@
         <Text layoutX="191.0" layoutY="300.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Childern"/>
         <Text layoutX="249.0" layoutY="300.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Babies"/>
         <Text layoutX="37.0" layoutY="358.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Price:"/>
-        <ChoiceBox fx:id="Price" layoutX="148.0" layoutY="341.0" prefHeight="25.0" prefWidth="137.0" value="0$-500$">
-            <String fx:value="0$-500$"/>
-            <String fx:value="500$-1000$"/>
-            <String fx:value="1000$-2000$"/>
-            <String fx:value="2000$+"/>
-        </ChoiceBox>
+        <TextField fx:id="Price" layoutX="148.0" layoutY="341.0" prefHeight="25.0" prefWidth="137.0"/>
         <Text layoutX="39.0" layoutY="389.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Baggage:"/>
         <ChoiceBox fx:id="Baggage" layoutX="150.0" layoutY="372.0" prefHeight="25.0" prefWidth="137.0" value="Bag-5KG">
             <String fx:value="Bag-5KG"/>
@@ -71,7 +66,7 @@
                 text="Back"/>
         <Button fx:id="PublishButton" layoutX="234.0" layoutY="483.0" mnemonicParsing="false" text="Publish" onAction="#publishVacation"/>
         <Text layoutX="41.0" layoutY="421.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="98.58398374915123"/>
-        <CheckBox layoutX="41.0" layoutY="438.0" mnemonicParsing="false" text="Transfers"/>
+        <CheckBox fx:id="Transfers" layoutX="41.0" layoutY="438.0" mnemonicParsing="false" text="Transfers"/>
         <Text layoutX="34.0" layoutY="229.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Accommodation         Rank:"
               wrappingWidth="90.12890915572643"/>
         <ChoiceBox fx:id="AccommodationRank" layoutX="145.0" layoutY="218.0" prefHeight="25.0" prefWidth="137.0"

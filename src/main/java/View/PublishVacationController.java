@@ -9,10 +9,12 @@ import java.util.ArrayList;
 
 public class PublishVacationController extends ViewController {
     private static int VactionID = 200;
+    public javafx.scene.control.Button PublishButton;
     public javafx.scene.control.TextField FromCountry;
     public javafx.scene.control.TextField FromCity;
     public javafx.scene.control.TextField ToCountry;
     public javafx.scene.control.TextField ToCity;
+    public javafx.scene.control.TextField Price;
 
     public javafx.scene.control.DatePicker Arrival;
     public javafx.scene.control.DatePicker Departure;
@@ -25,7 +27,7 @@ public class PublishVacationController extends ViewController {
     public javafx.scene.control.ChoiceBox Children;
     public javafx.scene.control.ChoiceBox Babies;
 
-    public javafx.scene.control.ChoiceBox Price;
+
     public javafx.scene.control.ChoiceBox Baggage;
     public javafx.scene.control.ChoiceBox VacationType;
 
@@ -46,11 +48,11 @@ public class PublishVacationController extends ViewController {
         String _accommodationRank = AccommodationRank.getValue().toString();
         String _flightClass = FlightClass.getValue().toString();
 
-        int _adults = (int)Adults.getValue();
-        int _children = (int)Children.getValue();
-        int _babies = (int)Babies.getValue();
+        int _adults = Integer.parseInt(Adults.getValue().toString());
+        int _children = Integer.parseInt(Children.getValue().toString());
+        int _babies = Integer.parseInt(Babies.getValue().toString());
 
-        double _price = (double)Price.getValue();
+        double _price = Double.parseDouble(Price.getText());
         String _baggage = Baggage.getValue().toString();
         String _vacationType = VacationType.getValue().toString();
 
@@ -92,7 +94,7 @@ public class PublishVacationController extends ViewController {
             if ((controller.GetVacationsInformation(VacationsID)).size() != 0)
             {
                 Alert a = new Alert(Alert.AlertType.INFORMATION);
-                a.setContentText("The user created successfully.");
+                a.setContentText("The vacation published successfully.");
                 a.show();
             }
             else
