@@ -273,13 +273,13 @@ public class DBManagement {
      *
      * @param VacationIdToDelete
      */
-    public void deleteVacationRecord(String VacationIdToDelete, String userName) {
+    public boolean deleteVacationRecord(String VacationIdToDelete, String userName) {
         ArrayList<Integer> ID = new ArrayList<>();
         ID.add(Integer.parseInt(VacationIdToDelete));
         ArrayList<Vacation> vacations = GetVacationsInformation(ID);
         Vacation v = vacations.get(0);
 
-        if(v != null)
+        if(v.getUserID().equals(userName))
         {
             String sql1 = "DELETE FROM Vacations WHERE VacationId = ? AND user_name=?";
             String sql2 = "DELETE FROM FlightTickets WHERE VacationId = ?";
@@ -298,7 +298,9 @@ public class DBManagement {
             } catch (SQLException e) {
                 System.out.println(e.getMessage());
             }
+            return true;
         }
+        return false;
     }
 
     /**
