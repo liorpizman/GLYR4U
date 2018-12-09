@@ -11,7 +11,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.Dictionary;
 import java.util.HashMap;
 
 public class DBManagement {
@@ -274,15 +273,34 @@ public class DBManagement {
      *
      * @param VacationIdToDelete
      */
-    public void deleteVacationRecord(String VacationIdToDelete) {
-        String sql = "DELETE FROM Vacations WHERE VacationId = ?";
-        try (Connection conn = this.connect();
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            pstmt.setString(1, VacationIdToDelete);
-            pstmt.executeUpdate();
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
+    public boolean deleteVacationRecord(String VacationIdToDelete, String userName) {
+        ArrayList<Integer> ID = new ArrayList<>();
+        ID.add(Integer.parseInt(VacationIdToDelete));
+        ArrayList<Vacation> vacations = GetVacationsInformation(ID);
+        Vacation v = vacations.get(0);
+
+        if(v.getUserID().equals(userName))
+        {
+            String sql1 = "DELETE FROM Vacations WHERE VacationId = ? AND user_name=?";
+            String sql2 = "DELETE FROM FlightTickets WHERE VacationId = ?";
+            try (Connection conn1 = this.connect();
+                 PreparedStatement pstmt1 = conn1.prepareStatement(sql1)) {
+                pstmt1.setString(1, VacationIdToDelete);
+                pstmt1.setString(2, userName);
+                pstmt1.executeUpdate();
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());
+            }
+            try (Connection conn2 = this.connect();
+                 PreparedStatement pstmt2 = conn2.prepareStatement(sql2)) {
+                pstmt2.setString(1, VacationIdToDelete);
+                pstmt2.executeUpdate();
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());
+            }
+            return true;
         }
+        return false;
     }
 
     /**

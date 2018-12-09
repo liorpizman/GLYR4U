@@ -197,8 +197,8 @@ public class Controller {
      *
      * @param VacationIdToDelete
      */
-    public void deleteVacationRecord(String VacationIdToDelete) {
-        model.deleteVacationRecord(VacationIdToDelete);
+    public boolean deleteVacationRecord(String VacationIdToDelete) {
+        return model.deleteVacationRecord(VacationIdToDelete);
     }
 
 
