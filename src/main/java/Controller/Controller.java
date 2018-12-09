@@ -138,8 +138,7 @@ public class Controller {
                     a.show();
                     return false;
                 }
-            }
-            else{
+            } else {
                 Alert a = new Alert(Alert.AlertType.INFORMATION);
                 a.setContentText("The user name or password is incorrect.\nPlease try again!");
                 a.show();
@@ -179,4 +178,23 @@ public class Controller {
         return model.GetVacationsInformation(tmpList);
     }
 
+    /**
+     * This method updates vacation
+     *
+     * @param newVacation
+     * @return
+     */
+    public boolean updateVacation(Vacation newVacation) {
+        return model.updateVacation(newVacation);
+    }
+
+
+    /**
+     * This method deletes a record from the Vacations table in the DB by the VacationId
+     *
+     * @param VacationIdToDelete
+     */
+    public void deleteVacationRecord(String VacationIdToDelete) {
+        model.deleteVacationRecord(VacationIdToDelete);
+    }
 }

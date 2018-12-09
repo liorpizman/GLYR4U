@@ -4,6 +4,7 @@ import Model.FlightTickets;
 import Model.Location;
 import Model.Vacation;
 import javafx.scene.control.Alert;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -31,6 +32,8 @@ public class PublishVacationController extends ViewController {
     public javafx.scene.control.ChoiceBox Baggage;
     public javafx.scene.control.ChoiceBox VacationType;
 
+    public javafx.scene.control.TextField Airline;
+
     public javafx.scene.control.CheckBox Transfers;
 
     public void publishVacation() {
@@ -43,16 +46,48 @@ public class PublishVacationController extends ViewController {
         LocalDate _arrival = Arrival.getValue();
         LocalDate _departure = Departure.getValue();
 
-        String _airline = "el-al";
+        String _airline = Airline.getText();
         String _accommodation = Accommodation.getValue().toString();
         String _accommodationRank = AccommodationRank.getValue().toString();
         String _flightClass = FlightClass.getValue().toString();
 
-        int _adults = Integer.parseInt(Adults.getValue().toString());
-        int _children = Integer.parseInt(Children.getValue().toString());
-        int _babies = Integer.parseInt(Babies.getValue().toString());
+        int _adults, _children, _babies;
+        try {
+            _adults = Integer.parseInt(Adults.getValue().toString());
+        } catch (Exception e) {
+            Alert a = new Alert(Alert.AlertType.INFORMATION);
+            a.setContentText("You didn't entered a valid adults amount.\nPlease fill this field.");
+            a.show();
+            return;
+        }
 
-        double _price = Double.parseDouble(Price.getText());
+        try {
+            _children = Integer.parseInt(Children.getValue().toString());
+        } catch (Exception e) {
+            Alert a = new Alert(Alert.AlertType.INFORMATION);
+            a.setContentText("You didn't entered a valid children amount.\nPlease fill this field.");
+            a.show();
+            return;
+        }
+
+        try {
+            _babies = Integer.parseInt(Babies.getValue().toString());
+        } catch (Exception e) {
+            Alert a = new Alert(Alert.AlertType.INFORMATION);
+            a.setContentText("You didn't entered a valid babies amount.\nPlease fill this field.");
+            a.show();
+            return;
+        }
+
+        double _price = 0;
+        try {
+            _price = Double.parseDouble(Price.getText());
+        } catch (Exception e) {
+            Alert a = new Alert(Alert.AlertType.INFORMATION);
+            a.setContentText("You didn't entered a valid price.\nPlease fill this field.");
+            a.show();
+        }
+
         String _baggage = Baggage.getValue().toString();
         String _vacationType = VacationType.getValue().toString();
 
@@ -74,9 +109,7 @@ public class PublishVacationController extends ViewController {
             Alert a = new Alert(Alert.AlertType.INFORMATION);
             a.setContentText("You didn't entered the destination city.\nPlease fill this field.");
             a.show();
-        }
-        else
-        {
+        } else {
             ArrayList<Integer> VacationsID = new ArrayList<>();
             Location originLocation = new Location(_fromCountry, _fromCity);
             Location destLocation = new Location(_toCountry, _toCity);
@@ -90,17 +123,14 @@ public class PublishVacationController extends ViewController {
             controller.insertFlightTickets(destTicket);
             Vacation newVacation = new Vacation(_vactionId, originTicket, destTicket, destLocation, originLocation,
                     _arrival.toString(), _departure.toString(), _price, _baggage, _vacationType, _accommodation,
-                    true,  _transfers);
+                    true, _transfers);
             controller.insertVacation(newVacation);
             VacationsID.add(_vactionId);
-            if ((controller.GetVacationsInformation(VacationsID)).size() != 0)
-            {
+            if ((controller.GetVacationsInformation(VacationsID)).size() != 0) {
                 Alert a = new Alert(Alert.AlertType.INFORMATION);
                 a.setContentText("The vacation published successfully.");
                 a.show();
-            }
-            else
-            {
+            } else {
                 Alert a = new Alert(Alert.AlertType.INFORMATION);
                 a.setContentText("Error occurred! Please try again.");
                 a.show();

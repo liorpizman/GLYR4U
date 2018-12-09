@@ -6,7 +6,25 @@ import javafx.scene.control.Alert;
 import java.util.ArrayList;
 
 public class ReadVacationController extends VacationController {
-
+    public javafx.scene.control.TextField VacationIDRead;
+    public javafx.scene.control.TextField FromCountryRead;
+    public javafx.scene.control.TextField FromCityRead;
+    public javafx.scene.control.TextField ToCountyRead;
+    public javafx.scene.control.TextField ToCityRead;
+    public javafx.scene.control.TextField ArrivalRead;
+    public javafx.scene.control.TextField DepartureRead;
+    public javafx.scene.control.TextField AccommodationRead;
+    public javafx.scene.control.TextField AccommodationRankRead;
+    public javafx.scene.control.TextField FlightClassRead;
+    public javafx.scene.control.TextField AdultsRead;
+    public javafx.scene.control.TextField ChildrenRead;
+    public javafx.scene.control.TextField BabiesRead;
+    public javafx.scene.control.TextField PriceRead;
+    public javafx.scene.control.TextField BaggageRead;
+    public javafx.scene.control.TextField VacationTypeRead;
+    public javafx.scene.control.CheckBox TransfersRead;
+    public javafx.scene.control.TextField AirlineRead;
+    public javafx.scene.control.Button showReadButton;
 
     /**
      * Shows relevant info for vacation id
@@ -69,10 +87,17 @@ public class ReadVacationController extends VacationController {
                 VacationTypeRead.setText(currVacation.getVacationType());
                 VacationTypeRead.setDisable(true);
 
+                AirlineRead.setText(currVacation.getFromOriginFlight().getAirline());
+                AirlineRead.setDisable(true);
 
                 TransfersRead.setSelected(currVacation.isTransfers());
                 TransfersRead.setDisable(true);
             }
+        }
+        else{
+            Alert a = new Alert(Alert.AlertType.INFORMATION);
+            a.setContentText("You didn't entered a valid vacation id.\nPlease try again!.");
+            a.show();
         }
     }
 
