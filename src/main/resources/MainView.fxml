@@ -5,23 +5,18 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="380.0" prefWidth="379.0" xmlns="http://javafx.com/javafx/8.0.171"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.View">
+<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="380.0" prefWidth="379.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.View">
     <children>
-        <TextField fx:id="userName" layoutX="92.0" layoutY="98.0" prefHeight="25.0" prefWidth="137.0"/>
-        <TextField fx:id="userPassword" layoutX="92.0" layoutY="134.0" prefHeight="25.0" prefWidth="137.0"/>
-        <Text layoutX="17.0" layoutY="115.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User Name"
-              wrappingWidth="90.80336952209473"/>
-        <Text layoutX="17.0" layoutY="151.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password"
-              wrappingWidth="74.13668251037598"/>
-        <Text layoutX="14.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0"
-              text="Please fill user name and password:" wrappingWidth="196.13674926757812"/>
-        <Button fx:id="LogIn" layoutX="92.0" layoutY="178.0" mnemonicParsing="false" onAction="#logIn" prefHeight="25.0"
-                prefWidth="64.0" text="Log In"/>
-        <Button fx:id="createUser" layoutX="92.0" layoutY="244.0" mnemonicParsing="false" onAction="#createUser"
-                prefHeight="25.0" prefWidth="99.0" text="Create Account"/>
-        <Button fx:id="SearchVacationButton" layoutX="262.0" layoutY="47.0" mnemonicParsing="false"
-                onAction="#searchVacation" prefHeight="18.0" prefWidth="110.0" text="Search Vacation"/>
-        <Text layoutX="26.0" layoutY="261.0" strokeType="OUTSIDE" strokeWidth="0.0" text="New User?"/>
+        <TextField fx:id="userName" layoutX="92.0" layoutY="98.0" prefHeight="25.0" prefWidth="137.0" />
+        <TextField fx:id="userPassword" layoutX="92.0" layoutY="134.0" prefHeight="25.0" prefWidth="137.0" />
+        <Text layoutX="17.0" layoutY="115.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User Name" wrappingWidth="90.80336952209473" />
+        <Text layoutX="17.0" layoutY="151.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" wrappingWidth="74.13668251037598" />
+        <Text layoutX="14.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Please fill user name and password:" wrappingWidth="196.13674926757812" />
+        <Button fx:id="LogIn" layoutX="92.0" layoutY="178.0" mnemonicParsing="false" onAction="#logIn" prefHeight="25.0" prefWidth="64.0" text="Log In" />
+        <Button fx:id="createUser" layoutX="92.0" layoutY="244.0" mnemonicParsing="false" onAction="#createUser" prefHeight="25.0" prefWidth="99.0" text="Create Account" />
+        <Button fx:id="SearchVacationButton" layoutX="262.0" layoutY="47.0" mnemonicParsing="false" onAction="#searchVacation" prefHeight="18.0" prefWidth="110.0" text="Search Vacation" />
+        <Text layoutX="26.0" layoutY="261.0" strokeType="OUTSIDE" strokeWidth="0.0" text="New User?" />
+      <Button id="DeleteMyAccountButton" layoutX="243.0" layoutY="244.0" mnemonicParsing="false" onAction="#deleteUser" prefHeight="25.0" prefWidth="131.0" text="Delete My Account" />
+      <Button fx:id="ExitButton" layoutX="17.0" layoutY="278.0" mnemonicParsing="false" onAction="#exitSystem" prefHeight="25.0" prefWidth="74.0" text="Exit" />
     </children>
 </AnchorPane>

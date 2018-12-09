@@ -18,6 +18,10 @@ public class Controller {
     private Model model;
     private View view;
 
+
+    private String currrentSeller;
+    private String currentVacation;
+    private double currentPrice=0;
     /**
      * This is a default constructor to create the controller
      *
@@ -206,16 +210,35 @@ public class Controller {
     /**
      * This method get the details of a vacation purchase and update the DB payment table
      *
-     * @param VacationId
-     * @param Seller
+
      * @param Buyer
      * @param PaymentMethod
      * @param CreditNumber
      * @param PaymentDate
      */
-    public void insertNewPayment(int VacationId, String Seller, String Buyer, String PaymentMethod,
+    public void insertNewPayment(String Buyer, String PaymentMethod,
                                  String CreditNumber, String PaymentDate) {
-        model.insertNewPayment(VacationId, Seller, Buyer, PaymentMethod, CreditNumber, PaymentDate);
+        model.insertNewPayment(Integer.parseInt(currentVacation), currrentSeller, Buyer, PaymentMethod, CreditNumber, PaymentDate);
     }
 
+    /**
+     * Setters for current seller and vacation ids
+     * @param currrentSeller
+     */
+
+    public void setCurrrentSeller(String currrentSeller) {
+        this.currrentSeller = currrentSeller;
+    }
+
+    public void setCurrentVacation(String currentVacation) {
+        this.currentVacation = currentVacation;
+    }
+
+    public void setCurrentPrice(double currentPrice) {
+        this.currentPrice = currentPrice;
+    }
+
+    public double getCurrentPrice() {
+        return currentPrice;
+    }
 }

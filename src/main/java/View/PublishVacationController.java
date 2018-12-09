@@ -42,7 +42,7 @@ public class PublishVacationController extends ViewController {
         int low = VactionID;
         int high = VactionID * 5;
         int _vactionId = r.nextInt(high - low) + low;
-        VactionID += 100;
+        VactionID += 500;
         String _fromCountry = FromCountry.getText();
         String _fromCity = FromCity.getText();
         String _toCountry = ToCountry.getText();
