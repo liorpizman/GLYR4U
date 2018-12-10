@@ -4,7 +4,9 @@ import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 
 import java.time.LocalDate;
-
+/**
+ * Class for handling payment events
+ */
 public class PaymentController extends ViewController {
 
     public javafx.scene.control.ChoiceBox PaymentMethodChoice;
@@ -15,7 +17,9 @@ public class PaymentController extends ViewController {
     public javafx.scene.control.Button showPrice;
 
 
-
+    /**
+     * Confirm payment for vacation, sending detailes to the payments table
+     */
     public void ConfirmVacationPayment() {
         String _paymentMethodChoice = PaymentMethodChoice.getValue().toString();
         String _creditNumber = CreditNumber.getText();
@@ -37,6 +41,9 @@ public class PaymentController extends ViewController {
 
     }
 
+    /**
+     * Show the price of the vacation
+     */
     public void showPrice(){
         AmountToPay.setText(Double.toString(controller.getCurrentPrice()));
 

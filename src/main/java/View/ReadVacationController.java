@@ -4,7 +4,9 @@ import Model.Vacation;
 import javafx.scene.control.Alert;
 
 import java.util.ArrayList;
-
+/**
+ * This class controls the Read Vacation Window
+ */
 public class ReadVacationController extends VacationController {
     public javafx.scene.control.TextField VacationIDRead;
     public javafx.scene.control.TextField FromCountryRead;

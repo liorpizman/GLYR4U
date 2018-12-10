@@ -13,7 +13,7 @@ public class User {
     private String last_name;
     private String city;
     private String date;
-    private Map<Integer, Vacation> AllVacations;
+    //private Map<Integer, Vacation> AllVacations;
 
     /**
      * This is a default constructor to create a new user

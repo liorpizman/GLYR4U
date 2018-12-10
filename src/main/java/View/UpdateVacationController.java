@@ -7,7 +7,9 @@ import javafx.scene.control.Alert;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-
+/**
+ * Class for handling update vacation events
+ */
 public class UpdateVacationController extends VacationController {
 
     public javafx.scene.control.TextField VacationIDUpdate;

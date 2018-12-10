@@ -8,7 +8,9 @@ import javafx.scene.control.Alert;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Random;
-
+/**
+ * Class for handling publish events
+ */
 public class PublishVacationController extends ViewController {
     private static int VactionID = 200;
     public javafx.scene.control.Button PublishButton;
@@ -37,6 +39,9 @@ public class PublishVacationController extends ViewController {
 
     public javafx.scene.control.CheckBox Transfers;
 
+    /**
+     * Validaition of inserted fields, sending vacation details to the controller
+     */
     public void publishVacation() {
         Random r = new Random();
         int low = VactionID;

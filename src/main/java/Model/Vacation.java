@@ -11,6 +11,9 @@ enum Rank {
     bad, likely, good, veryGood, excellent
 }
 
+/**
+ * Represents a vacation
+ */
 public class Vacation {
     private FlightTickets FromOriginFlight;
     private FlightTickets FromDestFlight;  /// if it is null - it is not exists

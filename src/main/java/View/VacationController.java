@@ -9,6 +9,9 @@ import javafx.stage.Stage;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
+/**
+ * Main Controller for vacation controllers
+ */
 public class VacationController {
 
     public javafx.scene.control.Button BackButton;

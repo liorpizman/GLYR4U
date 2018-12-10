@@ -3,6 +3,9 @@ package Model;
 
 import java.util.Random;
 
+/**
+ * Collection of flight tickets
+ */
 public class FlightTickets {
 
     static int TicketID = 100;////// key of the object
@@ -15,6 +18,15 @@ public class FlightTickets {
     private int[] TravelersType;  // index: 0-Baby , 1-Child , 2-Adult
     private int VacationId;
 
+    /**
+     * Constructor
+     * @param airline
+     * @param destination
+     * @param origin
+     * @param travelersType
+     * @param TypeOfTicket
+     * @param vacationId
+     */
     public FlightTickets(String airline, Location destination, Location origin, int[] travelersType, String TypeOfTicket, int vacationId) {
         Airline = airline;
         Destination = destination;
@@ -33,6 +45,11 @@ public class FlightTickets {
         TicketID += 500;
     }
 
+    /**
+     * @param travelersType
+     * @return Total amount of tickets
+     */
+
     private int CalculateAmountOfTickets(int[] travelersType) {
         int Amount = 0;
         for (int i = 0; i < travelersType.length; i++) {
@@ -40,6 +57,11 @@ public class FlightTickets {
         }
         return Amount;
     }
+
+    /**
+     * getters
+     * @return properties
+     */
 
 
     public int getTicketId() {

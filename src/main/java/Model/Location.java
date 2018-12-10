@@ -1,5 +1,8 @@
 package Model;
 
+/**
+ * Represents Location
+ */
 public class Location {
 
     private String Country;

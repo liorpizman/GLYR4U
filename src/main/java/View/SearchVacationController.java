@@ -12,6 +12,9 @@ import javafx.stage.Stage;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+/**
+ * Class for handling search events
+ */
 public class SearchVacationController {
 
     public javafx.scene.control.TextField fromCountry;
@@ -159,29 +162,9 @@ public class SearchVacationController {
     }
 
     /**
-     * public void searchTest() {
-     * HashMap<String,String> askedFields = new HashMap<String,String>();
-     * askedFields.put("OVacationCountry", "Israel");
-     * askedFields.put("OVacationCity", "Tel-Aviv");
-     * askedFields.put("DVacationCountry", "France");
-     * askedFields.put("DVacationCity", "Paris");
-     * <p>
-     * /////////////////////////////////////////////////////
-     * //askedFields.put("BabyTickets","1");
-     * //  askedFields.put("ChildTickets","2");
-     * // askedFields.put("AdultTickets",("3"));
-     * askedFields.put("StartDate", "2019-01-03");
-     * askedFields.put("EndDate", "2019-01-01");
-     * // askedFields.put("AccommodationType","Hotel");
-     * // askedFields.put("TicketType", "BasicClass");
-     * ArrayList<Integer> vacationIDs = controller.GetVacationsIdByField(askedFields);
-     * vacationsList = controller.GetVacationsInformation(vacationIDs);
-     * SetAllResults(0);
-     * // Vacation [] VacationsArray = (Vacation[])vacationsList.toArray();
-     * <p>
-     * }
-     **/
-
+     * Sets results to the vacations tabs
+     * @param i - num of vacation in the list
+     */
 
     public void SetAllResults(int i) {
         if (i < vacationsList.size()) {
@@ -222,6 +205,10 @@ public class SearchVacationController {
 
     }
 
+    /**
+     * Sets results to the vacations tab1
+     * @param _currentVacation
+     */
     public void SetResultFields1(Vacation _currentVacation) {
         titledPane1.setText(""); // _currentVacation.toString()
         fromCountry1.setText(_currentVacation.getOVacationCountry());
@@ -251,6 +238,11 @@ public class SearchVacationController {
             transfersCheck1.setText("No");
         }
     }
+
+    /**
+     * Sets results to the vacations tab2
+     * @param _currentVacation
+     */
 
     public void SetResultFields2(Vacation _currentVacation) {
         titledPane2.setText(""); // _currentVacation.toString()
@@ -282,6 +274,10 @@ public class SearchVacationController {
         }
     }
 
+    /**
+     * Sets results to the vacations tab3
+     * @param _currentVacation
+     */
     public void SetResultFields3(Vacation _currentVacation) {
         titledPane3.setText(""); // _currentVacation.toString()
         fromCountry3.setText(_currentVacation.getOVacationCountry());
@@ -312,6 +308,9 @@ public class SearchVacationController {
         }
     }
 
+    /**
+     * handles next button event
+     */
     public void next() {
         firstVacationIndex += 3;
         SetAllResults(firstVacationIndex);
@@ -319,7 +318,9 @@ public class SearchVacationController {
             nextButton.setDisable(true);
         }
     }
-
+    /**
+     * handles previous button event
+     */
     public void previous() {
         firstVacationIndex -= 3;
         SetAllResults(firstVacationIndex);
@@ -336,11 +337,16 @@ public class SearchVacationController {
         openPurchase(publishedBy1.getText(), vacationIDs[firstVacationIndex], Double.parseDouble(price1.getText()));
     }
 
+    /**
+     * Notifying the Purchase window which vacationID is sold and who is the Seller
+     */
     public void Purchase2() {
         PurchaseButton2.setDisable(true);
         openPurchase(publishedBy2.getText(), vacationIDs[firstVacationIndex + 1], Double.parseDouble(price2.getText()));
     }
-
+    /**
+     * Notifying the Purchase window which vacationID is sold and who is the Seller
+     */
     public void Purchase3() {
         PurchaseButton3.setDisable(true);
         openPurchase(publishedBy3.getText(), vacationIDs[firstVacationIndex + 2], Double.parseDouble(price3.getText()));
@@ -374,6 +380,9 @@ public class SearchVacationController {
         }
     }
 
+    /**
+     * switches back to home window
+     */
     public void backHome() {
         // back to home stage from the current window
         // close this window and change a stage/scene
@@ -381,17 +390,6 @@ public class SearchVacationController {
         // get a handle to the stage
         Stage stage = (Stage) BackButton.getScene().getWindow();
         stage.close();
-    }
-
-    public void setDisable() {
-        if (!controller.isUserConnected()) {
-            PurchaseButton1.setDisable(true);
-            PurchaseButton1.setDisable(true);
-            PurchaseButton1.setDisable(true);
-            LogoutButton.setDisable(true);
-            accountSettings.setDisable(true);
-            publishButton.setDisable(true);
-        }
     }
 
     /**
@@ -456,14 +454,6 @@ public class SearchVacationController {
         }
         controller.setCurrentUserInSystem(null);
         backHome();
-        /*
-        PurchaseButton1.setDisable(true);
-        PurchaseButton1.setDisable(true);
-        PurchaseButton1.setDisable(true);
-        LogoutButton.setDisable(true);
-        accountSettings.setDisable(true);
-        publishButton.setDisable(true);
-        */
     }
 }
 
