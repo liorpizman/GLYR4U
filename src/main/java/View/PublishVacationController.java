@@ -43,10 +43,10 @@ public class PublishVacationController extends ViewController {
         int high = VactionID * 5;
         int _vactionId = r.nextInt(high - low) + low;
         VactionID += 500;
-        String _fromCountry = FromCountry.getText();
-        String _fromCity = FromCity.getText();
-        String _toCountry = ToCountry.getText();
-        String _toCity = ToCity.getText();
+        String _fromCountry = FromCountry.getText().toLowerCase();
+        String _fromCity = FromCity.getText().toLowerCase();
+        String _toCountry = ToCountry.getText().toLowerCase();
+        String _toCity = ToCity.getText().toLowerCase();
 
         LocalDate _arrival = Arrival.getValue();
         LocalDate _departure = Departure.getValue();

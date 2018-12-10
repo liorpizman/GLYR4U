@@ -126,10 +126,10 @@ public class SearchVacationController {
             a.show();
             return;
         }
-        askedFields.put("OVacationCountry", fromCountry.getText());
-        askedFields.put("OVacationCity", fromCity.getText());
-        askedFields.put("DVacationCountry", toCountry.getText());
-        askedFields.put("DVacationCity", toCity.getText());
+        askedFields.put("OVacationCountry", fromCountry.getText().toLowerCase());
+        askedFields.put("OVacationCity", fromCity.getText().toLowerCase());
+        askedFields.put("DVacationCountry", toCountry.getText().toLowerCase());
+        askedFields.put("DVacationCity", toCity.getText().toLowerCase());
         askedFields.put("StartDate", arrivalDate.getValue().toString());
         askedFields.put("EndDate", departureDate.getValue().toString());
         askedFields.put("AccommodationType", (String) accommodationChoice.getValue());
