@@ -35,7 +35,7 @@ public class Vacation {
 
     public Vacation(int vactionId, FlightTickets fromOriginFlight, FlightTickets fromDestFlight, Location dVacationLocation,
                     Location oVacationLocation, String startDate, String endDate, double price, String Baggagetype,
-                    String vacationType, String accommodationType, boolean accommodationIncluded, boolean transfers,int accommodationRank, String _userID) {
+                    String vacationType, String accommodationType, boolean accommodationIncluded, boolean transfers, int accommodationRank, String _userID) {
         FromOriginFlight = fromOriginFlight;
         FromDestFlight = fromDestFlight;
         DVacationLocation = dVacationLocation;
@@ -146,4 +146,9 @@ public class Vacation {
     public String getFromOriginFlightClass() {
         return FromOriginFlight.getTicketType();
     }
+
+    public String toString() {
+        return "From "+ OVacationLocation.getCountry() + " to "+ DVacationLocation.getCountry()+ ", Price: "+ Price + "$";
+    }
+
 }

@@ -115,14 +115,15 @@ public class SearchVacationController {
      * handles search button clicked event, setting search results to tabs.
      */
     public void search() {
+        clearAllFields();
         HashMap<String, String> askedFields = new HashMap<String, String>();
 //        searchTest();
-        if ( (fromCountry == null ||fromCountry.getText().isEmpty() )||
-                (fromCity == null ||fromCity.getText().isEmpty() )||
-                (toCountry == null ||toCountry.getText().isEmpty() )||
-                (toCity == null ||toCity.getText().isEmpty() )||
-                (arrivalDate == null ||arrivalDate.getValue()==null ||arrivalDate.getValue().toString().isEmpty() )||
-                (departureDate == null ||departureDate.getValue()==null || departureDate.getValue().toString().isEmpty() )
+        if ((fromCountry == null || fromCountry.getText().isEmpty()) ||
+                (fromCity == null || fromCity.getText().isEmpty()) ||
+                (toCountry == null || toCountry.getText().isEmpty()) ||
+                (toCity == null || toCity.getText().isEmpty()) ||
+                (arrivalDate == null || arrivalDate.getValue() == null || arrivalDate.getValue().toString().isEmpty()) ||
+                (departureDate == null || departureDate.getValue() == null || departureDate.getValue().toString().isEmpty())
                 ) {
             Alert a = new Alert(Alert.AlertType.INFORMATION);
             a.setContentText("Not all fields have been filled correctly, please fill all fields ");
@@ -163,6 +164,7 @@ public class SearchVacationController {
 
     /**
      * Sets results to the vacations tabs
+     *
      * @param i - num of vacation in the list
      */
 
@@ -207,10 +209,11 @@ public class SearchVacationController {
 
     /**
      * Sets results to the vacations tab1
+     *
      * @param _currentVacation
      */
     public void SetResultFields1(Vacation _currentVacation) {
-        titledPane1.setText(""); // _currentVacation.toString()
+        titledPane1.setText(_currentVacation.toString()); // _currentVacation.toString()
         fromCountry1.setText(_currentVacation.getOVacationCountry());
         fromCity1.setText((_currentVacation.getOVacationCity()));
         toCountry1.setText(_currentVacation.getDVacationCountry());
@@ -241,11 +244,12 @@ public class SearchVacationController {
 
     /**
      * Sets results to the vacations tab2
+     *
      * @param _currentVacation
      */
 
     public void SetResultFields2(Vacation _currentVacation) {
-        titledPane2.setText(""); // _currentVacation.toString()
+        titledPane2.setText(_currentVacation.toString()); // _currentVacation.toString()
         fromCountry2.setText(_currentVacation.getOVacationCountry());
         fromCity2.setText((_currentVacation.getOVacationCity()));
         fromCity2.setText((_currentVacation.getOVacationCity()));
@@ -276,10 +280,11 @@ public class SearchVacationController {
 
     /**
      * Sets results to the vacations tab3
+     *
      * @param _currentVacation
      */
     public void SetResultFields3(Vacation _currentVacation) {
-        titledPane3.setText(""); // _currentVacation.toString()
+        titledPane3.setText(_currentVacation.toString()); // _currentVacation.toString()
         fromCountry3.setText(_currentVacation.getOVacationCountry());
         fromCity3.setText((_currentVacation.getOVacationCity()));
         fromCity3.setText((_currentVacation.getOVacationCity()));
@@ -318,6 +323,7 @@ public class SearchVacationController {
             nextButton.setDisable(true);
         }
     }
+
     /**
      * handles previous button event
      */
@@ -344,6 +350,7 @@ public class SearchVacationController {
         PurchaseButton2.setDisable(true);
         openPurchase(publishedBy2.getText(), vacationIDs[firstVacationIndex + 1], Double.parseDouble(price2.getText()));
     }
+
     /**
      * Notifying the Purchase window which vacationID is sold and who is the Seller
      */
@@ -454,6 +461,65 @@ public class SearchVacationController {
         }
         controller.setCurrentUserInSystem(null);
         backHome();
+    }
+
+    /**
+     * clear all tabs from previous search
+     */
+    public void clearAllFields() {
+        titledPane1.setText("");
+        fromCountry1.setText("");
+        fromCity1.setText("");
+        toCountry1.setText("");
+        toCity1.setText("");
+        airline1.setText("");
+        amounts1.setText("");
+        arrivalDate1.setText("");
+        flightClass1.setText("");
+        accommodationType1.setText("");
+        accommodationRank1.setText("");
+        vacationType1.setText("");
+        baggage1.setText("");
+        price1.setText("");
+        publishedBy1.setText("");
+        departureDate1.setText("");
+        ticketType1.setText("");
+
+        titledPane2.setText("");
+        fromCountry2.setText("");
+        fromCity2.setText("");
+        toCountry2.setText("");
+        toCity2.setText("");
+        airline2.setText("");
+        amounts2.setText("");
+        arrivalDate2.setText("");
+        flightClass2.setText("");
+        accommodationType2.setText("");
+        accommodationRank2.setText("");
+        vacationType2.setText("");
+        baggage2.setText("");
+        price2.setText("");
+        publishedBy2.setText("");
+        departureDate2.setText("");
+        ticketType2.setText("");
+
+        titledPane3.setText("");
+        fromCountry3.setText("");
+        fromCity3.setText("");
+        toCountry3.setText("");
+        toCity3.setText("");
+        airline3.setText("");
+        amounts3.setText("");
+        arrivalDate3.setText("");
+        flightClass3.setText("");
+        accommodationType3.setText("");
+        accommodationRank3.setText("");
+        vacationType3.setText("");
+        baggage3.setText("");
+        price3.setText("");
+        publishedBy3.setText("");
+        departureDate3.setText("");
+        ticketType3.setText("");
     }
 }
 
