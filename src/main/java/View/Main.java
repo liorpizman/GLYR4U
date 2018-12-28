@@ -7,13 +7,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import Model.Model;
-import Model.Vacation;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 
 public class Main extends Application {
-
     // SQL statement for creating a Users table
     private String UsersSql = "CREATE TABLE IF NOT EXISTS " + "Users" + " (\n"
             + " user_name varchar(10) NOT NULL PRIMARY KEY,\n"
@@ -43,7 +39,7 @@ public class Main extends Application {
             + " AccommodationType varchar(15) NOT NULL,\n"
             + " AccommodationIncluded boolean NOT NULL,\n"
             + " AccommodationRank int NOT NULL,\n"
-            + " Parking boolean NOT NULL,\n"
+            + " Transfers boolean NOT NULL,\n"
             + " user_name varchar(10) NOT NULL\n "
             + ");";
             /*
@@ -66,33 +62,32 @@ public class Main extends Application {
             + " ChildTickets int NOT NULL,\n "
             + " AdultTickets int NOT NULL,\n "
             + " TicketType int NOT NULL,\n "
-            + " AmountOfTickets INTEGER NOT NULL,\n "
+            + " AmountOfTickets int NOT NULL,\n "
             + " VacationId int NOT NULL\n "
             + ");";
-    /*             + " CONSTRAINT FK_VacationUser FOREIGN KEY (VacationId)\n"
+            /* + " CONSTRAINT FK_VacationUser FOREIGN KEY (VacationId)\n"
             + " REFERENCES Vacations(VacationId)\n "
             + " ON DELETE CASCADE\n"
             + " ON UPDATE CASCADE\n " */
+
+    // SQL statement for creating a FlightTickets table
+    private String PaymentsSql = "CREATE TABLE IF NOT EXISTS " + "Payments" + " (\n"
+            + " VacationId int NOT NULL PRIMARY KEY,\n"
+            + " Seller varchar(15) NOT NULL,\n"
+            + " Buyer varchar(15) NOT NULL,\n "
+            + " PaymentMethod varchar(15) NOT NULL,\n "
+            + " CreditNumber varchar(20) NOT NULL,\n "
+            + " PaymentDate varchar(15) NOT NULL\n "
+            + ");";
 
     @Override
     public void start(Stage primaryStage) throws Exception {
         Model model = new Model();
         //model.createNewDatabase("v4uDB");
-        HashMap<String, String> askedValues = new HashMap<>();
-        ArrayList<Vacation> result = new ArrayList<>();
         model.createNewTable(UsersSql);
         model.createNewTable(VacationsSql);
         model.createNewTable(FlightTicketsSql);
-        //model.addConstraintToTable("Vacations", "fk_vacation", "FOREIGN KEY", "user_name", "Users(user_name)");
-        askedValues.put("DVacationCountry", "French");
-        askedValues.put("DVacationCity", "Paris");
-        askedValues.put("OVacationCountry", "Israel");
-        askedValues.put("OVacationCity", "Tel-Aviv");
-        askedValues.put("StartDate", "");
-        askedValues.put("EndDate", "");
-        askedValues.put("AccommodationRank", "");
-
-        result = model.GetVacationsInformation(model.GetVacationsIdByField(askedValues));
+        model.createNewTable(PaymentsSql);
         View view = new View();
         Controller controller = new Controller(model, view);
         view.setController(controller);

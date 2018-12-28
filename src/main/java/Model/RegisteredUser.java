@@ -1,19 +1,15 @@
 package Model;
 
-import java.util.Map;
-
 /**
  * This class represents a user in the data base
  */
-public class User {
-
+public class RegisterdUser extends AUser{
     private String user_name;
     private String password;
     private String first_name;
     private String last_name;
     private String city;
     private String date;
-    //private Map<Integer, Vacation> AllVacations;
 
     /**
      * This is a default constructor to create a new user
@@ -25,8 +21,8 @@ public class User {
      * @param city
      * @param date
      */
-    public User(String user_name, String password, String first_name,
-                String last_name, String city, String date) {
+    public RegisterdUser(String user_name, String password, String first_name, String last_name, String city,
+                         String date) {
         this.user_name = user_name;
         this.password = password;
         this.first_name = first_name;
@@ -90,5 +86,4 @@ public class User {
     public void printUser() {
         System.out.println(user_name + ", " + password + ", " + first_name + ", " + last_name + ", " + city + ", " + date);
     }
-
 }

@@ -2,16 +2,10 @@ package View;
 /**
  * ViewController is the father class for each window controller of the CRUD GUI
  */
-
 import Controller.Controller;
 import Model.User;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
-
 import java.time.LocalDate;
 
 public class ViewController {
@@ -38,25 +32,25 @@ public class ViewController {
      * Shows relevant info for the given user (currentUser) for relevant windows(Read User, Update User)
      */
     public void show() {
-        if (invalidUserName()) {
-            userName.setDisable(true);
-            userPassword.setText(currentUser.getPassword());
-            userPassword.setDisable(false);
-            userFirstName.setText(currentUser.getFirst_name());
-            userFirstName.setDisable(false);
-            userLastName.setText(currentUser.getLast_name());
-            userLastName.setDisable(false);
-            userCity.setText(currentUser.getCity());
-            userCity.setDisable(false);
-            userBirthDate.setValue(LocalDate.parse(currentUser.getDate()));
-            userBirthDate.setDisable(false);
-        }
+        currentUser = searchUserData(controller.getCurrentUserName());
+        userName.setText(currentUser.getUser_name());
+        userName.setDisable(true);
+        userPassword.setText(currentUser.getPassword());
+        userPassword.setDisable(false);
+        userFirstName.setText(currentUser.getFirst_name());
+        userFirstName.setDisable(false);
+        userLastName.setText(currentUser.getLast_name());
+        userLastName.setDisable(false);
+        userCity.setText(currentUser.getCity());
+        userCity.setDisable(false);
+        userBirthDate.setValue(LocalDate.parse(currentUser.getDate()));
+        userBirthDate.setDisable(false);
     }
 
     /**
      * Validation checks for the typed user name
      */
-    public boolean invalidUserName() {
+    public boolean validUserName() {
         String name = userName.getText();
         currentUser = searchUserData(name);
         if (name.isEmpty() || currentUser == null) {
@@ -79,15 +73,13 @@ public class ViewController {
      * Clears all fields from user data, to start new search
      */
     public void clearUserData() {
-        userName.setDisable(false);
-        userName.clear();
+        userName.setDisable(true);
         userPassword.clear();
         userFirstName.clear();
         userLastName.clear();
         userCity.clear();
         userBirthDate.setValue(LocalDate.of(2000, 01, 01));
     }
-
 
     /**
      * Opens mainWindow when the user press back button
@@ -101,11 +93,24 @@ public class ViewController {
         stage.close();
     }
 
-
-    /**
+     /**
      * Checks whether the user name and the passwords are exist in the DB
      */
     public boolean IsCorrectPassword(String userName, String password) {
         return controller.IsCorrectPassword(userName, password);
     }
+
+
+
+    public boolean isInteger(String s) {
+        try {
+            Integer.parseInt(s);
+        } catch (NumberFormatException e) {
+            return false;
+        } catch (NullPointerException e) {
+            return false;
+        }
+        return true;
+    }
+
 }

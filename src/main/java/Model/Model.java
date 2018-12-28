@@ -10,17 +10,22 @@ import java.util.HashMap;
 public class Model {
 
     private DBManagement dbManagement;
-    private String CurrentUser;  // the user that logged in the DB
+
+    public String getCurrentUser() {
+        return CurrentUser;
+    }
+
+    public static String CurrentUser;  // the user that logged in the DB
+
+    public void createNewDatabase(String fileName) {
+        dbManagement.createNewDatabase(fileName);
+    }
 
     /**
      * This is a default constructor of the model which holds the data base
      */
     public Model() {
         dbManagement = new DBManagement();
-    }
-
-    public void createNewDatabase(String fileName) {
-        dbManagement.createNewDatabase(fileName);
     }
 
     /**
@@ -30,11 +35,6 @@ public class Model {
      */
     public void createNewTable(String tableName) {
         dbManagement.createNewTable(tableName);
-    }
-
-    public void addConstraintToTable(String tableName, String constraintName,
-                                     String constraintType, String fieldName, String constraintCondition) {
-        dbManagement.addConstraintToTable(tableName, constraintName, constraintType, fieldName, constraintCondition);
     }
 
     /**
@@ -94,9 +94,7 @@ public class Model {
         } else {
             return false;
         }
-
     }
-
 
     /**
      * This method calls the function to insert new vacation
@@ -105,12 +103,75 @@ public class Model {
      */
     public void insertVacation(Vacation newVacation) {
         dbManagement.insertNewVacation(newVacation.getVactionId(), newVacation.getFromOriginFlightId(), newVacation.getFromDestFlightId(),
-                newVacation.getVacationCountry(), newVacation.getVacationCity(),
+                newVacation.getDVacationCountry(), newVacation.getDVacationCity(), newVacation.getOVacationCountry(), newVacation.getOVacationCity(),
                 newVacation.getStartDate(), newVacation.getEndDate(), newVacation.getPrice(), newVacation.getBaggageType(), newVacation.isHotVacation(),
                 newVacation.getStatus(), newVacation.getVacationType(), newVacation.getAccommodationType(), newVacation.isAccommodationIncluded(),
                 newVacation.getAccommodationRank(), newVacation.isTransfers(), CurrentUser);
     }
 
+    /**
+     * This method deletes a record from the Vacations table in the DB by the VacationId
+     *
+     * @param VacationIdToDelete
+     */
+    public boolean deleteVacationRecord(String VacationIdToDelete) {
+        return dbManagement.deleteVacationRecord(VacationIdToDelete, getCurrentUser());
+    }
+
+    /**
+     * This method deletes all the Vacations records in table that belong to user that was deleted and not sold yet.
+     *
+     * @param userName
+     */
+    public void deleteVacationOfDeletedUser(String userName) {
+        dbManagement.deleteVacationOfDeletedUser(userName);
+    }
+
+    /**
+     * This method calls a function to update each field which was changed
+     *
+     * @param updatedVacation
+     * @return True or False
+     */
+    public boolean updateVacation(Vacation updatedVacation) {
+        int count = 0;
+        String OriginFlightIdStr = (new StringBuilder(updatedVacation.getFromOriginFlightId())).toString();
+        if (dbManagement.updateVacationRecord(updatedVacation.getVactionId(), "OriginFlightId", OriginFlightIdStr))
+            count++;
+        String DestFlightIdStr = (new StringBuilder(updatedVacation.getFromOriginFlightId())).toString();
+        if (dbManagement.updateVacationRecord(updatedVacation.getVactionId(), "DestFlightId", DestFlightIdStr))
+            count++;
+        if (dbManagement.updateVacationRecord(updatedVacation.getVactionId(), "DVacationCountry", updatedVacation.getDVacationCountry()))
+            count++;
+        if (dbManagement.updateVacationRecord(updatedVacation.getVactionId(), "DVacationCity", updatedVacation.getDVacationCity()))
+            count++;
+        if (dbManagement.updateVacationRecord(updatedVacation.getVactionId(), "OVacationCountry", updatedVacation.getOVacationCountry()))
+            count++;
+        if (dbManagement.updateVacationRecord(updatedVacation.getVactionId(), "OVacationCity", updatedVacation.getOVacationCity()))
+            count++;
+        if (dbManagement.updateVacationRecord(updatedVacation.getVactionId(), "StartDate", updatedVacation.getStartDate()))
+            count++;
+        if (dbManagement.updateVacationRecord(updatedVacation.getVactionId(), "EndDate", updatedVacation.getEndDate()))
+            count++;
+        if (dbManagement.updateVacationRecord(updatedVacation.getVactionId(), "Price", String.valueOf(updatedVacation.getPrice())))
+            count++;
+        if (dbManagement.updateVacationRecord(updatedVacation.getVactionId(), "BaggageType", updatedVacation.getBaggageType()))
+            count++;
+        if (dbManagement.updateVacationRecord(updatedVacation.getVactionId(), "VacationType", updatedVacation.getVacationType()))
+            count++;
+        if (dbManagement.updateVacationRecord(updatedVacation.getVactionId(), "AccommodationType", updatedVacation.getAccommodationType()))
+            count++;
+        if (dbManagement.updateVacationRecord(updatedVacation.getVactionId(), "AccommodationIncluded", String.valueOf(updatedVacation.isAccommodationIncluded())))
+            count++;
+        String AccommodationRankStr = (new StringBuilder(updatedVacation.getAccommodationRank())).toString();
+        if (dbManagement.updateVacationRecord(updatedVacation.getVactionId(), "AccommodationRank", AccommodationRankStr))
+            count++;
+        if (dbManagement.updateVacationRecord(updatedVacation.getVactionId(), "Transfers", String.valueOf(updatedVacation.isTransfers())))
+            count++;
+        if (count > 0)
+            return true;
+        return false;
+    }
 
     /**
      * This method calls the function to insert new FlightTickets
@@ -142,8 +203,22 @@ public class Model {
         return dbManagement.GetVacationsInformation(VacationsID);
     }
 
+    /**
+     * This method get the details of a vacation purchase and update the DB payment table
+     *
+     * @param VacationId
+     * @param Seller
+     * @param Buyer
+     * @param PaymentMethod
+     * @param CreditNumber
+     * @param PaymentDate
+     */
+    public void insertNewPayment(int VacationId, String Seller, String Buyer, String PaymentMethod,
+                                 String CreditNumber, String PaymentDate) {
+        dbManagement.insertNewPayment(VacationId, Seller, Buyer, PaymentMethod, CreditNumber, PaymentDate);
+    }
 
-        public void UserLogIn(String UserName) {
+    public void UserLogIn(String UserName) {
         this.CurrentUser = UserName;
     }
 
@@ -167,6 +242,6 @@ public class Model {
      * @param userName
      */
     public void setCurrentUser(String userName) {
-        this.CurrentUser = userName;
+        CurrentUser = userName;
     }
 }

@@ -6,9 +6,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="380.0" prefWidth="591.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.UpdateViewController">
+<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="380.0" prefWidth="591.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.UpdateUserController">
    <children>
-      <TextField fx:id="userName" layoutX="126.0" layoutY="49.0" />
+      <TextField fx:id="userName" disable="true" layoutX="126.0" layoutY="49.0" />
       <TextField fx:id="userPassword" disable="true" layoutX="126.0" layoutY="106.0" />
       <TextField fx:id="userFirstName" disable="true" layoutX="126.0" layoutY="159.0" />
       <TextField fx:id="userLastName" disable="true" layoutX="126.0" layoutY="214.0" />

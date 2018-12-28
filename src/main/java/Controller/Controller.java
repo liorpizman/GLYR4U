@@ -11,10 +11,17 @@ import Model.Model;
 import View.View;
 import javafx.scene.control.Alert;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 public class Controller {
     private Model model;
     private View view;
 
+
+    private String currrentSeller;
+    private String currentVacation;
+    private double currentPrice=0;
     /**
      * This is a default constructor to create the controller
      *
@@ -107,31 +114,139 @@ public class Controller {
         model.setCurrentUser(userName);
     }
 
+    public String getCurrentUserName() {
+        return model.CurrentUser;
+    }
 
     /**
      * When users applies for log in
      */
-    public void logIn(String _userName, String _password) {
+    public boolean logIn(String _userName, String _password) {
         if (_userName.isEmpty()) {
             Alert a = new Alert(Alert.AlertType.INFORMATION);
-            a.setContentText("You didn't entered your user name, please entered.");
+            a.setContentText("You didn't entered your user name,Please enter.");
             a.show();
+            return false;
         } else if (_password.isEmpty()) {
             Alert a = new Alert(Alert.AlertType.INFORMATION);
-            a.setContentText("You didn't entered your password, please entered.");
+            a.setContentText("You didn't entered your password, Please enter.");
             a.show();
+            return false;
         } else {
             if (searchUserData(_userName) != null) {
                 if (IsCorrectPassword(_userName, _password)) {
                     setCurrentUserInSystem(_userName);
+                    return true;
                     //Model.CurrentUser = _userName;
                     //close current stage and move to LoggedUserWindow (MAYBE SHOULD EXIT FROM MAIN STAGE TOO)
                 } else {
                     Alert a = new Alert(Alert.AlertType.INFORMATION);
-                    a.setContentText("The user name or password is incorrect./nPlease try again!");
+                    a.setContentText("The user name or password is incorrect.\nPlease try again!");
                     a.show();
+                    return false;
                 }
+            } else {
+                Alert a = new Alert(Alert.AlertType.INFORMATION);
+                a.setContentText("The user name or password is incorrect.\nPlease try again!");
+                a.show();
             }
         }
+        return false;
+    }
+
+    public boolean isUserConnected() {
+        return model.getCurrentUser() != null;
+    }
+
+    /**
+     * This method calls the DB function to get a list of all Vacations ID's that suitable to the user search
+     *
+     * @param askedValues
+     */
+    public ArrayList<Integer> GetVacationsIdByField(HashMap<String, String> askedValues) {
+        return model.GetVacationsIdByField(askedValues);
+    }
+
+    /**
+     * This method get a list of Vacations ID's and return a list of the suitable vacation objects
+     *
+     * @param VacationsID
+     */
+    public ArrayList<Vacation> GetVacationsInformation(ArrayList<Integer> VacationsID) {//,String FieldToFind){
+        return model.GetVacationsInformation(VacationsID);
+    }
+
+    /**
+     * Search the vacation data and if exist in the database display the data
+     */
+    public ArrayList<Vacation> searchVacationData(String vacationID) {
+        ArrayList<Integer> tmpList = new ArrayList<>();
+        tmpList.add(Integer.parseInt(vacationID));
+        return model.GetVacationsInformation(tmpList);
+    }
+
+    /**
+     * This method updates vacation
+     *
+     * @param newVacation
+     * @return
+     */
+    public boolean updateVacation(Vacation newVacation) {
+        return model.updateVacation(newVacation);
+    }
+
+    /**
+     * This method deletes all the Vacations records in table that belong to user that was deleted and not sold yet.
+     *
+     * @param userName
+     */
+    public void deleteVacationOfDeletedUser(String userName) {
+        model.deleteVacationOfDeletedUser(userName);
+    }
+
+    /**
+     * This method deletes a record from the Vacations table in the DB by the VacationId
+     *
+     * @param VacationIdToDelete
+     */
+    public boolean deleteVacationRecord(String VacationIdToDelete) {
+        return model.deleteVacationRecord(VacationIdToDelete);
+    }
+
+
+
+    /**
+     * This method get the details of a vacation purchase and update the DB payment table
+     *
+
+     * @param Buyer
+     * @param PaymentMethod
+     * @param CreditNumber
+     * @param PaymentDate
+     */
+    public void insertNewPayment(String Buyer, String PaymentMethod,
+                                 String CreditNumber, String PaymentDate) {
+        model.insertNewPayment(Integer.parseInt(currentVacation), currrentSeller, Buyer, PaymentMethod, CreditNumber, PaymentDate);
+    }
+
+    /**
+     * Setters for current seller and vacation ids
+     * @param currrentSeller
+     */
+
+    public void setCurrrentSeller(String currrentSeller) {
+        this.currrentSeller = currrentSeller;
+    }
+
+    public void setCurrentVacation(String currentVacation) {
+        this.currentVacation = currentVacation;
+    }
+
+    public void setCurrentPrice(double currentPrice) {
+        this.currentPrice = currentPrice;
+    }
+
+    public double getCurrentPrice() {
+        return currentPrice;
     }
 }

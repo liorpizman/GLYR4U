@@ -8,11 +8,13 @@ enum VacationStatus {
 }
 
 enum Rank {
-    bad, likely, good, veryGood, excellent;
+    bad, likely, good, veryGood, excellent
 }
 
+/**
+ * Represents a vacation
+ */
 public class Vacation {
-    private static int VactionID = 200;
     private FlightTickets FromOriginFlight;
     private FlightTickets FromDestFlight;  /// if it is null - it is not exists
     private Location DVacationLocation;
@@ -29,10 +31,11 @@ public class Vacation {
     private boolean AccommodationIncluded;
     private Rank AccommodationRank;
     private boolean Transfers;
+    private String userID;
 
-    public Vacation(FlightTickets fromOriginFlight, FlightTickets fromDestFlight, Location dVacationLocation,
-                    Location oVacationLocation, String startDate, String endDate, double price, String Baggagetype, String vacationType,
-                    String accommodationType, boolean accommodationIncluded, boolean Transfers) {
+    public Vacation(int vactionId, FlightTickets fromOriginFlight, FlightTickets fromDestFlight, Location dVacationLocation,
+                    Location oVacationLocation, String startDate, String endDate, double price, String Baggagetype,
+                    String vacationType, String accommodationType, boolean accommodationIncluded, boolean transfers, int accommodationRank, String _userID) {
         FromOriginFlight = fromOriginFlight;
         FromDestFlight = fromDestFlight;
         DVacationLocation = dVacationLocation;
@@ -40,17 +43,25 @@ public class Vacation {
         StartDate = startDate;
         EndDate = endDate;
         Price = price;
-        VactionId = VactionID++;
+        VactionId = vactionId;
         BaggageType = Baggagetype;
         HotVacation = false;
         Status = VacationStatus.ForSale;
         VacationType = vacationType;
         AccommodationType = accommodationType;
         AccommodationIncluded = accommodationIncluded;
-        AccommodationRank = Rank.good;
-        Transfers = Transfers;
+        AccommodationRank = Rank.values()[accommodationRank];
+        Transfers = transfers;
+        userID = _userID;
     }
 
+    public FlightTickets getFromOriginFlight() {
+        return FromOriginFlight;
+    }
+
+    public FlightTickets getFromDestFlight() {
+        return FromDestFlight;
+    }
 
     public int getFromOriginFlightId() {
         return FromOriginFlight.getTicketId();
@@ -60,12 +71,20 @@ public class Vacation {
         return FromDestFlight.getTicketId();
     }
 
-    public String getVacationCountry() {
+    public String getDVacationCountry() {
         return DVacationLocation.getCountry();
     }
 
-    public String getVacationCity() {
+    public String getDVacationCity() {
         return DVacationLocation.getCity();
+    }
+
+    public String getOVacationCountry() {
+        return OVacationLocation.getCountry();
+    }
+
+    public String getOVacationCity() {
+        return OVacationLocation.getCity();
     }
 
     public String getStartDate() {
@@ -116,5 +135,20 @@ public class Vacation {
         return Transfers;
     }
 
+    public String getUserID() {
+        return userID;
+    }
+
+    public String getFromOriginFlightAirline() {
+        return FromOriginFlight.getAirline();
+    }
+
+    public String getFromOriginFlightClass() {
+        return FromOriginFlight.getTicketType();
+    }
+
+    public String toString() {
+        return "From "+ OVacationLocation.getCountry() + " to "+ DVacationLocation.getCountry()+ ", Price: "+ Price + "$";
+    }
 
 }
