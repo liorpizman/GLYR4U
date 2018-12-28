@@ -1,44 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a7a8455e-493c-43ce-a196-677db546d8f7" name="Default" comment="Add transaction approval functionality&#10;Delete of Location Class">
+    <list default="true" id="a7a8455e-493c-43ce-a196-677db546d8f7" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/View/ExchangeRequestView.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/View/ManageRequestsView.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/View/PurchaseRequestView.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/View/RequestView.java" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/DBManagement.java" afterPath="$PROJECT_DIR$/src/main/java/Model/DBManagement.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/FlightTickets.java" afterPath="$PROJECT_DIR$/src/main/java/Model/FlightTickets.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Location.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Vacation.java" afterPath="$PROJECT_DIR$/src/main/java/Model/Vacation.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/CreateUserController.java" afterPath="$PROJECT_DIR$/src/main/java/View/CreateUserView.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/DeleteUserController.java" afterPath="$PROJECT_DIR$/src/main/java/View/DeleteUserView.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/DeleteVacationController.java" afterPath="$PROJECT_DIR$/src/main/java/View/DeleteVacationView.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/PaymentController.java" afterPath="$PROJECT_DIR$/src/main/java/View/PaymentView.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/PublishVacationController.java" afterPath="$PROJECT_DIR$/src/main/java/View/PublishVacationView.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/ReadUserController.java" afterPath="$PROJECT_DIR$/src/main/java/View/ReadUserView.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/ReadVacationController.java" afterPath="$PROJECT_DIR$/src/main/java/View/ReadVacationView.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/SearchVacationController.java" afterPath="$PROJECT_DIR$/src/main/java/View/SearchVacationView.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/UpdateUserController.java" afterPath="$PROJECT_DIR$/src/main/java/View/UpdateUserView.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/UpdateVacationController.java" afterPath="$PROJECT_DIR$/src/main/java/View/UpdateVacationView.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/VacationController.java" afterPath="$PROJECT_DIR$/src/main/java/View/VacationView.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/View.java" afterPath="$PROJECT_DIR$/src/main/java/View/View.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/CreateUser.fxml" afterPath="$PROJECT_DIR$/src/main/resources/CreateUser.fxml" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/DeleteUser.fxml" afterPath="$PROJECT_DIR$/src/main/resources/DeleteUser.fxml" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/DeleteVacationWindow.fxml" afterPath="$PROJECT_DIR$/src/main/resources/DeleteVacationWindow.fxml" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/LogInWindow.fxml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/PublishVacation.fxml" afterPath="$PROJECT_DIR$/src/main/resources/PublishVacation.fxml" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/PurchaseWindow.fxml" afterPath="$PROJECT_DIR$/src/main/resources/PurchaseWindow.fxml" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/ReadUser.fxml" afterPath="$PROJECT_DIR$/src/main/resources/ReadUser.fxml" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/SearchVaction.fxml" afterPath="$PROJECT_DIR$/src/main/resources/SearchVaction.fxml" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/UpdateUser.fxml" afterPath="$PROJECT_DIR$/src/main/resources/UpdateUser.fxml" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/UpdateVacationWindow.fxml" afterPath="$PROJECT_DIR$/src/main/resources/UpdateVacationWindow.fxml" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/VacationInfoWindow.fxml" afterPath="$PROJECT_DIR$/src/main/resources/VacationInfoWindow.fxml" />
-      <change beforePath="$PROJECT_DIR$/target/classes/CreateUser.fxml" afterPath="$PROJECT_DIR$/target/classes/CreateUser.fxml" />
-      <change beforePath="$PROJECT_DIR$/target/classes/DeleteUser.fxml" afterPath="$PROJECT_DIR$/target/classes/DeleteUser.fxml" />
-      <change beforePath="$PROJECT_DIR$/target/classes/PublishVacation.fxml" afterPath="$PROJECT_DIR$/target/classes/PublishVacation.fxml" />
-      <change beforePath="$PROJECT_DIR$/target/classes/PurchaseWindow.fxml" afterPath="$PROJECT_DIR$/target/classes/PurchaseWindow.fxml" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ReadUser.fxml" afterPath="$PROJECT_DIR$/target/classes/ReadUser.fxml" />
-      <change beforePath="$PROJECT_DIR$/target/classes/SearchVaction.fxml" afterPath="$PROJECT_DIR$/target/classes/SearchVaction.fxml" />
-      <change beforePath="$PROJECT_DIR$/target/classes/UpdateUser.fxml" afterPath="$PROJECT_DIR$/target/classes/UpdateUser.fxml" />
-      <change beforePath="$PROJECT_DIR$/target/classes/View/SearchVacationController.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/View/View.class" afterPath="$PROJECT_DIR$/target/classes/View/View.class" />
+      <change beforePath="$PROJECT_DIR$/target/classes/LogInWindow.fxml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Model/DBManagement.class" afterPath="$PROJECT_DIR$/target/classes/Model/DBManagement.class" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Model/FlightTickets.class" afterPath="$PROJECT_DIR$/target/classes/Model/FlightTickets.class" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Model/Location.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Model/Vacation.class" afterPath="$PROJECT_DIR$/target/classes/Model/Vacation.class" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -131,7 +104,7 @@
       <file leaf-file-name="DBManagement.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/Model/DBManagement.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="332">
+            <state relative-caret-position="182">
               <caret line="530" column="94" lean-forward="true" selection-start-line="530" selection-start-column="94" selection-end-line="530" selection-end-column="94" />
               <folding>
                 <marker date="1546000911077" expanded="true" signature="2553:2645" ph="INSERT INTO Users... " />
@@ -569,7 +542,7 @@
       <workItem from="1545344100791" duration="329000" />
       <workItem from="1545572548697" duration="5077000" />
       <workItem from="1545639300268" duration="172000" />
-      <workItem from="1545990514808" duration="8846000" />
+      <workItem from="1545990514808" duration="8959000" />
     </task>
     <task id="LOCAL-00001" summary="add search flights details from DB">
       <created>1544226641829</created>
@@ -697,15 +670,21 @@
       <option name="project" value="LOCAL" />
       <updated>1544522778338</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Add transaction approval functionality&#10;Delete of Location Class">
+      <created>1546000955371</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1546000955371</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="133535000" />
+    <option name="totallyTimeSpent" value="133648000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="2869" y="-11" width="2902" height="1582" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -720,7 +699,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17604166" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17604166" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22308782" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
@@ -1293,7 +1272,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Model/DBManagement.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="332">
+        <state relative-caret-position="182">
           <caret line="530" column="94" lean-forward="true" selection-start-line="530" selection-start-column="94" selection-end-line="530" selection-end-column="94" />
           <folding>
             <marker date="1546000911077" expanded="true" signature="2553:2645" ph="INSERT INTO Users... " />
