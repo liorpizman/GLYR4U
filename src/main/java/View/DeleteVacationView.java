@@ -1,6 +1,5 @@
 package View;
 
-import Controller.Controller;
 import Model.Vacation;
 import javafx.scene.control.Alert;
 
@@ -9,7 +8,7 @@ import java.util.ArrayList;
 /**
  * This class controls the Delete Vacation Window
  */
-public class DeleteVacationController extends VacationController {
+public class DeleteVacationView extends VacationView {
 
 
     public javafx.scene.control.TextField VacationIdDelete;

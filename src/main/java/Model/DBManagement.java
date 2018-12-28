@@ -527,7 +527,7 @@ public class DBManagement {
                                          String AccommodationType, String AccommodationIncluded,
                                          String AccommodationRank, String Transfers, String user_name) {
         return new Vacation(VacationId, createFlightTicket(OriginFlightId), createFlightTicket(DestFlightId),
-                new Location(DVacationCountry, DVacationCity), new Location(OVacationCountry, OVacationCity),
+                DVacationCountry, DVacationCity, OVacationCountry, OVacationCity,
                 StartDate, EndDate, Double.parseDouble(Price), BaggageType, VacationType, AccommodationType,
                 Boolean.parseBoolean(AccommodationIncluded), Boolean.parseBoolean(Transfers),Integer.parseInt(AccommodationRank),user_name);
     }

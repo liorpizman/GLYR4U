@@ -15,7 +15,7 @@ import java.util.HashMap;
 /**
  * Class for handling search events
  */
-public class SearchVacationController {
+public class SearchVacationView {
 
     public javafx.scene.control.TextField fromCountry;
     public javafx.scene.control.TextField fromCity;

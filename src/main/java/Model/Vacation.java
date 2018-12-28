@@ -17,8 +17,12 @@ enum Rank {
 public class Vacation {
     private FlightTickets FromOriginFlight;
     private FlightTickets FromDestFlight;  /// if it is null - it is not exists
-    private Location DVacationLocation;
-    private Location OVacationLocation;
+
+    private String DVacationCountry;
+    private String DVacationCity;
+    private String OVacationCountry;
+    private String OVacationCity;
+
     private String StartDate;
     private String EndDate;               /// use date picker in the gui and convert it to string
     private double Price;
@@ -33,13 +37,17 @@ public class Vacation {
     private boolean Transfers;
     private String userID;
 
-    public Vacation(int vactionId, FlightTickets fromOriginFlight, FlightTickets fromDestFlight, Location dVacationLocation,
-                    Location oVacationLocation, String startDate, String endDate, double price, String Baggagetype,
+    public Vacation(int vactionId, FlightTickets fromOriginFlight, FlightTickets fromDestFlight, String dVacationCountry,
+                    String dVacationCity, String oVacationCountry, String oVacationCity, String startDate, String endDate, double price, String Baggagetype,
                     String vacationType, String accommodationType, boolean accommodationIncluded, boolean transfers, int accommodationRank, String _userID) {
         FromOriginFlight = fromOriginFlight;
         FromDestFlight = fromDestFlight;
-        DVacationLocation = dVacationLocation;
-        OVacationLocation = oVacationLocation;
+
+        DVacationCountry = dVacationCountry;
+        DVacationCity = dVacationCity;
+        OVacationCountry = oVacationCountry;
+        OVacationCity = oVacationCity;
+
         StartDate = startDate;
         EndDate = endDate;
         Price = price;
@@ -72,19 +80,19 @@ public class Vacation {
     }
 
     public String getDVacationCountry() {
-        return DVacationLocation.getCountry();
+        return DVacationCountry;
     }
 
     public String getDVacationCity() {
-        return DVacationLocation.getCity();
+        return DVacationCity;
     }
 
     public String getOVacationCountry() {
-        return OVacationLocation.getCountry();
+        return OVacationCountry;
     }
 
     public String getOVacationCity() {
-        return OVacationLocation.getCity();
+        return OVacationCity;
     }
 
     public String getStartDate() {
@@ -148,7 +156,7 @@ public class Vacation {
     }
 
     public String toString() {
-        return "From "+ OVacationLocation.getCountry() + " to "+ DVacationLocation.getCountry()+ ", Price: "+ Price + "$";
+        return "From " + OVacationCountry + " to " + DVacationCountry + ", Price: " + Price + "$";
     }
 
 }

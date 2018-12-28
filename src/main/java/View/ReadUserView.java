@@ -5,7 +5,7 @@ import java.time.LocalDate;
 /**
  * This class controls the Read User Window
  */
-public class ReadUserController extends ViewController {
+public class ReadUserView extends ViewController {
 
     /**
      * Implementing show function in order to manipulate the update button

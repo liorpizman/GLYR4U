@@ -7,7 +7,7 @@ import java.time.LocalDate;
 /**
  * Class for handling payment events
  */
-public class PaymentController extends ViewController {
+public class PaymentView extends ViewController {
 
     public javafx.scene.control.ChoiceBox PaymentMethodChoice;
     public javafx.scene.control.TextField CreditNumber;

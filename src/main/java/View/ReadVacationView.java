@@ -7,7 +7,7 @@ import java.util.ArrayList;
 /**
  * This class controls the Read Vacation Window
  */
-public class ReadVacationController extends VacationController {
+public class ReadVacationView extends VacationView {
     public javafx.scene.control.TextField VacationIDRead;
     public javafx.scene.control.TextField FromCountryRead;
     public javafx.scene.control.TextField FromCityRead;

@@ -5,7 +5,7 @@ package View;
 
 import javafx.scene.control.Alert;
 
-public class DeleteUserController extends ViewController {
+public class DeleteUserView extends ViewController {
     public javafx.scene.control.TextField userPassword;
     public javafx.scene.control.Button delete;
 

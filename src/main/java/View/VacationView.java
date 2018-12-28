@@ -12,7 +12,7 @@ import java.util.ArrayList;
 /**
  * Main Controller for vacation controllers
  */
-public class VacationController {
+public class VacationView {
 
     public javafx.scene.control.Button BackButton;
     protected static Controller controller;
