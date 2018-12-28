@@ -9,11 +9,11 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="295.0"
             prefWidth="584.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.PurchaseRequestView">
    <children>
-      <Button fx:id="ApplyExchangeButton" layoutX="197.0" layoutY="217.0"  onAction="#applyExchange" mnemonicParsing="false" text="Apply Purchase Request" />
+      <Button fx:id="applyPurchaseButton" layoutX="197.0" layoutY="217.0"  onAction="#applyPurchaseRequest" mnemonicParsing="false" text="Apply Purchase Request" />
       <Button fx:id="BackButton" layoutX="71.0" layoutY="256.0"  onAction="#backHome" mnemonicParsing="false" text="Back" />
       <Text layoutX="48.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contact Phone Number:" />
-      <TextArea layoutX="194.0" layoutY="97.0" prefHeight="81.0" prefWidth="267.0" />
-      <TextField layoutX="194.0" layoutY="50.0" />
+      <TextArea fx:id="message" layoutX="194.0" layoutY="97.0" prefHeight="81.0" prefWidth="267.0" />
+      <TextField fx:id="phoneNumber" layoutX="194.0" layoutY="50.0" />
       <Text layoutX="48.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Message To Seller:" />
    </children>
 </AnchorPane>

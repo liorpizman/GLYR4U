@@ -11,7 +11,7 @@ import java.util.Random;
 /**
  * Class for handling publish events
  */
-public class PublishVacationView extends ViewController {
+public class PublishVacationView extends VacationView {
     private static int VactionID = 200;
     public javafx.scene.control.Button PublishButton;
     public javafx.scene.control.TextField FromCountry;

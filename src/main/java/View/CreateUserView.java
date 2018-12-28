@@ -3,6 +3,8 @@ import Model.User;
 import javafx.scene.control.Alert;
 
 import java.time.LocalDate;
+import java.util.Date;
+
 /**
  * This class controls the Create User Window
  */
@@ -60,6 +62,11 @@ public class CreateUserView extends ViewController {
         {
             Alert a = new Alert(Alert.AlertType.INFORMATION);
             a.setContentText("You didn't entered your birth date, please entered.");
+            a.show();
+        }
+        else if (date.getYear()<2001){
+            Alert a = new Alert(Alert.AlertType.INFORMATION);
+            a.setContentText("Minimum age allowed for a user is 18.");
             a.show();
         }
         else

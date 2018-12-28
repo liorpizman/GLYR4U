@@ -1,11 +1,19 @@
 package View;
 
+import Controller.Controller;
+import Model.User;
 import javafx.stage.Stage;
 
 public class RequestView {
 
     public javafx.scene.control.Button BackButton;
-
+    protected static Controller controller;
+    /**
+     * Sets the static controller for all of the user windows controllers
+     */
+    public void setController(Controller _controller) {
+        controller = _controller;
+    }
     /**
      * Opens mainWindow when the user press back button
      */

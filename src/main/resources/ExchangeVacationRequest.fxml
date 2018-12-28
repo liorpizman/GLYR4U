@@ -12,7 +12,7 @@
             prefWidth="782.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="View.ExchangeRequestView">
     <children>
-        <ComboBox layoutX="69.0" layoutY="67.0" prefHeight="25.0" prefWidth="645.0"/>
+        <ComboBox fx:id="vacationsListBox" layoutX="69.0" layoutY="67.0" prefHeight="25.0" prefWidth="645.0"/>
         <Button fx:id="ApplyExchangeButton" layoutX="320.0" layoutY="297.0" onAction="#applyExchange" mnemonicParsing="false"
                 text="Apply Exchange Request"/>
         <Button fx:id="BackButton" layoutX="72.0" layoutY="297.0" onAction="#backHome" mnemonicParsing="false" text="Back"/>

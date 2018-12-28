@@ -3,19 +3,22 @@ package View;
 import Controller.Controller;
 import Model.Vacation;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.ResourceBundle;
 
 /**
  * Class for handling search events
  */
-public class SearchVacationView {
+public class SearchVacationView implements Initializable {
 
     public javafx.scene.control.TextField fromCountry;
     public javafx.scene.control.TextField fromCity;
@@ -102,7 +105,7 @@ public class SearchVacationView {
     protected static Controller controller;
     private int firstVacationIndex = 0;
     private ArrayList<Vacation> vacationsList;
-    String[] vacationIDs;
+    private String[] vacationIDs;
 
     /**
      * Constructor, different view for connected user and guest
@@ -110,6 +113,35 @@ public class SearchVacationView {
     public void setController(Controller _controller) {
         controller = _controller;
     }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        ArrayList<Integer> vacationIntIDs = controller.GetVacationsIdByField(null);
+        /*
+            all of this lines except should be written in model.
+         */
+        vacationIDs = new String[vacationIntIDs.size()];
+        firstVacationIndex = 0;
+        for (int i = 0; i < vacationIntIDs.size(); i++) {
+            vacationIDs[i] = vacationIntIDs.get(i).toString();
+        }
+        ArrayList<Integer> removeKeys = new ArrayList<>();
+        vacationsList = controller.GetVacationsInformation(vacationIntIDs);
+        if (vacationsList.size() == 0) {
+            Alert a = new Alert(Alert.AlertType.INFORMATION);
+            a.setContentText("No Vacations to SHow ");
+            a.show();
+            return;
+        }
+        for (int i = 0; i < vacationsList.size(); i++) {
+            if (roundTripCheck.isSelected())
+                if (vacationsList.get(i).getFromDestFlight() == null)
+                    removeKeys.add(i);
+        }
+        for (Integer removeKey : removeKeys) {
+            vacationsList.remove(removeKey);
+        }
+        SetAllResults(0);    }
 
     /**
      * handles search button clicked event, setting search results to tabs.
@@ -340,7 +372,7 @@ public class SearchVacationView {
      */
     public void Purchase1() {
         PurchaseButton1.setDisable(true);
-        openPurchase(publishedBy1.getText(), vacationIDs[firstVacationIndex], Double.parseDouble(price1.getText()));
+        purchaseRequest(publishedBy1.getText(), vacationIDs[firstVacationIndex], Double.parseDouble(price1.getText()));
     }
 
     /**
@@ -348,7 +380,7 @@ public class SearchVacationView {
      */
     public void Purchase2() {
         PurchaseButton2.setDisable(true);
-        openPurchase(publishedBy2.getText(), vacationIDs[firstVacationIndex + 1], Double.parseDouble(price2.getText()));
+        purchaseRequest(publishedBy2.getText(), vacationIDs[firstVacationIndex + 1], Double.parseDouble(price2.getText()));
     }
 
     /**
@@ -356,13 +388,13 @@ public class SearchVacationView {
      */
     public void Purchase3() {
         PurchaseButton3.setDisable(true);
-        openPurchase(publishedBy3.getText(), vacationIDs[firstVacationIndex + 2], Double.parseDouble(price3.getText()));
+        purchaseRequest(publishedBy3.getText(), vacationIDs[firstVacationIndex + 2], Double.parseDouble(price3.getText()));
     }
 
     /**
      * Opens Purchase window
      */
-    private void openPurchase(String sellerID, String vacationID, double price) {
+    private void purchaseRequest(String sellerID, String vacationID, double price) {
         if (!controller.isUserConnected()) {
             Alert a = new Alert(Alert.AlertType.INFORMATION);
             a.setContentText("You can't purchase vacationse if you aren't connected");
@@ -374,9 +406,9 @@ public class SearchVacationView {
         controller.setCurrentPrice(price);
         Stage stage = new Stage();
         stage.setResizable(true);
-        stage.setTitle("Purchase Window, VacationID:" + vacationID + ", SellerID:" + sellerID);
+        stage.setTitle("Purchase Window, VacationID: " + vacationID + " ,SellerID: " + sellerID);
         try {
-            Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("PurchaseWindow.fxml"));
+            Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("PurchaseRequest.fxml"));
             root.getStylesheets().add(getClass().getClassLoader().getResource("flightCSS.css").toExternalForm());
             Scene scene = new Scene(root, 600, 500);
             stage.setScene(scene);
@@ -466,7 +498,7 @@ public class SearchVacationView {
     /**
      * clear all tabs from previous search
      */
-    public void clearAllFields() {
+    private void clearAllFields() {
         titledPane1.setText("");
         fromCountry1.setText("");
         fromCity1.setText("");
@@ -521,5 +553,7 @@ public class SearchVacationView {
         departureDate3.setText("");
         ticketType3.setText("");
     }
+
+
 }
 

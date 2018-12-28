@@ -10,7 +10,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 /**
- * Main Controller for vacation controllers
+ * View.Main Controller for vacation controllers
  */
 public class VacationView {
 
