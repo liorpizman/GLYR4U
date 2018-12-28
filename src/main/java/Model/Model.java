@@ -1,5 +1,6 @@
 package Model;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -10,12 +11,7 @@ import java.util.HashMap;
 public class Model {
 
     private DBManagement dbManagement;
-
-    public String getCurrentUser() {
-        return CurrentUser;
-    }
-
-    public static String CurrentUser;  // the user that logged in the DB
+    public RegisteredUser CurrentUser;  // the user that logged in the DB
 
     public void createNewDatabase(String fileName) {
         dbManagement.createNewDatabase(fileName);
@@ -37,14 +33,24 @@ public class Model {
         dbManagement.createNewTable(tableName);
     }
 
+    public RegisteredUser getCurrentUser() {
+        return CurrentUser;
+    }
+
     /**
      * This method calls the function to insert new user
      *
-     * @param newUser
+     * @param userName
+     * @param password
+     * @param firstName
+     * @param lastName
+     * @param userCity
+     * @param date
      */
-    public void insertUser(User newUser) {
-        dbManagement.insertNewUser(newUser.getUser_name(), newUser.getPassword(), newUser.getFirst_name(),
-                newUser.getLast_name(), newUser.getCity(), newUser.getDate());
+    public void insertUser(String userName, String password, String firstName, String lastName, String userCity,
+                           LocalDate date) {
+        RegisteredUser newUser = new RegisteredUser(userName, password, firstName, lastName, userCity, date.toString());
+        dbManagement.insertNewUser(newUser);
     }
 
     /**
@@ -53,7 +59,7 @@ public class Model {
      * @param updatedUser
      * @return
      */
-    public boolean updateUser(User updatedUser) {
+    public boolean updateUser(RegisteredUser updatedUser) {
         int count = 0;
         if (dbManagement.updateUser(updatedUser.getUser_name(), "password", updatedUser.getPassword()))
             count++;
@@ -76,8 +82,8 @@ public class Model {
      * @param userName
      * @return
      */
-    public User searchUserData(String userName) {
-        return dbManagement.find_User_Exists(userName);
+    public RegisteredUser searchUserData(String userName) {
+        return dbManagement.findExistsUser(userName);
     }
 
     /**
@@ -88,7 +94,8 @@ public class Model {
      * @return
      */
     public boolean deleteUser(String userToDelete, String password) {
-        if (dbManagement.confirmPassword(userToDelete, password)) {
+        RegisteredUser currUser = getCurrentUser();
+        if (dbManagement.confirmPassword(currUser, password)) {
             dbManagement.deleteRecord(userToDelete, "DELETE FROM Users WHERE user_name = ?");
             return true;
         } else {
@@ -115,16 +122,16 @@ public class Model {
      * @param VacationIdToDelete
      */
     public boolean deleteVacationRecord(String VacationIdToDelete) {
-        return dbManagement.deleteVacationRecord(VacationIdToDelete, getCurrentUser());
+        return dbManagement.deleteVacationRecord(VacationIdToDelete, getCurrentUser().getUser_name());
     }
 
     /**
      * This method deletes all the Vacations records in table that belong to user that was deleted and not sold yet.
      *
-     * @param userName
+     * @param user
      */
-    public void deleteVacationOfDeletedUser(String userName) {
-        dbManagement.deleteVacationOfDeletedUser(userName);
+    public void deleteVacationOfDeletedUser(RegisteredUser user) {
+        dbManagement.deleteVacationOfDeletedUser(user);
     }
 
     /**
@@ -218,13 +225,9 @@ public class Model {
         dbManagement.insertNewPayment(VacationId, Seller, Buyer, PaymentMethod, CreditNumber, PaymentDate);
     }
 
-    public void UserLogIn(String UserName) {
-        this.CurrentUser = UserName;
-    }
+    //public void UserLogIn( UserName) {this.CurrentUser = UserName; }
 
-    public void UserLogOut() {
-        this.CurrentUser = null;
-    }
+    //public void UserLogOut() {this.CurrentUser = null;}
 
     /**
      * This method calls the function which checks if a current user exists in the DB
@@ -239,9 +242,9 @@ public class Model {
     /**
      * This method sets the current user which logged to the app
      *
-     * @param userName
+     * @param currUser
      */
-    public void setCurrentUser(String userName) {
-        CurrentUser = userName;
+    public void setCurrentUser(RegisteredUser currUser) {
+        CurrentUser = currUser;
     }
 }

@@ -2,7 +2,7 @@ package View;
 /**
  * This class controls the Update User Window
  */
-import Model.User;
+import Model.RegisteredUser;
 import javafx.scene.control.Alert;
 
 public class UpdateUserView extends ViewController {
@@ -60,7 +60,7 @@ public class UpdateUserView extends ViewController {
         }
         else
         {
-            User updatedUser = new User(currentUser.getUser_name(), password, firstName, lastName,city , birthDate);
+            RegisteredUser updatedUser = new RegisteredUser(currentUser.getUser_name(), password, firstName, lastName,city , birthDate);
             if (controller.updateUser(updatedUser))
             {
                 Alert a = new Alert(Alert.AlertType.INFORMATION);

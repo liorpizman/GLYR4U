@@ -71,25 +71,20 @@ public class DBManagement {
      * This method insert a new user to the table in the dataBase
      * by his private fields
      *
-     * @param user_name
-     * @param password
-     * @param first_name
-     * @param last_name
-     * @param city
-     * @param date
+     * @param newUser
      */
-    public void insertNewUser(String user_name, String password, String first_name, String last_name, String city, String date) {
-        String sql = "INSERT INTO Users(user_name,password, first_name, last_name, city,date) VALUES(?,?, ?,?,?,?)";
+    public void insertNewUser(RegisteredUser newUser) {
+        String sql = "INSERT INTO Users(user_name, password, first_name, last_name, city, date) VALUES(?,?,?,?,?,?)";
 
         try {
             Connection conn = this.connect();
             PreparedStatement pstmt = conn.prepareStatement(sql);
-            pstmt.setString(1, user_name);
-            pstmt.setString(2, password);
-            pstmt.setString(3, first_name);
-            pstmt.setString(4, last_name);
-            pstmt.setString(5, city);
-            pstmt.setString(6, date);
+            pstmt.setString(1, newUser.getUser_name());
+            pstmt.setString(2, newUser.getPassword());
+            pstmt.setString(3, newUser.getFirst_name());
+            pstmt.setString(4, newUser.getLast_name());
+            pstmt.setString(5, newUser.getCity());
+            pstmt.setString(6, newUser.getDate());
             pstmt.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -146,7 +141,7 @@ public class DBManagement {
      * @param userName
      * @return User
      */
-    public User find_User_Exists(String userName) {
+    public RegisteredUser findExistsUser(String userName) {
         String sql = "SELECT user_name, password, first_name, last_name, city,date "
                 + "FROM Users WHERE user_name = ?";
 
@@ -155,13 +150,12 @@ public class DBManagement {
             pstmt.setString(1, userName);
             ResultSet rs = pstmt.executeQuery();
             while (rs.next()) {
-                return new User(rs.getString("user_name"),
+                return new RegisteredUser(rs.getString("user_name"),
                         rs.getString("password"),
                         rs.getString("first_name"),
                         rs.getString("last_name"),
                         rs.getString("city"),
-                        rs.getString("date")
-                );
+                        rs.getString("date"));
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -174,12 +168,11 @@ public class DBManagement {
      * This method gets a user name and  a password
      * and checks whether they are suitable
      *
-     * @param userName
+     * @param currUser
      * @param password
      * @return -True or False
      */
-    public boolean confirmPassword(String userName, String password) {
-        User currUser = find_User_Exists(userName);
+    public boolean confirmPassword(RegisteredUser currUser, String password) {
         return (password.equals(currUser.getPassword())) ? true : false;
     }
 
@@ -230,12 +223,12 @@ public class DBManagement {
      * @param AccommodationIncluded
      * @param AccommodationRank
      * @param Transfers
-     * @param user_name
+     * @param currentUser
      */
     public void insertNewVacation(int VacationId, int OriginFlightId, int DestFlightId, String DVacationCountry, String DVacationCity,
                                   String OVacationCountry, String OVacationCity, String StartDate, String EndDate, double Price, String BaggageType, boolean HotVacation, int Status,
                                   String VacationType, String AccommodationType, boolean AccommodationIncluded,
-                                  int AccommodationRank, boolean Transfers, String user_name) {
+                                  int AccommodationRank, boolean Transfers, RegisteredUser currentUser) {
         String sql = "INSERT INTO Vacations(VacationId,OriginFlightId,DestFlightId,DVacationCountry,DVacationCity," +
                 "OVacationCountry,OVacationCity,StartDate,EndDate,Price,BaggageType,HotVacation,Status," +
                 "VacationType,AccommodationType,AccommodationIncluded," +
@@ -261,7 +254,7 @@ public class DBManagement {
             pstmt.setBoolean(16, AccommodationIncluded);
             pstmt.setInt(17, AccommodationRank);
             pstmt.setBoolean(18, Transfers);
-            pstmt.setString(19, user_name);
+            pstmt.setString(19, currentUser.getUser_name());
             pstmt.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -271,16 +264,16 @@ public class DBManagement {
     /**
      * This method deletes all the Vacations records in table that belong to user that was deleted and not sold yet.
      *
-     * @param userName
+     * @param user
      */
-    public void deleteVacationOfDeletedUser(String userName) {
+    public void deleteVacationOfDeletedUser(RegisteredUser user) {
         ArrayList<Integer> VacationsID = new ArrayList<>();
         String sql = "SELECT * FROM Vacations WHERE user_name=? AND Status =0";
         String sql1 = "DELETE FROM Vacations WHERE user_name=? AND Status =0";
         String sql2 = "DELETE FROM FlightTickets WHERE VacationId = ?";
         try (Connection conn = this.connect();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            pstmt.setString(1, userName);
+            pstmt.setString(1, user.getUser_name());
             ResultSet rs = pstmt.executeQuery();
             while (rs.next()) {
                 VacationsID.add((int) rs.getObject(("VacationId")));
@@ -290,7 +283,7 @@ public class DBManagement {
         }
         try (Connection conn1 = this.connect();
              PreparedStatement pstmt1 = conn1.prepareStatement(sql1)) {
-            pstmt1.setString(1, userName);
+            pstmt1.setString(1, user.getUser_name());
             pstmt1.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e.getMessage());

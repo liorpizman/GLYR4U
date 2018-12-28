@@ -3,7 +3,7 @@ package View;
  * ViewController is the father class for each window controller of the CRUD GUI
  */
 import Controller.Controller;
-import Model.User;
+import Model.RegisteredUser;
 import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 import java.time.LocalDate;
@@ -19,7 +19,7 @@ public class ViewController {
     public javafx.scene.control.Button clear;
     public javafx.scene.control.Button BackButton;
     protected static Controller controller;
-    protected static User currentUser;
+    protected static RegisteredUser currentUser;
 
     /**
      * Sets the static controller for all of the user windows controllers
@@ -32,7 +32,7 @@ public class ViewController {
      * Shows relevant info for the given user (currentUser) for relevant windows(Read User, Update User)
      */
     public void show() {
-        currentUser = searchUserData(controller.getCurrentUserName());
+        currentUser = searchUserData(controller.getCurrentUser().getUser_name());
         userName.setText(currentUser.getUser_name());
         userName.setDisable(true);
         userPassword.setText(currentUser.getPassword());
@@ -65,7 +65,7 @@ public class ViewController {
     /**
      * Search the user name string and if exist in the database display the user data
      */
-    public User searchUserData(String name) {
+    public RegisteredUser searchUserData(String name) {
         return controller.searchUserData(name);
     }
 

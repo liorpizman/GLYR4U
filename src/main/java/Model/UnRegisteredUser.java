@@ -1,4 +1,4 @@
 package Model;
 
-public class UnRegisterdUser extends AUser {
+public class UnRegisteredUser extends AUser {
 }

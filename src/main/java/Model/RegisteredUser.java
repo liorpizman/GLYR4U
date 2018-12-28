@@ -3,7 +3,7 @@ package Model;
 /**
  * This class represents a user in the data base
  */
-public class RegisterdUser extends AUser{
+public class RegisteredUser extends AUser{
     private String user_name;
     private String password;
     private String first_name;
@@ -21,7 +21,7 @@ public class RegisterdUser extends AUser{
      * @param city
      * @param date
      */
-    public RegisterdUser(String user_name, String password, String first_name, String last_name, String city,
+    public RegisteredUser(String user_name, String password, String first_name, String last_name, String city,
                          String date) {
         this.user_name = user_name;
         this.password = password;
@@ -30,7 +30,6 @@ public class RegisterdUser extends AUser{
         this.city = city;
         this.date = date;
     }
-
 
     public String getUser_name() {
         return user_name;

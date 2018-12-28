@@ -153,7 +153,7 @@ public class PublishVacationView extends ViewController {
             controller.insertFlightTickets(destTicket);
             Vacation newVacation = new Vacation(_vactionId, originTicket, destTicket, _fromCountry, _fromCity, _toCountry, _toCity,
                     _arrival.toString(), _departure.toString(), _price, _baggage, _vacationType, _accommodation,
-                    true, _transfers, RANK, controller.getCurrentUserName());
+                    true, _transfers, RANK, controller.getCurrentUser().getUser_name());
             controller.insertVacation(newVacation);
             VacationsID.add(_vactionId);
             if ((controller.GetVacationsInformation(VacationsID)).size() != 0) {

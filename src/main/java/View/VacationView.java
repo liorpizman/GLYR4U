@@ -1,12 +1,10 @@
 package View;
 
 import Controller.Controller;
-import Model.User;
 import Model.Vacation;
 import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 
 /**
