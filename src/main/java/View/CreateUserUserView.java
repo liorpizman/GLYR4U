@@ -2,12 +2,11 @@ package View;
 import javafx.scene.control.Alert;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 /**
  * This class controls the Create User Window
  */
-public class CreateUserView extends ViewController {
+public class CreateUserUserView extends UserView {
     public javafx.scene.control.TextField userName;
     public javafx.scene.control.TextField userPassword;
     public javafx.scene.control.TextField userFirstName;

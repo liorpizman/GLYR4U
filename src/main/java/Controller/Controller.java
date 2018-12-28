@@ -1,5 +1,4 @@
 package Controller;
-
 /**
  * This class represents a controller which is responsible for returning the response to a request.
  */
@@ -8,9 +7,11 @@ import Model.RegisteredUser;
 import Model.Vacation;
 import Model.FlightTickets;
 import Model.Model;
+import Model.AUser;
 import View.View;
 import javafx.scene.control.Alert;
 
+import javax.jws.soap.SOAPBinding;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -19,10 +20,10 @@ public class Controller {
     private Model model;
     private View view;
 
-
     private String currentSeller;
     private String currentVacation;
-    private double currentPrice=0;
+    private double currentPrice = 0;
+
     /**
      * This is a default constructor to create the controller
      *
@@ -122,9 +123,12 @@ public class Controller {
     }
 
     public RegisteredUser getCurrentUser() {
-        return model.CurrentUser;
+        return (RegisteredUser) model.getCurrentUser();
     }
 
+    public ArrayList<Vacation> Search(HashMap<String, String> askedValues) {
+        return model.Search(askedValues);
+    }
     /**
      * When users applies for log in
      */
@@ -222,11 +226,9 @@ public class Controller {
     }
 
 
-
     /**
      * This method get the details of a vacation purchase and update the DB payment table
      *
-
      * @param Buyer
      * @param PaymentMethod
      * @param CreditNumber
@@ -239,6 +241,7 @@ public class Controller {
 
     /**
      * Setters for current seller and vacation ids
+     *
      * @param currrentSeller
      */
 
@@ -256,5 +259,12 @@ public class Controller {
 
     public double getCurrentPrice() {
         return currentPrice;
+    }
+
+    public ArrayList<Vacation> getCurrentUserVacations() {
+        return null;
+    }
+
+    public void createPurchaseRequest(String text, String text1) {
     }
 }

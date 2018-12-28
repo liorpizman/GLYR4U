@@ -11,7 +11,7 @@ import java.util.HashMap;
 public class Model {
 
     private DBManagement dbManagement;
-    public RegisteredUser CurrentUser;  // the user that logged in the DB
+    private AUser CurrentUser;  // the user that logged in the DB
 
     public void createNewDatabase(String fileName) {
         dbManagement.createNewDatabase(fileName);
@@ -21,6 +21,7 @@ public class Model {
      * This is a default constructor of the model which holds the data base
      */
     public Model() {
+        CurrentUser = new UnRegisteredUser();
         dbManagement = new DBManagement();
     }
 
@@ -33,7 +34,7 @@ public class Model {
         dbManagement.createNewTable(tableName);
     }
 
-    public RegisteredUser getCurrentUser() {
+    public AUser getCurrentUser() {
         return CurrentUser;
     }
 
@@ -94,7 +95,7 @@ public class Model {
      * @return
      */
     public boolean deleteUser(String userToDelete, String password) {
-        RegisteredUser currUser = getCurrentUser();
+        RegisteredUser currUser = (RegisteredUser)CurrentUser;
         if (dbManagement.confirmPassword(currUser, password)) {
             dbManagement.deleteRecord(userToDelete, "DELETE FROM Users WHERE user_name = ?");
             return true;
@@ -113,7 +114,7 @@ public class Model {
                 newVacation.getDVacationCountry(), newVacation.getDVacationCity(), newVacation.getOVacationCountry(), newVacation.getOVacationCity(),
                 newVacation.getStartDate(), newVacation.getEndDate(), newVacation.getPrice(), newVacation.getBaggageType(), newVacation.isHotVacation(),
                 newVacation.getStatus(), newVacation.getVacationType(), newVacation.getAccommodationType(), newVacation.isAccommodationIncluded(),
-                newVacation.getAccommodationRank(), newVacation.isTransfers(), CurrentUser);
+                newVacation.getAccommodationRank(), newVacation.isTransfers(), (RegisteredUser)CurrentUser);
     }
 
     /**
@@ -122,7 +123,7 @@ public class Model {
      * @param VacationIdToDelete
      */
     public boolean deleteVacationRecord(String VacationIdToDelete) {
-        return dbManagement.deleteVacationRecord(VacationIdToDelete, getCurrentUser().getUser_name());
+        return dbManagement.deleteVacationRecord(VacationIdToDelete, ((RegisteredUser)CurrentUser).getUser_name());
     }
 
     /**
@@ -210,16 +211,21 @@ public class Model {
         return dbManagement.GetVacationsInformation(VacationsID);
     }
 
-    /**
-     * This method get the details of a vacation purchase and update the DB payment table
-     *
-     * @param VacationId
-     * @param Seller
-     * @param Buyer
-     * @param PaymentMethod
-     * @param CreditNumber
-     * @param PaymentDate
-     */
+    public ArrayList<Vacation> Search(HashMap<String, String> askedValues) {
+        return getCurrentUser().Search(askedValues,dbManagement);
+    }
+
+
+        /**
+         * This method get the details of a vacation purchase and update the DB payment table
+         *
+         * @param VacationId
+         * @param Seller
+         * @param Buyer
+         * @param PaymentMethod
+         * @param CreditNumber
+         * @param PaymentDate
+         */
     public void insertNewPayment(int VacationId, String Seller, String Buyer, String PaymentMethod,
                                  String CreditNumber, String PaymentDate) {
         dbManagement.insertNewPayment(VacationId, Seller, Buyer, PaymentMethod, CreditNumber, PaymentDate);

@@ -1,11 +1,9 @@
 package View;
 
-import java.time.LocalDate;
-
 /**
  * This class controls the Read User Window
  */
-public class ReadUserView extends ViewController {
+public class ReadUserUserView extends UserView {
 
     /**
      * Implementing show function in order to manipulate the update button

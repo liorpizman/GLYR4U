@@ -20,7 +20,7 @@ public class View {
     public javafx.scene.control.Button readUser;
     public javafx.scene.control.Button updateUser;
     public javafx.scene.control.Button deleteUser;
-    private ViewController viewController;
+    private UserView viewController;
     public SearchVacationView searchViewController;
     public VacationView vacationController;
     public static Controller controller;
@@ -35,8 +35,8 @@ public class View {
      * @param _controller mvc's controller
      */
     public void setController(Controller _controller) {
-        this.controller = _controller;
-        this.viewController = new ViewController();
+        controller = _controller;
+        this.viewController = new UserView();
         this.viewController.setController(controller);
         this.searchViewController = new SearchVacationView();
         searchViewController.setController(controller);

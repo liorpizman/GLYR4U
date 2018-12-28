@@ -105,7 +105,6 @@ public class SearchVacationView implements Initializable {
     protected static Controller controller;
     private int firstVacationIndex = 0;
     private ArrayList<Vacation> vacationsList;
-    private String[] vacationIDs;
 
     /**
      * Constructor, different view for connected user and guest
@@ -116,17 +115,8 @@ public class SearchVacationView implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        ArrayList<Integer> vacationIntIDs = controller.GetVacationsIdByField(null);
-        /*
-            all of this lines except should be written in model.
-         */
-        vacationIDs = new String[vacationIntIDs.size()];
-        firstVacationIndex = 0;
-        for (int i = 0; i < vacationIntIDs.size(); i++) {
-            vacationIDs[i] = vacationIntIDs.get(i).toString();
-        }
         ArrayList<Integer> removeKeys = new ArrayList<>();
-        vacationsList = controller.GetVacationsInformation(vacationIntIDs);
+        vacationsList = controller.Search(null);
         if (vacationsList.size() == 0) {
             Alert a = new Alert(Alert.AlertType.INFORMATION);
             a.setContentText("No Vacations to SHow ");
@@ -169,14 +159,9 @@ public class SearchVacationView implements Initializable {
         askedFields.put("StartDate", arrivalDate.getValue().toString());
         askedFields.put("EndDate", departureDate.getValue().toString());
         askedFields.put("AccommodationType", (String) accommodationChoice.getValue());
-        ArrayList<Integer> vacationIntIDs = controller.GetVacationsIdByField(askedFields);
-        vacationIDs = new String[vacationIntIDs.size()];
-        firstVacationIndex = 0;
-        for (int i = 0; i < vacationIntIDs.size(); i++) {
-            vacationIDs[i] = vacationIntIDs.get(i).toString();
-        }
+
         ArrayList<Integer> removeKeys = new ArrayList<Integer>();
-        vacationsList = controller.GetVacationsInformation(vacationIntIDs);
+        vacationsList = controller.Search(askedFields);
         if (vacationsList.size() == 0) {
             Alert a = new Alert(Alert.AlertType.INFORMATION);
             a.setContentText("No Search Results, please try different options ");
@@ -370,7 +355,7 @@ public class SearchVacationView implements Initializable {
      */
     public void Purchase1() {
         PurchaseButton1.setDisable(true);
-        purchaseRequest(publishedBy1.getText(), vacationIDs[firstVacationIndex], Double.parseDouble(price1.getText()));
+        purchaseRequest(publishedBy1.getText(),vacationsList.get(firstVacationIndex).getVactionId(), Double.parseDouble(price1.getText()));
     }
 
     /**
@@ -378,7 +363,7 @@ public class SearchVacationView implements Initializable {
      */
     public void Purchase2() {
         PurchaseButton2.setDisable(true);
-        purchaseRequest(publishedBy2.getText(), vacationIDs[firstVacationIndex + 1], Double.parseDouble(price2.getText()));
+        purchaseRequest(publishedBy2.getText(),vacationsList.get(firstVacationIndex + 1).getVactionId(), Double.parseDouble(price2.getText()));
     }
 
     /**
@@ -386,20 +371,20 @@ public class SearchVacationView implements Initializable {
      */
     public void Purchase3() {
         PurchaseButton3.setDisable(true);
-        purchaseRequest(publishedBy3.getText(), vacationIDs[firstVacationIndex + 2], Double.parseDouble(price3.getText()));
+        purchaseRequest(publishedBy3.getText(), vacationsList.get(firstVacationIndex + 2).getVactionId(), Double.parseDouble(price3.getText()));
     }
 
     /**
      * Opens Purchase window
      */
-    private void purchaseRequest(String sellerID, String vacationID, double price) {
+    private void purchaseRequest(String sellerID, int vacationID, double price) {
         if (!controller.isUserConnected()) {
             Alert a = new Alert(Alert.AlertType.INFORMATION);
             a.setContentText("You can't purchase vacationse if you aren't connected");
             a.show();
             return;
         }
-        controller.setCurrentVacation(vacationID);
+        controller.setCurrentVacation(Integer.toString(vacationID));
         controller.setCurrrentSeller(sellerID);
         controller.setCurrentPrice(price);
         Stage stage = new Stage();

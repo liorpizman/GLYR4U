@@ -1,6 +1,6 @@
 package View;
 /**
- * ViewController is the father class for each window controller of the CRUD GUI
+ * UserView is the father class for each window controller of the CRUD GUI
  */
 import Controller.Controller;
 import Model.RegisteredUser;
@@ -8,7 +8,7 @@ import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 import java.time.LocalDate;
 
-public class ViewController {
+public class UserView {
     public javafx.scene.control.TextField userName;
     public javafx.scene.control.TextField userPassword;
     public javafx.scene.control.TextField userFirstName;

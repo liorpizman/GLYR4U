@@ -5,7 +5,7 @@ package View;
 import Model.RegisteredUser;
 import javafx.scene.control.Alert;
 
-public class UpdateUserView extends ViewController {
+public class UpdateUserUserView extends UserView {
     public javafx.scene.control.Button update;
 
     /**

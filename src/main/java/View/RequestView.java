@@ -1,7 +1,6 @@
 package View;
 
 import Controller.Controller;
-import Model.User;
 import javafx.stage.Stage;
 
 public class RequestView {
