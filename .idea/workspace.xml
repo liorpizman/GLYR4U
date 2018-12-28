@@ -2,16 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a7a8455e-493c-43ce-a196-677db546d8f7" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/View/ExchangeRequestView.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/View/ManageRequestsView.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/View/PurchaseRequestView.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/View/RequestView.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/ExchangeVacationRequest.fxml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/ManageRequests.fxml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/PurchaseRequest.fxml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/target/classes/LogInWindow.fxml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Model/DBManagement.class" afterPath="$PROJECT_DIR$/target/classes/Model/DBManagement.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Model/FlightTickets.class" afterPath="$PROJECT_DIR$/target/classes/Model/FlightTickets.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Model/Location.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Model/Vacation.class" afterPath="$PROJECT_DIR$/target/classes/Model/Vacation.class" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -542,7 +536,7 @@
       <workItem from="1545344100791" duration="329000" />
       <workItem from="1545572548697" duration="5077000" />
       <workItem from="1545639300268" duration="172000" />
-      <workItem from="1545990514808" duration="8959000" />
+      <workItem from="1545990514808" duration="9011000" />
     </task>
     <task id="LOCAL-00001" summary="add search flights details from DB">
       <created>1544226641829</created>
@@ -677,11 +671,18 @@
       <option name="project" value="LOCAL" />
       <updated>1546000955371</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Add transaction approval functionality&#10;Delete of Location Class">
+      <created>1546001051016</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1546001051016</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="133648000" />
+    <option name="totallyTimeSpent" value="133700000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="2869" y="-11" width="2902" height="1582" extended-state="6" />
