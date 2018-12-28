@@ -20,8 +20,8 @@ public class View {
     public javafx.scene.control.Button updateUser;
     public javafx.scene.control.Button deleteUser;
     private ViewController viewController;
-    public SearchVacationController searchViewController;
-    public VacationController vacationController;
+    public SearchVacationView searchViewController;
+    public VacationView vacationController;
     public static Controller controller;
     public javafx.scene.control.TextField userName;
     public javafx.scene.control.TextField userPassword;
@@ -37,9 +37,9 @@ public class View {
         this.controller = _controller;
         this.viewController = new ViewController();
         this.viewController.setController(controller);
-        this.searchViewController = new SearchVacationController();
+        this.searchViewController = new SearchVacationView();
         searchViewController.setController(controller);
-        this.vacationController = new VacationController();
+        this.vacationController = new VacationView();
         vacationController.setController(controller);
     }
 

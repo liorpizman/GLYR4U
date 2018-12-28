@@ -527,7 +527,7 @@ public class DBManagement {
                                          String AccommodationType, String AccommodationIncluded,
                                          String AccommodationRank, String Transfers, String user_name) {
         return new Vacation(VacationId, createFlightTicket(OriginFlightId), createFlightTicket(DestFlightId),
-                new Location(DVacationCountry, DVacationCity), new Location(OVacationCountry, OVacationCity),
+                DVacationCountry, DVacationCity, OVacationCountry, OVacationCity,
                 StartDate, EndDate, Double.parseDouble(Price), BaggageType, VacationType, AccommodationType,
                 Boolean.parseBoolean(AccommodationIncluded), Boolean.parseBoolean(Transfers),Integer.parseInt(AccommodationRank),user_name);
     }
@@ -549,10 +549,17 @@ public class DBManagement {
             int[] Tickets = new int[]{rs.getInt("BabyTickets"), rs.getInt("ChildTickets"),
                     rs.getInt("AdultTickets")};
             return new FlightTickets(
+                    rs.getString("Airline"),(rs.getString("DestinationCountry")),
+                    rs.getString("DestinationCity"),(rs.getString("OriginCountry")),
+                    rs.getString("OriginCity"), Tickets, rs.getString("TicketType"),
+                    rs.getInt("VacationId"));
+            /*
+            return new FlightTickets(
                     rs.getString("Airline"),new Location(rs.getString("DestinationCountry"),
                     rs.getString("DestinationCity")), new Location(rs.getString("OriginCountry"),
                     rs.getString("OriginCity")), Tickets, rs.getString("TicketType"),
                     rs.getInt("VacationId"));
+                    */
 
         } catch (SQLException e) {
             System.out.println(e.getMessage());

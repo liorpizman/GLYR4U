@@ -1,17 +1,17 @@
 package View;
 
 import Model.FlightTickets;
-import Model.Location;
 import Model.Vacation;
 import javafx.scene.control.Alert;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Random;
+
 /**
  * Class for handling publish events
  */
-public class PublishVacationController extends ViewController {
+public class PublishVacationView extends ViewController {
     private static int VactionID = 200;
     public javafx.scene.control.Button PublishButton;
     public javafx.scene.control.TextField FromCountry;
@@ -140,17 +140,18 @@ public class PublishVacationController extends ViewController {
             return;
         } else {
             ArrayList<Integer> VacationsID = new ArrayList<>();
-            Location originLocation = new Location(_fromCountry, _fromCity);
-            Location destLocation = new Location(_toCountry, _toCity);
+
             int[] travelersType = new int[3];
             travelersType[0] = _babies;
             travelersType[1] = _children;
             travelersType[2] = _adults;
-            FlightTickets originTicket = new FlightTickets(_airline, destLocation, originLocation, travelersType, _flightClass, _vactionId);
-            FlightTickets destTicket = new FlightTickets(_airline, originLocation, destLocation, travelersType, _flightClass, _vactionId);
+
+            FlightTickets originTicket = new FlightTickets(_airline, _toCountry, _toCity, _fromCountry, _fromCity, travelersType, _flightClass, _vactionId);
+            FlightTickets destTicket = new FlightTickets(_airline, _fromCountry, _fromCity, _toCountry, _toCity, travelersType, _flightClass, _vactionId);
+
             controller.insertFlightTickets(originTicket);
             controller.insertFlightTickets(destTicket);
-            Vacation newVacation = new Vacation(_vactionId, originTicket, destTicket, destLocation, originLocation,
+            Vacation newVacation = new Vacation(_vactionId, originTicket, destTicket, _fromCountry, _fromCity, _toCountry, _toCity,
                     _arrival.toString(), _departure.toString(), _price, _baggage, _vacationType, _accommodation,
                     true, _transfers, RANK, controller.getCurrentUserName());
             controller.insertVacation(newVacation);
@@ -166,6 +167,5 @@ public class PublishVacationController extends ViewController {
             }
         }
         //clearVacationData();
-
     }
 }

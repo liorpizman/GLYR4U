@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.PaymentController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.PaymentView">
     <children>
         <Button fx:id="BackButton" layoutX="32.0" layoutY="353.0" mnemonicParsing="false" onAction="#backHome" text="back" />
         <ChoiceBox fx:id="PaymentMethodChoice" layoutX="186.0" layoutY="104.0" prefHeight="25.0" prefWidth="133.0" value="Visa">

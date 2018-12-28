@@ -10,23 +10,42 @@ public class FlightTickets {
 
     static int TicketID = 100;////// key of the object
     private String Airline;
-    private Location Destination;
-    private Location Origin;
+    //private Location Destination;
+    //private Location Origin;
     private String TicketType; // combo Box -BasicClass, FirstClass, BusinessClass
     private int TicketId;
     private int AmountOfTickets;
     private int[] TravelersType;  // index: 0-Baby , 1-Child , 2-Adult
     private int VacationId;
 
-    /**
-     * Constructor
-     * @param airline
-     * @param destination
-     * @param origin
-     * @param travelersType
-     * @param TypeOfTicket
-     * @param vacationId
-     */
+    private String DestinationCountry;
+    private String DestinationCity;
+
+    private String OriginCountry;
+    private String OriginCity;
+
+    public FlightTickets(String airline, String destinationCountry, String destinationCity, String originCountry,String originCity, int[] travelersType, String TypeOfTicket, int vacationId) {
+        Airline = airline;
+        DestinationCountry=destinationCountry;
+        DestinationCity=destinationCity;
+
+        OriginCountry=originCountry;
+        OriginCity= originCity;
+
+        TravelersType = travelersType;
+        AmountOfTickets = CalculateAmountOfTickets(travelersType);
+        TicketType = TypeOfTicket;
+
+        VacationId = vacationId;
+
+        Random r = new Random();
+        int low = TicketID;
+        int high = TicketID * 5;
+        TicketId = r.nextInt(high - low) + low;
+        TicketID += 500;
+    }
+
+  /*
     public FlightTickets(String airline, Location destination, Location origin, int[] travelersType, String TypeOfTicket, int vacationId) {
         Airline = airline;
         Destination = destination;
@@ -45,6 +64,7 @@ public class FlightTickets {
         TicketID += 500;
     }
 
+*/
     /**
      * @param travelersType
      * @return Total amount of tickets
@@ -72,6 +92,23 @@ public class FlightTickets {
         return Airline;
     }
 
+    public String getDestinationCountry() {return DestinationCountry; }
+
+    public String getDestinationCity() {
+        return DestinationCity;
+    }
+
+    public String getOriginCountry() {
+        return OriginCountry;
+    }
+
+    public String getOriginCity() {
+        return OriginCity;
+    }
+
+
+
+/*
     public String getDestinationCountry() {
         return Destination.getCountry();
     }
@@ -87,6 +124,7 @@ public class FlightTickets {
     public String getOriginCity() {
         return Origin.getCity();
     }
+    */
 
     public String getTicketType() {
         return TicketType;
