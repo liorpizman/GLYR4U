@@ -4,13 +4,14 @@ package Controller;
  * This class represents a controller which is responsible for returning the response to a request.
  */
 
-import Model.User;
+import Model.RegisteredUser;
 import Model.Vacation;
 import Model.FlightTickets;
 import Model.Model;
 import View.View;
 import javafx.scene.control.Alert;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -19,7 +20,7 @@ public class Controller {
     private View view;
 
 
-    private String currrentSeller;
+    private String currentSeller;
     private String currentVacation;
     private double currentPrice=0;
     /**
@@ -40,7 +41,7 @@ public class Controller {
      * @param updatedUser
      * @return
      */
-    public boolean updateUser(User updatedUser) {
+    public boolean updateUser(RegisteredUser updatedUser) {
         return model.updateUser(updatedUser);
     }
 
@@ -50,17 +51,23 @@ public class Controller {
      * @param userName
      * @return
      */
-    public User searchUserData(String userName) {
+    public RegisteredUser searchUserData(String userName) {
         return model.searchUserData(userName);
     }
 
     /**
      * This method returning the response to an insert of a user request;
      *
-     * @param newUser
+     * @param userName
+     * @param password
+     * @param firstName
+     * @param lastName
+     * @param userCity
+     * @param date
      */
-    public void insertUser(User newUser) {
-        model.insertUser(newUser);
+    public void insertUser(String userName, String password, String firstName, String lastName, String userCity,
+                           LocalDate date) {
+        model.insertUser(userName, password, firstName, lastName, userCity, date);
     }
 
     /**
@@ -108,13 +115,13 @@ public class Controller {
     /**
      * This method sets the current user which logged to the app
      *
-     * @param userName
+     * @param currUser
      */
-    public void setCurrentUserInSystem(String userName) {
-        model.setCurrentUser(userName);
+    public void setCurrentUserInSystem(RegisteredUser currUser) {
+        model.setCurrentUser(currUser);
     }
 
-    public String getCurrentUserName() {
+    public RegisteredUser getCurrentUser() {
         return model.CurrentUser;
     }
 
@@ -133,9 +140,10 @@ public class Controller {
             a.show();
             return false;
         } else {
-            if (searchUserData(_userName) != null) {
+            RegisteredUser user = searchUserData(_userName);
+            if (user != null) {
                 if (IsCorrectPassword(_userName, _password)) {
-                    setCurrentUserInSystem(_userName);
+                    setCurrentUserInSystem(user);
                     return true;
                     //Model.CurrentUser = _userName;
                     //close current stage and move to LoggedUserWindow (MAYBE SHOULD EXIT FROM MAIN STAGE TOO)
@@ -198,10 +206,10 @@ public class Controller {
     /**
      * This method deletes all the Vacations records in table that belong to user that was deleted and not sold yet.
      *
-     * @param userName
+     * @param user
      */
-    public void deleteVacationOfDeletedUser(String userName) {
-        model.deleteVacationOfDeletedUser(userName);
+    public void deleteVacationOfDeletedUser(RegisteredUser user) {
+        model.deleteVacationOfDeletedUser(user);
     }
 
     /**
@@ -226,7 +234,7 @@ public class Controller {
      */
     public void insertNewPayment(String Buyer, String PaymentMethod,
                                  String CreditNumber, String PaymentDate) {
-        model.insertNewPayment(Integer.parseInt(currentVacation), currrentSeller, Buyer, PaymentMethod, CreditNumber, PaymentDate);
+        model.insertNewPayment(Integer.parseInt(currentVacation), currentSeller, Buyer, PaymentMethod, CreditNumber, PaymentDate);
     }
 
     /**
@@ -235,7 +243,7 @@ public class Controller {
      */
 
     public void setCurrrentSeller(String currrentSeller) {
-        this.currrentSeller = currrentSeller;
+        this.currentSeller = currrentSeller;
     }
 
     public void setCurrentVacation(String currentVacation) {

@@ -149,7 +149,7 @@ public class SearchVacationView implements Initializable {
     public void search() {
         clearAllFields();
         HashMap<String, String> askedFields = new HashMap<String, String>();
-//        searchTest();
+        // searchTest();
         if ((fromCountry == null || fromCountry.getText().isEmpty()) ||
                 (fromCity == null || fromCity.getText().isEmpty()) ||
                 (toCountry == null || toCountry.getText().isEmpty()) ||
@@ -202,7 +202,7 @@ public class SearchVacationView implements Initializable {
 
     public void SetAllResults(int i) {
         if (i < vacationsList.size()) {
-            if (vacationsList.get(i).getUserID().equals(controller.getCurrentUserName())) {
+            if (vacationsList.get(i).getUserID().equals(controller.getCurrentUser().getUser_name())) {
                 PurchaseButton1.setDisable(true);
             } else {
                 PurchaseButton1.setDisable(false);
@@ -210,7 +210,7 @@ public class SearchVacationView implements Initializable {
             SetResultFields1(vacationsList.get(i));
         }
         if (i + 1 < vacationsList.size()) {
-            if (vacationsList.get(i + 1).getUserID().equals(controller.getCurrentUserName())) {
+            if (vacationsList.get(i + 1).getUserID().equals(controller.getCurrentUser().getUser_name())) {
                 PurchaseButton2.setDisable(true);
             } else {
                 PurchaseButton2.setDisable(false);
@@ -219,7 +219,7 @@ public class SearchVacationView implements Initializable {
 
         }
         if (i + 2 < vacationsList.size()) {
-            if (vacationsList.get(i).getUserID().equals(controller.getCurrentUserName())) {
+            if (vacationsList.get(i).getUserID().equals(controller.getCurrentUser().getUser_name())) {
                 PurchaseButton3.setDisable(true);
             } else {
                 PurchaseButton3.setDisable(false);
@@ -235,9 +235,7 @@ public class SearchVacationView implements Initializable {
             previousButton.setDisable(true);
         } else {
             previousButton.setDisable(false);
-        }
-
-    }
+        }    }
 
     /**
      * Sets results to the vacations tab1

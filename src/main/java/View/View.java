@@ -4,8 +4,7 @@ package View;
  */
 
 import Controller.Controller;
-import javafx.event.Event;
-import javafx.event.EventHandler;
+import Model.RegisteredUser;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -13,7 +12,6 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import javafx.stage.WindowEvent;
 
 import java.util.Optional;
 
@@ -108,7 +106,7 @@ public class View {
      * Opens delete user window when "delete user" button is pushed
      */
     public void deleteUser() {
-        if(controller.getCurrentUserName()!=null){
+        if(controller.getCurrentUser()!= null){
             Stage stage = new Stage();
             stage.setResizable(true);
             stage.setTitle("Delete User");
@@ -129,7 +127,6 @@ public class View {
             a.show();
         }
     }
-
 
     /**
      * Opens search vacations window
@@ -155,7 +152,8 @@ public class View {
      */
     public void logIn() {
         if (controller.logIn(userName.getText(), userPassword.getText())) {
-            controller.setCurrentUserInSystem(userName.getText());
+            RegisteredUser currUser = controller.searchUserData(userName.getText());
+            controller.setCurrentUserInSystem(currUser);
             searchVacation();
         }
     }

@@ -14,8 +14,8 @@ public class DeleteUserView extends ViewController {
      * for each state
      */
     public void deleteUser() {
-        if (controller.deleteUser(controller.getCurrentUserName(), userPassword.getText())) {
-            controller.deleteVacationOfDeletedUser(controller.getCurrentUserName());
+        if (controller.deleteUser(controller.getCurrentUser().getUser_name(), userPassword.getText())) {
+            controller.deleteVacationOfDeletedUser(controller.getCurrentUser());
             Alert a = new Alert(Alert.AlertType.INFORMATION);
             a.setContentText("The user is deleted.");
             a.show();

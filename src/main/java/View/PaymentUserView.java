@@ -31,7 +31,7 @@ public class PaymentView extends ViewController {
             a.show();
             return;
         }
-        controller.insertNewPayment(controller.getCurrentUserName(), _paymentMethodChoice,
+        controller.insertNewPayment(controller.getCurrentUser().getUser_name(), _paymentMethodChoice,
                 _creditNumber, _paymentDate.toString());
         Alert a = new Alert(Alert.AlertType.INFORMATION);
         a.setContentText("Payment Successful!");
@@ -46,9 +46,5 @@ public class PaymentView extends ViewController {
      */
     public void showPrice(){
         AmountToPay.setText(Double.toString(controller.getCurrentPrice()));
-
     }
-
-
-
 }

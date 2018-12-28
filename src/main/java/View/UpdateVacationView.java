@@ -228,7 +228,7 @@ public class UpdateVacationView extends VacationView {
                 //controller.updateFlightTickets(destTicket);
                 Vacation newVacation = new Vacation(_vactionId, originTicket, destTicket, _fromCountry, _fromCity, _toCountry, _toCity,
                         _arrival.toString(), _departure.toString(), _price, _baggage, _vacationType, _accommodation,
-                        true, _transfers, RANK, controller.getCurrentUserName());
+                        true, _transfers, RANK, controller.getCurrentUser().getUser_name());
 
                 if (controller.updateVacation(newVacation)) {
                     Alert a = new Alert(Alert.AlertType.INFORMATION);

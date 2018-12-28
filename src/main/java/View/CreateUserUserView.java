@@ -1,5 +1,4 @@
 package View;
-import Model.User;
 import javafx.scene.control.Alert;
 
 import java.time.LocalDate;
@@ -79,8 +78,7 @@ public class CreateUserView extends ViewController {
             }
             else
             {
-                User newUser = new User(_userName,_password,_firstName,_lastName,_userCity,date.toString());
-                controller.insertUser(newUser);
+                controller.insertUser(_userName, _password, _firstName, _lastName, _userCity, date);
                 if (searchUserData(_userName) != null)
                 {
                     Alert a = new Alert(Alert.AlertType.INFORMATION);
