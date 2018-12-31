@@ -47,7 +47,7 @@ public class FlightTickets {
 
   /*
     public FlightTickets(String airline, Location destination, Location origin, int[] travelersType, String TypeOfTicket, int vacationId) {
-        Airline = airline;
+        AirlineP = airline;
         Destination = destination;
         Origin = origin;
 

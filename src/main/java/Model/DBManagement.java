@@ -97,7 +97,7 @@ public class DBManagement {
      *
      * @param PrimaryKeyToDelete
      */
-    public void deleteRecord(String PrimaryKeyToDelete, String sql) {   /// to delete user: sql="DELETE FROM Users WHERE user_name = ?" . to delete vacation sql=""
+    public void deleteRecord(String PrimaryKeyToDelete, String sql) {   /// to deleteD user: sql="DELETE FROM Users WHERE user_name = ?" . to deleteD vacation sql=""
         // String sql = "DELETE FROM Users WHERE user_name = ?";
         try (Connection conn = this.connect();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
@@ -110,10 +110,10 @@ public class DBManagement {
 
     /**
      * This method updates user's field,and returns True or False
-     * if the update is done (or not)
+     * if the updateU is done (or not)
      *
      * @param user_name
-     * @param field     -The field that be update
+     * @param field     -The field that be updateU
      * @param newData   -The new value of the field
      * @return
      */
@@ -125,7 +125,7 @@ public class DBManagement {
             // set the corresponding param [ instead of question marks (?) ]
             pstmt.setString(2, user_name);
             pstmt.setString(1, newData);
-            // update
+            // updateU
             pstmt.executeUpdate();
             return true;
         } catch (SQLException e) {
@@ -337,10 +337,10 @@ public class DBManagement {
 
     /**
      * This method updates vacation details by the user that insert this vacation,
-     * and returns True or False if the update is done (or not)
+     * and returns True or False if the updateU is done (or not)
      *
      * @param vacationId
-     * @param field     -The field that be update
+     * @param field     -The field that be updateU
      * @param newData   -The new value of the field
      * @return True or False
      */
@@ -352,7 +352,7 @@ public class DBManagement {
             // set the corresponding param [ instead of question marks (?) ]
             pstmt.setString(1, newData);
             pstmt.setInt(2, vacationId);
-            // update
+            // updateU
             pstmt.executeUpdate();
             return true;
         } catch (SQLException e) {
@@ -552,7 +552,7 @@ public class DBManagement {
                     rs.getInt("VacationId"));
             /*
             return new FlightTickets(
-                    rs.getString("Airline"),new Location(rs.getString("DestinationCountry"),
+                    rs.getString("AirlineP"),new Location(rs.getString("DestinationCountry"),
                     rs.getString("DestinationCity")), new Location(rs.getString("OriginCountry"),
                     rs.getString("OriginCity")), Tickets, rs.getString("TicketType"),
                     rs.getInt("VacationId"));

@@ -10,6 +10,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -20,14 +21,14 @@ public class View {
     public javafx.scene.control.Button readUser;
     public javafx.scene.control.Button updateUser;
     public javafx.scene.control.Button deleteUser;
-    private UserView viewController;
-    public SearchVacationView searchViewController;
-    public VacationView vacationController;
+    public SearchVacationController searchViewController;
+    public VacationCRUDController vacationCrudController;
     public static Controller controller;
     public javafx.scene.control.TextField userName;
     public javafx.scene.control.TextField userPassword;
     public javafx.scene.control.Button BackButton;
     public javafx.scene.control.Button ExitButton;
+    private UserCRUDController userCrudController;
 
     /**
      * Setting the view's controller. implement mvc paradigm
@@ -36,12 +37,12 @@ public class View {
      */
     public void setController(Controller _controller) {
         controller = _controller;
-        this.viewController = new UserView();
-        this.viewController.setController(controller);
-        this.searchViewController = new SearchVacationView();
+        this.userCrudController = new UserCRUDController();
+        this.userCrudController.setController(controller);
+        this.searchViewController = new SearchVacationController();
         searchViewController.setController(controller);
-        this.vacationController = new VacationView();
-        vacationController.setController(controller);
+        this.vacationCrudController = new VacationCRUDController();
+        vacationCrudController.setController(controller);
     }
 
 
@@ -84,7 +85,7 @@ public class View {
     }
 
     /**
-     * Opens update user window when "update user" button is pushed
+     * Opens updateU user window when "updateU user" button is pushed
      */
     public void updateUser() {
         Stage stage = new Stage();
@@ -103,10 +104,10 @@ public class View {
     }
 
     /**
-     * Opens delete user window when "delete user" button is pushed
+     * Opens deleteD user window when "deleteD user" button is pushed
      */
     public void deleteUser() {
-        if(controller.getCurrentUser()!= null){
+        if (controller.getCurrentUser() != null) {
             Stage stage = new Stage();
             stage.setResizable(true);
             stage.setTitle("Delete User");
@@ -120,10 +121,9 @@ public class View {
             } catch (Exception e) {
                 e.getCause().printStackTrace();
             }
-        }
-        else{
+        } else {
             Alert a = new Alert(Alert.AlertType.INFORMATION);
-            a.setContentText("You must be logged in to delete your user!");
+            a.setContentText("You must be logged in to deleteD your user!");
             a.show();
         }
     }
@@ -136,8 +136,10 @@ public class View {
         stage.setResizable(true);
         stage.setTitle("Search Vacation");
         try {
-            Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("SearchVaction.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            Pane root = fxmlLoader.load(getClass().getClassLoader().getResource("SearchVacation.fxml").openStream());
             root.getStylesheets().add(getClass().getClassLoader().getResource("flightCSS.css").toExternalForm());
+            searchViewController = (SearchVacationController) fxmlLoader.getController();
             Scene scene = new Scene(root, 1030, 652);
             stage.setScene(scene);
             stage.initModality(Modality.APPLICATION_MODAL);
@@ -190,7 +192,7 @@ public class View {
     }
 
     /**
-     * Opens update vacation window when the update vacation button was pressed
+     * Opens updateU vacation window when the updateU vacation button was pressed
      */
     public void UpdateVacationRun() {
         Stage stage = new Stage();
@@ -209,7 +211,7 @@ public class View {
     }
 
     /**
-     * Opens delete vacation window when the delete vacation button was pressed
+     * Opens deleteD vacation window when the deleteD vacation button was pressed
      */
     public void DeleteVacationRun() {
         Stage stage = new Stage();
@@ -234,7 +236,7 @@ public class View {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setContentText("Are you sure you want to exit?");
         Optional<ButtonType> result = alert.showAndWait();
-        if(result.get()== ButtonType.OK){
+        if (result.get() == ButtonType.OK) {
             Stage stage = (Stage) ExitButton.getScene().getWindow();
             stage.close();
         }

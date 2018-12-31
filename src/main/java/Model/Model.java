@@ -34,11 +34,10 @@ public class Model {
         dbManagement.createNewTable(tableName);
     }
 
-    public AUser getCurrentUser() {
-
+    public RegisteredUser getCurrentUser() {
         if (this.CurrentUser instanceof UnRegisteredUser)
             return null;
-        return CurrentUser;
+        return (RegisteredUser)CurrentUser;
     }
 
     /**
@@ -58,7 +57,7 @@ public class Model {
     }
 
     /**
-     * This method calls a function to update for each field which was changed
+     * This method calls a function to updateU for each field which was changed
      *
      * @param updatedUser
      * @return
@@ -91,7 +90,7 @@ public class Model {
     }
 
     /**
-     * This method calls a function to delete a user
+     * This method calls a function to deleteD a user
      *
      * @param userToDelete
      * @param password
@@ -139,7 +138,7 @@ public class Model {
     }
 
     /**
-     * This method calls a function to update each field which was changed
+     * This method calls a function to updateU each field which was changed
      *
      * @param updatedVacation
      * @return True or False
@@ -220,7 +219,7 @@ public class Model {
 
 
         /**
-         * This method get the details of a vacation purchase and update the DB payment table
+         * This method get the details of a vacation purchase and updateU the DB payment table
          *
          * @param VacationId
          * @param Seller

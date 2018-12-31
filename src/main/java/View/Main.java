@@ -6,6 +6,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import Model.Model;
 
@@ -89,10 +90,11 @@ public class Main extends Application {
         model.createNewTable(VacationsSql);
         model.createNewTable(FlightTicketsSql);
         model.createNewTable(PaymentsSql);
-        View view = new View();
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        Pane root = fxmlLoader.load(getClass().getClassLoader().getResource("MainView.fxml").openStream());
+        View view = (View)fxmlLoader.getController();
         Controller controller = new Controller(model, view);
         view.setController(controller);
-        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("MainView.fxml"));
         root.getStylesheets().add(getClass().getClassLoader().getResource("vacationCSS.css").toExternalForm());
         primaryStage.setTitle("Welcome To Vacation4U!");
         primaryStage.setScene(new Scene(root, 400, 400));

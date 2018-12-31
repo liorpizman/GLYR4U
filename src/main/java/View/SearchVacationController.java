@@ -3,11 +3,13 @@ package View;
 import Controller.Controller;
 import Model.RegisteredUser;
 import Model.Vacation;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -19,7 +21,7 @@ import java.util.ResourceBundle;
 /**
  * Class for handling search events
  */
-public class SearchVacationView implements Initializable {
+public class SearchVacationController implements Initializable {
 
     public javafx.scene.control.TextField fromCountry;
     public javafx.scene.control.TextField fromCity;
@@ -116,20 +118,22 @@ public class SearchVacationView implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-      updateVacationsList();
+        updateVacationsList();
     }
 
-    public void updateVacationsList(){
-        ArrayList<Integer> removeKeys = new ArrayList<>();
+    public void updateVacationsList() {
         vacationsList = controller.Search(null);
+        /*
         if (vacationsList.size() == 0) {
             Alert a = new Alert(Alert.AlertType.INFORMATION);
             a.setContentText("No Vacations to Show ");
             a.show();
             return;
         }
+        */
         SetAllResults(0);
     }
+
     /**
      * handles search button clicked event, setting search results to tabs.
      */
@@ -143,7 +147,7 @@ public class SearchVacationView implements Initializable {
                 (toCity == null || toCity.getText().isEmpty()) ||
                 (arrivalDate == null || arrivalDate.getValue() == null || arrivalDate.getValue().toString().isEmpty()) ||
                 (departureDate == null || departureDate.getValue() == null || departureDate.getValue().toString().isEmpty())
-                ) {
+        ) {
             Alert a = new Alert(Alert.AlertType.INFORMATION);
             a.setContentText("Not all fields have been filled correctly, please fill all fields ");
             a.show();
@@ -187,9 +191,7 @@ public class SearchVacationView implements Initializable {
         if (i < vacationsList.size()) {
             if (currentUser != null && vacationsList.get(i).getUserID().equals(currentUser.getUser_name())) {
                 PurchaseButton1.setDisable(true);
-            } else {
-                PurchaseButton1.setDisable(false);
-            }
+            } else PurchaseButton1.setDisable(false);
             SetResultFields1(vacationsList.get(i));
         }
         if (i + 1 < vacationsList.size()) {
@@ -218,7 +220,8 @@ public class SearchVacationView implements Initializable {
             previousButton.setDisable(true);
         } else {
             previousButton.setDisable(false);
-        }    }
+        }
+    }
 
     /**
      * Sets results to the vacations tab1
@@ -353,7 +356,7 @@ public class SearchVacationView implements Initializable {
      */
     public void Purchase1() {
         PurchaseButton1.setDisable(true);
-        purchaseRequest(publishedBy1.getText(),vacationsList.get(firstVacationIndex).getVactionId(), Double.parseDouble(price1.getText()));
+        purchaseRequest(publishedBy1.getText(), vacationsList.get(firstVacationIndex).getVactionId(), Double.parseDouble(price1.getText()));
     }
 
     /**
@@ -361,7 +364,7 @@ public class SearchVacationView implements Initializable {
      */
     public void Purchase2() {
         PurchaseButton2.setDisable(true);
-        purchaseRequest(publishedBy2.getText(),vacationsList.get(firstVacationIndex + 1).getVactionId(), Double.parseDouble(price2.getText()));
+        purchaseRequest(publishedBy2.getText(), vacationsList.get(firstVacationIndex + 1).getVactionId(), Double.parseDouble(price2.getText()));
     }
 
     /**
@@ -536,5 +539,13 @@ public class SearchVacationView implements Initializable {
     }
 
 
+    public void ExchangeRequest1(ActionEvent actionEvent) {
+    }
+
+    public void ExchangeRequest2(ActionEvent actionEvent) {
+    }
+
+    public void ExchangeRequest3(ActionEvent actionEvent) {
+    }
 }
 

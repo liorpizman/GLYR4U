@@ -37,7 +37,7 @@ public class Controller {
     }
 
     /**
-     * This method returning the response to an update request
+     * This method returning the response to an updateU request
      *
      * @param updatedUser
      * @return
@@ -72,7 +72,7 @@ public class Controller {
     }
 
     /**
-     * This method returning the response to delete of a user request;
+     * This method returning the response to deleteD of a user request;
      *
      * @param userToDelete
      * @param password
@@ -227,7 +227,7 @@ public class Controller {
 
 
     /**
-     * This method get the details of a vacation purchase and update the DB payment table
+     * This method get the details of a vacation purchase and updateU the DB payment table
      *
      * @param Buyer
      * @param PaymentMethod

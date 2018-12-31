@@ -1,10 +1,16 @@
 package View;
 
 import Controller.Controller;
+import javafx.fxml.Initializable;
 import javafx.stage.Stage;
 
-public class RequestView {
+import java.net.URL;
+import java.util.ResourceBundle;
 
+public class ManageRequestsController implements Initializable {
+
+    public javafx.scene.control.Button ApplyButton;
+    public javafx.scene.control.Button RefuseButton;
     public javafx.scene.control.Button BackButton;
     protected static Controller controller;
     /**
@@ -25,4 +31,23 @@ public class RequestView {
         stage.close();
     }
 
+    /**
+     * Method calls an applyC of the user on a request
+     */
+    public void applyRequest() {
+
+    }
+
+
+    /**
+     * Method calls a refuse of the user on a request
+     */
+    public void refuseRequest() {
+
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+
+    }
 }
