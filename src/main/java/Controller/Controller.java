@@ -267,4 +267,8 @@ public class Controller {
 
     public void createPurchaseRequest(String text, String text1) {
     }
+
+    public void vacationAdded() {
+        view.searchViewController.updateVacationsList();
+    }
 }

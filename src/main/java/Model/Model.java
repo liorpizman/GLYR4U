@@ -35,6 +35,9 @@ public class Model {
     }
 
     public AUser getCurrentUser() {
+
+        if (this.CurrentUser instanceof UnRegisteredUser)
+            return null;
         return CurrentUser;
     }
 
@@ -212,7 +215,7 @@ public class Model {
     }
 
     public ArrayList<Vacation> Search(HashMap<String, String> askedValues) {
-        return getCurrentUser().Search(askedValues,dbManagement);
+        return this.CurrentUser.Search(askedValues,dbManagement);
     }
 
 

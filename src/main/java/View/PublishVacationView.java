@@ -3,6 +3,7 @@ package View;
 import Model.FlightTickets;
 import Model.Vacation;
 import javafx.scene.control.Alert;
+import javafx.stage.Stage;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -166,6 +167,8 @@ public class PublishVacationView extends VacationView {
                 a.show();
             }
         }
+        controller.vacationAdded();
+        backHome();
         //clearVacationData();
     }
 }

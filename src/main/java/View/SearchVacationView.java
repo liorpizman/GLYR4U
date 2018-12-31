@@ -1,6 +1,7 @@
 package View;
 
 import Controller.Controller;
+import Model.RegisteredUser;
 import Model.Vacation;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -115,24 +116,20 @@ public class SearchVacationView implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+      updateVacationsList();
+    }
+
+    public void updateVacationsList(){
         ArrayList<Integer> removeKeys = new ArrayList<>();
         vacationsList = controller.Search(null);
         if (vacationsList.size() == 0) {
             Alert a = new Alert(Alert.AlertType.INFORMATION);
-            a.setContentText("No Vacations to SHow ");
+            a.setContentText("No Vacations to Show ");
             a.show();
             return;
         }
-        for (int i = 0; i < vacationsList.size(); i++) {
-            if (roundTripCheck.isSelected())
-                if (vacationsList.get(i).getFromDestFlight() == null)
-                    removeKeys.add(i);
-        }
-        for (Integer removeKey : removeKeys) {
-            vacationsList.remove(removeKey);
-        }
-        SetAllResults(0);    }
-
+        SetAllResults(0);
+    }
     /**
      * handles search button clicked event, setting search results to tabs.
      */
@@ -186,8 +183,9 @@ public class SearchVacationView implements Initializable {
      */
 
     public void SetAllResults(int i) {
+        RegisteredUser currentUser = controller.getCurrentUser();
         if (i < vacationsList.size()) {
-            if (vacationsList.get(i).getUserID().equals(controller.getCurrentUser().getUser_name())) {
+            if (currentUser != null && vacationsList.get(i).getUserID().equals(currentUser.getUser_name())) {
                 PurchaseButton1.setDisable(true);
             } else {
                 PurchaseButton1.setDisable(false);
@@ -195,7 +193,7 @@ public class SearchVacationView implements Initializable {
             SetResultFields1(vacationsList.get(i));
         }
         if (i + 1 < vacationsList.size()) {
-            if (vacationsList.get(i + 1).getUserID().equals(controller.getCurrentUser().getUser_name())) {
+            if (currentUser != null && vacationsList.get(i + 1).getUserID().equals(controller.getCurrentUser().getUser_name())) {
                 PurchaseButton2.setDisable(true);
             } else {
                 PurchaseButton2.setDisable(false);
@@ -204,7 +202,7 @@ public class SearchVacationView implements Initializable {
 
         }
         if (i + 2 < vacationsList.size()) {
-            if (vacationsList.get(i).getUserID().equals(controller.getCurrentUser().getUser_name())) {
+            if (currentUser != null && vacationsList.get(i).getUserID().equals(controller.getCurrentUser().getUser_name())) {
                 PurchaseButton3.setDisable(true);
             } else {
                 PurchaseButton3.setDisable(false);

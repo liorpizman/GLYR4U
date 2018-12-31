@@ -416,17 +416,21 @@ public class DBManagement {
         HashMap<Integer, String> searchValues = new HashMap<>();
         int numOfValues = 0;
         String whereStatement = "";
-
-        for (String key : askedValues.keySet()) {
-            if (askedValues.get(key) != null && !(askedValues.get(key).equals(""))) {
-                numOfValues++;
-                whereStatement = whereStatement + " AND " + key + " =?";
-                searchValues.put(numOfValues, askedValues.get(key));
-            }
+        String sql = "";
+        if (askedValues == null){
+            sql = "SELECT * FROM " + TableName + " WHERE Status =0";
         }
+        else {
+            for (String key : askedValues.keySet()) {
+                if (askedValues.get(key) != null && !(askedValues.get(key).equals(""))) {
+                    numOfValues++;
+                    whereStatement = whereStatement + " AND " + key + " =?";
+                    searchValues.put(numOfValues, askedValues.get(key));
+                }
+            }
 
-        String sql = "SELECT * FROM " + TableName + " WHERE Status =0" + whereStatement;
-
+            sql = "SELECT * FROM " + TableName + " WHERE Status =0" + whereStatement;
+        }
         try (Connection conn = this.connect();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
             for (int i = 1; i <= numOfValues; i++) {
