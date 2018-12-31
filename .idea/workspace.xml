@@ -1,56 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a7a8455e-493c-43ce-a196-677db546d8f7" name="Default" comment="Merge branch 'master' of https://github.com/liorpizman/GLYR4U&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;src/main/java/View/View.java&#10;#&#9;target/classes/View/View.class">
-      <change afterPath="$PROJECT_DIR$/src/main/java/View/RequestController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/View/UserCRUDController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/View/VacationCRUDController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/SearchVacation.fxml" afterDir="false" />
+    <list default="true" id="a7a8455e-493c-43ce-a196-677db546d8f7" name="Default" comment="Update Controllers and fxml files">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/DBManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/DBManagement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/FlightTickets.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/FlightTickets.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Model.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/CreateUserUserView.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/DeleteUserUserView.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/DeleteVacationView.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/ExchangeRequestView.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/ManageRequestsView.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/PaymentUserView.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/PublishVacationView.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/PurchaseRequestView.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/ReadUserUserView.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/ReadVacationView.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/RequestView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/ManageRequestsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/SearchVacationView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/SearchVacationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/UpdateUserUserView.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/UpdateVacationView.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/UserView.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/VacationView.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/View.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/CreateUser.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/CreateUser.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/DeleteUser.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/DeleteUser.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/DeleteVacationWindow.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/DeleteVacationWindow.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/ExchangeVacationRequest.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ExchangeVacationRequest.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/ManageRequests.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ManageRequests.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/PublishVacation.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/PublishVacation.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/PurchaseRequest.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/PurchaseRequest.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/ReadUser.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ReadUser.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/SearchVaction.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/UpdateUser.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/UpdateUser.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/UpdateVacationWindow.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/UpdateVacationWindow.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/VacationInfoWindow.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/VacationInfoWindow.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Controller/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controller/Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/CreateUser.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/CreateUser.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/DeleteUser.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DeleteUser.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Model/DBManagement.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/DBManagement.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Model/Model.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Model.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/PublishVacation.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/PublishVacation.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ReadUser.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ReadUser.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/SearchVaction.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/UpdateUser.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/UpdateUser.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/View/View.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/View/View.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/SearchVacationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/SearchVacationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/UserCRUDController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/UserCRUDController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/VacationCRUDController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/VacationCRUDController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/View/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/View/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/v4uDB.db" beforeDir="false" afterPath="$PROJECT_DIR$/v4uDB.db" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
@@ -70,8 +26,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Controller/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="428">
-              <caret line="271" selection-start-line="271" selection-end-line="271" />
+            <state relative-caret-position="59">
+              <caret line="55" column="35" selection-start-line="55" selection-start-column="21" selection-end-line="55" selection-end-column="35" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1254#1255#0" expanded="true" />
@@ -80,7 +36,20 @@
                 <element signature="e#3201#3202#0" expanded="true" />
                 <element signature="e#3279#3280#0" expanded="true" />
                 <element signature="e#3327#3328#0" expanded="true" />
+                <element signature="e#7912#7913#0" expanded="true" />
                 <element signature="e#7975#7976#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/View/UserCRUDController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="482">
+              <caret line="137" column="9" selection-start-line="137" selection-start-column="9" selection-end-line="137" selection-end-column="9" />
+              <folding>
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -89,8 +58,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/View/VacationCRUDController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="222" selection-start-line="222" selection-end-line="222" />
+            <state relative-caret-position="520">
+              <caret line="61" column="20" lean-forward="true" selection-start-line="61" selection-start-column="20" selection-end-line="61" selection-end-column="20" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -98,20 +67,60 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/View/Main.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/View/ManageRequestsController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+            <state relative-caret-position="51">
+              <caret line="9" column="37" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="37" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/View/View.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/View/RequestController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="150" lean-forward="true" selection-start-line="150" selection-end-line="150" />
+            <state relative-caret-position="251">
+              <caret line="63" column="6" selection-start-line="63" selection-start-column="6" selection-end-line="79" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Model/Model.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="127">
+              <caret line="83" column="6" lean-forward="true" selection-start-line="83" selection-start-column="6" selection-end-line="83" selection-end-column="6" />
+              <folding>
+                <element signature="e#2658#2659#0" expanded="true" />
+                <element signature="e#2718#2719#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Model/DBManagement.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="348">
+              <caret line="152" selection-start-line="152" selection-end-line="152" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/View/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="363">
+              <caret line="96" selection-start-line="96" selection-end-line="96" />
             </state>
           </provider>
         </entry>
@@ -119,12 +128,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/View/SearchVacationController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="538">
-              <caret line="136" column="7" lean-forward="true" selection-start-line="136" selection-start-column="7" selection-end-line="136" selection-end-column="7" />
-              <folding>
-                <element signature="e#4947#4948#0" expanded="true" />
-                <element signature="e#4984#4985#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="741">
+              <caret line="156" column="9" lean-forward="true" selection-start-line="156" selection-start-column="9" selection-end-line="156" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -141,18 +146,13 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>delet</find>
-      <find>setcu</find>
-      <find>current</find>
       <find>delete</find>
       <find>ClearUserData</find>
-      <find>clearUserData</find>
       <find>isInteger</find>
       <find>getcur</find>
       <find>login</find>
       <find>logi</find>
       <find>setCure</find>
-      <find>searchUserData</find>
       <find>setCurrentUserInSystem</find>
       <find>setCurrentUser</find>
       <find>find</find>
@@ -171,6 +171,11 @@
       <find>updateVacationsList</find>
       <find>setController</find>
       <find>searchVacation</find>
+      <find>clearUserData</find>
+      <find>findExistsUser</find>
+      <find>publish</find>
+      <find>searchUserData</find>
+      <find>arrivalDate</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -204,12 +209,10 @@
         <option value="$PROJECT_DIR$/src/main/resources/DeleteUser.fxml" />
         <option value="$PROJECT_DIR$/src/main/resources/UpdateUser.fxml" />
         <option value="$PROJECT_DIR$/clears" />
-        <option value="$PROJECT_DIR$/src/main/java/View/UserCRUDController.java" />
         <option value="$PROJECT_DIR$/src/main/java/Controller/Controller.java" />
         <option value="$PROJECT_DIR$/src/main/java/Controller/Controller.java" />
         <option value="$PROJECT_DIR$/src/main/java/View/PaymentUserView.java" />
         <option value="$PROJECT_DIR$/src/main/java/View/UpdateVacationView.java" />
-        <option value="$PROJECT_DIR$/src/main/java/View/VacationCRUDController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/UpdateVacationWindow.fxml" />
         <option value="$PROJECT_DIR$/src/main/resources/VacationInfoWindow.fxml" />
         <option value="$PROJECT_DIR$/src/main/resources/PublishVacation.fxml" />
@@ -227,10 +230,12 @@
         <option value="$PROJECT_DIR$/src/main/resources/PurchaseRequest.fxml" />
         <option value="$PROJECT_DIR$/src/main/resources/ManageRequests.fxml" />
         <option value="$PROJECT_DIR$/src/main/resources/SearchVaction.fxml" />
-        <option value="$PROJECT_DIR$/src/main/java/View/SearchVacationController.java" />
         <option value="$PROJECT_DIR$/src/main/java/View/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/View/View.java" />
         <option value="$PROJECT_DIR$/src/main/java/View/View.java" />
+        <option value="$PROJECT_DIR$/src/main/java/View/SearchVacationController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/View/VacationCRUDController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/View/UserCRUDController.java" />
       </list>
     </option>
   </component>
@@ -338,7 +343,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546267834251" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546271794298" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -587,7 +592,14 @@
       <option name="project" value="LOCAL" />
       <updated>1546010692331</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Update Controllers and fxml files">
+      <created>1546267911603</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1546267911603</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -687,7 +699,8 @@
     <MESSAGE value="update adding to DB locations with lower case" />
     <MESSAGE value="adding comments" />
     <MESSAGE value="Merge branch 'master' of https://github.com/liorpizman/GLYR4U&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;src/main/java/View/View.java&#10;#&#9;target/classes/View/View.class" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'master' of https://github.com/liorpizman/GLYR4U&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;src/main/java/View/View.java&#10;#&#9;target/classes/View/View.class" />
+    <MESSAGE value="Update Controllers and fxml files" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update Controllers and fxml files" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -753,10 +766,10 @@
           <option name="timeStamp" value="93" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/View/Main.java</url>
-          <line>96</line>
+          <url>file://$PROJECT_DIR$/src/main/java/Model/DBManagement.java</url>
+          <line>151</line>
           <properties />
-          <option name="timeStamp" value="94" />
+          <option name="timeStamp" value="97" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -976,23 +989,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Model/DBManagement.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="575" column="7" lean-forward="true" selection-start-line="575" selection-start-column="7" selection-end-line="575" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Model/Model.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="226">
-          <caret line="191" column="103" selection-start-line="191" selection-start-column="96" selection-end-line="191" selection-end-column="103" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Model/Vacation.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="516">
@@ -1031,16 +1027,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/View/UserCRUDController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="163">
-          <caret line="197" selection-start-line="197" selection-end-line="199" selection-end-column="112" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/View/RequestView.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -1056,16 +1042,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="12" column="49" selection-start-line="12" selection-start-column="49" selection-end-line="12" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/View/RequestController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="48" column="49" lean-forward="true" selection-start-line="48" selection-start-column="49" selection-end-line="48" selection-end-column="49" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1101,54 +1077,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/View/ManageRequestsController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="9" column="37" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="37" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/View/VacationCRUDController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="222" selection-start-line="222" selection-end-line="222" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Controller/Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="428">
-          <caret line="271" selection-start-line="271" selection-end-line="271" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1254#1255#0" expanded="true" />
-            <element signature="e#1307#1308#0" expanded="true" />
-            <element signature="e#3139#3140#0" expanded="true" />
-            <element signature="e#3201#3202#0" expanded="true" />
-            <element signature="e#3279#3280#0" expanded="true" />
-            <element signature="e#3327#3328#0" expanded="true" />
-            <element signature="e#7975#7976#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/View/SearchVacationController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="538">
-          <caret line="136" column="7" lean-forward="true" selection-start-line="136" selection-start-column="7" selection-end-line="136" selection-end-column="7" />
-          <folding>
-            <element signature="e#4947#4948#0" expanded="true" />
-            <element signature="e#4984#4985#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/View/View.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
@@ -1158,8 +1086,94 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/View/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+        <state relative-caret-position="363">
+          <caret line="96" selection-start-line="96" selection-end-line="96" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Model/DBManagement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="348">
+          <caret line="152" selection-start-line="152" selection-end-line="152" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Model/Model.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="127">
+          <caret line="83" column="6" lean-forward="true" selection-start-line="83" selection-start-column="6" selection-end-line="83" selection-end-column="6" />
+          <folding>
+            <element signature="e#2658#2659#0" expanded="true" />
+            <element signature="e#2718#2719#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/View/ManageRequestsController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="9" column="37" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/View/RequestController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="251">
+          <caret line="63" column="6" selection-start-line="63" selection-start-column="6" selection-end-line="79" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Controller/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="59">
+          <caret line="55" column="35" selection-start-line="55" selection-start-column="21" selection-end-line="55" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1254#1255#0" expanded="true" />
+            <element signature="e#1307#1308#0" expanded="true" />
+            <element signature="e#3139#3140#0" expanded="true" />
+            <element signature="e#3201#3202#0" expanded="true" />
+            <element signature="e#3279#3280#0" expanded="true" />
+            <element signature="e#3327#3328#0" expanded="true" />
+            <element signature="e#7912#7913#0" expanded="true" />
+            <element signature="e#7975#7976#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/View/VacationCRUDController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="520">
+          <caret line="61" column="20" lean-forward="true" selection-start-line="61" selection-start-column="20" selection-end-line="61" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/View/SearchVacationController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="741">
+          <caret line="156" column="9" lean-forward="true" selection-start-line="156" selection-start-column="9" selection-end-line="156" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/View/UserCRUDController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="482">
+          <caret line="137" column="9" selection-start-line="137" selection-start-column="9" selection-end-line="137" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -14,6 +14,8 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.net.URL;
+import java.time.DateTimeException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.ResourceBundle;
@@ -150,6 +152,27 @@ public class SearchVacationController implements Initializable {
         ) {
             Alert a = new Alert(Alert.AlertType.INFORMATION);
             a.setContentText("Not all fields have been filled correctly, please fill all fields ");
+            a.show();
+            return;
+        }
+        LocalDate currentDate = LocalDate.now();
+        LocalDate inputArrivalDate = arrivalDate.getValue();
+        if (inputArrivalDate.compareTo(currentDate) < 0) {
+            Alert a = new Alert(Alert.AlertType.INFORMATION);
+            a.setContentText("Please Enter a valid arrival date");
+            a.show();
+            return;
+        }
+        LocalDate inputDepartureDate = departureDate.getValue();
+        if (inputDepartureDate.compareTo(currentDate) < 0) {
+            Alert a = new Alert(Alert.AlertType.INFORMATION);
+            a.setContentText("Please Enter a valid departure date");
+            a.show();
+            return;
+        }
+        if (inputDepartureDate.compareTo(inputArrivalDate) < 0) {
+            Alert a = new Alert(Alert.AlertType.INFORMATION);
+            a.setContentText("Your departure date is before your arrival date");
             a.show();
             return;
         }

@@ -12,55 +12,55 @@ import java.util.Random;
 
 public class VacationCRUDController {
 
-        public javafx.scene.control.Button BackButton;
-        protected static Controller controller;
+    public javafx.scene.control.Button BackButton;
+    protected static Controller controller;
 
-        /**
-         * Sets the static controller for all of the user windows controllers
-         */
-        public void setController(Controller _controller) {
-            controller = _controller;
+    /**
+     * Sets the static controller for all of the user windows controllers
+     */
+    public void setController(Controller _controller) {
+        controller = _controller;
+    }
+
+    /**
+     * Validation checks for the vacation id
+     */
+    public boolean validVacationID(String id) {
+        if (id.isEmpty() || !isInteger(id)) {
+            Alert a = new Alert(Alert.AlertType.INFORMATION);
+            a.setContentText("Invalid Vacation ID, please try again.");
+            a.show();
+            return false;
         }
+        return true;
+    }
 
-        /**
-         * Validation checks for the vacation id
-         */
-        public boolean validVacationID(String id) {
-            if (id.isEmpty() || !isInteger(id)) {
-                Alert a = new Alert(Alert.AlertType.INFORMATION);
-                a.setContentText("Invalid Vacation ID, please try again.");
-                a.show();
-                return false;
-            }
-            return true;
+    /**
+     * Search the vacation data and if exist in the database display the data
+     */
+    public ArrayList<Vacation> searchVacationData(String vacationID) {
+        return controller.searchVacationData(vacationID);
+    }
+
+    public void backHome() {
+        // back to home stage from the current window
+        // close this window and change a stage/scene
+
+        // get a handle to the stage
+        Stage stage = (Stage) BackButton.getScene().getWindow();
+        stage.close();
+    }
+
+    public boolean isInteger(String s) {
+        try {
+            Integer.parseInt(s);
+        } catch (NumberFormatException e) {
+            return false;
+        } catch (NullPointerException e) {
+            return false;
         }
-
-        /**
-         * Search the vacation data and if exist in the database display the data
-         */
-        public ArrayList<Vacation> searchVacationData(String vacationID) {
-            return controller.searchVacationData(vacationID);
-        }
-
-        public void backHome() {
-            // back to home stage from the current window
-            // close this window and change a stage/scene
-
-            // get a handle to the stage
-            Stage stage = (Stage) BackButton.getScene().getWindow();
-            stage.close();
-        }
-
-        public boolean isInteger(String s) {
-            try {
-                Integer.parseInt(s);
-            } catch (NumberFormatException e) {
-                return false;
-            } catch (NullPointerException e) {
-                return false;
-            }
-            return true;
-        }
+        return true;
+    }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////
     /* Publish Vacation Controller */
@@ -115,6 +115,28 @@ public class VacationCRUDController {
         String _accommodationRank = AccommodationRankP.getValue().toString();
         String _flightClass = FlightClassP.getValue().toString();
 
+
+        LocalDate currentDate = LocalDate.now();
+        LocalDate inputArrivalDate = ArrivalP.getValue();
+        if (inputArrivalDate.compareTo(currentDate) < 0) {
+            Alert a = new Alert(Alert.AlertType.INFORMATION);
+            a.setContentText("Please Enter a valid arrival date");
+            a.show();
+            return;
+        }
+        LocalDate inputDepartureDate = DepartureP.getValue();
+        if (inputDepartureDate.compareTo(currentDate) < 0) {
+            Alert a = new Alert(Alert.AlertType.INFORMATION);
+            a.setContentText("Please Enter a valid departure date");
+            a.show();
+            return;
+        }
+        if (inputDepartureDate.compareTo(inputArrivalDate) < 0) {
+            Alert a = new Alert(Alert.AlertType.INFORMATION);
+            a.setContentText("Your departure date is before your arrival date");
+            a.show();
+            return;
+        }
 
         int RANK = 0;
         if (_accommodationRank.equals("Bad")) {
@@ -236,14 +258,11 @@ public class VacationCRUDController {
         if (validVacationID(VacationIdDeleteD.getText())) {
             ArrayList<Vacation> vacations = controller.searchVacationData(VacationIdDeleteD.getText());
             if (vacations.size() > 0) {
-                if (controller.deleteVacationRecord(VacationIdDeleteD.getText()))
-                {
+                if (controller.deleteVacationRecord(VacationIdDeleteD.getText())) {
                     Alert a = new Alert(Alert.AlertType.INFORMATION);
                     a.setContentText("The Vacation deleted successfully!");
                     a.show();
-                }
-                else
-                {
+                } else {
                     Alert a = new Alert(Alert.AlertType.INFORMATION);
                     a.setContentText("You don't owned this vacation ID!");
                     a.show();
@@ -590,8 +609,7 @@ public class VacationCRUDController {
                 TransfersRead.setSelected(currVacation.isTransfers());
                 TransfersRead.setDisable(true);
             }
-        }
-        else{
+        } else {
             Alert a = new Alert(Alert.AlertType.INFORMATION);
             a.setContentText("You didn't entered a valid vacation id.\nPlease try again!.");
             a.show();

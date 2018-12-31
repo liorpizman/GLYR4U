@@ -70,7 +70,6 @@ public class UserCRUDController {
     }
 
 
-
     /**
      * Opens mainWindow when the user press back button
      */
@@ -118,80 +117,70 @@ public class UserCRUDController {
     /**
      * When users applies for registration, gets all the data and sends it to the mvc controller
      */
-    public void apply(){
+    public void apply() {
         String _userName = userNameC.getText();
         String _password = userPasswordC.getText();
         String _firstName = userFirstNameC.getText();
         String _lastName = userLastNameC.getText();
         String _userCity = userCityC.getText();
         LocalDate date = userBirthDateC.getValue();
-
-        if (_userName.isEmpty())
-        {
+        char[] invalidChars = {' ', '%'};
+        if (_userName.isEmpty()) {
             Alert a = new Alert(Alert.AlertType.INFORMATION);
             a.setContentText("You didn't entered your user name, please entered.");
             a.show();
-        }
-        else if (_password.isEmpty())
-        {
+            return;
+        } else if (_password.isEmpty()) {
             Alert a = new Alert(Alert.AlertType.INFORMATION);
             a.setContentText("You didn't entered your password, please entered.");
             a.show();
-        }
-        else if (_firstName.isEmpty())
-        {
+            return;
+        } else if (_firstName.isEmpty()) {
             Alert a = new Alert(Alert.AlertType.INFORMATION);
             a.setContentText("You didn't entered your first name, please entered.");
             a.show();
-        }
-        else if (_lastName.isEmpty())
-        {
+            return;
+        } else if (_lastName.isEmpty()) {
             Alert a = new Alert(Alert.AlertType.INFORMATION);
             a.setContentText("You didn't entered your last name, please entered.");
             a.show();
-        }
-        else if (_userCity.isEmpty())
-        {
+            return;
+        } else if (_userCity.isEmpty()) {
             Alert a = new Alert(Alert.AlertType.INFORMATION);
             a.setContentText("You didn't entered your city, please entered.");
             a.show();
-        }
-        else if (date == null)
-        {
+            return;
+        } else if (date == null) {
             Alert a = new Alert(Alert.AlertType.INFORMATION);
             a.setContentText("You didn't entered your birth date, please entered.");
             a.show();
-        }
-        else if (date.getYear()<2001){
+            return;
+        } else if (date.getYear() > 2001) {
             Alert a = new Alert(Alert.AlertType.INFORMATION);
             a.setContentText("Minimum age allowed for a user is 18.");
             a.show();
-        }
-        else
-        {
-            if (searchUserData(_userName) != null)
-            {
+            return;
+        } else {
+            if (searchUserData(_userName) != null) {
                 Alert a = new Alert(Alert.AlertType.INFORMATION);
                 a.setContentText("This user already exist in the system.");
                 a.show();
-            }
-            else
-            {
+                return;
+            } else {
                 controller.insertUser(_userName, _password, _firstName, _lastName, _userCity, date);
-                if (searchUserData(_userName) != null)
-                {
+                if (searchUserData(_userName) != null) {
                     Alert a = new Alert(Alert.AlertType.INFORMATION);
                     a.setContentText("The user created successfully.");
                     a.show();
-                }
-                else
-                {
+                } else {
                     Alert a = new Alert(Alert.AlertType.INFORMATION);
                     a.setContentText("Error occurred! Please try again.");
                     a.show();
+                    return;
                 }
             }
-            clearUserData();
+            //clearUserData();
+            backHome();
         }
     }
 
@@ -247,47 +236,33 @@ public class UserCRUDController {
         String lastName = userLastName.getText();
         String city = userCity.getText();
         String birthDate = userBirthDate.getValue().toString();
-        if (password.isEmpty())
-        {
+        if (password.isEmpty()) {
             Alert a = new Alert(Alert.AlertType.INFORMATION);
             a.setContentText("You didn't entered your password, please entered.");
             a.show();
-        }
-        else if (firstName.isEmpty())
-        {
+        } else if (firstName.isEmpty()) {
             Alert a = new Alert(Alert.AlertType.INFORMATION);
             a.setContentText("You didn't entered your first name, please entered.");
             a.show();
-        }
-        else if (lastName.isEmpty())
-        {
+        } else if (lastName.isEmpty()) {
             Alert a = new Alert(Alert.AlertType.INFORMATION);
             a.setContentText("You didn't entered your last name, please entered.");
             a.show();
-        }
-        else if (city.isEmpty())
-        {
+        } else if (city.isEmpty()) {
             Alert a = new Alert(Alert.AlertType.INFORMATION);
             a.setContentText("You didn't entered your city, please entered.");
             a.show();
-        }
-        else if (birthDate == null)
-        {
+        } else if (birthDate == null) {
             Alert a = new Alert(Alert.AlertType.INFORMATION);
             a.setContentText("You didn't entered your birth date, please entered.");
             a.show();
-        }
-        else
-        {
-            RegisteredUser updatedUser = new RegisteredUser(currentUser.getUser_name(), password, firstName, lastName,city , birthDate);
-            if (controller.updateUser(updatedUser))
-            {
+        } else {
+            RegisteredUser updatedUser = new RegisteredUser(currentUser.getUser_name(), password, firstName, lastName, city, birthDate);
+            if (controller.updateUser(updatedUser)) {
                 Alert a = new Alert(Alert.AlertType.INFORMATION);
                 a.setContentText("The user updated successfully.");
                 a.show();
-            }
-            else
-            {
+            } else {
                 Alert a = new Alert(Alert.AlertType.INFORMATION);
                 a.setContentText("Error occurred! Please try again.");
                 a.show();
