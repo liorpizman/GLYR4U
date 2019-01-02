@@ -6,8 +6,12 @@ import Model.Vacation;
 import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Random;
 
 public class VacationCRUDController {
@@ -94,11 +98,13 @@ public class VacationCRUDController {
      * Validaition of inserted fields, sending vacation details to the controller
      */
     public void publishVacation() {
-        Random r = new Random();
-        int low = VactionID;
-        int high = VactionID * 5;
-        int _vactionId = r.nextInt(high - low) + low;
-        VactionID += 500;
+        Calendar cal = Calendar.getInstance();
+        Date time=cal.getTime();
+        DateFormat timeFormat = new SimpleDateFormat("HH:mm:ss");
+        String formattedDate=timeFormat.format(time);
+        String currTime =formattedDate.replace(":","");
+        int _vacationId = Integer.parseInt(currTime);
+
         String _fromCountry = FromCountryP.getText().toLowerCase();
         String _fromCity = FromCityP.getText().toLowerCase();
         String _toCountry = ToCountryP.getText().toLowerCase();
@@ -219,19 +225,19 @@ public class VacationCRUDController {
             travelersType[1] = _children;
             travelersType[2] = _adults;
 
-            FlightTickets originTicket = new FlightTickets(_airline, _toCountry, _toCity, _fromCountry, _fromCity, travelersType, _flightClass, _vactionId);
-            FlightTickets destTicket = new FlightTickets(_airline, _fromCountry, _fromCity, _toCountry, _toCity, travelersType, _flightClass, _vactionId);
+            FlightTickets originTicket = new FlightTickets(_airline, _toCountry, _toCity, _fromCountry, _fromCity, travelersType, _flightClass, _vacationId);
+            FlightTickets destTicket = new FlightTickets(_airline, _fromCountry, _fromCity, _toCountry, _toCity, travelersType, _flightClass, _vacationId);
 
             controller.insertFlightTickets(originTicket);
             controller.insertFlightTickets(destTicket);
-            Vacation newVacation = new Vacation(_vactionId, originTicket, destTicket, _fromCountry, _fromCity, _toCountry, _toCity,
+            Vacation newVacation = new Vacation(_vacationId, originTicket, destTicket, _fromCountry, _fromCity, _toCountry, _toCity,
                     _arrival.toString(), _departure.toString(), _price, _baggage, _vacationType, _accommodation,
                     true, _transfers, RANK, controller.getCurrentUser().getUser_name());
             controller.insertVacation(newVacation);
-            VacationsID.add(_vactionId);
+            VacationsID.add(_vacationId);
             if ((controller.GetVacationsInformation(VacationsID)).size() != 0) {
                 Alert a = new Alert(Alert.AlertType.INFORMATION);
-                a.setContentText("The vacation published successfully.\n" + "Your Vacation ID in the system is: " + _vactionId);
+                a.setContentText("The vacation published successfully.\n" + "Your Vacation ID in the system is: " + _vacationId);
                 a.show();
             } else {
                 Alert a = new Alert(Alert.AlertType.INFORMATION);

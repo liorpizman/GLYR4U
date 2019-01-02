@@ -98,6 +98,10 @@ public class SearchVacationController implements Initializable {
     public javafx.scene.control.Button PurchaseButton2;
     public javafx.scene.control.Button PurchaseButton3;
 
+    public javafx.scene.control.Button Exchange1;
+    public javafx.scene.control.Button Exchange2;
+    public javafx.scene.control.Button Exchange3;
+
     public javafx.scene.control.Button LogoutButton;
     public javafx.scene.control.Button accountSettings;
     public javafx.scene.control.Button publishButton;
@@ -105,6 +109,7 @@ public class SearchVacationController implements Initializable {
     public javafx.scene.control.Button BackButton;
     public javafx.scene.control.Button nextButton;
     public javafx.scene.control.Button previousButton;
+    public javafx.scene.control.Button manageRequestsButton;
 
 
     protected static Controller controller;
@@ -149,7 +154,7 @@ public class SearchVacationController implements Initializable {
                 (toCity == null || toCity.getText().isEmpty()) ||
                 (arrivalDate == null || arrivalDate.getValue() == null || arrivalDate.getValue().toString().isEmpty()) ||
                 (departureDate == null || departureDate.getValue() == null || departureDate.getValue().toString().isEmpty())
-        ) {
+                ) {
             Alert a = new Alert(Alert.AlertType.INFORMATION);
             a.setContentText("Not all fields have been filled correctly, please fill all fields ");
             a.show();
@@ -214,14 +219,20 @@ public class SearchVacationController implements Initializable {
         if (i < vacationsList.size()) {
             if (currentUser != null && vacationsList.get(i).getUserID().equals(currentUser.getUser_name())) {
                 PurchaseButton1.setDisable(true);
-            } else PurchaseButton1.setDisable(false);
+                Exchange1.setDisable(true);
+            } else {
+                Exchange1.setDisable(false);
+                PurchaseButton1.setDisable(false);
+            }
             SetResultFields1(vacationsList.get(i));
         }
         if (i + 1 < vacationsList.size()) {
             if (currentUser != null && vacationsList.get(i + 1).getUserID().equals(controller.getCurrentUser().getUser_name())) {
                 PurchaseButton2.setDisable(true);
+                Exchange2.setDisable(true);
             } else {
                 PurchaseButton2.setDisable(false);
+                Exchange2.setDisable(false);
             }
             SetResultFields2(vacationsList.get(i + 1));
 
@@ -229,8 +240,10 @@ public class SearchVacationController implements Initializable {
         if (i + 2 < vacationsList.size()) {
             if (currentUser != null && vacationsList.get(i).getUserID().equals(controller.getCurrentUser().getUser_name())) {
                 PurchaseButton3.setDisable(true);
+                Exchange3.setDisable(true);
             } else {
                 PurchaseButton3.setDisable(false);
+                Exchange3.setDisable(false);
             }
             SetResultFields3(vacationsList.get(i + 2));
         }
@@ -378,7 +391,7 @@ public class SearchVacationController implements Initializable {
      * Notifying the Purchase window which vacationID is sold and who is the Seller
      */
     public void Purchase1() {
-        PurchaseButton1.setDisable(true);
+        //PurchaseButton1.setDisable(true);
         purchaseRequest(publishedBy1.getText(), vacationsList.get(firstVacationIndex).getVactionId(), Double.parseDouble(price1.getText()));
     }
 
@@ -386,7 +399,7 @@ public class SearchVacationController implements Initializable {
      * Notifying the Purchase window which vacationID is sold and who is the Seller
      */
     public void Purchase2() {
-        PurchaseButton2.setDisable(true);
+        //PurchaseButton2.setDisable(true);
         purchaseRequest(publishedBy2.getText(), vacationsList.get(firstVacationIndex + 1).getVactionId(), Double.parseDouble(price2.getText()));
     }
 
@@ -394,7 +407,7 @@ public class SearchVacationController implements Initializable {
      * Notifying the Purchase window which vacationID is sold and who is the Seller
      */
     public void Purchase3() {
-        PurchaseButton3.setDisable(true);
+        //PurchaseButton3.setDisable(true);
         purchaseRequest(publishedBy3.getText(), vacationsList.get(firstVacationIndex + 2).getVactionId(), Double.parseDouble(price3.getText()));
     }
 
@@ -563,12 +576,62 @@ public class SearchVacationController implements Initializable {
 
 
     public void ExchangeRequest1(ActionEvent actionEvent) {
+        //Exchange1.setDisable(true);
+        exchangeRequest(publishedBy1.getText(), vacationsList.get(firstVacationIndex).getVactionId(), Double.parseDouble(price1.getText()));
     }
 
     public void ExchangeRequest2(ActionEvent actionEvent) {
+        //Exchange1.setDisable(true);
+        exchangeRequest(publishedBy1.getText(), vacationsList.get(firstVacationIndex).getVactionId(), Double.parseDouble(price1.getText()));
     }
 
     public void ExchangeRequest3(ActionEvent actionEvent) {
+        //Exchange1.setDisable(true);
+        exchangeRequest(publishedBy1.getText(), vacationsList.get(firstVacationIndex).getVactionId(), Double.parseDouble(price1.getText()));
+    }
+
+    /**
+     * Opens Purchase window
+     */
+    private void exchangeRequest(String sellerID, int vacationID, double price) {
+        if (!controller.isUserConnected()) {
+            Alert a = new Alert(Alert.AlertType.INFORMATION);
+            a.setContentText("You can't exchange vacations if you aren't connected");
+            a.show();
+            return;
+        }
+        controller.setCurrentVacation(Integer.toString(vacationID));
+        controller.setCurrrentSeller(sellerID);
+        controller.setCurrentPrice(price);
+        Stage stage = new Stage();
+        stage.setResizable(true);
+        stage.setTitle("Exchange Window, VacationID: " + vacationID + " ,SellerID: " + sellerID);
+        try {
+            Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("ExchangeVacationRequest.fxml"));
+            root.getStylesheets().add(getClass().getClassLoader().getResource("flightCSS.css").toExternalForm());
+            Scene scene = new Scene(root, 600, 500);
+            stage.setScene(scene);
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.show();
+        } catch (Exception e) {
+            e.getCause().printStackTrace();
+        }
+    }
+
+    public void manageRequests(){
+        Stage stage = new Stage();
+        stage.setResizable(true);
+        stage.setTitle("Manage Requests Window");
+        try {
+            Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("ManageRequests.fxml"));
+            root.getStylesheets().add(getClass().getClassLoader().getResource("flightCSS.css").toExternalForm());
+            Scene scene = new Scene(root, 600, 500);
+            stage.setScene(scene);
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.show();
+        } catch (Exception e) {
+            e.getCause().printStackTrace();
+        }
     }
 }
 

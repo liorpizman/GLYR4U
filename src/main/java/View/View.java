@@ -29,6 +29,9 @@ public class View {
     public javafx.scene.control.Button BackButton;
     public javafx.scene.control.Button ExitButton;
     private UserCRUDController userCrudController;
+    private ExchangeRequestController exchangeRequestController;
+    private PurchaseRequestController purchaseRequestController;
+    private ManageRequestsController manageRequestsController;
 
     /**
      * Setting the view's controller. implement mvc paradigm
@@ -43,8 +46,13 @@ public class View {
         searchViewController.setController(controller);
         this.vacationCrudController = new VacationCRUDController();
         vacationCrudController.setController(controller);
+        this.purchaseRequestController = new PurchaseRequestController();
+        purchaseRequestController.setController(controller);
+        this.exchangeRequestController = new ExchangeRequestController();
+        exchangeRequestController.setController(controller);
+        this.manageRequestsController = new ManageRequestsController();
+        manageRequestsController.setController(controller);
     }
-
 
     /**
      * Opens create user window when "create user" button is pushed

@@ -249,13 +249,15 @@ public class Controller {
         return currentPrice;
     }
 
+    /*
     public ArrayList<Vacation> getCurrentUserVacations() {
         return null;
     }
-
+*/
+    /*
     public void createPurchaseRequest(String text, String text1) {
     }
-
+*/
     public void vacationAdded() {
         view.searchViewController.updateVacationsList();
     }

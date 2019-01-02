@@ -614,9 +614,10 @@ public class DBManagement {
     public ArrayList<Integer> GetPurchaseRequestForUser(String UserName) {
         ArrayList<Integer> PurchaseRequestID = new ArrayList<>();
 
-        String sql = "SELECT * FROM PurchaseRequest" + " WHERE Seller= " + UserName + " AND Status =0";
+        String sql = "SELECT * FROM PurchaseRequest" + " WHERE Seller =?" + " AND RequestStatus =0";
         try (Connection conn = this.connect();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, UserName);
             ResultSet rs = pstmt.executeQuery();
             while (rs.next()) {
                 PurchaseRequestID.add((int) rs.getObject(("PurchaseRequestID")));

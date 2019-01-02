@@ -26,7 +26,7 @@ public class Vacation {
     private String StartDate;
     private String EndDate;               /// use date picker in the gui and convert it to string
     private double Price;
-    private int VactionId;
+    private int VacationId;
     private String BaggageType; //comboBox with default option that we will choose
     private boolean HotVacation;
     private VacationStatus Status;
@@ -37,7 +37,7 @@ public class Vacation {
     private boolean Transfers;
     private String userID;
 
-    public Vacation(int vactionId, FlightTickets fromOriginFlight, FlightTickets fromDestFlight, String dVacationCountry,
+    public Vacation(int vacationId, FlightTickets fromOriginFlight, FlightTickets fromDestFlight, String dVacationCountry,
                     String dVacationCity, String oVacationCountry, String oVacationCity, String startDate, String endDate, double price, String Baggagetype,
                     String vacationType, String accommodationType, boolean accommodationIncluded, boolean transfers, int accommodationRank, String _userID) {
         FromOriginFlight = fromOriginFlight;
@@ -51,7 +51,7 @@ public class Vacation {
         StartDate = startDate;
         EndDate = endDate;
         Price = price;
-        VactionId = vactionId;
+        VacationId = vacationId;
         BaggageType = Baggagetype;
         HotVacation = false;
         Status = VacationStatus.ForSale;
@@ -108,7 +108,7 @@ public class Vacation {
     }
 
     public int getVactionId() {
-        return VactionId;
+        return VacationId;
     }
 
     public String getBaggageType() {

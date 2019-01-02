@@ -1,6 +1,10 @@
 package Model;
 
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Random;
 
 /**
@@ -8,7 +12,6 @@ import java.util.Random;
  */
 public class FlightTickets {
 
-    static int TicketID = 100;////// key of the object
     private String Airline;
     //private Location Destination;
     //private Location Origin;
@@ -38,11 +41,12 @@ public class FlightTickets {
 
         VacationId = vacationId;
 
-        Random r = new Random();
-        int low = TicketID;
-        int high = TicketID * 5;
-        TicketId = r.nextInt(high - low) + low;
-        TicketID += 500;
+        Calendar cal = Calendar.getInstance();
+        Date time=cal.getTime();
+        DateFormat timeFormat = new SimpleDateFormat("HH:mm:ss");
+        String formattedDate=timeFormat.format(time);
+        String currTime =formattedDate.replace(":","");
+        TicketId = Integer.parseInt(currTime);
     }
 
   /*

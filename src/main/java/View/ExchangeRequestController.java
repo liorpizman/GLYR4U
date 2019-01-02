@@ -5,16 +5,17 @@ import Model.Vacation;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.ResourceBundle;
 
-public class RequestController implements Initializable {
+public class ExchangeRequestController implements Initializable {
 
     public javafx.scene.control.Button BackButton;
+    public javafx.scene.control.ComboBox<String> vacationsListBox;
     protected static Controller controller;
 
     /**
@@ -36,46 +37,28 @@ public class RequestController implements Initializable {
         stage.close();
     }
 
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        HashMap<String, String> askedValues = new HashMap<>();
+        askedValues.put("user_name", controller.getCurrentUser().getUser_name());
+        ArrayList<Integer> vacationIDS = controller.GetVacationsIdByField(askedValues);
+        ArrayList<Vacation> vacationsList = controller.GetVacationsInformation(vacationIDS);
+        ArrayList<String> vacations_Info = new ArrayList<String>();
+        for (Vacation vacation : vacationsList) {
+            vacations_Info.add(vacation.toString());
+        }
+        ObservableList<String> data = FXCollections.observableArrayList(vacations_Info);
+        vacationsListBox.setItems(data);
+    }
+
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////
     /* Exchange Request Controller */
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     public javafx.scene.control.Button ApplyExchangeButton;
-    public javafx.scene.control.ComboBox<String> vacationsListBox;
-
-    public void initialize(URL location, ResourceBundle resources) {
-        ArrayList<Vacation> vacationsList = controller.getCurrentUserVacations();
-        ArrayList<String> vacations_Info = new ArrayList<String>();
-        for (Vacation vacation : vacationsList) {
-        }
-        ObservableList<String> data = FXCollections.observableArrayList(vacations_Info);
-        vacationsListBox.setItems(data);
-
-    }
 
     public void applyExchange() {
 
-    }
-
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    /* Purchase Request Controller */
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-    public javafx.scene.control.Button applyPurchaseButton;
-    public javafx.scene.control.TextField phoneNumber;
-    public javafx.scene.control.TextArea message;
-
-
-    public void applyPurchaseRequest() {
-        Stage stage = (Stage) BackButton.getScene().getWindow();
-        String[] vacationDetails = stage.getTitle().split("\\s+");
-        String userID = vacationDetails[4];
-        String vacationID = vacationDetails[2];
-        controller.createPurchaseRequest(phoneNumber.getText(), message.getText());
-        Alert a = new Alert(Alert.AlertType.INFORMATION);
-        a.setContentText("PurchaseRequest Sent!");
-        a.show();
-        stage.close();
     }
 
 }

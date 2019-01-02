@@ -27,4 +27,5 @@ public abstract class AUser {
         RegisteredUser a = null;
         return a;
     }
+
 }
