@@ -228,11 +228,12 @@ public class Model {
      * @param CreditNumber
      * @param PaymentDate
      */
+/*
     public void insertNewPayment(int VacationId, String Seller, String Buyer, String PaymentMethod,
                                  String CreditNumber, String PaymentDate) {
         dbManagement.insertNewPayment(VacationId, Seller, Buyer, PaymentMethod, CreditNumber, PaymentDate);
     }
-
+*/
     //public void UserLogIn( UserName) {this.CurrentUser = UserName; }
 
     //public void UserLogOut() {this.CurrentUser = null;}
@@ -256,25 +257,25 @@ public class Model {
         CurrentUser = currUser;
     }
 
-    /*
+
     public void insertNewPurchaseRequest(PurchaseRequest purchaseRequest) {
-        dbManagement.isnertNewPurchaseRequest(purchaseRequest);
+        dbManagement.insertNewPurchaseRequest(purchaseRequest);
     }
 
     public ArrayList<Integer> GetPurchaseRequestsForUser() {
-        return dbManagement.GetPurchaseRequestsForUser(((RegisteredUser) CurrentUser).getUser_name());
+        return dbManagement.GetPurchaseRequestForUser(((RegisteredUser) CurrentUser).getUser_name());
     }
 
     public ArrayList<PurchaseRequest> GetPurchaseRequestInformation(ArrayList<Integer> purchaseRequestID) {
         return dbManagement.GetPurchaseRequestInformation(purchaseRequestID);
     }
 
-    public void AcceptPurchsaeRequest(int vacationIdSeller) {
-        dbManagement.AcceptPurchsaeRequest(vacationIdSeller, ((RegisteredUser) CurrentUser).getUser_name());
+    public void AcceptPurchaseRequest(int vacationIdSeller) {
+        dbManagement.AcceptPurchaseRequest(vacationIdSeller, ((RegisteredUser) CurrentUser).getUser_name());
     }
 
     public void RejectPurchaseRequest(int vacationIdSeller) {
         dbManagement.RejectPurchaseRequest(vacationIdSeller, ((RegisteredUser) CurrentUser).getUser_name());
     }
-    */
+
 }

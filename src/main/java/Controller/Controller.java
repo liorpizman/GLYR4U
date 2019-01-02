@@ -7,6 +7,7 @@ import Model.RegisteredUser;
 import Model.Vacation;
 import Model.FlightTickets;
 import Model.Model;
+import Model.PurchaseRequest;
 import Model.AUser;
 import View.View;
 import javafx.scene.control.Alert;
@@ -259,22 +260,22 @@ public class Controller {
         view.searchViewController.updateVacationsList();
     }
 
-/*
+
     public void insertNewPurchaseRequest(PurchaseRequest purchaseRequest) {
         model.insertNewPurchaseRequest(purchaseRequest);
     }
-*/
+
     public ArrayList<Integer> GetPurchaseRequestsForUser() {
         return model.GetPurchaseRequestsForUser();
     }
 
-    /*
+
     public ArrayList<PurchaseRequest> GetPurchaseRequestInformation(ArrayList<Integer> PurchaseRequestID) {
         return model.GetPurchaseRequestInformation(PurchaseRequestID);
     }
-*/
-    public void AcceptPurchsaeRequest(int VacationIdSeller) {
-        model.AcceptPurchsaeRequest(VacationIdSeller);
+
+    public void AcceptPurchaseRequest(int VacationIdSeller) {
+        model.AcceptPurchaseRequest(VacationIdSeller);
     }
 
     public void RejectPurchaseRequest(int VacationIdSeller){

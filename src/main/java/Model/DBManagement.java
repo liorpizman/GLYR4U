@@ -190,7 +190,7 @@ public class DBManagement {
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, userName);
             ResultSet rs = pstmt.executeQuery();
-            String tmp =rs.getString("password");
+            String tmp = rs.getString("password");
             if (!rs.getString("password").equals(password)) {
                 return false;
             } else {
@@ -290,8 +290,7 @@ public class DBManagement {
         }
         try (Connection conn2 = this.connect();
              PreparedStatement pstmt2 = conn2.prepareStatement(sql2)) {
-            for (int i = 0; i < VacationsID.size(); i++)
-            {
+            for (int i = 0; i < VacationsID.size(); i++) {
                 pstmt2.setString(1, VacationsID.get(i).toString());
                 pstmt2.executeUpdate();
             }
@@ -311,8 +310,7 @@ public class DBManagement {
         ArrayList<Vacation> vacations = GetVacationsInformation(ID);
         Vacation v = vacations.get(0);
 
-        if(v.getUserID().equals(userName))
-        {
+        if (v.getUserID().equals(userName)) {
             String sql1 = "DELETE FROM Vacations WHERE VacationId = ? AND user_name=?";
             String sql2 = "DELETE FROM FlightTickets WHERE VacationId = ?";
             try (Connection conn1 = this.connect();
@@ -340,8 +338,8 @@ public class DBManagement {
      * and returns True or False if the updateU is done (or not)
      *
      * @param vacationId
-     * @param field     -The field that be updateU
-     * @param newData   -The new value of the field
+     * @param field      -The field that be updateU
+     * @param newData    -The new value of the field
      * @return True or False
      */
     public boolean updateVacationRecord(int vacationId, String field, String newData) {
@@ -417,10 +415,9 @@ public class DBManagement {
         int numOfValues = 0;
         String whereStatement = "";
         String sql = "";
-        if (askedValues == null){
+        if (askedValues == null) {
             sql = "SELECT * FROM " + TableName + " WHERE Status =0";
-        }
-        else {
+        } else {
             for (String key : askedValues.keySet()) {
                 if (askedValues.get(key) != null && !(askedValues.get(key).equals(""))) {
                     numOfValues++;
@@ -448,6 +445,7 @@ public class DBManagement {
         }
         return VacationsID;
     }
+
     /**
      * This method get a list of Vacations ID's and return a list of the suitable vacation objects
      *
@@ -526,7 +524,7 @@ public class DBManagement {
         return new Vacation(VacationId, createFlightTicket(OriginFlightId), createFlightTicket(DestFlightId),
                 DVacationCountry, DVacationCity, OVacationCountry, OVacationCity,
                 StartDate, EndDate, Double.parseDouble(Price), BaggageType, VacationType, AccommodationType,
-                Boolean.parseBoolean(AccommodationIncluded), Boolean.parseBoolean(Transfers),Integer.parseInt(AccommodationRank),user_name);
+                Boolean.parseBoolean(AccommodationIncluded), Boolean.parseBoolean(Transfers), Integer.parseInt(AccommodationRank), user_name);
     }
 
     /**
@@ -546,8 +544,8 @@ public class DBManagement {
             int[] Tickets = new int[]{rs.getInt("BabyTickets"), rs.getInt("ChildTickets"),
                     rs.getInt("AdultTickets")};
             return new FlightTickets(
-                    rs.getString("Airline"),(rs.getString("DestinationCountry")),
-                    rs.getString("DestinationCity"),(rs.getString("OriginCountry")),
+                    rs.getString("Airline"), (rs.getString("DestinationCountry")),
+                    rs.getString("DestinationCity"), (rs.getString("OriginCountry")),
                     rs.getString("OriginCity"), Tickets, rs.getString("TicketType"),
                     rs.getInt("VacationId"));
             /*
@@ -563,17 +561,8 @@ public class DBManagement {
         }
         return null;
     }
-
-    /**
-     * This method insert a new payment details of a vacation purchase to the dataBase
-     *
-     * @param VacationId
-     * @param Seller
-     * @param Buyer
-     * @param PaymentMethod
-     * @param CreditNumber
-     * @param PaymentDate
-     */
+    
+    /*
     public void insertNewPayment(int VacationId, String Seller, String Buyer, String PaymentMethod,
                                  String CreditNumber, String PaymentDate) {
         String paySql = "INSERT INTO Payments(VacationId, Seller, Buyer, PaymentMethod, CreditNumber, PaymentDate) " +
@@ -598,4 +587,118 @@ public class DBManagement {
             System.out.println(e.getMessage());
         }
     }
+    */
+
+
+    public void insertNewPurchaseRequest(PurchaseRequest Purchase) {
+        String paySql = "INSERT INTO PurchaseRequest(PurchaseRequestID,VacationIdSeller, Seller, Buyer, PaymentDate,RequestStatus,CellPhone) " +
+                "VALUES(?,?,?,?,?,?,?)";
+        try {
+            Connection conn = this.connect();
+            PreparedStatement pstmt = conn.prepareStatement(paySql);
+            pstmt.setInt(1, Purchase.getPurchaseRequestID());
+            pstmt.setInt(2, Purchase.getVacationIdSeller());
+            pstmt.setString(3, Purchase.getSeller());
+            pstmt.setString(4, Purchase.getBuyer());
+            pstmt.setString(5, Purchase.getPaymentDate());
+            pstmt.setInt(6, Purchase.getRequestStatus());  // 0
+            pstmt.setString(7, Purchase.getCellPhone());
+
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+
+    public ArrayList<Integer> GetPurchaseRequestForUser(String UserName) {
+        ArrayList<Integer> PurchaseRequestID = new ArrayList<>();
+
+        String sql = "SELECT * FROM PurchaseRequest" + " WHERE Seller= " + UserName + " AND Status =0";
+        try (Connection conn = this.connect();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            ResultSet rs = pstmt.executeQuery();
+            while (rs.next()) {
+                PurchaseRequestID.add((int) rs.getObject(("PurchaseRequestID")));
+            }
+            return PurchaseRequestID;
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return PurchaseRequestID;
+    }
+
+    public ArrayList<PurchaseRequest> GetPurchaseRequestInformation(ArrayList<Integer> PurchaseRequestID) {
+        Object[] PurchaseIds = PurchaseRequestID.toArray();
+        ArrayList<PurchaseRequest> AllPurchaseRequests = new ArrayList<>();
+        for (int i = 0; i < PurchaseRequestID.size(); i++) {
+            String sql = "SELECT * FROM " + "PurchaseRequest" + " WHERE " + "PurchaseRequestID" + " =?";
+
+            try (Connection conn = this.connect();
+                 PreparedStatement pstmt = conn.prepareStatement(sql)) {
+                // set the value
+                pstmt.setString(1, PurchaseIds[i].toString());
+                ResultSet rs = pstmt.executeQuery();
+                // loop through the result set
+                AllPurchaseRequests.add(createPurchaseRequestFromDB((int)PurchaseIds[i],
+                        rs.getInt("VacationIdSeller"),
+                        rs.getString("Seller"),
+                        rs.getString("Buyer"),
+                        rs.getString("PaymentDate"),
+                        rs.getInt("RequestStatus"),
+                        rs.getString("CellPhone")));
+
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+        return AllPurchaseRequests;
+    }
+
+    public PurchaseRequest createPurchaseRequestFromDB(int purchaseRequestID, int vacationIdSeller, String seller, String buyer,
+                                                       String paymentDate, int requestStatus,String cellPhone) {
+        return new PurchaseRequest(purchaseRequestID,vacationIdSeller,seller,buyer,paymentDate,requestStatus,cellPhone);
+    }
+
+
+    public void AcceptPurchaseRequest(int VacationIdSeller,String Buyer){  // set status to '2' to reject and '1' to accept
+        String RejectRequestSql = "UPDATE PurchaseRequest SET Status =2 WHERE VacationIdSeller =?";
+        try {
+            Connection conn = this.connect();
+            PreparedStatement pstmt = conn.prepareStatement(RejectRequestSql);
+            pstmt.setInt(1, VacationIdSeller);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+        String AcceptRequestSql = "UPDATE PurchaseRequest SET Status =1 WHERE Buyer ="+Buyer+" AND VacationIdSeller =?";
+        try {
+            Connection conn2 = this.connect();
+            PreparedStatement pstmt2 = conn2.prepareStatement(RejectRequestSql);
+            pstmt2.setInt(1, VacationIdSeller);
+            pstmt2.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+
+    public void RejectPurchaseRequest(int VacationIdSeller,String Buyer){ // set status to '2' to reject and '1' to accept
+        String RejectRequestSql = "UPDATE PurchaseRequest SET Status =2 WHERE Buyer ="+Buyer+" VacationIdSeller =?";
+        try {
+            Connection conn = this.connect();
+            PreparedStatement pstmt = conn.prepareStatement(RejectRequestSql);
+            pstmt.setInt(1, VacationIdSeller);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
 }
+
+
+
+
+
