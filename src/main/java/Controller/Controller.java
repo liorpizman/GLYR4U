@@ -129,6 +129,7 @@ public class Controller {
     public ArrayList<Vacation> Search(HashMap<String, String> askedValues) {
         return model.Search(askedValues);
     }
+
     /**
      * When users applies for log in
      */
@@ -225,20 +226,6 @@ public class Controller {
         return model.deleteVacationRecord(VacationIdToDelete);
     }
 
-
-    /**
-     * This method get the details of a vacation purchase and updateU the DB payment table
-     *
-     * @param Buyer
-     * @param PaymentMethod
-     * @param CreditNumber
-     * @param PaymentDate
-     */
-    public void insertNewPayment(String Buyer, String PaymentMethod,
-                                 String CreditNumber, String PaymentDate) {
-        model.insertNewPayment(Integer.parseInt(currentVacation), currentSeller, Buyer, PaymentMethod, CreditNumber, PaymentDate);
-    }
-
     /**
      * Setters for current seller and vacation ids
      *
@@ -270,5 +257,27 @@ public class Controller {
 
     public void vacationAdded() {
         view.searchViewController.updateVacationsList();
+    }
+
+/*
+    public void insertNewPurchaseRequest(PurchaseRequest purchaseRequest) {
+        model.insertNewPurchaseRequest(purchaseRequest);
+    }
+*/
+    public ArrayList<Integer> GetPurchaseRequestsForUser() {
+        return model.GetPurchaseRequestsForUser();
+    }
+
+    /*
+    public ArrayList<PurchaseRequest> GetPurchaseRequestInformation(ArrayList<Integer> PurchaseRequestID) {
+        return model.GetPurchaseRequestInformation(PurchaseRequestID);
+    }
+*/
+    public void AcceptPurchsaeRequest(int VacationIdSeller) {
+        model.AcceptPurchsaeRequest(VacationIdSeller);
+    }
+
+    public void RejectPurchaseRequest(int VacationIdSeller){
+        model.RejectPurchaseRequest(VacationIdSeller);
     }
 }

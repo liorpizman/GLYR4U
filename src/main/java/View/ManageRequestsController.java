@@ -40,6 +40,7 @@ public class ManageRequestsController implements Initializable {
      */
     public void applyPurchaseRequest() {
 
+        backHome();
     }
 
 
@@ -48,6 +49,7 @@ public class ManageRequestsController implements Initializable {
      */
     public void refusePurchaseRequest() {
 
+        ///we should update the comboBox without current request
     }
 
 
@@ -56,6 +58,7 @@ public class ManageRequestsController implements Initializable {
      */
     public void applyExchangeRequest() {
 
+        backHome();
     }
 
 
@@ -64,6 +67,7 @@ public class ManageRequestsController implements Initializable {
      */
     public void refuseExchangeRequest() {
 
+        ///we should update the comboBox without current request
     }
 
     @Override

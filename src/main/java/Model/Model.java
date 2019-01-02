@@ -37,7 +37,7 @@ public class Model {
     public RegisteredUser getCurrentUser() {
         if (this.CurrentUser instanceof UnRegisteredUser)
             return null;
-        return (RegisteredUser)CurrentUser;
+        return (RegisteredUser) CurrentUser;
     }
 
     /**
@@ -97,7 +97,7 @@ public class Model {
      * @return
      */
     public boolean deleteUser(String userToDelete, String password) {
-        RegisteredUser currUser = (RegisteredUser)CurrentUser;
+        RegisteredUser currUser = (RegisteredUser) CurrentUser;
         if (dbManagement.confirmPassword(currUser, password)) {
             dbManagement.deleteRecord(userToDelete, "DELETE FROM Users WHERE user_name = ?");
             return true;
@@ -116,7 +116,7 @@ public class Model {
                 newVacation.getDVacationCountry(), newVacation.getDVacationCity(), newVacation.getOVacationCountry(), newVacation.getOVacationCity(),
                 newVacation.getStartDate(), newVacation.getEndDate(), newVacation.getPrice(), newVacation.getBaggageType(), newVacation.isHotVacation(),
                 newVacation.getStatus(), newVacation.getVacationType(), newVacation.getAccommodationType(), newVacation.isAccommodationIncluded(),
-                newVacation.getAccommodationRank(), newVacation.isTransfers(), (RegisteredUser)CurrentUser);
+                newVacation.getAccommodationRank(), newVacation.isTransfers(), (RegisteredUser) CurrentUser);
     }
 
     /**
@@ -125,7 +125,7 @@ public class Model {
      * @param VacationIdToDelete
      */
     public boolean deleteVacationRecord(String VacationIdToDelete) {
-        return dbManagement.deleteVacationRecord(VacationIdToDelete, ((RegisteredUser)CurrentUser).getUser_name());
+        return dbManagement.deleteVacationRecord(VacationIdToDelete, ((RegisteredUser) CurrentUser).getUser_name());
     }
 
     /**
@@ -214,20 +214,20 @@ public class Model {
     }
 
     public ArrayList<Vacation> Search(HashMap<String, String> askedValues) {
-        return this.CurrentUser.Search(askedValues,dbManagement);
+        return this.CurrentUser.Search(askedValues, dbManagement);
     }
 
 
-        /**
-         * This method get the details of a vacation purchase and updateU the DB payment table
-         *
-         * @param VacationId
-         * @param Seller
-         * @param Buyer
-         * @param PaymentMethod
-         * @param CreditNumber
-         * @param PaymentDate
-         */
+    /**
+     * This method get the details of a vacation purchase and updateU the DB payment table
+     *
+     * @param VacationId
+     * @param Seller
+     * @param Buyer
+     * @param PaymentMethod
+     * @param CreditNumber
+     * @param PaymentDate
+     */
     public void insertNewPayment(int VacationId, String Seller, String Buyer, String PaymentMethod,
                                  String CreditNumber, String PaymentDate) {
         dbManagement.insertNewPayment(VacationId, Seller, Buyer, PaymentMethod, CreditNumber, PaymentDate);
@@ -255,4 +255,26 @@ public class Model {
     public void setCurrentUser(RegisteredUser currUser) {
         CurrentUser = currUser;
     }
+
+    /*
+    public void insertNewPurchaseRequest(PurchaseRequest purchaseRequest) {
+        dbManagement.isnertNewPurchaseRequest(purchaseRequest);
+    }
+
+    public ArrayList<Integer> GetPurchaseRequestsForUser() {
+        return dbManagement.GetPurchaseRequestsForUser(((RegisteredUser) CurrentUser).getUser_name());
+    }
+
+    public ArrayList<PurchaseRequest> GetPurchaseRequestInformation(ArrayList<Integer> purchaseRequestID) {
+        return dbManagement.GetPurchaseRequestInformation(purchaseRequestID);
+    }
+
+    public void AcceptPurchsaeRequest(int vacationIdSeller) {
+        dbManagement.AcceptPurchsaeRequest(vacationIdSeller, ((RegisteredUser) CurrentUser).getUser_name());
+    }
+
+    public void RejectPurchaseRequest(int vacationIdSeller) {
+        dbManagement.RejectPurchaseRequest(vacationIdSeller, ((RegisteredUser) CurrentUser).getUser_name());
+    }
+    */
 }
