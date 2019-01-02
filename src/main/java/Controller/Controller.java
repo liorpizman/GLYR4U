@@ -8,6 +8,7 @@ import Model.Vacation;
 import Model.FlightTickets;
 import Model.Model;
 import Model.PurchaseRequest;
+import Model.ExchangeRequest;
 import Model.AUser;
 import View.View;
 import javafx.scene.control.Alert;
@@ -280,7 +281,31 @@ public class Controller {
         model.AcceptPurchaseRequest(VacationIdSeller);
     }
 
-    public void RejectPurchaseRequest(int VacationIdSeller){
+    public void RejectPurchaseRequest(int VacationIdSeller) {
         model.RejectPurchaseRequest(VacationIdSeller);
+    }
+
+    public boolean insertNewExchangeRequest(ExchangeRequest exchangeRequest) {
+        return model.insertNewExchangeRequest(exchangeRequest);
+    }
+
+    public ArrayList<Integer> GetExchangeRequestForUser() {
+        return model.GetExchangeRequestForUser();
+    }
+
+    public ArrayList<ExchangeRequest> GetExchangeRequestInformation(ArrayList<Integer> ExchangeRequestID) {
+        return model.GetExchangeRequestInformation(ExchangeRequestID);
+    }
+
+    public void AcceptExchangeRequest(int VacationIdSeller, int VacationIdBuyer) {
+        model.AcceptExchangeRequest(VacationIdSeller, VacationIdBuyer);
+    }
+
+    public void RejectExchangeRequest(int VacationIdSeller, int VacationIdBuyer) {
+        model.RejectExchangeRequest(VacationIdSeller,VacationIdBuyer);
+    }
+
+    public Vacation GetVacationByVacationID(int id){
+        return model.GetVacationByVacationID(id);
     }
 }

@@ -582,12 +582,12 @@ public class SearchVacationController implements Initializable {
 
     public void ExchangeRequest2(ActionEvent actionEvent) {
         //Exchange1.setDisable(true);
-        exchangeRequest(publishedBy1.getText(), vacationsList.get(firstVacationIndex).getVactionId(), Double.parseDouble(price1.getText()));
+        exchangeRequest(publishedBy2.getText(), vacationsList.get(firstVacationIndex+1).getVactionId(), Double.parseDouble(price2.getText()));
     }
 
     public void ExchangeRequest3(ActionEvent actionEvent) {
         //Exchange1.setDisable(true);
-        exchangeRequest(publishedBy1.getText(), vacationsList.get(firstVacationIndex).getVactionId(), Double.parseDouble(price1.getText()));
+        exchangeRequest(publishedBy3.getText(), vacationsList.get(firstVacationIndex+2).getVactionId(), Double.parseDouble(price3.getText()));
     }
 
     /**
@@ -609,7 +609,7 @@ public class SearchVacationController implements Initializable {
         try {
             Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("ExchangeVacationRequest.fxml"));
             root.getStylesheets().add(getClass().getClassLoader().getResource("flightCSS.css").toExternalForm());
-            Scene scene = new Scene(root, 600, 500);
+            Scene scene = new Scene(root, 750, 500);
             stage.setScene(scene);
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.show();
@@ -625,7 +625,7 @@ public class SearchVacationController implements Initializable {
         try {
             Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("ManageRequests.fxml"));
             root.getStylesheets().add(getClass().getClassLoader().getResource("flightCSS.css").toExternalForm());
-            Scene scene = new Scene(root, 600, 500);
+            Scene scene = new Scene(root, 1000, 500);
             stage.setScene(scene);
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.show();

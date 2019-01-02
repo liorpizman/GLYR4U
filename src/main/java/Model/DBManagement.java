@@ -590,7 +590,8 @@ public class DBManagement {
     */
 
 
-    public Boolean insertNewPurchaseRequest(PurchaseRequest Purchase) {
+
+    public boolean insertNewPurchaseRequest(PurchaseRequest Purchase) {
         String paySql = "INSERT INTO PurchaseRequest(PurchaseRequestID,VacationIdSeller, Seller, Buyer, PaymentDate,RequestStatus,CellPhone) " +
                 "VALUES(?,?,?,?,?,?,?)";
         if (ExistPurchaseRequestForUser(Purchase.getVacationIdSeller(), Purchase.getSeller(), Purchase.getBuyer())) {
@@ -615,8 +616,8 @@ public class DBManagement {
         return true;
     }
 
-    public Boolean ExistPurchaseRequestForUser(int VacationIdSeller, String Seller, String Buyer) {
-        String query = "SELECT (count(*) > 0) as found FROM PurchaseRequest WHERE VacationIdSeller =?" +
+    public boolean ExistPurchaseRequestForUser(int VacationIdSeller, String Seller, String Buyer) {
+        String query = "SELECT * FROM PurchaseRequest WHERE VacationIdSeller =?" +
                 " AND Seller =? AND Buyer =?";
         try (Connection conn = this.connect();
              PreparedStatement pstmt = conn.prepareStatement(query)) {
@@ -741,7 +742,7 @@ public class DBManagement {
     }
 
 
-    public Boolean insertNewExchangeRequest(ExchangeRequest exchangeRequest) {
+    public boolean insertNewExchangeRequest(ExchangeRequest exchangeRequest) {
         String paySql = "INSERT INTO ExchangeRequest(VacationExchangeID,VacationIdSeller,Seller,VacationIdBuyer,Buyer," +
                 "PaymentDate,RequestStatus,CellPhone) " +
                 "VALUES(?,?,?,?,?,?,?,?)";
@@ -768,8 +769,8 @@ public class DBManagement {
         return true;
     }
 
-    public Boolean ExistExchangeRequestForUsers(int VacationIdSeller,int VacationIdBuyer, String Seller, String Buyer) {
-        String query = "SELECT (count(*) > 0) as found FROM ExchangeRequest WHERE VacationIdSeller =?" +
+    public boolean ExistExchangeRequestForUsers(int VacationIdSeller,int VacationIdBuyer, String Seller, String Buyer) {
+        String query = "SELECT * FROM ExchangeRequest WHERE VacationIdSeller =?" +
                 " AND VacationIdBuyer =? AND Seller =? AND Buyer =?";
         try (Connection conn = this.connect();
              PreparedStatement pstmt = conn.prepareStatement(query)) {
@@ -868,7 +869,7 @@ public class DBManagement {
         String RejectPurchaseRequestSql = "UPDATE PurchaseRequest SET RequestStatus =? WHERE VacationIdSeller =?";
         try {
             Connection conn = this.connect();
-            PreparedStatement pstmt3 = conn.prepareStatement(RejectRequestSql);
+            PreparedStatement pstmt3 = conn.prepareStatement(RejectPurchaseRequestSql);
             pstmt3.setInt(1,2);
             pstmt3.setInt(2,VacationIdSeller);
             pstmt3.executeUpdate();
@@ -890,7 +891,14 @@ public class DBManagement {
             System.out.println(e.getMessage());
         }
     }
-    
+
+    public Vacation GetVacationByVacationID(int vacationID){
+        ArrayList<Integer> VacationsID = new ArrayList<>();
+        VacationsID.add(vacationID);
+        ArrayList<Vacation> vacations = GetVacationsInformation(VacationsID);
+        return vacations.get(0);
+    }
+
 }
 
 

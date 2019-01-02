@@ -84,22 +84,22 @@ public class Main extends Application {
 
     private String ExchangeRequestSql = "CREATE TABLE IF NOT EXISTS " + "ExchangeRequest" + " (\n"
             + " VacationExchangeID int NOT NULL PRIMARY KEY,\n"
-            + " VacationIdSeller int NOT NULL,\n"
-            + " Seller varchar(15) NOT NULL,\n"
-            + " VacationIdBuyer int NOT NULL,\n"
+            + " VacationIdSeller int NOT NULL,\n "
+            + " Seller varchar(15) NOT NULL,\n "
+            + " VacationIdBuyer int NOT NULL,\n "
             + " Buyer varchar(15) NOT NULL,\n "
-            + " PaymentDate varchar(15) NOT NULL\n, "
-            + " RequestStatus int NOT NULL\n, "
+            + " PaymentDate varchar(15) NOT NULL,\n "
+            + " RequestStatus int NOT NULL,\n "
             + " CellPhone varchar(15) NOT NULL\n "
             + ");";
 
     private String PurchaseRequestSql = "CREATE TABLE IF NOT EXISTS " + "PurchaseRequest" + " (\n"
-            + " PurchaseRequestID int NOT NULL PRIMARY KEY,\n"
-            + " VacationIdSeller int NOT NULL,\n"
-            + " Seller varchar(15) NOT NULL,\n"
+            + " PurchaseRequestID int NOT NULL PRIMARY KEY,\n "
+            + " VacationIdSeller int NOT NULL,\n "
+            + " Seller varchar(15) NOT NULL,\n "
             + " Buyer varchar(15) NOT NULL,\n "
             + " PaymentDate varchar(15) NOT NULL,\n "
-            + " RequestStatus int NOT NULL\n, "
+            + " RequestStatus int NOT NULL,\n "
             + " CellPhone varchar(15) NOT NULL\n "
             + ");";
 

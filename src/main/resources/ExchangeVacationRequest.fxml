@@ -11,9 +11,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="372.0" prefWidth="548.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.ExchangeRequestController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="372.0" prefWidth="661.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.ExchangeRequestController">
     <children>
-        <ComboBox fx:id="vacationsListBox" layoutX="63.0" layoutY="134.0" prefHeight="25.0" prefWidth="402.0" promptText="choose a vacation" />
+        <ComboBox fx:id="vacationsListBox" layoutX="63.0" layoutY="134.0" prefHeight="25.0" prefWidth="559.0" promptText="choose a vacation" />
         <Button fx:id="ApplyExchangeButton" layoutX="268.0" layoutY="241.0" mnemonicParsing="false" onAction="#applyExchange" text="Apply Exchange Request" />
         <Button fx:id="BackButton" layoutX="71.0" layoutY="287.0" mnemonicParsing="false" onAction="#backHome" text="Back" />
         <Text layoutX="63.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Please choose the vacation you want to exchange:" wrappingWidth="314.896484375">
@@ -22,6 +22,6 @@
             </font>
         </Text>
       <Text layoutX="115.0" layoutY="221.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contact Phone Number:" />
-      <TextField layoutX="267.0" layoutY="204.0" />
+      <TextField fx:id="phoneNumber" layoutX="267.0" layoutY="204.0" />
     </children>
 </AnchorPane>

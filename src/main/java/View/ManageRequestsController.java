@@ -1,6 +1,7 @@
 package View;
 
 import Controller.Controller;
+import Model.ExchangeRequest;
 import Model.PurchaseRequest;
 import Model.Vacation;
 import javafx.collections.FXCollections;
@@ -81,21 +82,28 @@ public class ManageRequestsController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        ArrayList<Integer> vacationIDS = controller.GetPurchaseRequestsForUser();
-        ArrayList<PurchaseRequest> purchaseList = controller.GetPurchaseRequestInformation(vacationIDS);
+        ArrayList<Integer> purchaseVacationIDS = controller.GetPurchaseRequestsForUser();
+        ArrayList<PurchaseRequest> purchaseList = controller.GetPurchaseRequestInformation(purchaseVacationIDS);
         ArrayList<String> purchase_Info = new ArrayList<String>();
         for (PurchaseRequest purchaseRequest : purchaseList) {
             purchase_Info.add(purchaseRequest.toString());
         }
-        /*
+        ////////////////////////////////////////////////////////////////
+        ArrayList<Integer> exchangeVacationIDS = controller.GetExchangeRequestForUser();
+        ArrayList<ExchangeRequest> exchangeList = controller.GetExchangeRequestInformation(exchangeVacationIDS);
         ArrayList<String> exchange_Info = new ArrayList<String>();
-        for (Vacation vacation :) {
-            exchange_Info.add(vacation.toString());
+        Vacation sellerVacation, buyerVacation;
+        String newLine = "";
+        for (ExchangeRequest exchangeRequest : exchangeList) {
+            sellerVacation = controller.GetVacationByVacationID(exchangeRequest.getVacationIdSeller());
+            buyerVacation = controller.GetVacationByVacationID(exchangeRequest.getVacationIdBuyer());
+            newLine = sellerVacation.toString() + " exchange to " + buyerVacation.toString() + exchangeRequest.toString();
+            exchange_Info.add(newLine);
         }
-        */
+        ////////////////////////////////////////////////////////////////
         ObservableList<String> purchaseData = FXCollections.observableArrayList(purchase_Info);
-        // ObservableList<String> exchangeData = FXCollections.observableArrayList();
+        ObservableList<String> exchangeData = FXCollections.observableArrayList(exchange_Info);
         purchaseListBox.setItems(purchaseData);
-        // exchangeListBox.setItems(exchangeData);
+        exchangeListBox.setItems(exchangeData);
     }
 }

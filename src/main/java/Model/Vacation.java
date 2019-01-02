@@ -156,7 +156,14 @@ public class Vacation {
     }
 
     public String toString() {
-        return "From " + OVacationCountry + " to " + DVacationCountry + ", Price: " + Price + "$";
+        String sol = "VacationId: " + VacationId + " From " + OVacationCountry + "," + OVacationCity;
+        if (FromDestFlight != null) {
+            sol += " -  2 way ticket";
+        } else {
+            sol += " -  1 way ticket";
+        }
+        sol += ", Price: " + Price + "$";
+        return sol;
     }
 
 }

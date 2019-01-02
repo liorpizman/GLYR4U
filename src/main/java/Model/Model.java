@@ -278,4 +278,27 @@ public class Model {
         dbManagement.RejectPurchaseRequest(vacationIdSeller, ((RegisteredUser) CurrentUser).getUser_name());
     }
 
+    public boolean insertNewExchangeRequest(ExchangeRequest exchangeRequest) {
+        return dbManagement.insertNewExchangeRequest(exchangeRequest);
+    }
+
+    public ArrayList<Integer> GetExchangeRequestForUser() {
+        return dbManagement.GetExchangeRequestForUser(((RegisteredUser) CurrentUser).getUser_name());
+    }
+
+    public ArrayList<ExchangeRequest> GetExchangeRequestInformation(ArrayList<Integer> exchangeRequestID) {
+        return dbManagement.GetExchangeRequestInformation(exchangeRequestID);
+    }
+
+    public void AcceptExchangeRequest(int vacationIdSeller, int vacationIdBuyer) {
+        dbManagement.AcceptExchangeRequest(vacationIdSeller, vacationIdBuyer);
+    }
+
+    public void RejectExchangeRequest(int vacationIdSeller, int vacationIdBuyer) {
+        dbManagement.RejectExchangeRequest(vacationIdSeller, vacationIdBuyer);
+    }
+
+    public Vacation GetVacationByVacationID(int id) {
+        return dbManagement.GetVacationByVacationID(id);
+    }
 }

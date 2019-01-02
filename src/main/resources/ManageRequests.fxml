@@ -5,15 +5,15 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="384.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.152" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.ManageRequestsController">
+<AnchorPane prefHeight="384.0" prefWidth="998.0" xmlns="http://javafx.com/javafx/8.0.152" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.ManageRequestsController">
     <children>
         <Button fx:id="BackButton" layoutX="32.0" layoutY="334.0" mnemonicParsing="false" onAction="#backHome" text="Back" />
-        <ComboBox fx:id="purchaseListBox" layoutX="52.0" layoutY="85.0" prefHeight="25.0" prefWidth="465.0" promptText="choose any request" />
+        <ComboBox fx:id="purchaseListBox" layoutX="52.0" layoutY="85.0" prefHeight="25.0" prefWidth="883.0" promptText="choose any request" />
         <Button fx:id="ApplyPurchaseButton" layoutX="259.0" layoutY="145.0" mnemonicParsing="false" onAction="#applyPurchaseRequest" prefHeight="25.0" prefWidth="83.0" text="Apply" />
         <Button fx:id="RefusePurchaseButton" layoutX="376.0" layoutY="145.0" mnemonicParsing="false" onAction="#refusePurchaseRequest" prefHeight="25.0" prefWidth="83.0" text="Refuse" />
         <Text layoutX="53.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Choose Purchase request: " />
         <Text layoutX="53.0" layoutY="218.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Choose Exchange Request:" />
-        <ComboBox fx:id="exchangeListBox" layoutX="52.0" layoutY="229.0" prefHeight="25.0" prefWidth="465.0" promptText="choose any request" />
+        <ComboBox fx:id="exchangeListBox" layoutX="52.0" layoutY="229.0" prefHeight="25.0" prefWidth="883.0" promptText="choose any request" />
         <Button fx:id="ApplyExchangeButton" layoutX="259.0" layoutY="292.0" mnemonicParsing="false" onAction="#applyExchangeRequest" prefHeight="25.0" prefWidth="83.0" text="Apply" />
         <Button fx:id="RefuseExchangeButton" layoutX="376.0" layoutY="292.0" mnemonicParsing="false" onAction="#refuseExchangeRequest" prefHeight="25.0" prefWidth="83.0" text="Refuse" />
     </children>
