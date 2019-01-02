@@ -404,7 +404,7 @@ public class SearchVacationController implements Initializable {
     private void purchaseRequest(String sellerID, int vacationID, double price) {
         if (!controller.isUserConnected()) {
             Alert a = new Alert(Alert.AlertType.INFORMATION);
-            a.setContentText("You can't purchase vacationse if you aren't connected");
+            a.setContentText("You can't purchase vacations if you aren't connected");
             a.show();
             return;
         }

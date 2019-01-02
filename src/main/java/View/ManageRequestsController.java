@@ -9,16 +9,20 @@ import java.util.ResourceBundle;
 
 public class ManageRequestsController implements Initializable {
 
-    public javafx.scene.control.Button ApplyButton;
-    public javafx.scene.control.Button RefuseButton;
+    public javafx.scene.control.Button ApplyPurchaseButton;
+    public javafx.scene.control.Button RefusePurchaseButton;
+    public javafx.scene.control.Button ApplyExchangeButton;
+    public javafx.scene.control.Button RefuseExchangeButton;
     public javafx.scene.control.Button BackButton;
     protected static Controller controller;
+
     /**
      * Sets the static controller for all of the user windows controllers
      */
     public void setController(Controller _controller) {
         controller = _controller;
     }
+
     /**
      * Opens mainWindow when the user press back button
      */
@@ -32,9 +36,9 @@ public class ManageRequestsController implements Initializable {
     }
 
     /**
-     * Method calls an applyC of the user on a request
+     * Method calls an apply of the user on a request
      */
-    public void applyRequest() {
+    public void applyPurchaseRequest() {
 
     }
 
@@ -42,7 +46,23 @@ public class ManageRequestsController implements Initializable {
     /**
      * Method calls a refuse of the user on a request
      */
-    public void refuseRequest() {
+    public void refusePurchaseRequest() {
+
+    }
+
+
+    /**
+     * Method calls an apply of the user on a request
+     */
+    public void applyExchangeRequest() {
+
+    }
+
+
+    /**
+     * Method calls a refuse of the user on a request
+     */
+    public void refuseExchangeRequest() {
 
     }
 

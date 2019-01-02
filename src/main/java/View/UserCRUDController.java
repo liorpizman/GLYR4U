@@ -131,6 +131,11 @@ public class UserCRUDController {
             a.setContentText("You didn't entered your user name, please enter.");
             a.show();
             return;
+        }else if (_userName.contains(" ")) {
+            Alert a = new Alert(Alert.AlertType.INFORMATION);
+            a.setContentText("The user name can not contain spaces");
+            a.show();
+            return;
         } else if (_password.isEmpty()) {
             Alert a = new Alert(Alert.AlertType.INFORMATION);
             a.setContentText("You didn't entered your password, please enter.");
