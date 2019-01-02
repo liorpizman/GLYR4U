@@ -590,7 +590,6 @@ public class DBManagement {
     */
 
 
-
     public boolean insertNewPurchaseRequest(PurchaseRequest Purchase) {
         String paySql = "INSERT INTO PurchaseRequest(PurchaseRequestID,VacationIdSeller, Seller, Buyer, PaymentDate,RequestStatus,CellPhone) " +
                 "VALUES(?,?,?,?,?,?,?)";
@@ -618,12 +617,13 @@ public class DBManagement {
 
     public boolean ExistPurchaseRequestForUser(int VacationIdSeller, String Seller, String Buyer) {
         String query = "SELECT * FROM PurchaseRequest WHERE VacationIdSeller =?" +
-                " AND Seller =? AND Buyer =?";
+                " AND Seller =? AND Buyer =? AND RequestStatus=?";
         try (Connection conn = this.connect();
              PreparedStatement pstmt = conn.prepareStatement(query)) {
             pstmt.setInt(1, VacationIdSeller);
             pstmt.setString(2, Seller);
             pstmt.setString(3, Buyer);
+            pstmt.setInt(4, 0);
             ResultSet rs = pstmt.executeQuery();
             if (rs.next()) {
                 return true;
@@ -666,7 +666,7 @@ public class DBManagement {
             try (Connection conn = this.connect();
                  PreparedStatement pstmt = conn.prepareStatement(sql)) {
                 // set the value
-                pstmt.setInt(1, (int)PurchaseIds[i]);
+                pstmt.setInt(1, (int) PurchaseIds[i]);
                 ResultSet rs = pstmt.executeQuery();
                 // loop through the result set
                 AllPurchaseRequests.add(createPurchaseRequestFromDB((int) PurchaseIds[i],
@@ -746,8 +746,8 @@ public class DBManagement {
         String paySql = "INSERT INTO ExchangeRequest(VacationExchangeID,VacationIdSeller,Seller,VacationIdBuyer,Buyer," +
                 "PaymentDate,RequestStatus,CellPhone) " +
                 "VALUES(?,?,?,?,?,?,?,?)";
-        if (ExistExchangeRequestForUsers(exchangeRequest.getVacationIdSeller(),exchangeRequest.getVacationIdBuyer(),
-                exchangeRequest.getSeller(), exchangeRequest.getBuyer())){
+        if (ExistExchangeRequestForUsers(exchangeRequest.getVacationIdSeller(), exchangeRequest.getVacationIdBuyer(),
+                exchangeRequest.getSeller(), exchangeRequest.getBuyer())) {
             return false;
         }
         try {
@@ -769,15 +769,16 @@ public class DBManagement {
         return true;
     }
 
-    public boolean ExistExchangeRequestForUsers(int VacationIdSeller,int VacationIdBuyer, String Seller, String Buyer) {
+    public boolean ExistExchangeRequestForUsers(int VacationIdSeller, int VacationIdBuyer, String Seller, String Buyer) {
         String query = "SELECT * FROM ExchangeRequest WHERE VacationIdSeller =?" +
-                " AND VacationIdBuyer =? AND Seller =? AND Buyer =?";
+                " AND VacationIdBuyer =? AND Seller =? AND Buyer =? AND RequestStatus=?";
         try (Connection conn = this.connect();
              PreparedStatement pstmt = conn.prepareStatement(query)) {
             pstmt.setInt(1, VacationIdSeller);
             pstmt.setInt(2, VacationIdBuyer);
             pstmt.setString(3, Seller);
             pstmt.setString(4, Buyer);
+            pstmt.setInt(5, 0);
             ResultSet rs = pstmt.executeQuery();
             if (rs.next()) {
                 return true;
@@ -819,7 +820,7 @@ public class DBManagement {
             try (Connection conn = this.connect();
                  PreparedStatement pstmt = conn.prepareStatement(sql)) {
                 // set the value
-                pstmt.setInt(1,(int)ExchangeIds[i]);
+                pstmt.setInt(1, (int) ExchangeIds[i]);
                 ResultSet rs = pstmt.executeQuery();
                 // loop through the result set
                 AllExchangeRequests.add(createExchangeRequestFromDB((int) ExchangeIds[i],
@@ -848,8 +849,8 @@ public class DBManagement {
         try {
             Connection conn2 = this.connect();
             PreparedStatement pstmt2 = conn2.prepareStatement(RejectRequestSql);
-            pstmt2.setInt(1,2);
-            pstmt2.setInt(2,VacationIdSeller);
+            pstmt2.setInt(1, 2);
+            pstmt2.setInt(2, VacationIdSeller);
             pstmt2.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -858,9 +859,9 @@ public class DBManagement {
         try {
             Connection conn = this.connect();
             PreparedStatement pstmt = conn.prepareStatement(AcceptRequestSql);
-            pstmt.setInt(1,2);
-            pstmt.setInt(2,VacationIdSeller);
-            pstmt.setInt(3,VacationIdBuyer);
+            pstmt.setInt(1, 2);
+            pstmt.setInt(2, VacationIdSeller);
+            pstmt.setInt(3, VacationIdBuyer);
             pstmt.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -870,8 +871,8 @@ public class DBManagement {
         try {
             Connection conn = this.connect();
             PreparedStatement pstmt3 = conn.prepareStatement(RejectPurchaseRequestSql);
-            pstmt3.setInt(1,2);
-            pstmt3.setInt(2,VacationIdSeller);
+            pstmt3.setInt(1, 2);
+            pstmt3.setInt(2, VacationIdSeller);
             pstmt3.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -883,16 +884,16 @@ public class DBManagement {
         try {
             Connection conn = this.connect();
             PreparedStatement pstmt = conn.prepareStatement(RejectRequestSql);
-            pstmt.setInt(1,2);
-            pstmt.setInt(2,VacationIdSeller);
-            pstmt.setInt(3,VacationIdBuyer);
+            pstmt.setInt(1, 2);
+            pstmt.setInt(2, VacationIdSeller);
+            pstmt.setInt(3, VacationIdBuyer);
             pstmt.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
     }
 
-    public Vacation GetVacationByVacationID(int vacationID){
+    public Vacation GetVacationByVacationID(int vacationID) {
         ArrayList<Integer> VacationsID = new ArrayList<>();
         VacationsID.add(vacationID);
         ArrayList<Vacation> vacations = GetVacationsInformation(VacationsID);

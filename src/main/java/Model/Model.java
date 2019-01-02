@@ -258,8 +258,8 @@ public class Model {
     }
 
 
-    public void insertNewPurchaseRequest(PurchaseRequest purchaseRequest) {
-        dbManagement.insertNewPurchaseRequest(purchaseRequest);
+    public boolean insertNewPurchaseRequest(PurchaseRequest purchaseRequest) {
+        return dbManagement.insertNewPurchaseRequest(purchaseRequest);
     }
 
     public ArrayList<Integer> GetPurchaseRequestsForUser() {

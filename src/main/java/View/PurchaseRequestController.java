@@ -56,12 +56,21 @@ public class PurchaseRequestController implements Initializable {
             String[] vacationDetails = stage.getTitle().split(",");
             String VacationID = vacationDetails[1].split("VacationID:")[1].trim();
             String sellerUserName = vacationDetails[2].split("SellerID:")[1].trim();
-            controller.insertNewPurchaseRequest(new PurchaseRequest(Integer.parseInt(VacationID), sellerUserName, controller.getCurrentUser().getUser_name(),
-                    LocalDate.now().toString(), 0, phoneNumber.getText()));
-            Alert a = new Alert(Alert.AlertType.INFORMATION);
-            a.setContentText("PurchaseRequest Sent!");
-            a.show();
-            stage.close();
+            if(controller.insertNewPurchaseRequest(new PurchaseRequest(Integer.parseInt(VacationID), sellerUserName, controller.getCurrentUser().getUser_name(),
+                    LocalDate.now().toString(), 0, phoneNumber.getText()))){
+                Alert a = new Alert(Alert.AlertType.INFORMATION);
+                a.setContentText("PurchaseRequest Sent!");
+                a.show();
+                stage.close();
+                return;
+            }
+            else{
+                Alert a = new Alert(Alert.AlertType.INFORMATION);
+                a.setContentText("You have already got a purchase request!");
+                a.show();
+                stage.close();
+                return;
+            }
         } else {
             Alert a = new Alert(Alert.AlertType.INFORMATION);
             a.setContentText("Your phone number is not valid! It should be 10 digits!");

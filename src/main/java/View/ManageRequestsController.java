@@ -49,7 +49,7 @@ public class ManageRequestsController implements Initializable {
      * Method calls an apply of the user on a request
      */
     public void applyPurchaseRequest() {
-
+        String selected = purchaseListBox.getValue();
         backHome();
     }
 
@@ -85,8 +85,10 @@ public class ManageRequestsController implements Initializable {
         ArrayList<Integer> purchaseVacationIDS = controller.GetPurchaseRequestsForUser();
         ArrayList<PurchaseRequest> purchaseList = controller.GetPurchaseRequestInformation(purchaseVacationIDS);
         ArrayList<String> purchase_Info = new ArrayList<String>();
+        Vacation currVacation;
         for (PurchaseRequest purchaseRequest : purchaseList) {
-            purchase_Info.add(purchaseRequest.toString());
+            currVacation= controller.GetVacationByVacationID(purchaseRequest.getVacationIdSeller());
+            purchase_Info.add(currVacation.toString() + " "+ purchaseRequest.toString());
         }
         ////////////////////////////////////////////////////////////////
         ArrayList<Integer> exchangeVacationIDS = controller.GetExchangeRequestForUser();

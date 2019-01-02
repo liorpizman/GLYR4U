@@ -112,7 +112,7 @@ public class PurchaseRequest {
     }
 
     public String toString() {
-        return "ID: " + purchaseRequestId + " , from buyer: " + Buyer + " , contact in phoneNumber: " + CellPhone;
+        return ", from buyer: " + Buyer + " , contact in phoneNumber: " + CellPhone;
     }
 }
 

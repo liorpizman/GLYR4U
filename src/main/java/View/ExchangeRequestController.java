@@ -79,12 +79,19 @@ public class ExchangeRequestController implements Initializable {
             String sellerUserName = vacationDetails[2].split("SellerID:")[1].trim();
             String selected = vacationsListBox.getValue();
             String vacationIDBuyer = selected.split("From")[0].split("VacationId:")[1].trim();
-            controller.insertNewExchangeRequest(new ExchangeRequest(Integer.parseInt(VacationID), sellerUserName, Integer.parseInt(vacationIDBuyer), controller.getCurrentUser().getUser_name(),
-                    LocalDate.now().toString(), 0, phoneNumber.getText()));
-            Alert a = new Alert(Alert.AlertType.INFORMATION);
-            a.setContentText("ExchangeRequest Sent!");
-            a.show();
-            stage.close();
+            if(controller.insertNewExchangeRequest(new ExchangeRequest(Integer.parseInt(VacationID), sellerUserName, Integer.parseInt(vacationIDBuyer), controller.getCurrentUser().getUser_name(),
+                    LocalDate.now().toString(), 0, phoneNumber.getText()))){
+                Alert a = new Alert(Alert.AlertType.INFORMATION);
+                a.setContentText("ExchangeRequest Sent!");
+                a.show();
+                stage.close();
+            }
+            else{
+                Alert a = new Alert(Alert.AlertType.INFORMATION);
+                a.setContentText("You have already got an exchange request!");
+                a.show();
+                stage.close();
+            }
         } else {
             Alert a = new Alert(Alert.AlertType.INFORMATION);
             a.setContentText("Your phone number is not valid! It should be 10 digits!");

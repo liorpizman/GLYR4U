@@ -264,8 +264,8 @@ public class Controller {
     }
 
 
-    public void insertNewPurchaseRequest(PurchaseRequest purchaseRequest) {
-        model.insertNewPurchaseRequest(purchaseRequest);
+    public boolean insertNewPurchaseRequest(PurchaseRequest purchaseRequest) {
+        return model.insertNewPurchaseRequest(purchaseRequest);
     }
 
     public ArrayList<Integer> GetPurchaseRequestsForUser() {
