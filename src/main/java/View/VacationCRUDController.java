@@ -27,9 +27,6 @@ public class VacationCRUDController {
      */
     public boolean validVacationID(String id) {
         if (id.isEmpty() || !isInteger(id)) {
-            Alert a = new Alert(Alert.AlertType.INFORMATION);
-            a.setContentText("Invalid Vacation ID, please try again.");
-            a.show();
             return false;
         }
         return true;
@@ -120,14 +117,14 @@ public class VacationCRUDController {
         LocalDate inputArrivalDate = ArrivalP.getValue();
         if (inputArrivalDate.compareTo(currentDate) < 0) {
             Alert a = new Alert(Alert.AlertType.INFORMATION);
-            a.setContentText("Please Enter a valid arrival date");
+            a.setContentText("Please Enter a valid future arrival date");
             a.show();
             return;
         }
         LocalDate inputDepartureDate = DepartureP.getValue();
         if (inputDepartureDate.compareTo(currentDate) < 0) {
             Alert a = new Alert(Alert.AlertType.INFORMATION);
-            a.setContentText("Please Enter a valid departure date");
+            a.setContentText("Please Enter a valid future departure date");
             a.show();
             return;
         }
@@ -315,6 +312,7 @@ public class VacationCRUDController {
                 Alert a = new Alert(Alert.AlertType.INFORMATION);
                 a.setContentText("Invalid Vacation ID, please try again.");
                 a.show();
+                return;
             } else {
                 Vacation currVacation = OneVacation.get(0);
                 FromCountryUpdateU.setText(currVacation.getFromOriginFlight().getOriginCountry());
@@ -383,6 +381,7 @@ public class VacationCRUDController {
             Alert a = new Alert(Alert.AlertType.INFORMATION);
             a.setContentText("You didn't entered a valid vacation id.\nPlease try again!.");
             a.show();
+            return;
         }
     }
 
@@ -483,11 +482,39 @@ public class VacationCRUDController {
                 a.setContentText("You didn't entered the destination city.\nPlease fill this field.");
                 a.show();
                 return;
-            } else {
-
-
+            } else if (_arrival== null) {
+                Alert a = new Alert(Alert.AlertType.INFORMATION);
+                a.setContentText("You didn't entered a arrival date or you didn't fill arrival date at all, please try again.");
+                a.show();
+                return;
+            }else if (_departure== null) {
+                Alert a = new Alert(Alert.AlertType.INFORMATION);
+                a.setContentText("You didn't entered a departure date or you didn't fill your departure at all, please try again.");
+                a.show();
+                return;
+            }else {
+                LocalDate currentDate = LocalDate.now();
+                LocalDate inputArrivalDate =_arrival;
+                if (inputArrivalDate.compareTo(currentDate) < 0) {
+                    Alert a = new Alert(Alert.AlertType.INFORMATION);
+                    a.setContentText("Please Enter a valid future arrival date");
+                    a.show();
+                    return;
+                }
+                LocalDate inputDepartureDate = _departure;
+                if (inputDepartureDate.compareTo(currentDate) < 0) {
+                    Alert a = new Alert(Alert.AlertType.INFORMATION);
+                    a.setContentText("Please Enter a valid future departure date");
+                    a.show();
+                    return;
+                }
+                if (inputDepartureDate.compareTo(inputArrivalDate) < 0) {
+                    Alert a = new Alert(Alert.AlertType.INFORMATION);
+                    a.setContentText("Your departure date is before your arrival date");
+                    a.show();
+                    return;
+                }
                 ArrayList<Integer> VacationsID = new ArrayList<>();
-
                 int[] travelersType = new int[3];
                 travelersType[0] = _babies;
                 travelersType[1] = _children;

@@ -4,6 +4,7 @@ import Controller.Controller;
 import Model.RegisteredUser;
 import javafx.scene.control.Alert;
 import javafx.stage.Stage;
+import jdk.nashorn.internal.runtime.regexp.joni.Regex;
 
 import java.time.LocalDate;
 
@@ -124,35 +125,45 @@ public class UserCRUDController {
         String _lastName = userLastNameC.getText();
         String _userCity = userCityC.getText();
         LocalDate date = userBirthDateC.getValue();
-        char[] invalidChars = {' ', '%'};
+        LocalDate currentDate = LocalDate.now();
         if (_userName.isEmpty()) {
             Alert a = new Alert(Alert.AlertType.INFORMATION);
-            a.setContentText("You didn't entered your user name, please entered.");
+            a.setContentText("You didn't entered your user name, please enter.");
             a.show();
             return;
         } else if (_password.isEmpty()) {
             Alert a = new Alert(Alert.AlertType.INFORMATION);
-            a.setContentText("You didn't entered your password, please entered.");
+            a.setContentText("You didn't entered your password, please enter.");
+            a.show();
+            return;
+        }else if(_password.length()!=6 || !_password.matches("^[a-zA-Z0-9]*$")){
+            Alert a = new Alert(Alert.AlertType.INFORMATION);
+            a.setContentText("The password must be 6 letters or digits (without any special characters)");
             a.show();
             return;
         } else if (_firstName.isEmpty()) {
             Alert a = new Alert(Alert.AlertType.INFORMATION);
-            a.setContentText("You didn't entered your first name, please entered.");
+            a.setContentText("You didn't entered your first name, please enter.");
             a.show();
             return;
         } else if (_lastName.isEmpty()) {
             Alert a = new Alert(Alert.AlertType.INFORMATION);
-            a.setContentText("You didn't entered your last name, please entered.");
+            a.setContentText("You didn't entered your last name, please enter.");
             a.show();
             return;
         } else if (_userCity.isEmpty()) {
             Alert a = new Alert(Alert.AlertType.INFORMATION);
-            a.setContentText("You didn't entered your city, please entered.");
+            a.setContentText("You didn't entered your city, please enter.");
             a.show();
             return;
         } else if (date == null) {
             Alert a = new Alert(Alert.AlertType.INFORMATION);
-            a.setContentText("You didn't entered your birth date, please entered.");
+            a.setContentText("You didn't entered a valid birth date or you didn't fill your birth date at all, please try again.");
+            a.show();
+            return;
+        }else if(date.compareTo(currentDate) > 0) {
+            Alert a = new Alert(Alert.AlertType.INFORMATION);
+            a.setContentText("This date is a future date. Please Try Again!");
             a.show();
             return;
         } else if (date.getYear() > 2001) {
