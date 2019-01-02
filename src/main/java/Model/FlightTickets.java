@@ -5,7 +5,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.Random;
+
 
 /**
  * Collection of flight tickets
@@ -13,8 +13,6 @@ import java.util.Random;
 public class FlightTickets {
 
     private String Airline;
-    //private Location Destination;
-    //private Location Origin;
     private String TicketType; // combo Box -BasicClass, FirstClass, BusinessClass
     private int TicketId;
     private int AmountOfTickets;
@@ -46,29 +44,9 @@ public class FlightTickets {
         DateFormat timeFormat = new SimpleDateFormat("HH:mm:ss");
         String formattedDate=timeFormat.format(time);
         String currTime =formattedDate.replace(":","");
-        TicketId = Integer.parseInt(currTime);
+        TicketId = Integer.parseInt(currTime)+8000;
     }
 
-  /*
-    public FlightTickets(String airline, Location destination, Location origin, int[] travelersType, String TypeOfTicket, int vacationId) {
-        AirlineP = airline;
-        Destination = destination;
-        Origin = origin;
-
-        TravelersType = travelersType;
-        AmountOfTickets = CalculateAmountOfTickets(travelersType);
-        TicketType = TypeOfTicket;
-
-        VacationId = vacationId;
-
-        Random r = new Random();
-        int low = TicketID;
-        int high = TicketID * 5;
-        TicketId = r.nextInt(high - low) + low;
-        TicketID += 500;
-    }
-
-*/
     /**
      * @param travelersType
      * @return Total amount of tickets

@@ -596,7 +596,6 @@ public class DBManagement {
         if (ExistPurchaseRequestForUser(Purchase.getVacationIdSeller(), Purchase.getSeller(), Purchase.getBuyer())) {
             return false;
         }
-
         try {
             Connection conn = this.connect();
             PreparedStatement pstmt = conn.prepareStatement(paySql);
@@ -607,7 +606,6 @@ public class DBManagement {
             pstmt.setString(5, Purchase.getPaymentDate());
             pstmt.setInt(6, Purchase.getRequestStatus());  // 0
             pstmt.setString(7, Purchase.getCellPhone());
-
             pstmt.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -616,8 +614,7 @@ public class DBManagement {
     }
 
     public boolean ExistPurchaseRequestForUser(int VacationIdSeller, String Seller, String Buyer) {
-        String query = "SELECT * FROM PurchaseRequest WHERE VacationIdSeller =?" +
-                " AND Seller =? AND Buyer =? AND RequestStatus=?";
+        String query = "SELECT * FROM PurchaseRequest WHERE VacationIdSeller =? AND Seller =? AND Buyer =? AND RequestStatus=?";
         try (Connection conn = this.connect();
              PreparedStatement pstmt = conn.prepareStatement(query)) {
             pstmt.setInt(1, VacationIdSeller);
@@ -637,20 +634,26 @@ public class DBManagement {
     }
 
 
-    public ArrayList<Integer> GetPurchaseRequestForUser(String UserName) {
+    public ArrayList<Integer> GetPurchaseRequestForUser(String UserName, int processVacation) {
         ArrayList<Integer> PurchaseRequestID = new ArrayList<>();
-
-        String sql = "SELECT * FROM PurchaseRequest WHERE Seller=? AND RequestStatus =?";
+        String sql;
+        if (processVacation == 0) {
+            sql = "SELECT * FROM PurchaseRequest WHERE Seller=? AND RequestStatus =?";
+        } else {
+            sql = "SELECT * FROM PurchaseRequest WHERE Buyer=? AND RequestStatus =?";
+        }
+        if (processVacation == 3) {
+            processVacation = 0;
+        }
         try (Connection conn = this.connect();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, UserName);
-            pstmt.setInt(2, 0);
+            pstmt.setInt(2, processVacation);
             ResultSet rs = pstmt.executeQuery();
             while (rs.next()) {
                 PurchaseRequestID.add((int) rs.getObject(("PurchaseRequestID")));
             }
             return PurchaseRequestID;
-
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
@@ -701,19 +704,17 @@ public class DBManagement {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
-
         String AcceptRequestSql = "UPDATE PurchaseRequest SET RequestStatus =? WHERE Buyer =? AND VacationIdSeller =?";
         try {
             Connection conn2 = this.connect();
-            PreparedStatement pstmt2 = conn2.prepareStatement(RejectRequestSql);
+            PreparedStatement pstmt2 = conn2.prepareStatement(AcceptRequestSql);
             pstmt2.setInt(1, 1);
             pstmt2.setString(2, Buyer);
-            pstmt2.setInt(2, VacationIdSeller);
+            pstmt2.setInt(3, VacationIdSeller);
             pstmt2.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
-
         String RejectExchangeRequestSql = "UPDATE ExchangeRequest SET RequestStatus =? WHERE VacationIdSeller =?";
         try {
             Connection conn3 = this.connect();
@@ -791,20 +792,26 @@ public class DBManagement {
         return false;
     }
 
-    public ArrayList<Integer> GetExchangeRequestForUser(String UserName) {
+    public ArrayList<Integer> GetExchangeRequestForUser(String UserName, int processVacation) {
         ArrayList<Integer> ExchangeRequestID = new ArrayList<>();
-
-        String sql = "SELECT * FROM ExchangeRequest WHERE Seller =? AND RequestStatus =?";
+        String sql;
+        if (processVacation == 0) {
+            sql = "SELECT * FROM ExchangeRequest WHERE Seller =? AND RequestStatus =?";
+        } else {
+            sql = "SELECT * FROM ExchangeRequest WHERE Buyer =? AND RequestStatus =?";
+        }
+        if (processVacation == 3) {
+            processVacation = 0;
+        }
         try (Connection conn = this.connect();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, UserName);
-            pstmt.setInt(2, 0);
+            pstmt.setInt(2, processVacation);
             ResultSet rs = pstmt.executeQuery();
             while (rs.next()) {
                 ExchangeRequestID.add((int) rs.getObject(("VacationExchangeID")));
             }
             return ExchangeRequestID;
-
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
@@ -859,7 +866,7 @@ public class DBManagement {
         try {
             Connection conn = this.connect();
             PreparedStatement pstmt = conn.prepareStatement(AcceptRequestSql);
-            pstmt.setInt(1, 2);
+            pstmt.setInt(1, 1);
             pstmt.setInt(2, VacationIdSeller);
             pstmt.setInt(3, VacationIdBuyer);
             pstmt.executeUpdate();
@@ -880,7 +887,7 @@ public class DBManagement {
     }
 
     public void RejectExchangeRequest(int VacationIdSeller, int VacationIdBuyer) { // set status to '2' to reject and '1' to accept
-        String RejectRequestSql = "UPDATE ExchangeRequest SET RequestStatus =? WHERE VacationIdSeller =? VacationIdBuyer =?";
+        String RejectRequestSql = "UPDATE ExchangeRequest SET RequestStatus =? WHERE VacationIdSeller =? AND VacationIdBuyer =?";
         try {
             Connection conn = this.connect();
             PreparedStatement pstmt = conn.prepareStatement(RejectRequestSql);

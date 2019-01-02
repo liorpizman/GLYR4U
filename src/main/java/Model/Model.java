@@ -262,28 +262,28 @@ public class Model {
         return dbManagement.insertNewPurchaseRequest(purchaseRequest);
     }
 
-    public ArrayList<Integer> GetPurchaseRequestsForUser() {
-        return dbManagement.GetPurchaseRequestForUser(((RegisteredUser) CurrentUser).getUser_name());
+    public ArrayList<Integer> GetPurchaseRequestsForUser(int processVacation) {
+        return dbManagement.GetPurchaseRequestForUser(((RegisteredUser) CurrentUser).getUser_name(),processVacation);
     }
 
     public ArrayList<PurchaseRequest> GetPurchaseRequestInformation(ArrayList<Integer> purchaseRequestID) {
         return dbManagement.GetPurchaseRequestInformation(purchaseRequestID);
     }
 
-    public void AcceptPurchaseRequest(int vacationIdSeller) {
-        dbManagement.AcceptPurchaseRequest(vacationIdSeller, ((RegisteredUser) CurrentUser).getUser_name());
+    public void AcceptPurchaseRequest(int vacationIdSeller, String buyer) {
+        dbManagement.AcceptPurchaseRequest(vacationIdSeller, buyer);
     }
 
-    public void RejectPurchaseRequest(int vacationIdSeller) {
-        dbManagement.RejectPurchaseRequest(vacationIdSeller, ((RegisteredUser) CurrentUser).getUser_name());
+    public void RejectPurchaseRequest(int vacationIdSeller,String buyer) {
+        dbManagement.RejectPurchaseRequest(vacationIdSeller, buyer);
     }
 
     public boolean insertNewExchangeRequest(ExchangeRequest exchangeRequest) {
         return dbManagement.insertNewExchangeRequest(exchangeRequest);
     }
 
-    public ArrayList<Integer> GetExchangeRequestForUser() {
-        return dbManagement.GetExchangeRequestForUser(((RegisteredUser) CurrentUser).getUser_name());
+    public ArrayList<Integer> GetExchangeRequestForUser(int processVacation) {
+        return dbManagement.GetExchangeRequestForUser(((RegisteredUser) CurrentUser).getUser_name(),processVacation);
     }
 
     public ArrayList<ExchangeRequest> GetExchangeRequestInformation(ArrayList<Integer> exchangeRequestID) {

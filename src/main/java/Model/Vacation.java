@@ -1,8 +1,5 @@
 package Model;
 
-import java.util.HashMap;
-import java.util.Map;
-
 enum VacationStatus {
     ForSale, InProgress, Sold
 }

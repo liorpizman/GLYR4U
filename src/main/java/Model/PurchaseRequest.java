@@ -2,16 +2,11 @@ package Model;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.ZonedDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.Random;
+
 
 public class PurchaseRequest {
-    // static int PurchaseRequestID = 7546;////// key of the object
     private int purchaseRequestId;
     private int VacationIdSeller;
     private String Seller;
@@ -30,11 +25,6 @@ public class PurchaseRequest {
         PaymentDate = paymentDate;
         RequestStatus = requestStatus;
         CellPhone = cellPhone;
-        //Random r = new Random();
-        //int low = PurchaseRequestID;
-        //int high = PurchaseRequestID + 499;
-        //purchaseRequestId = r.nextInt(high - low) + low;
-        //PurchaseRequestID += 500;
         Calendar cal = Calendar.getInstance();
         Date time = cal.getTime();
         DateFormat timeFormat = new SimpleDateFormat("HH:mm:ss");

@@ -99,10 +99,10 @@ public class VacationCRUDController {
      */
     public void publishVacation() {
         Calendar cal = Calendar.getInstance();
-        Date time=cal.getTime();
+        Date time = cal.getTime();
         DateFormat timeFormat = new SimpleDateFormat("HH:mm:ss");
-        String formattedDate=timeFormat.format(time);
-        String currTime =formattedDate.replace(":","");
+        String formattedDate = timeFormat.format(time);
+        String currTime = formattedDate.replace(":", "");
         int _vacationId = Integer.parseInt(currTime);
 
         String _fromCountry = FromCountryP.getText().toLowerCase();
@@ -226,6 +226,10 @@ public class VacationCRUDController {
             travelersType[2] = _adults;
 
             FlightTickets originTicket = new FlightTickets(_airline, _toCountry, _toCity, _fromCountry, _fromCity, travelersType, _flightClass, _vacationId);
+            try {
+                Thread.sleep(1000);
+            } catch (Exception e) {
+            }
             FlightTickets destTicket = new FlightTickets(_airline, _fromCountry, _fromCity, _toCountry, _toCity, travelersType, _flightClass, _vacationId);
 
             controller.insertFlightTickets(originTicket);
@@ -488,19 +492,19 @@ public class VacationCRUDController {
                 a.setContentText("You didn't entered the destination city.\nPlease fill this field.");
                 a.show();
                 return;
-            } else if (_arrival== null) {
+            } else if (_arrival == null) {
                 Alert a = new Alert(Alert.AlertType.INFORMATION);
                 a.setContentText("You didn't entered a arrival date or you didn't fill arrival date at all, please try again.");
                 a.show();
                 return;
-            }else if (_departure== null) {
+            } else if (_departure == null) {
                 Alert a = new Alert(Alert.AlertType.INFORMATION);
                 a.setContentText("You didn't entered a departure date or you didn't fill your departure at all, please try again.");
                 a.show();
                 return;
-            }else {
+            } else {
                 LocalDate currentDate = LocalDate.now();
-                LocalDate inputArrivalDate =_arrival;
+                LocalDate inputArrivalDate = _arrival;
                 if (inputArrivalDate.compareTo(currentDate) < 0) {
                     Alert a = new Alert(Alert.AlertType.INFORMATION);
                     a.setContentText("Please Enter a valid future arrival date");

@@ -268,8 +268,8 @@ public class Controller {
         return model.insertNewPurchaseRequest(purchaseRequest);
     }
 
-    public ArrayList<Integer> GetPurchaseRequestsForUser() {
-        return model.GetPurchaseRequestsForUser();
+    public ArrayList<Integer> GetPurchaseRequestsForUser(int processVacation) {
+        return model.GetPurchaseRequestsForUser(processVacation);
     }
 
 
@@ -277,20 +277,20 @@ public class Controller {
         return model.GetPurchaseRequestInformation(PurchaseRequestID);
     }
 
-    public void AcceptPurchaseRequest(int VacationIdSeller) {
-        model.AcceptPurchaseRequest(VacationIdSeller);
+    public void AcceptPurchaseRequest(int VacationIdSeller,String Buyer) {
+        model.AcceptPurchaseRequest(VacationIdSeller,Buyer);
     }
 
-    public void RejectPurchaseRequest(int VacationIdSeller) {
-        model.RejectPurchaseRequest(VacationIdSeller);
+    public void RejectPurchaseRequest(int VacationIdSeller,String buyer) {
+        model.RejectPurchaseRequest(VacationIdSeller,buyer);
     }
 
     public boolean insertNewExchangeRequest(ExchangeRequest exchangeRequest) {
         return model.insertNewExchangeRequest(exchangeRequest);
     }
 
-    public ArrayList<Integer> GetExchangeRequestForUser() {
-        return model.GetExchangeRequestForUser();
+    public ArrayList<Integer> GetExchangeRequestForUser(int processVacation) {
+        return model.GetExchangeRequestForUser(processVacation);
     }
 
     public ArrayList<ExchangeRequest> GetExchangeRequestInformation(ArrayList<Integer> ExchangeRequestID) {

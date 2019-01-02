@@ -226,6 +226,11 @@ public class SearchVacationController implements Initializable {
             }
             SetResultFields1(vacationsList.get(i));
         }
+        else{
+            clearFirstFields();
+            PurchaseButton1.setDisable(true);
+            Exchange1.setDisable(true);
+        }
         if (i + 1 < vacationsList.size()) {
             if (currentUser != null && vacationsList.get(i + 1).getUserID().equals(controller.getCurrentUser().getUser_name())) {
                 PurchaseButton2.setDisable(true);
@@ -237,6 +242,11 @@ public class SearchVacationController implements Initializable {
             SetResultFields2(vacationsList.get(i + 1));
 
         }
+        else{
+            clearSecondFields();
+            PurchaseButton2.setDisable(true);
+            Exchange2.setDisable(true);
+        }
         if (i + 2 < vacationsList.size()) {
             if (currentUser != null && vacationsList.get(i).getUserID().equals(controller.getCurrentUser().getUser_name())) {
                 PurchaseButton3.setDisable(true);
@@ -246,6 +256,11 @@ public class SearchVacationController implements Initializable {
                 Exchange3.setDisable(false);
             }
             SetResultFields3(vacationsList.get(i + 2));
+        }
+        else{
+            clearThirdFields();
+            PurchaseButton3.setDisable(true);
+            Exchange3.setDisable(true);
         }
         if (i + 3 >= vacationsList.size()) {
             nextButton.setDisable(true);
@@ -488,7 +503,7 @@ public class SearchVacationController implements Initializable {
         }
         Stage stage = new Stage();
         stage.setResizable(true);
-        stage.setTitle("Account Settings");
+        stage.setTitle("General Settings");
         try {
             Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("AccountSettings.fxml"));
             root.getStylesheets().add(getClass().getClassLoader().getResource("flightCSS.css").toExternalForm());
@@ -515,10 +530,8 @@ public class SearchVacationController implements Initializable {
         backHome();
     }
 
-    /**
-     * clear all tabs from previous search
-     */
-    private void clearAllFields() {
+
+    public void clearFirstFields(){
         titledPane1.setText("");
         fromCountry1.setText("");
         fromCity1.setText("");
@@ -536,7 +549,9 @@ public class SearchVacationController implements Initializable {
         publishedBy1.setText("");
         departureDate1.setText("");
         ticketType1.setText("");
+    }
 
+    public void clearSecondFields(){
         titledPane2.setText("");
         fromCountry2.setText("");
         fromCity2.setText("");
@@ -554,7 +569,9 @@ public class SearchVacationController implements Initializable {
         publishedBy2.setText("");
         departureDate2.setText("");
         ticketType2.setText("");
+    }
 
+    public void clearThirdFields(){
         titledPane3.setText("");
         fromCountry3.setText("");
         fromCity3.setText("");
@@ -572,6 +589,15 @@ public class SearchVacationController implements Initializable {
         publishedBy3.setText("");
         departureDate3.setText("");
         ticketType3.setText("");
+    }
+
+    /**
+     * clear all tabs from previous search
+     */
+    private void clearAllFields() {
+        clearFirstFields();
+        clearSecondFields();
+        clearThirdFields();
     }
 
 

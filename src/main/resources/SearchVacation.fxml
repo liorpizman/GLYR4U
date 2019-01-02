@@ -17,7 +17,7 @@
         <Button fx:id="nextButton" disable="true" layoutX="481.0" layoutY="577.0" mnemonicParsing="false" onAction="#next" prefHeight="32.0" prefWidth="83.0" text="Next" />
         <Button fx:id="BackButton" layoutX="52.0" layoutY="577.0" mnemonicParsing="false" onAction="#backHome" prefHeight="32.0" prefWidth="83.0" text="Back" />
         <DatePicker fx:id="departureDate" layoutX="353.0" layoutY="80.0" />
-        <ChoiceBox fx:id="accommodationChoice" layoutX="660.0" layoutY="58.0" prefWidth="150.0" value="Hotel">
+        <ChoiceBox fx:id="accommodationChoice" layoutX="660.0" layoutY="29.0" prefWidth="150.0" value="Hotel">
             <String fx:value="Hotel" />
             <String fx:value="Room" />
             <String fx:value="Cabins" />
@@ -156,26 +156,26 @@
                 </TitledPane>
             </panes>
         </Accordion>
-        <Button fx:id="accountSettings" layoutX="783.0" layoutY="577.0" mnemonicParsing="false" onAction="#AccountSettings" prefHeight="32.0" prefWidth="121.0" text="Account Settings" />
+        <Button fx:id="accountSettings" layoutX="888.0" layoutY="73.0" mnemonicParsing="false" onAction="#AccountSettings" prefHeight="32.0" prefWidth="121.0" text="General Settings" />
         <Text layoutX="29.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="From:" />
         <Text layoutX="34.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="To:" wrappingWidth="35.0000165104866" />
         <Text layoutX="295.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Arrival:" />
         <Text layoutX="308.0" layoutY="97.0" strokeType="OUTSIDE" strokeWidth="0.0" />
         <Text layoutX="285.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Departure:" />
-        <Text layoutX="556.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Accommodation:" />
+        <Text layoutX="556.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Accommodation:" />
         <TextField fx:id="toCountry" layoutX="76.0" layoutY="77.0" prefHeight="25.0" prefWidth="83.0" />
         <Text layoutX="89.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Country" />
         <Text layoutX="177.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="City" />
         <Text fill="#e11c1c" layoutX="19.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*" wrappingWidth="10.351564407348633" />
         <Text fill="#e11c1c" layoutX="24.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*" wrappingWidth="10.351575642824173" />
         <Text fill="#e11c1c" layoutX="25.0" layoutY="136.0" strokeType="OUTSIDE" strokeWidth="0.0" text="* Required fields" wrappingWidth="101.00001315772533" />
-        <Button fx:id="SearchButton" layoutX="875.0" layoutY="55.0" mnemonicParsing="false" onAction="#search" prefHeight="32.0" prefWidth="121.0" text="Search" />
+        <Button fx:id="SearchButton" layoutX="660.0" layoutY="75.0" mnemonicParsing="false" onAction="#search" prefHeight="32.0" prefWidth="150.0" text="Search" />
         <TextField fx:id="toCity" layoutX="158.0" layoutY="77.0" prefHeight="25.0" prefWidth="83.0" />
         <TextField fx:id="fromCountry" layoutX="76.0" layoutY="38.0" prefHeight="25.0" prefWidth="83.0" />
         <TextField fx:id="fromCity" layoutX="158.0" layoutY="38.0" prefHeight="25.0" prefWidth="83.0" />
         <Button fx:id="previousButton" disable="true" layoutX="400.0" layoutY="577.0" mnemonicParsing="false" onAction="#previous" prefHeight="32.0" prefWidth="83.0" text="Previous" />
-        <Button fx:id="publishButton" layoutX="662.0" layoutY="577.0" mnemonicParsing="false" onAction="#publishVacation" prefHeight="32.0" prefWidth="121.0" text="Publish Vaction" />
+        <Button fx:id="publishButton" layoutX="695.0" layoutY="577.0" mnemonicParsing="false" onAction="#publishVacation" prefHeight="32.0" prefWidth="121.0" text="Publish Vaction" />
         <Button fx:id="LogoutButton" layoutX="902.0" layoutY="577.0" mnemonicParsing="false" onAction="#logOut" prefHeight="32.0" prefWidth="121.0" text="Log out" />
-      <Button fx:id="manageRequestsButton" layoutX="210.0" layoutY="577.0" onAction="#manageRequests" mnemonicParsing="false" prefHeight="32.0" prefWidth="121.0" text="Manage Requests" />
+      <Button fx:id="manageRequestsButton" layoutX="888.0" layoutY="24.0" mnemonicParsing="false" onAction="#manageRequests" prefHeight="32.0" prefWidth="121.0" text="Manage Requests" />
     </children>
 </AnchorPane>
