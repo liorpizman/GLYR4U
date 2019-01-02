@@ -88,7 +88,9 @@ public class Main extends Application {
             + " Seller varchar(15) NOT NULL,\n"
             + " VacationIdBuyer int NOT NULL,\n"
             + " Buyer varchar(15) NOT NULL,\n "
-            + " PaymentDate varchar(15) NOT NULL\n "
+            + " PaymentDate varchar(15) NOT NULL\n, "
+            + " RequestStatus int NOT NULL\n, "
+            + " CellPhone varchar(15) NOT NULL\n "
             + ");";
 
     private String PurchaseRequestSql = "CREATE TABLE IF NOT EXISTS " + "PurchaseRequest" + " (\n"
