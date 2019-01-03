@@ -25,6 +25,9 @@ import java.util.ResourceBundle;
  */
 public class SearchVacationController implements Initializable {
 
+    /**
+     * fields of SearchVacationController
+     */
     public javafx.scene.control.TextField fromCountry;
     public javafx.scene.control.TextField fromCity;
     public javafx.scene.control.TextField toCountry;
@@ -33,7 +36,6 @@ public class SearchVacationController implements Initializable {
     public javafx.scene.control.DatePicker departureDate;
     public javafx.scene.control.CheckBox roundTripCheck;
     public javafx.scene.control.ChoiceBox accommodationChoice;
-
 
     public javafx.scene.control.TitledPane titledPane1;
     public javafx.scene.control.TextField fromCountry1;
@@ -54,7 +56,6 @@ public class SearchVacationController implements Initializable {
     public javafx.scene.control.TextField publishedBy1;
     public javafx.scene.control.TextField ticketType1;
 
-
     public javafx.scene.control.TitledPane titledPane2;
     public javafx.scene.control.TextField fromCountry2;
     public javafx.scene.control.TextField fromCity2;
@@ -73,7 +74,6 @@ public class SearchVacationController implements Initializable {
     public javafx.scene.control.CheckBox transfersCheck2;
     public javafx.scene.control.TextField publishedBy2;
     public javafx.scene.control.TextField ticketType2;
-
 
     public javafx.scene.control.TitledPane titledPane3;
     public javafx.scene.control.TextField fromCountry3;
@@ -123,21 +123,21 @@ public class SearchVacationController implements Initializable {
         controller = _controller;
     }
 
+    /**
+     * Method which happens when the window initialize
+     * @param location location
+     * @param resources resources
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         updateVacationsList();
     }
 
+    /**
+     * Method which update vacation list in opening of search window
+     */
     public void updateVacationsList() {
         vacationsList = controller.Search(null);
-        /*
-        if (vacationsList.size() == 0) {
-            Alert a = new Alert(Alert.AlertType.INFORMATION);
-            a.setContentText("No Vacations to Show ");
-            a.show();
-            return;
-        }
-        */
         SetAllResults(0);
     }
 
@@ -147,7 +147,6 @@ public class SearchVacationController implements Initializable {
     public void search() {
         clearAllFields();
         HashMap<String, String> askedFields = new HashMap<String, String>();
-        // searchTest();
         if ((fromCountry == null || fromCountry.getText().isEmpty()) ||
                 (fromCity == null || fromCity.getText().isEmpty()) ||
                 (toCountry == null || toCountry.getText().isEmpty()) ||
@@ -188,7 +187,6 @@ public class SearchVacationController implements Initializable {
         askedFields.put("StartDate", arrivalDate.getValue().toString());
         askedFields.put("EndDate", departureDate.getValue().toString());
         askedFields.put("AccommodationType", (String) accommodationChoice.getValue());
-
         ArrayList<Integer> removeKeys = new ArrayList<Integer>();
         vacationsList = controller.Search(askedFields);
         if (vacationsList.size() == 0) {
@@ -210,10 +208,8 @@ public class SearchVacationController implements Initializable {
 
     /**
      * Sets results to the vacations tabs
-     *
      * @param i - num of vacation in the list
      */
-
     public void SetAllResults(int i) {
         RegisteredUser currentUser = controller.getCurrentUser();
         if (i < vacationsList.size()) {
@@ -225,8 +221,7 @@ public class SearchVacationController implements Initializable {
                 PurchaseButton1.setDisable(false);
             }
             SetResultFields1(vacationsList.get(i));
-        }
-        else{
+        } else {
             clearFirstFields();
             PurchaseButton1.setDisable(true);
             Exchange1.setDisable(true);
@@ -241,8 +236,7 @@ public class SearchVacationController implements Initializable {
             }
             SetResultFields2(vacationsList.get(i + 1));
 
-        }
-        else{
+        } else {
             clearSecondFields();
             PurchaseButton2.setDisable(true);
             Exchange2.setDisable(true);
@@ -256,8 +250,7 @@ public class SearchVacationController implements Initializable {
                 Exchange3.setDisable(false);
             }
             SetResultFields3(vacationsList.get(i + 2));
-        }
-        else{
+        } else {
             clearThirdFields();
             PurchaseButton3.setDisable(true);
             Exchange3.setDisable(true);
@@ -276,8 +269,7 @@ public class SearchVacationController implements Initializable {
 
     /**
      * Sets results to the vacations tab1
-     *
-     * @param _currentVacation
+     * @param _currentVacation current vacation
      */
     public void SetResultFields1(Vacation _currentVacation) {
         titledPane1.setText(_currentVacation.toString()); // _currentVacation.toString()
@@ -311,10 +303,8 @@ public class SearchVacationController implements Initializable {
 
     /**
      * Sets results to the vacations tab2
-     *
-     * @param _currentVacation
+     * @param _currentVacation current vacation
      */
-
     public void SetResultFields2(Vacation _currentVacation) {
         titledPane2.setText(_currentVacation.toString()); // _currentVacation.toString()
         fromCountry2.setText(_currentVacation.getOVacationCountry());
@@ -347,8 +337,7 @@ public class SearchVacationController implements Initializable {
 
     /**
      * Sets results to the vacations tab3
-     *
-     * @param _currentVacation
+     * @param _currentVacation current vacation
      */
     public void SetResultFields3(Vacation _currentVacation) {
         titledPane3.setText(_currentVacation.toString()); // _currentVacation.toString()
@@ -406,7 +395,6 @@ public class SearchVacationController implements Initializable {
      * Notifying the Purchase window which vacationID is sold and who is the Seller
      */
     public void Purchase1() {
-        //PurchaseButton1.setDisable(true);
         purchaseRequest(publishedBy1.getText(), vacationsList.get(firstVacationIndex).getVactionId(), Double.parseDouble(price1.getText()));
     }
 
@@ -414,7 +402,6 @@ public class SearchVacationController implements Initializable {
      * Notifying the Purchase window which vacationID is sold and who is the Seller
      */
     public void Purchase2() {
-        //PurchaseButton2.setDisable(true);
         purchaseRequest(publishedBy2.getText(), vacationsList.get(firstVacationIndex + 1).getVactionId(), Double.parseDouble(price2.getText()));
     }
 
@@ -422,7 +409,6 @@ public class SearchVacationController implements Initializable {
      * Notifying the Purchase window which vacationID is sold and who is the Seller
      */
     public void Purchase3() {
-        //PurchaseButton3.setDisable(true);
         purchaseRequest(publishedBy3.getText(), vacationsList.get(firstVacationIndex + 2).getVactionId(), Double.parseDouble(price3.getText()));
     }
 
@@ -458,10 +444,6 @@ public class SearchVacationController implements Initializable {
      * switches back to home window
      */
     public void backHome() {
-        // back to home stage from the current window
-        // close this window and change a stage/scene
-
-        // get a handle to the stage
         Stage stage = (Stage) BackButton.getScene().getWindow();
         stage.close();
     }
@@ -531,7 +513,10 @@ public class SearchVacationController implements Initializable {
     }
 
 
-    public void clearFirstFields(){
+    /**
+     * clear all fields of first tab
+     */
+    public void clearFirstFields() {
         titledPane1.setText("");
         fromCountry1.setText("");
         fromCity1.setText("");
@@ -551,7 +536,10 @@ public class SearchVacationController implements Initializable {
         ticketType1.setText("");
     }
 
-    public void clearSecondFields(){
+    /**
+     * clear all fields of second tab
+     */
+    public void clearSecondFields() {
         titledPane2.setText("");
         fromCountry2.setText("");
         fromCity2.setText("");
@@ -571,7 +559,10 @@ public class SearchVacationController implements Initializable {
         ticketType2.setText("");
     }
 
-    public void clearThirdFields(){
+    /**
+     * clear all fields of third tab
+     */
+    public void clearThirdFields() {
         titledPane3.setText("");
         fromCountry3.setText("");
         fromCity3.setText("");
@@ -601,19 +592,28 @@ public class SearchVacationController implements Initializable {
     }
 
 
+    /**
+     * Method which calls an exchange request function to handle the first tab request
+     * @param actionEvent actionEvent
+     */
     public void ExchangeRequest1(ActionEvent actionEvent) {
-        //Exchange1.setDisable(true);
         exchangeRequest(publishedBy1.getText(), vacationsList.get(firstVacationIndex).getVactionId(), Double.parseDouble(price1.getText()));
     }
 
+    /**
+     * Method which calls an exchange request function to handle the second tab request
+     * @param actionEvent actionEvent
+     */
     public void ExchangeRequest2(ActionEvent actionEvent) {
-        //Exchange1.setDisable(true);
-        exchangeRequest(publishedBy2.getText(), vacationsList.get(firstVacationIndex+1).getVactionId(), Double.parseDouble(price2.getText()));
+        exchangeRequest(publishedBy2.getText(), vacationsList.get(firstVacationIndex + 1).getVactionId(), Double.parseDouble(price2.getText()));
     }
 
+    /**
+     * Method which calls an exchange request function to handle the third tab request
+     * @param actionEvent actionEvent
+     */
     public void ExchangeRequest3(ActionEvent actionEvent) {
-        //Exchange1.setDisable(true);
-        exchangeRequest(publishedBy3.getText(), vacationsList.get(firstVacationIndex+2).getVactionId(), Double.parseDouble(price3.getText()));
+        exchangeRequest(publishedBy3.getText(), vacationsList.get(firstVacationIndex + 2).getVactionId(), Double.parseDouble(price3.getText()));
     }
 
     /**
@@ -644,7 +644,10 @@ public class SearchVacationController implements Initializable {
         }
     }
 
-    public void manageRequests(){
+    /**
+     * handles pressing on manage requests button
+     */
+    public void manageRequests() {
         Stage stage = new Stage();
         stage.setResizable(true);
         stage.setTitle("Manage Requests Window");
@@ -658,6 +661,16 @@ public class SearchVacationController implements Initializable {
         } catch (Exception e) {
             e.getCause().printStackTrace();
         }
+    }
+
+    /**
+     * handles pressing on all vacations button
+     */
+    public void refreshAllVacations(){
+        updateVacationsList();
+        Alert a = new Alert(Alert.AlertType.INFORMATION);
+        a.setContentText("The page refreshed.\nAll the vacations are represented now.");
+        a.show();
     }
 }
 

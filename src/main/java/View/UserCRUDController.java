@@ -8,8 +8,14 @@ import jdk.nashorn.internal.runtime.regexp.joni.Regex;
 
 import java.time.LocalDate;
 
+/**
+ * This class represents User CRUD Controller
+ */
 public class UserCRUDController {
 
+    /**
+     * fields of UserCRUDController
+     */
     public javafx.scene.control.TextField userName;
     public javafx.scene.control.TextField userPassword;
     public javafx.scene.control.TextField userFirstName;
@@ -75,10 +81,6 @@ public class UserCRUDController {
      * Opens mainWindow when the user press back button
      */
     public void backHome() {
-        // back to home stage from the current window
-        // close this window and change a stage/scene
-
-        // get a handle to the stage
         Stage stage = (Stage) BackButton.getScene().getWindow();
         stage.close();
     }
@@ -106,7 +108,9 @@ public class UserCRUDController {
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////
     /* Create User Controller */
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+    /**
+     * fields of UserCRUDController
+     */
     public javafx.scene.control.TextField userNameC;
     public javafx.scene.control.TextField userPasswordC;
     public javafx.scene.control.TextField userFirstNameC;
@@ -195,7 +199,6 @@ public class UserCRUDController {
                     return;
                 }
             }
-            //clearUserData();
             backHome();
         }
     }
@@ -203,7 +206,9 @@ public class UserCRUDController {
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////
     /* Delete User Controller */
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+    /**
+     * fields of UserCRUDController
+     */
     public javafx.scene.control.TextField userPasswordD;
     public javafx.scene.control.Button deleteD;
 
@@ -230,7 +235,9 @@ public class UserCRUDController {
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////
     /* Update User Controller */
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+    /**
+     * field of UserCRUDController
+     */
     public javafx.scene.control.Button updateU;
 
     /**
@@ -291,7 +298,6 @@ public class UserCRUDController {
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////
     /* Read User Controller */
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 
     /**
      * Implementing show function in order to manipulate the updateU button

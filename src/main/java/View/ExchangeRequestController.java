@@ -2,7 +2,6 @@ package View;
 
 import Controller.Controller;
 import Model.ExchangeRequest;
-import Model.PurchaseRequest;
 import Model.Vacation;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -16,8 +15,14 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.ResourceBundle;
 
+/**
+ * This class represents Exchange Request Controller
+ */
 public class ExchangeRequestController implements Initializable {
 
+    /**
+     * fields of ExchangeRequestController
+     */
     public javafx.scene.control.Button BackButton;
     public javafx.scene.control.ComboBox<String> vacationsListBox;
     protected static Controller controller;
@@ -34,14 +39,15 @@ public class ExchangeRequestController implements Initializable {
      * Opens mainWindow when the user press back button
      */
     public void backHome() {
-        // back to home stage from the current window
-        // close this window and change a stage/scene
-
-        // get a handle to the stage
         Stage stage = (Stage) BackButton.getScene().getWindow();
         stage.close();
     }
 
+    /**
+     * Method which happens when the window initialize
+     * @param location location
+     * @param resources resources
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         HashMap<String, String> askedValues = new HashMap<>();
@@ -69,8 +75,14 @@ public class ExchangeRequestController implements Initializable {
     /* Exchange Request Controller */
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+    /**
+     * field of ExchangeRequestController
+     */
     public javafx.scene.control.Button ApplyExchangeButton;
 
+    /**
+     * Method to apply exchange request
+     */
     public void applyExchange() {
         if (validPhoneNumber(phoneNumber.getText())) {
             Stage stage = (Stage) BackButton.getScene().getWindow();
@@ -100,6 +112,11 @@ public class ExchangeRequestController implements Initializable {
         }
     }
 
+    /**
+     * Method to check if phone number is valid
+     * @param phoneNumber
+     * @return if true or false
+     */
     private boolean validPhoneNumber(String phoneNumber) {
         if (phoneNumber.matches("[0-9]+") && phoneNumber.length() == 10) {
             return true;

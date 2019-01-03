@@ -16,7 +16,6 @@ import java.util.HashMap;
 public class DBManagement {
     /**
      * This method create new dataBase
-     *
      * @param fileName -the name of the dataBase
      */
     public void createNewDatabase(String fileName) {
@@ -35,7 +34,6 @@ public class DBManagement {
 
     /**
      * This method create new table in the dataBase
-     *
      * @param sql -  statement for creating a new table
      */
     public static void createNewTable(String sql) {
@@ -53,7 +51,6 @@ public class DBManagement {
 
     /**
      * This method connect to the dataBase,and return the connection
-     *
      * @return- the connection to the dataBase
      */
     private Connection connect() {
@@ -70,12 +67,10 @@ public class DBManagement {
     /**
      * This method insert a new user to the table in the dataBase
      * by his private fields
-     *
      * @param newUser
      */
     public void insertNewUser(RegisteredUser newUser) {
         String sql = "INSERT INTO Users(user_name, password, first_name, last_name, city, date) VALUES(?,?,?,?,?,?)";
-
         try {
             Connection conn = this.connect();
             PreparedStatement pstmt = conn.prepareStatement(sql);
@@ -94,7 +89,6 @@ public class DBManagement {
     /**
      * This method deletes a record from the table in the dataBase
      * by its primary key
-     *
      * @param PrimaryKeyToDelete
      */
     public void deleteRecord(String PrimaryKeyToDelete, String sql) {   /// to deleteD user: sql="DELETE FROM Users WHERE user_name = ?" . to deleteD vacation sql=""
@@ -111,7 +105,6 @@ public class DBManagement {
     /**
      * This method updates user's field,and returns True or False
      * if the updateU is done (or not)
-     *
      * @param user_name
      * @param field     -The field that be updateU
      * @param newData   -The new value of the field
@@ -119,7 +112,6 @@ public class DBManagement {
      */
     public boolean updateUser(String user_name, String field, String newData) {
         String sql = "UPDATE Users SET " + field + " = ? WHERE user_name = ? ";
-
         try (Connection conn = this.connect();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
             // set the corresponding param [ instead of question marks (?) ]
@@ -137,14 +129,12 @@ public class DBManagement {
     /**
      * This method search a user in the dataBase and return the user if he exists
      * and Null if not
-     *
-     * @param userName
+     * @param userName user name
      * @return User
      */
     public RegisteredUser findExistsUser(String userName) {
         String sql = "SELECT user_name, password, first_name, last_name, city,date "
                 + "FROM Users WHERE user_name = ?";
-
         try (Connection conn = this.connect();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, userName);
@@ -167,9 +157,8 @@ public class DBManagement {
     /**
      * This method gets a user name and  a password
      * and checks whether they are suitable
-     *
-     * @param currUser
-     * @param password
+     * @param currUser current user
+     * @param password password of user
      * @return -True or False
      */
     public boolean confirmPassword(RegisteredUser currUser, String password) {
@@ -178,7 +167,6 @@ public class DBManagement {
 
     /**
      * This method checks if a current user exists in the DB
-     *
      * @param userName
      * @param password
      * @return -True or False
@@ -204,26 +192,25 @@ public class DBManagement {
 
     /**
      * This method insert a new vacation for sale to the vacation table in the dataBase
-     *
-     * @param VacationId
-     * @param OriginFlightId
-     * @param DestFlightId
-     * @param DVacationCountry
-     * @param DVacationCity
-     * @param OVacationCountry
-     * @param OVacationCity
-     * @param StartDate
-     * @param EndDate
-     * @param Price
-     * @param BaggageType
-     * @param HotVacation
-     * @param Status
-     * @param VacationType
-     * @param AccommodationType
-     * @param AccommodationIncluded
-     * @param AccommodationRank
-     * @param Transfers
-     * @param currentUser
+     * @param VacationId id of vacation
+     * @param OriginFlightId id of origin flight
+     * @param DestFlightId id of dest flight
+     * @param DVacationCountry dest country
+     * @param DVacationCity dest city
+     * @param OVacationCountry origin country
+     * @param OVacationCity origin city
+     * @param StartDate arrival date
+     * @param EndDate departure date
+     * @param Price price
+     * @param BaggageType type of baggage
+     * @param HotVacation hot vacation
+     * @param Status status
+     * @param VacationType type of vacation
+     * @param AccommodationType type of accommodation
+     * @param AccommodationIncluded accommodation included or not
+     * @param AccommodationRank accommodation rank
+     * @param Transfers transfers included or not
+     * @param currentUser current user
      */
     public void insertNewVacation(int VacationId, int OriginFlightId, int DestFlightId, String DVacationCountry, String DVacationCity,
                                   String OVacationCountry, String OVacationCity, String StartDate, String EndDate, double Price, String BaggageType, boolean HotVacation, int Status,
@@ -263,8 +250,7 @@ public class DBManagement {
 
     /**
      * This method deletes all the Vacations records in table that belong to user that was deleted and not sold yet.
-     *
-     * @param user
+     * @param user username
      */
     public void deleteVacationOfDeletedUser(RegisteredUser user) {
         ArrayList<Integer> VacationsID = new ArrayList<>();
@@ -301,15 +287,13 @@ public class DBManagement {
 
     /**
      * This method deletes a record from the Vacations table in the DB by the VacationId
-     *
-     * @param VacationIdToDelete
+     * @param VacationIdToDelete id of vacation
      */
     public boolean deleteVacationRecord(String VacationIdToDelete, String userName) {
         ArrayList<Integer> ID = new ArrayList<>();
         ID.add(Integer.parseInt(VacationIdToDelete));
         ArrayList<Vacation> vacations = GetVacationsInformation(ID);
         Vacation v = vacations.get(0);
-
         if (v.getUserID().equals(userName)) {
             String sql1 = "DELETE FROM Vacations WHERE VacationId = ? AND user_name=?";
             String sql2 = "DELETE FROM FlightTickets WHERE VacationId = ?";
@@ -336,15 +320,13 @@ public class DBManagement {
     /**
      * This method updates vacation details by the user that insert this vacation,
      * and returns True or False if the updateU is done (or not)
-     *
-     * @param vacationId
+     * @param vacationId id of vacation
      * @param field      -The field that be updateU
      * @param newData    -The new value of the field
      * @return True or False
      */
     public boolean updateVacationRecord(int vacationId, String field, String newData) {
         String sql = "UPDATE Vacations SET " + field + " = ? WHERE VacationId = ? ";
-
         try (Connection conn = this.connect();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
             // set the corresponding param [ instead of question marks (?) ]
@@ -361,19 +343,18 @@ public class DBManagement {
 
     /**
      * This method insert a new ticket flight for sale to the FlightTickets table in the dataBase
-     *
-     * @param TicketId
-     * @param Airline
-     * @param DestinationCountry
-     * @param DestinationCity
-     * @param OriginCountry
-     * @param OriginCity
-     * @param BabyTickets
-     * @param ChildTickets
-     * @param AdultTickets
-     * @param TicketType
-     * @param AmountOfTickets
-     * @param VacationId
+     * @param TicketId id of ticket
+     * @param Airline company
+     * @param DestinationCountry dest country
+     * @param DestinationCity dest city
+     * @param OriginCountry origin country
+     * @param OriginCity origin city
+     * @param BabyTickets baby ticket
+     * @param ChildTickets child ticket
+     * @param AdultTickets adult ticket
+     * @param TicketType type ticket
+     * @param AmountOfTickets count tickets
+     * @param VacationId id of vacation
      */
     public void insertNewFlightTickets(int TicketId, String Airline, String DestinationCountry, String DestinationCity, String OriginCountry,
                                        String OriginCity, int BabyTickets, int ChildTickets, int AdultTickets, String TicketType,
@@ -404,9 +385,8 @@ public class DBManagement {
 
     /**
      * This method select from the DB vacation tables all Vacations ID's that suitable to the user search
-     *
-     * @param TableName
-     * @param askedValues
+     * @param TableName name of table
+     * @param askedValues values
      * @return ArrayList<Integer> of vacations ID's
      */
     public ArrayList<Integer> GetVacationsIdByField(String TableName, HashMap<String, String> askedValues) {//,String FieldToFind){
@@ -425,7 +405,6 @@ public class DBManagement {
                     searchValues.put(numOfValues, askedValues.get(key));
                 }
             }
-
             sql = "SELECT * FROM " + TableName + " WHERE Status =0" + whereStatement;
         }
         try (Connection conn = this.connect();
@@ -439,7 +418,6 @@ public class DBManagement {
                 VacationsID.add((int) rs.getObject(("VacationId")));
             }
             return VacationsID;
-
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
@@ -448,8 +426,7 @@ public class DBManagement {
 
     /**
      * This method get a list of Vacations ID's and return a list of the suitable vacation objects
-     *
-     * @param VacationsID
+     * @param VacationsID id of vacation
      * @return ArrayList<Vacation> of suitable vacations objects
      */
     public ArrayList<Vacation> GetVacationsInformation(ArrayList<Integer> VacationsID) {
@@ -493,26 +470,25 @@ public class DBManagement {
 
     /**
      * This method get a list of Vacation parameters and return a new object containing them
-     *
-     * @param VacationId
-     * @param OriginFlightId
-     * @param DestFlightId
-     * @param DVacationCountry
-     * @param DVacationCity
-     * @param OVacationCountry
-     * @param OVacationCity
-     * @param StartDate
-     * @param EndDate
-     * @param Price
-     * @param BaggageType
-     * @param HotVacation
-     * @param Status
-     * @param VacationType
-     * @param AccommodationType
-     * @param AccommodationIncluded
-     * @param AccommodationRank
-     * @param Transfers
-     * @param user_name
+     * @param VacationId id of vacation
+     * @param OriginFlightId origin id
+     * @param DestFlightId dest id
+     * @param DVacationCountry dest country
+     * @param DVacationCity dest city
+     * @param OVacationCountry origin country
+     * @param OVacationCity origin city
+     * @param StartDate arrival
+     * @param EndDate departure
+     * @param Price price
+     * @param BaggageType type of baggage
+     * @param HotVacation hot vacation
+     * @param Status status
+     * @param VacationType type of vacation
+     * @param AccommodationType type of accommodation
+     * @param AccommodationIncluded if accommodation included
+     * @param AccommodationRank accommodation rank
+     * @param Transfers if transfers included
+     * @param user_name user name
      * @return Vacation object
      */
     public Vacation CreateVacationFromDB(int VacationId, String OriginFlightId, String DestFlightId,
@@ -529,8 +505,7 @@ public class DBManagement {
 
     /**
      * This method get a FlightTicket Id and return a new object of FlightTicket
-     *
-     * @param FlightTicketValue
+     * @param FlightTicketValue val
      * @return FlightTickets object
      */
     public FlightTickets createFlightTicket(String FlightTicketValue) {
@@ -548,48 +523,18 @@ public class DBManagement {
                     rs.getString("DestinationCity"), (rs.getString("OriginCountry")),
                     rs.getString("OriginCity"), Tickets, rs.getString("TicketType"),
                     rs.getInt("VacationId"));
-            /*
-            return new FlightTickets(
-                    rs.getString("AirlineP"),new Location(rs.getString("DestinationCountry"),
-                    rs.getString("DestinationCity")), new Location(rs.getString("OriginCountry"),
-                    rs.getString("OriginCity")), Tickets, rs.getString("TicketType"),
-                    rs.getInt("VacationId"));
-                    */
-
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
         return null;
     }
-    
-    /*
-    public void insertNewPayment(int VacationId, String Seller, String Buyer, String PaymentMethod,
-                                 String CreditNumber, String PaymentDate) {
-        String paySql = "INSERT INTO Payments(VacationId, Seller, Buyer, PaymentMethod, CreditNumber, PaymentDate) " +
-                "VALUES(?,?,?,?,?,?)";
-        String vacationSql = "UPDATE Vacations SET Status =1 WHERE VacationId =?";
-        try {
-            Connection conn = this.connect();
-            PreparedStatement pstmt = conn.prepareStatement(paySql);
-            pstmt.setInt(1, VacationId);
-            pstmt.setString(2, Seller);
-            pstmt.setString(3, Buyer);
-            pstmt.setString(4, PaymentMethod);
-            pstmt.setString(5, CreditNumber);
-            pstmt.setString(6, PaymentDate);
-
-            pstmt.executeUpdate();
-            Connection conn2 = this.connect();
-            PreparedStatement pstmt2 = conn2.prepareStatement(vacationSql);
-            pstmt2.setInt(1, VacationId);
-            pstmt2.executeUpdate();
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-    }
-    */
 
 
+    /**
+     * Method to insert new purchase request
+     * @param Purchase purchase request
+     * @return if succeeded
+     */
     public boolean insertNewPurchaseRequest(PurchaseRequest Purchase) {
         String paySql = "INSERT INTO PurchaseRequest(PurchaseRequestID,VacationIdSeller, Seller, Buyer, PaymentDate,RequestStatus,CellPhone) " +
                 "VALUES(?,?,?,?,?,?,?)";
@@ -613,6 +558,13 @@ public class DBManagement {
         return true;
     }
 
+    /**
+     * Method to check wether a purchase requests exists
+     * @param VacationIdSeller id of vacation
+     * @param Seller user name
+     * @param Buyer user name
+     * @return if exists or not
+     */
     public boolean ExistPurchaseRequestForUser(int VacationIdSeller, String Seller, String Buyer) {
         String query = "SELECT * FROM PurchaseRequest WHERE VacationIdSeller =? AND Seller =? AND Buyer =? AND RequestStatus=?";
         try (Connection conn = this.connect();
@@ -626,14 +578,18 @@ public class DBManagement {
                 return true;
             }
             return false;
-
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
         return false;
     }
 
-
+    /**
+     * Method to get all purchase requests ids' for current user
+     * @param UserName curr user
+     * @param processVacation curr status
+     * @return
+     */
     public ArrayList<Integer> GetPurchaseRequestForUser(String UserName, int processVacation) {
         ArrayList<Integer> PurchaseRequestID = new ArrayList<>();
         String sql;
@@ -660,6 +616,11 @@ public class DBManagement {
         return PurchaseRequestID;
     }
 
+    /**
+     * Method to get all purchase requests for current ids'
+     * @param PurchaseRequestID list of ids'
+     * @return all purchase requests for current ids'
+     */
     public ArrayList<PurchaseRequest> GetPurchaseRequestInformation(ArrayList<Integer> PurchaseRequestID) {
         Object[] PurchaseIds = PurchaseRequestID.toArray();
         ArrayList<PurchaseRequest> AllPurchaseRequests = new ArrayList<>();
@@ -687,12 +648,28 @@ public class DBManagement {
         return AllPurchaseRequests;
     }
 
+    /**
+     * Method to create purchase request from db
+     * @param purchaseRequestID id of purchase
+     * @param vacationIdSeller id of vacation
+     * @param seller user name
+     * @param buyer user name
+     * @param paymentDate curr date
+     * @param requestStatus curr satus
+     * @param cellPhone buyers'
+     * @return purchase request
+     */
     public PurchaseRequest createPurchaseRequestFromDB(int purchaseRequestID, int vacationIdSeller, String seller, String buyer,
                                                        String paymentDate, int requestStatus, String cellPhone) {
         return new PurchaseRequest(purchaseRequestID, vacationIdSeller, seller, buyer, paymentDate, requestStatus, cellPhone);
     }
 
 
+    /**
+     * Method to accept purchase request
+     * @param VacationIdSeller id of vacation
+     * @param Buyer user name
+     */
     public void AcceptPurchaseRequest(int VacationIdSeller, String Buyer) {  // set status to '2' to reject and '1' to accept
         String RejectRequestSql = "UPDATE PurchaseRequest SET RequestStatus =? WHERE VacationIdSeller =?";
         try {
@@ -715,6 +692,15 @@ public class DBManagement {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
+        String UpdtevacationSql = "UPDATE Vacations SET Status =1 WHERE VacationId =?";
+        try {
+            Connection conn4 = this.connect();
+            PreparedStatement pstmt4 = conn4.prepareStatement(UpdtevacationSql);
+            pstmt4.setInt(1, VacationIdSeller);
+            pstmt4.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
         String RejectExchangeRequestSql = "UPDATE ExchangeRequest SET RequestStatus =? WHERE VacationIdSeller =?";
         try {
             Connection conn3 = this.connect();
@@ -728,6 +714,11 @@ public class DBManagement {
     }
 
 
+    /**
+     * Method to reject purchase request
+     * @param VacationIdSeller id of vacation
+     * @param Buyer user name
+     */
     public void RejectPurchaseRequest(int VacationIdSeller, String Buyer) { // set status to '2' to reject and '1' to accept
         String RejectRequestSql = "UPDATE PurchaseRequest SET RequestStatus =? WHERE Buyer =? AND VacationIdSeller =?";
         try {
@@ -742,7 +733,11 @@ public class DBManagement {
         }
     }
 
-
+    /**
+     * Method to insert new exchange request
+     * @param exchangeRequest exchange request
+     * @return if succeeded
+     */
     public boolean insertNewExchangeRequest(ExchangeRequest exchangeRequest) {
         String paySql = "INSERT INTO ExchangeRequest(VacationExchangeID,VacationIdSeller,Seller,VacationIdBuyer,Buyer," +
                 "PaymentDate,RequestStatus,CellPhone) " +
@@ -770,6 +765,14 @@ public class DBManagement {
         return true;
     }
 
+    /**
+     * Method to check whether current exchange request exists
+     * @param VacationIdSeller id of vacation
+     * @param VacationIdBuyer if of vacation
+     * @param Seller user name
+     * @param Buyer user name
+     * @return if exists
+     */
     public boolean ExistExchangeRequestForUsers(int VacationIdSeller, int VacationIdBuyer, String Seller, String Buyer) {
         String query = "SELECT * FROM ExchangeRequest WHERE VacationIdSeller =?" +
                 " AND VacationIdBuyer =? AND Seller =? AND Buyer =? AND RequestStatus=?";
@@ -785,13 +788,18 @@ public class DBManagement {
                 return true;
             }
             return false;
-
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
         return false;
     }
 
+    /**
+     * Method to get all ids of exchange requests for current user
+     * @param UserName current user
+     * @param processVacation current status
+     * @return all ids of exchange requests for current user
+     */
     public ArrayList<Integer> GetExchangeRequestForUser(String UserName, int processVacation) {
         ArrayList<Integer> ExchangeRequestID = new ArrayList<>();
         String sql;
@@ -818,12 +826,16 @@ public class DBManagement {
         return ExchangeRequestID;
     }
 
+    /**
+     * Method to get all exchange requests of current ids'
+     * @param ExchangeRequestID list of ids'
+     * @return all exchange requests of current ids'
+     */
     public ArrayList<ExchangeRequest> GetExchangeRequestInformation(ArrayList<Integer> ExchangeRequestID) {
         Object[] ExchangeIds = ExchangeRequestID.toArray();
         ArrayList<ExchangeRequest> AllExchangeRequests = new ArrayList<>();
         for (int i = 0; i < ExchangeRequestID.size(); i++) {
             String sql = "SELECT * FROM " + "ExchangeRequest WHERE VacationExchangeID =?";
-
             try (Connection conn = this.connect();
                  PreparedStatement pstmt = conn.prepareStatement(sql)) {
                 // set the value
@@ -838,7 +850,6 @@ public class DBManagement {
                         rs.getString("PaymentDate"),
                         rs.getInt("RequestStatus"),
                         rs.getString("CellPhone")));
-
             } catch (SQLException e) {
                 System.out.println(e.getMessage());
             }
@@ -846,11 +857,28 @@ public class DBManagement {
         return AllExchangeRequests;
     }
 
+    /**
+     * Method to create exchange request in db
+     * @param VacationExchangeID id of exchange
+     * @param vacationIdSeller id of vacation
+     * @param seller user name
+     * @param VacationIdBuyer id of vacation
+     * @param buyer user name
+     * @param paymentDate curr date
+     * @param requestStatus curr status
+     * @param cellPhone buyers'
+     * @return  exchange request
+     */
     public ExchangeRequest createExchangeRequestFromDB(int VacationExchangeID, int vacationIdSeller, String seller, int VacationIdBuyer,
                                                        String buyer, String paymentDate, int requestStatus, String cellPhone) {
         return new ExchangeRequest(VacationExchangeID, vacationIdSeller, seller, VacationIdBuyer, buyer, paymentDate, requestStatus, cellPhone);
     }
 
+    /**
+     * Method to accept exchange request
+     * @param VacationIdSeller id of seller's vacation
+     * @param VacationIdBuyer id of buyer's vacation
+     */
     public void AcceptExchangeRequest(int VacationIdSeller, int VacationIdBuyer) {  // set status to '2' to reject and '1' to accept
         String RejectRequestSql = "UPDATE ExchangeRequest SET RequestStatus =? WHERE VacationIdSeller =?";
         try {
@@ -873,7 +901,24 @@ public class DBManagement {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
-
+        String UpdteVacationSellerSql = "UPDATE Vacations SET Status =1 WHERE VacationId =?";
+        try {
+            Connection conn4 = this.connect();
+            PreparedStatement pstmt4 = conn4.prepareStatement(UpdteVacationSellerSql);
+            pstmt4.setInt(1, VacationIdSeller);
+            pstmt4.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        String UpdteVacationBuyerSql = "UPDATE Vacations SET Status =1 WHERE VacationId =?";
+        try {
+            Connection conn5 = this.connect();
+            PreparedStatement pstmt5 = conn5.prepareStatement(UpdteVacationBuyerSql);
+            pstmt5.setInt(1, VacationIdBuyer);
+            pstmt5.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
         String RejectPurchaseRequestSql = "UPDATE PurchaseRequest SET RequestStatus =? WHERE VacationIdSeller =?";
         try {
             Connection conn = this.connect();
@@ -886,6 +931,11 @@ public class DBManagement {
         }
     }
 
+    /**
+     * Method to reject exchange request
+     * @param VacationIdSeller id of vacation of seller
+     * @param VacationIdBuyer id of vacation of buyer
+     */
     public void RejectExchangeRequest(int VacationIdSeller, int VacationIdBuyer) { // set status to '2' to reject and '1' to accept
         String RejectRequestSql = "UPDATE ExchangeRequest SET RequestStatus =? WHERE VacationIdSeller =? AND VacationIdBuyer =?";
         try {
@@ -900,6 +950,11 @@ public class DBManagement {
         }
     }
 
+    /**
+     * Method to get vacation by a vacation id
+     * @param vacationID id of vacation
+     * @return vacation
+     */
     public Vacation GetVacationByVacationID(int vacationID) {
         ArrayList<Integer> VacationsID = new ArrayList<>();
         VacationsID.add(vacationID);

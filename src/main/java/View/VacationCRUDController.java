@@ -14,8 +14,14 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Random;
 
+/**
+ * This class represents Vacation CRUD Controller
+ */
 public class VacationCRUDController {
 
+    /**
+     * fields of VacationCRUDController
+     */
     public javafx.scene.control.Button BackButton;
     protected static Controller controller;
 
@@ -43,15 +49,19 @@ public class VacationCRUDController {
         return controller.searchVacationData(vacationID);
     }
 
+    /**
+     * This method go back to previous window
+     */
     public void backHome() {
-        // back to home stage from the current window
-        // close this window and change a stage/scene
-
-        // get a handle to the stage
         Stage stage = (Stage) BackButton.getScene().getWindow();
         stage.close();
     }
 
+    /**
+     * Method to check if current string is integer
+     * @param s string
+     * @return if is integer or not
+     */
     public boolean isInteger(String s) {
         try {
             Integer.parseInt(s);
@@ -66,7 +76,9 @@ public class VacationCRUDController {
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////
     /* Publish Vacation Controller */
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+    /**
+     * fields of VacationCRUDController
+     */
     private static int VactionID = 200;
     public javafx.scene.control.Button PublishButtonP;
     public javafx.scene.control.TextField FromCountryP;
@@ -95,7 +107,7 @@ public class VacationCRUDController {
     public javafx.scene.control.CheckBox TransfersP;
 
     /**
-     * Validaition of inserted fields, sending vacation details to the controller
+     * Validation of inserted fields, sending vacation details to the controller
      */
     public void publishVacation() {
         Calendar cal = Calendar.getInstance();
@@ -249,18 +261,21 @@ public class VacationCRUDController {
                 a.show();
             }
         }
-        controller.vacationAdded();
+        controller.vacationsUpdate();
         backHome();
-        //clearVacationData();
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////
     /* Delete Vacation Controller */
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+    /**
+     * field of VacationCRUDController
+     */
     public javafx.scene.control.TextField VacationIdDeleteD;
 
-
+    /**
+     * Method to delete vacation by id
+     */
     public void deleteById() {
         if (validVacationID(VacationIdDeleteD.getText())) {
             ArrayList<Vacation> vacations = controller.searchVacationData(VacationIdDeleteD.getText());
@@ -290,6 +305,9 @@ public class VacationCRUDController {
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////
     /* Update Vacation Controller */
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /**
+     * fields of VacationCRUDController
+     */
     public javafx.scene.control.TextField VacationIDUpdateU;
     public javafx.scene.control.TextField FromCountryUpdateU;
     public javafx.scene.control.TextField FromCityUpdateU;
@@ -395,7 +413,9 @@ public class VacationCRUDController {
         }
     }
 
-
+    /**
+     * method to update vacation by fields
+     */
     public void updateVacation() {
         int _vactionId;
         if (isInteger(VacationIDUpdateU.getText())) {
@@ -427,8 +447,6 @@ public class VacationCRUDController {
             } else if (_accommodationRank.equals("Excellent")) {
                 RANK = 4;
             }
-
-
             int _adults, _children, _babies;
             try {
                 _adults = Integer.parseInt(AdultsUpdateU.getValue().toString());
@@ -532,12 +550,9 @@ public class VacationCRUDController {
 
                 FlightTickets originTicket = new FlightTickets(_airline, _toCountry, _toCity, _fromCountry, _fromCity, travelersType, _flightClass, _vactionId);
                 FlightTickets destTicket = new FlightTickets(_airline, _fromCountry, _fromCity, _toCountry, _toCity, travelersType, _flightClass, _vactionId);
-                //controller.updateFlightTickets(originTicket);
-                //controller.updateFlightTickets(destTicket);
                 Vacation newVacation = new Vacation(_vactionId, originTicket, destTicket, _fromCountry, _fromCity, _toCountry, _toCity,
                         _arrival.toString(), _departure.toString(), _price, _baggage, _vacationType, _accommodation,
                         true, _transfers, RANK, controller.getCurrentUser().getUser_name());
-
                 if (controller.updateVacation(newVacation)) {
                     Alert a = new Alert(Alert.AlertType.INFORMATION);
                     a.setContentText("The vacation updated successfully.");
@@ -558,7 +573,9 @@ public class VacationCRUDController {
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////
     /* Read Vacation Controller */
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+    /**
+     * fields of VacationCRUDController
+     */
     public javafx.scene.control.TextField VacationIDRead;
     public javafx.scene.control.TextField FromCountryRead;
     public javafx.scene.control.TextField FromCityRead;

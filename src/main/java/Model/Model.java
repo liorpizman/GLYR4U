@@ -9,10 +9,16 @@ import java.util.HashMap;
  */
 
 public class Model {
-
+    /**
+     * fields of Model
+     */
     private DBManagement dbManagement;
     private AUser CurrentUser;  // the user that logged in the DB
 
+    /**
+     * Method to create new db
+     * @param fileName db name
+     */
     public void createNewDatabase(String fileName) {
         dbManagement.createNewDatabase(fileName);
     }
@@ -27,13 +33,16 @@ public class Model {
 
     /**
      * This method calls the function of table's creation in the data base
-     *
-     * @param tableName
+     * @param tableName new table name
      */
     public void createNewTable(String tableName) {
         dbManagement.createNewTable(tableName);
     }
 
+    /**
+     * Method to get current user
+     * @return current user
+     */
     public RegisteredUser getCurrentUser() {
         if (this.CurrentUser instanceof UnRegisteredUser)
             return null;
@@ -42,13 +51,12 @@ public class Model {
 
     /**
      * This method calls the function to insert new user
-     *
-     * @param userName
-     * @param password
-     * @param firstName
-     * @param lastName
-     * @param userCity
-     * @param date
+     * @param userName user name
+     * @param password password of user
+     * @param firstName first name
+     * @param lastName last name
+     * @param userCity city
+     * @param date birthdate
      */
     public void insertUser(String userName, String password, String firstName, String lastName, String userCity,
                            LocalDate date) {
@@ -58,9 +66,8 @@ public class Model {
 
     /**
      * This method calls a function to updateU for each field which was changed
-     *
-     * @param updatedUser
-     * @return
+     * @param updatedUser updated user
+     * @return if succeeded
      */
     public boolean updateUser(RegisteredUser updatedUser) {
         int count = 0;
@@ -81,9 +88,8 @@ public class Model {
 
     /**
      * This method calls a function to search for user's data
-     *
-     * @param userName
-     * @return
+     * @param userName user name
+     * @return RegisteredUser
      */
     public RegisteredUser searchUserData(String userName) {
         return dbManagement.findExistsUser(userName);
@@ -91,10 +97,9 @@ public class Model {
 
     /**
      * This method calls a function to deleteD a user
-     *
-     * @param userToDelete
-     * @param password
-     * @return
+     * @param userToDelete user to delete
+     * @param password password of user
+     * @return if succeeded
      */
     public boolean deleteUser(String userToDelete, String password) {
         RegisteredUser currUser = (RegisteredUser) CurrentUser;
@@ -108,8 +113,7 @@ public class Model {
 
     /**
      * This method calls the function to insert new vacation
-     *
-     * @param newVacation
+     * @param newVacation new vacation
      */
     public void insertVacation(Vacation newVacation) {
         dbManagement.insertNewVacation(newVacation.getVactionId(), newVacation.getFromOriginFlightId(), newVacation.getFromDestFlightId(),
@@ -121,8 +125,7 @@ public class Model {
 
     /**
      * This method deletes a record from the Vacations table in the DB by the VacationId
-     *
-     * @param VacationIdToDelete
+     * @param VacationIdToDelete id of vacation
      */
     public boolean deleteVacationRecord(String VacationIdToDelete) {
         return dbManagement.deleteVacationRecord(VacationIdToDelete, ((RegisteredUser) CurrentUser).getUser_name());
@@ -130,8 +133,7 @@ public class Model {
 
     /**
      * This method deletes all the Vacations records in table that belong to user that was deleted and not sold yet.
-     *
-     * @param user
+     * @param user curr user
      */
     public void deleteVacationOfDeletedUser(RegisteredUser user) {
         dbManagement.deleteVacationOfDeletedUser(user);
@@ -139,8 +141,7 @@ public class Model {
 
     /**
      * This method calls a function to updateU each field which was changed
-     *
-     * @param updatedVacation
+     * @param updatedVacation updated vacation
      * @return True or False
      */
     public boolean updateVacation(Vacation updatedVacation) {
@@ -185,8 +186,7 @@ public class Model {
 
     /**
      * This method calls the function to insert new FlightTickets
-     *
-     * @param newFlightTickets
+     * @param newFlightTickets the new flight tickets to insert
      */
     public void insertFlightTickets(FlightTickets newFlightTickets) {
         dbManagement.insertNewFlightTickets(newFlightTickets.getTicketId(), newFlightTickets.getAirline(), newFlightTickets.getDestinationCountry(),
@@ -197,8 +197,7 @@ public class Model {
 
     /**
      * This method calls the DB function to get a list of all Vacations ID's that suitable to the user search
-     *
-     * @param askedValues
+     * @param askedValues values
      */
     public ArrayList<Integer> GetVacationsIdByField(HashMap<String, String> askedValues) {
         return dbManagement.GetVacationsIdByField("Vacations", askedValues);
@@ -206,43 +205,25 @@ public class Model {
 
     /**
      * This method get a list of Vacations ID's and return a list of the suitable vacation objects
-     *
-     * @param VacationsID
+     * @param VacationsID list of ids
      */
     public ArrayList<Vacation> GetVacationsInformation(ArrayList<Integer> VacationsID) {//,String FieldToFind){
         return dbManagement.GetVacationsInformation(VacationsID);
     }
 
+    /**
+     * Method to search by the user
+     * @param askedValues values
+     * @return all vacations
+     */
     public ArrayList<Vacation> Search(HashMap<String, String> askedValues) {
         return this.CurrentUser.Search(askedValues, dbManagement);
     }
 
-
-    /**
-     * This method get the details of a vacation purchase and updateU the DB payment table
-     *
-     * @param VacationId
-     * @param Seller
-     * @param Buyer
-     * @param PaymentMethod
-     * @param CreditNumber
-     * @param PaymentDate
-     */
-/*
-    public void insertNewPayment(int VacationId, String Seller, String Buyer, String PaymentMethod,
-                                 String CreditNumber, String PaymentDate) {
-        dbManagement.insertNewPayment(VacationId, Seller, Buyer, PaymentMethod, CreditNumber, PaymentDate);
-    }
-*/
-    //public void UserLogIn( UserName) {this.CurrentUser = UserName; }
-
-    //public void UserLogOut() {this.CurrentUser = null;}
-
     /**
      * This method calls the function which checks if a current user exists in the DB
-     *
-     * @param userName
-     * @param password
+     * @param userName user name
+     * @param password password of user
      */
     public boolean IsCorrectPassword(String userName, String password) {
         return dbManagement.IsCorrectPassword(userName, password);
@@ -250,54 +231,108 @@ public class Model {
 
     /**
      * This method sets the current user which logged to the app
-     *
-     * @param currUser
+     * @param currUser current user to set
      */
     public void setCurrentUser(RegisteredUser currUser) {
         CurrentUser = currUser;
     }
 
 
+    /**
+     * calls db to insert new purchase request
+     * @param purchaseRequest new purchase request
+     * @return if succeeded
+     */
     public boolean insertNewPurchaseRequest(PurchaseRequest purchaseRequest) {
         return dbManagement.insertNewPurchaseRequest(purchaseRequest);
     }
 
+    /**
+     * calls db to get all ids of vacation in current status of this user
+     * @param processVacation current status
+     * @return all ids of vacation in current status of this user
+     */
     public ArrayList<Integer> GetPurchaseRequestsForUser(int processVacation) {
         return dbManagement.GetPurchaseRequestForUser(((RegisteredUser) CurrentUser).getUser_name(),processVacation);
     }
 
+    /**
+     * calls db to get all purchase requests of current ids
+     * @param purchaseRequestID list of ids
+     * @return all purchase requests of current ids
+     */
     public ArrayList<PurchaseRequest> GetPurchaseRequestInformation(ArrayList<Integer> purchaseRequestID) {
         return dbManagement.GetPurchaseRequestInformation(purchaseRequestID);
     }
 
+    /**
+     * calls db to accept current purchase request
+     * @param vacationIdSeller id of vacation
+     * @param buyer user name
+     */
     public void AcceptPurchaseRequest(int vacationIdSeller, String buyer) {
         dbManagement.AcceptPurchaseRequest(vacationIdSeller, buyer);
     }
 
+    /**
+     * calls db to reject current purchase request
+     * @param vacationIdSeller id of vacation
+     * @param buyer user name
+     */
     public void RejectPurchaseRequest(int vacationIdSeller,String buyer) {
         dbManagement.RejectPurchaseRequest(vacationIdSeller, buyer);
     }
 
+    /**
+     * calls db to insert new exchange request
+     * @param exchangeRequest new exchange request
+     * @return if succeeded
+     */
     public boolean insertNewExchangeRequest(ExchangeRequest exchangeRequest) {
         return dbManagement.insertNewExchangeRequest(exchangeRequest);
     }
 
+    /**
+     * calls db to get all ids of vacation for current user of this status
+     * @param processVacation current status
+     * @return all ids of vacation for current user of this status
+     */
     public ArrayList<Integer> GetExchangeRequestForUser(int processVacation) {
         return dbManagement.GetExchangeRequestForUser(((RegisteredUser) CurrentUser).getUser_name(),processVacation);
     }
 
+    /**
+     * calls db to get all exchange requests for current ids
+     * @param exchangeRequestID list of ids
+     * @return  all exchange requests for current ids
+     */
     public ArrayList<ExchangeRequest> GetExchangeRequestInformation(ArrayList<Integer> exchangeRequestID) {
         return dbManagement.GetExchangeRequestInformation(exchangeRequestID);
     }
 
+    /**
+     * calls db to accept exchange request
+     * @param vacationIdSeller id of vacation
+     * @param vacationIdBuyer id of vacation
+     */
     public void AcceptExchangeRequest(int vacationIdSeller, int vacationIdBuyer) {
         dbManagement.AcceptExchangeRequest(vacationIdSeller, vacationIdBuyer);
     }
 
+    /***
+     * calls db to reject exchange request
+     * @param vacationIdSeller id of vacation
+     * @param vacationIdBuyer id of vacation
+     */
     public void RejectExchangeRequest(int vacationIdSeller, int vacationIdBuyer) {
         dbManagement.RejectExchangeRequest(vacationIdSeller, vacationIdBuyer);
     }
 
+    /**
+     * calls db to get vacation by id
+     * @param id of vacation
+     * @return vacation
+     */
     public Vacation GetVacationByVacationID(int id) {
         return dbManagement.GetVacationByVacationID(id);
     }

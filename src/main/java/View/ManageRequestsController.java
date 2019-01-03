@@ -15,8 +15,14 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.ResourceBundle;
 
+/**
+ * This class represents Manage Requests Controller
+ */
 public class ManageRequestsController implements Initializable {
 
+    /**
+     * fields of ManageRequestsController
+     */
     public javafx.scene.control.Button ApplyPurchaseButton;
     public javafx.scene.control.Button RefusePurchaseButton;
     public javafx.scene.control.Button ApplyExchangeButton;
@@ -42,10 +48,6 @@ public class ManageRequestsController implements Initializable {
      * Opens mainWindow when the user press back button
      */
     public void backHome() {
-        // back to home stage from the current window
-        // close this window and change a stage/scene
-
-        // get a handle to the stage
         Stage stage = (Stage) BackButton.getScene().getWindow();
         stage.close();
     }
@@ -67,6 +69,7 @@ public class ManageRequestsController implements Initializable {
         Alert a = new Alert(Alert.AlertType.INFORMATION);
         a.setContentText("Your request has been approved!\nYour other requests for this vacation have been rejected.");
         a.show();
+        controller.vacationsUpdate();
         backHome();
     }
 
@@ -87,9 +90,9 @@ public class ManageRequestsController implements Initializable {
         Alert a = new Alert(Alert.AlertType.INFORMATION);
         a.setContentText("The request has been rejected!");
         a.show();
+        controller.vacationsUpdate();
         backHome();
     }
-
 
     /**
      * Method calls an apply of the user on a request
@@ -108,9 +111,9 @@ public class ManageRequestsController implements Initializable {
         Alert a = new Alert(Alert.AlertType.INFORMATION);
         a.setContentText("The request has been approved!\nYour other requests for this vacation have been rejected.");
         a.show();
+        controller.vacationsUpdate();
         backHome();
     }
-
 
     /**
      * Method calls a refuse of the user on a request
@@ -129,9 +132,15 @@ public class ManageRequestsController implements Initializable {
         Alert a = new Alert(Alert.AlertType.INFORMATION);
         a.setContentText("The request has been rejected!");
         a.show();
+        controller.vacationsUpdate();
         backHome();
     }
 
+    /**
+     * Method which happens when the window initialize
+     * @param location location
+     * @param resources resources
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         UpdatePurchaseOffersForMe();
@@ -141,6 +150,9 @@ public class ManageRequestsController implements Initializable {
         UpdateInProgress();
     }
 
+    /**
+     * Method which Updates Purchase Offers For User
+     */
     private void UpdatePurchaseOffersForMe() {
         ArrayList<Integer> purchaseVacationIDS = controller.GetPurchaseRequestsForUser(0);
         ArrayList<PurchaseRequest> purchaseList = controller.GetPurchaseRequestInformation(purchaseVacationIDS);
@@ -154,6 +166,9 @@ public class ManageRequestsController implements Initializable {
         purchaseListBox.setItems(purchaseData);
     }
 
+    /**
+     * Method which Updates Exchange Offers For User
+     */
     private void UpdateExchangeOffersForMe() {
         ArrayList<Integer> exchangeVacationIDS = controller.GetExchangeRequestForUser(0);
         ArrayList<ExchangeRequest> exchangeList = controller.GetExchangeRequestInformation(exchangeVacationIDS);
@@ -170,6 +185,9 @@ public class ManageRequestsController implements Initializable {
         exchangeListBox.setItems(exchangeData);
     }
 
+    /**
+     * Method which Updates User's Offers which have been approved
+     */
     private void UpdateMyOffersApproved() {
         ArrayList<Integer> approvePurchaseVacationIDS = controller.GetPurchaseRequestsForUser(1);
         ArrayList<PurchaseRequest> purchaseApproveList = controller.GetPurchaseRequestInformation(approvePurchaseVacationIDS);
@@ -178,7 +196,7 @@ public class ManageRequestsController implements Initializable {
         approve_Info.add("Purchase Requests: ");
         for (PurchaseRequest purchaseRequest : purchaseApproveList) {
             currentVacation = controller.GetVacationByVacationID(purchaseRequest.getVacationIdSeller());
-            approve_Info.add("  " + currentVacation.toString() + " " + purchaseRequest.toString());
+            approve_Info.add("  " + currentVacation.toString() + " " + purchaseRequest.toStringFromSeller());
         }
         approve_Info.add("Exchange Requests: ");
         ArrayList<Integer> approveExchangeVacationIDS = controller.GetExchangeRequestForUser(1);
@@ -187,13 +205,16 @@ public class ManageRequestsController implements Initializable {
         String newLine = "";
         for (ExchangeRequest exchangeRequest : exchangeApproveList) {
             sellerVacation = controller.GetVacationByVacationID(exchangeRequest.getVacationIdSeller());
-            newLine = sellerVacation.toString() + exchangeRequest.toString();
+            newLine = sellerVacation.toString() + exchangeRequest.toStringFromSeller();
             approve_Info.add("  " + newLine);
         }
         ObservableList<String> approveData = FXCollections.observableArrayList(approve_Info);
         approvedListBox.setItems(approveData);
     }
 
+    /**
+     * Method which Updates User's Offers which have been rejected
+     */
     private void UpdateMyOffersRejected() {
         ArrayList<Integer> rejectedPurchaseVacationIDS = controller.GetPurchaseRequestsForUser(2);
         ArrayList<PurchaseRequest> purchaseRejectedList = controller.GetPurchaseRequestInformation(rejectedPurchaseVacationIDS);
@@ -203,20 +224,23 @@ public class ManageRequestsController implements Initializable {
         String newLine = "";
         for (PurchaseRequest purchaseRequest : purchaseRejectedList) {
             currentVacation = controller.GetVacationByVacationID(purchaseRequest.getVacationIdSeller());
-            rejected_Info.add("  " + currentVacation.toString() + " " + purchaseRequest.toString());
+            rejected_Info.add("  " + currentVacation.toString() + " " + purchaseRequest.toStringFromSeller());
         }
         rejected_Info.add("Exchange Requests: ");
         ArrayList<Integer> rejectExchangeVacationIDS = controller.GetExchangeRequestForUser(2);
         ArrayList<ExchangeRequest> exchangeRejectList = controller.GetExchangeRequestInformation(rejectExchangeVacationIDS);
         for (ExchangeRequest exchangeRequest : exchangeRejectList) {
             sellerVacation = controller.GetVacationByVacationID(exchangeRequest.getVacationIdSeller());
-            newLine = sellerVacation.toString() + exchangeRequest.toString();
+            newLine = sellerVacation.toString() + exchangeRequest.toStringFromSeller();
             rejected_Info.add("  " + newLine);
         }
         ObservableList<String> rejectedData = FXCollections.observableArrayList(rejected_Info);
         rejectedListBox.setItems(rejectedData);
     }
 
+    /**
+     * Method which Updates User's Offers which are in progress
+     */
     private void UpdateInProgress() {
         ArrayList<Integer> inProgressPurchaseVacationIDS = controller.GetPurchaseRequestsForUser(3);
         ArrayList<PurchaseRequest> inProgressPurchaseList = controller.GetPurchaseRequestInformation(inProgressPurchaseVacationIDS);
@@ -225,7 +249,7 @@ public class ManageRequestsController implements Initializable {
         inProgress_Info.add("Purchase Requests: ");
         for (PurchaseRequest purchaseRequest : inProgressPurchaseList) {
             currentVacation = controller.GetVacationByVacationID(purchaseRequest.getVacationIdSeller());
-            inProgress_Info.add("  " + currentVacation.toString() + " " + purchaseRequest.toString());
+            inProgress_Info.add("  " + currentVacation.toString() + " " + purchaseRequest.toStringFromSeller());
         }
         inProgress_Info.add("Exchange Requests: ");
         ArrayList<Integer> inProgressExchangeVacationIDS = controller.GetExchangeRequestForUser(3);
@@ -233,7 +257,7 @@ public class ManageRequestsController implements Initializable {
         String newLine = "";
         for (ExchangeRequest exchangeRequest : inProgressExchangeList) {
             currentVacation = controller.GetVacationByVacationID(exchangeRequest.getVacationIdSeller());
-            newLine = currentVacation.toString() + exchangeRequest.toString();
+            newLine = currentVacation.toString() + exchangeRequest.toStringFromSeller();
             inProgress_Info.add("  " + newLine);
         }
         ObservableList<String> inProgressData = FXCollections.observableArrayList(inProgress_Info);

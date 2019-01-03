@@ -15,12 +15,22 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.ResourceBundle;
 
+/**
+ * This class represents Purchase Request Controller
+ */
 public class PurchaseRequestController implements Initializable {
 
+    /**
+     * fields of PurchaseRequestController
+     */
     public javafx.scene.control.Button BackButton;
     protected static Controller controller;
 
-
+    /**
+     * Method which happens when the window initialize
+     * @param location location
+     * @param resources resources
+     */
     public void initialize(URL location, ResourceBundle resources) {
     }
 
@@ -35,10 +45,6 @@ public class PurchaseRequestController implements Initializable {
      * Opens mainWindow when the user press back button
      */
     public void backHome() {
-        // back to home stage from the current window
-        // close this window and change a stage/scene
-
-        // get a handle to the stage
         Stage stage = (Stage) BackButton.getScene().getWindow();
         stage.close();
     }
@@ -47,9 +53,15 @@ public class PurchaseRequestController implements Initializable {
     /* Purchase Request Controller */
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+    /**
+     * fields of PurchaseRequestController
+     */
     public javafx.scene.control.Button applyPurchaseButton;
     public javafx.scene.control.TextField phoneNumber;
 
+    /**
+     * Method to apply purchase request
+     */
     public void applyPurchaseRequest() {
         if (validPhoneNumber(phoneNumber.getText())) {
             Stage stage = (Stage) BackButton.getScene().getWindow();
@@ -79,6 +91,11 @@ public class PurchaseRequestController implements Initializable {
         }
     }
 
+    /**
+     * Method to check if phone number is valid
+     * @param phoneNumber
+     * @return if true or false
+     */
     private boolean validPhoneNumber(String phoneNumber) {
         if (phoneNumber.matches("[0-9]+") && phoneNumber.length() == 10) {
             return true;

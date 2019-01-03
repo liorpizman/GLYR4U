@@ -1,7 +1,4 @@
 package View;
-/**
- * View class is managing the windows of the crud gui
- */
 
 import Controller.Controller;
 import Model.RegisteredUser;
@@ -15,8 +12,14 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.util.Optional;
+/**
+ * View class is managing the windows of the crud gui
+ */
 
 public class View {
+    /**
+     * fields of View
+     */
     public javafx.scene.control.Button createUser;
     public javafx.scene.control.Button readUser;
     public javafx.scene.control.Button updateUser;
@@ -35,7 +38,6 @@ public class View {
 
     /**
      * Setting the view's controller. implement mvc paradigm
-     *
      * @param _controller mvc's controller
      */
     public void setController(Controller _controller) {
@@ -172,10 +174,6 @@ public class View {
      * Opens mainWindow when the user press back button
      */
     public void backHome() {
-        // back to home stage from the current window
-        // close this window and change a stage/scene
-
-        // get a handle to the stage
         Stage stage = (Stage) BackButton.getScene().getWindow();
         stage.close();
     }
@@ -200,7 +198,7 @@ public class View {
     }
 
     /**
-     * Opens updateU vacation window when the updateU vacation button was pressed
+     * Opens update vacation window when the updateU vacation button was pressed
      */
     public void UpdateVacationRun() {
         Stage stage = new Stage();
@@ -219,7 +217,7 @@ public class View {
     }
 
     /**
-     * Opens deleteD vacation window when the deleteD vacation button was pressed
+     * Opens delete vacation window when the deleteD vacation button was pressed
      */
     public void DeleteVacationRun() {
         Stage stage = new Stage();

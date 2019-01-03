@@ -10,7 +10,9 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import Model.Model;
 
-
+/**
+ * This class is main class for running of the application
+ */
 public class Main extends Application {
     // SQL statement for creating a Users table
     private String UsersSql = "CREATE TABLE IF NOT EXISTS " + "Users" + " (\n"
@@ -119,7 +121,7 @@ public class Main extends Application {
         Controller controller = new Controller(model, view);
         view.setController(controller);
         root.getStylesheets().add(getClass().getClassLoader().getResource("vacationCSS.css").toExternalForm());
-        primaryStage.setTitle("Welcome To Vacation4U!");
+        primaryStage.setTitle("Welcome To EveryVacation4U!");
         primaryStage.setScene(new Scene(root, 400, 400));
         primaryStage.show();
     }
