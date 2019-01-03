@@ -1,5 +1,5 @@
 ***********CRUD GUI**********
-Module in Vacation4U project which created by:
+Module in EveryVacation4U project which created by:
 Lior Pizman
 Yehuda Pashay
 Ron Elharrar
