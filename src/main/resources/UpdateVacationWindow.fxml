@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="529.0" prefWidth="314.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.VacationCRUDController">
+    <children>
+        <Text layoutX="25.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="From:" />
+        <Text layoutX="32.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text="To:" />
+        <TextField fx:id="FromCountryUpdateU" disable="true" layoutX="71.0" layoutY="52.0" prefHeight="25.0" prefWidth="90.0" />
+        <TextField fx:id="ToCountyUpdateU" disable="true" layoutX="70.0" layoutY="83.0" prefHeight="25.0" prefWidth="90.0" />
+        <TextField fx:id="FromCityUpdateU" disable="true" layoutX="188.0" layoutY="51.0" prefHeight="25.0" prefWidth="90.0" />
+        <TextField fx:id="ToCityUpdateU" disable="true" layoutX="188.0" layoutY="81.0" prefHeight="25.0" prefWidth="90.0" />
+        <Text layoutX="221.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="City" />
+        <Text layoutX="95.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Country" />
+        <Text layoutX="13.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vacation ID:" />
+        <Text layoutX="33.0" layoutY="129.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Arrival:" />
+        <Text layoutX="33.0" layoutY="164.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Departure:" />
+        <DatePicker fx:id="ArrivalUpdateU" disable="true" layoutX="141.0" layoutY="111.0" prefHeight="25.0" prefWidth="137.0" />
+        <DatePicker fx:id="DepartureUpdateU" disable="true" layoutX="143.0" layoutY="148.0" prefHeight="25.0" prefWidth="137.0" />
+        <Text layoutX="33.0" layoutY="202.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Accommodation:" />
+        <Text layoutX="34.0" layoutY="271.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Flight Class:" />
+        <ChoiceBox fx:id="AccommodationUpdateU" disable="true" layoutX="144.0" layoutY="184.0" prefHeight="25.0" prefWidth="137.0" value="Hotel">
+            <String fx:value="Hotel" />
+            <String fx:value="Room" />
+            <String fx:value="Cabins" />
+        </ChoiceBox>
+        <ChoiceBox fx:id="FlightClassUpdateU" disable="true" layoutX="145.0" layoutY="252.0" prefHeight="25.0" prefWidth="137.0" value="Basic Class">
+            <String fx:value="Basic Class" />
+            <String fx:value="First Class" />
+            <String fx:value="Business Class" />
+        </ChoiceBox>
+        <Text layoutX="35.0" layoutY="319.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Travellers Amount:" />
+        <Text layoutX="146.0" layoutY="300.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Adults" />
+        <Text layoutX="191.0" layoutY="300.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Childern" />
+        <Text layoutX="249.0" layoutY="300.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Babies" />
+        <Text layoutX="37.0" layoutY="358.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Price:" />
+        <Text layoutX="39.0" layoutY="389.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Baggage:" />
+        <ChoiceBox fx:id="BaggageUpdateU" disable="true" layoutX="150.0" layoutY="372.0" prefHeight="25.0" prefWidth="137.0" value="Bag-5KG">
+            <String fx:value="Bag-5KG" />
+            <String fx:value="2 Bags-10KG" />
+            <String fx:value="Suitcase-20KG" />
+            <String fx:value="2 Suitcases-40KG" />
+            <String fx:value="Bag + Suitcase-25KG" />
+        </ChoiceBox>
+        <Text layoutX="40.0" layoutY="421.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vacation Type:" wrappingWidth="98.58398374915123" />
+        <ChoiceBox fx:id="VacationTypeUpdateU" disable="true" layoutX="151.0" layoutY="404.0" prefHeight="25.0" prefWidth="137.0" value="Exotic">
+            <String fx:value="Exotic" />
+            <String fx:value="Urban" />
+            <String fx:value="Ski" />
+            <String fx:value="surfing" />
+        </ChoiceBox>
+        <Button fx:id="BackButton" layoutX="25.0" layoutY="499.0" mnemonicParsing="false" onAction="#backHome" text="Back" />
+        <Button fx:id="updateButtonU" disable="true" layoutX="234.0" layoutY="495.0" mnemonicParsing="false" onAction="#updateVacation" text="Update" />
+        <Text layoutX="41.0" layoutY="421.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="98.58398374915123" />
+        <CheckBox fx:id="TransfersUpdateU" disable="true" layoutX="41.0" layoutY="466.0" mnemonicParsing="false" text="Transfers" />
+        <Text layoutX="34.0" layoutY="229.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Accommodation         Rank:" wrappingWidth="90.12890915572643" />
+        <ChoiceBox fx:id="AccommodationRankUpdateU" disable="true" layoutX="145.0" layoutY="218.0" prefHeight="25.0" prefWidth="137.0" value="Good">
+            <String fx:value="Bad" />
+            <String fx:value="Likely" />
+            <String fx:value="Good" />
+            <String fx:value="Very Good" />
+            <String fx:value="Excellent" />
+        </ChoiceBox>
+        <ChoiceBox fx:id="BabiesUpdateU" disable="true" layoutX="244.0" layoutY="310.0" prefHeight="25.0" prefWidth="41.0" value="0">
+            <String fx:value="0" />
+            <String fx:value="1" />
+            <String fx:value="2" />
+            <String fx:value="3" />
+            <String fx:value="4" />
+        </ChoiceBox>
+        <ChoiceBox fx:id="AdultsUpdateU" disable="true" layoutX="148.0" layoutY="310.0" prefHeight="25.0" prefWidth="41.0" value="2">
+            <String fx:value="1" />
+            <String fx:value="2" />
+            <String fx:value="3" />
+            <String fx:value="4" />
+            <String fx:value="5" />
+            <String fx:value="6" />
+            <String fx:value="7" />
+            <String fx:value="8" />
+        </ChoiceBox>
+        <ChoiceBox fx:id="ChildrenUpdateU" disable="true" layoutX="196.0" layoutY="310.0" prefHeight="25.0" prefWidth="41.0" value="0">
+            <String fx:value="0" />
+            <String fx:value="1" />
+            <String fx:value="2" />
+            <String fx:value="3" />
+            <String fx:value="4" />
+            <String fx:value="5" />
+            <String fx:value="6" />
+            <String fx:value="7" />
+            <String fx:value="8" />
+        </ChoiceBox>
+        <TextField fx:id="VacationIDUpdateU" layoutX="82.0" layoutY="10.0" />
+        <Button fx:id="showUpdateButtonU" layoutX="214.0" layoutY="9.0" mnemonicParsing="false" onAction="#showVacationUpdate" text="Show" />
+        <TextField fx:id="PriceUpdateU" disable="true" layoutX="149.0" layoutY="346.0" prefHeight="18.0" prefWidth="137.0" />
+        <TextField fx:id="AirlineUpdateU" disable="true" layoutX="152.0" layoutY="439.0" prefHeight="18.0" prefWidth="137.0" />
+      <Text layoutX="43.0" layoutY="451.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Airline:" />
+    </children>
+</AnchorPane>

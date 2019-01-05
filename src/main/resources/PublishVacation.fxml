@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="529.0" prefWidth="314.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.VacationCRUDController">
+    <children>
+        <Text layoutX="25.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="From:" />
+        <Text layoutX="32.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text="To:" />
+        <TextField fx:id="FromCountryP" layoutX="71.0" layoutY="44.0" prefHeight="25.0" prefWidth="90.0" />
+        <TextField fx:id="ToCountryP" layoutX="70.0" layoutY="79.0" prefHeight="25.0" prefWidth="90.0" />
+        <TextField fx:id="FromCityP" layoutX="185.0" layoutY="43.0" prefHeight="25.0" prefWidth="90.0" />
+        <TextField fx:id="ToCityP" layoutX="186.0" layoutY="78.0" prefHeight="25.0" prefWidth="90.0" />
+        <Text layoutX="211.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="City" />
+        <Text layoutX="88.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Country" />
+        <Text layoutX="11.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vacation:" />
+        <Text layoutX="33.0" layoutY="129.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Arrival:" />
+        <Text layoutX="33.0" layoutY="164.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Departure:" />
+        <DatePicker fx:id="ArrivalP" layoutX="141.0" layoutY="111.0" prefHeight="25.0" prefWidth="137.0" />
+        <DatePicker fx:id="DepartureP" layoutX="143.0" layoutY="148.0" prefHeight="25.0" prefWidth="137.0" />
+        <Text layoutX="33.0" layoutY="202.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Accommodation:" />
+        <Text layoutX="34.0" layoutY="271.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Flight Class:" />
+        <ChoiceBox fx:id="AccommodationP" layoutX="144.0" layoutY="184.0" prefHeight="25.0" prefWidth="137.0" value="Hotel">
+            <String fx:value="Hotel" />
+            <String fx:value="Room" />
+            <String fx:value="Cabins" />
+        </ChoiceBox>
+        <ChoiceBox fx:id="FlightClassP" layoutX="145.0" layoutY="252.0" prefHeight="25.0" prefWidth="137.0" value="Basic Class">
+            <String fx:value="Basic Class" />
+            <String fx:value="First Class" />
+            <String fx:value="Business Class" />
+        </ChoiceBox>
+        <Text layoutX="35.0" layoutY="319.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Travellers Amount:" />
+        <Text layoutX="146.0" layoutY="300.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Adults" />
+        <Text layoutX="191.0" layoutY="300.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Childern" />
+        <Text layoutX="249.0" layoutY="300.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Babies" />
+        <Text layoutX="37.0" layoutY="358.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Price:" />
+        <TextField fx:id="PriceP" layoutX="148.0" layoutY="341.0" prefHeight="25.0" prefWidth="137.0" />
+        <Text layoutX="39.0" layoutY="389.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Baggage:" />
+        <ChoiceBox fx:id="BaggageP" layoutX="150.0" layoutY="372.0" prefHeight="25.0" prefWidth="137.0" value="Bag-5KG">
+            <String fx:value="Bag-5KG" />
+            <String fx:value="2 Bags-10KG" />
+            <String fx:value="Suitcase-20KG" />
+            <String fx:value="2 Suitcases-40KG" />
+            <String fx:value="Bag + Suitcase-25KG" />
+        </ChoiceBox>
+        <Text layoutX="40.0" layoutY="421.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vacation Type:" wrappingWidth="98.58398374915123" />
+        <ChoiceBox fx:id="VacationTypeP" layoutX="151.0" layoutY="404.0" prefHeight="25.0" prefWidth="137.0" value="Exotic">
+            <String fx:value="Exotic" />
+            <String fx:value="Urban" />
+            <String fx:value="Ski" />
+            <String fx:value="surfing" />
+        </ChoiceBox>
+        <Button fx:id="BackButton" layoutX="25.0" layoutY="483.0" mnemonicParsing="false" onAction="#backHome" text="Back" />
+        <Button fx:id="PublishButtonP" layoutX="234.0" layoutY="483.0" mnemonicParsing="false" onAction="#publishVacation" text="Publish" />
+        <Text layoutX="39.0" layoutY="421.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="98.58398374915123" />
+        <CheckBox fx:id="TransfersP" layoutX="41.0" layoutY="463.0" mnemonicParsing="false" text="Transfers" />
+        <Text layoutX="34.0" layoutY="229.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Accommodation         Rank:" wrappingWidth="90.12890915572643" />
+        <ChoiceBox fx:id="AccommodationRankP" layoutX="145.0" layoutY="218.0" prefHeight="25.0" prefWidth="137.0" value="Good">
+            <String fx:value="Bad" />
+            <String fx:value="Likely" />
+            <String fx:value="Good" />
+            <String fx:value="Very Good" />
+            <String fx:value="Excellent" />
+        </ChoiceBox>
+        <ChoiceBox fx:id="BabiesP" layoutX="244.0" layoutY="310.0" prefHeight="25.0" prefWidth="41.0" value="0">
+            <String fx:value="0" />
+            <String fx:value="1" />
+            <String fx:value="2" />
+            <String fx:value="3" />
+            <String fx:value="4" />
+        </ChoiceBox>
+        <ChoiceBox fx:id="AdultsP" layoutX="148.0" layoutY="310.0" prefHeight="25.0" prefWidth="41.0" value="2">
+            <String fx:value="1" />
+            <String fx:value="2" />
+            <String fx:value="3" />
+            <String fx:value="4" />
+            <String fx:value="5" />
+            <String fx:value="6" />
+            <String fx:value="7" />
+            <String fx:value="8" />
+        </ChoiceBox>
+        <ChoiceBox fx:id="ChildrenP" layoutX="196.0" layoutY="310.0" prefHeight="25.0" prefWidth="41.0" value="0">
+            <String fx:value="0" />
+            <String fx:value="1" />
+            <String fx:value="2" />
+            <String fx:value="3" />
+            <String fx:value="4" />
+            <String fx:value="5" />
+            <String fx:value="6" />
+            <String fx:value="7" />
+            <String fx:value="8" />
+        </ChoiceBox>
+      <Text layoutX="39.0" layoutY="451.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Airline:" />
+      <TextField fx:id="AirlineP" layoutX="150.0" layoutY="439.0" prefHeight="18.0" prefWidth="137.0" />
+    </children>
+</AnchorPane>

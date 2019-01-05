@@ -1,0 +1,9 @@
+.root {
+    -fx-background-image: url("formBackGround.jpg");
+    -fx-background-size: stretch;
+}
+
+.button:hover {
+    -fx-background-color: #ffff99;
+    -fx-text-fill: #000000;
+}

@@ -3,57 +3,9 @@
     -fx-background-size: stretch;
 }
 
-#readUser:hover {
+
+.button:hover {
     -fx-background-color: #ffff99;
     -fx-text-fill: #000000;
 }
 
-#updateUser:hover {
-    -fx-background-color: #ffff99;
-    -fx-text-fill: #000000;
-}
-
-#deleteUser:hover {
-    -fx-background-color: #ffff99;
-    -fx-text-fill: #000000;
-}
-
-#createUser:hover {
-    -fx-background-color: #ffff99;
-    -fx-text-fill: #000000;
-}
-
-#BackButton:hover {
-    -fx-background-color: #ffff99;
-    -fx-text-fill: #000000;
-}
-
-#AcceptLogIn:hover {
-    -fx-background-color: #ffff99;
-    -fx-text-fill: #000000;
-}
-
-#LogInButton:hover {
-    -fx-background-color: #ffff99;
-    -fx-text-fill: #000000;
-}
-
-#SearchVacationButton:hover {
-    -fx-background-color: #ffff99;
-    -fx-text-fill: #000000;
-}
-
-#apply:hover {
-    -fx-background-color: #ffff99;
-    -fx-text-fill: #000000;
-}
-
-#show:hover {
-    -fx-background-color: #ffff99;
-    -fx-text-fill: #000000;
-}
-
-#clear:hover {
-    -fx-background-color: #ffff99;
-    -fx-text-fill: #000000;
-}
