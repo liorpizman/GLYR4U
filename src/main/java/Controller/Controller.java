@@ -155,6 +155,12 @@ public class Controller {
      * @return
      */
     public boolean logIn(String _userName, String _password) {
+        if (getCurrentUser() != null) {
+            Alert a = new Alert(Alert.AlertType.INFORMATION);
+            a.setContentText("Please log out (in search vacation window) to log in with a different user");
+            a.show();
+            return  false;
+        }
         if (_userName.isEmpty()) {
             Alert a = new Alert(Alert.AlertType.INFORMATION);
             a.setContentText("You didn't entered your user name,Please enter.");

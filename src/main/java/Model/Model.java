@@ -265,6 +265,10 @@ public class Model {
         currentUser = currUser;
     }
 
+    public Vacation getUserVacation(String vID){
+        return ((RegisteredUser)currentUser).ReadVacation(vID);
+    }
+
 
     /**
      * calls db to insert new purchase request
@@ -322,7 +326,6 @@ public class Model {
     /**
      * calls db to insert new exchange request
      *
-     * @param exchangeRequest new exchange request
      * @return if succeeded
      */
     public boolean insertNewExchangeRequest(int vacationIdSeller, String seller, int vacationIdBuyer, String paymentDate, String cellPhone) {
@@ -379,4 +382,5 @@ public class Model {
     public Vacation GetVacationByVacationID(int id) {
         return dbManagement.GetVacationByVacationID(id);
     }
+
 }

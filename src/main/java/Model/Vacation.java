@@ -315,7 +315,7 @@ public class Vacation {
         } else {
             sol += " -  1 way ticket";
         }
-        sol += ", Price: " + Price + "$";
+        sol += ", Price: " + Price + "$, Publishd by "+ userID;
         return sol;
     }
 

@@ -3,7 +3,9 @@ package Model;
 import Model.AUser;
 import Model.Vacation;
 
+import java.util.ArrayList;
 import java.util.Dictionary;
+import java.util.Enumeration;
 
 /**
  * This class represents a user in the data base
@@ -42,34 +44,76 @@ public class RegisteredUser extends AUser {
 
     }
 
+    /**
+     * Add published vacation to user's vacations list
+     * @param vacation
+     */
+
     public void publishVacation(Vacation vacation){
         vacations_dict.put(vacation.getVactionId(),vacation);
     }
-
+    /**
+     * set purchased vacation status
+     * @param vacationId
+     */
     public void acceptPurchaseRequest(int vacationId){
         vacations_dict.get(vacationId).setStatus(VacationStatus.Sold);
     }
-
+    /**
+     * set exchanged vacation status
+     * @param vacationId
+     */
     public void acceptExchangeRequest(int vacationId){
         vacations_dict.get(vacationId).setStatus(VacationStatus.Sold);
     }
+
+    /**
+     *
+     * @param vacationIdSeller
+     * @param seller
+     * @param paymentDate
+     * @param cellPhone
+     * @return new purchase request
+     */
 
     public PurchaseRequest RequestForPurchase(int vacationIdSeller, String seller, String paymentDate,  String cellPhone){
         return new PurchaseRequest(vacationIdSeller,  seller, this.user_name, paymentDate,  0,  cellPhone);//(Model inserts the request to db)
     }
 
+    /**
+     *
+     * @param vacationIdSeller
+     * @param seller
+     * @param vacationIdBuyer
+     * @param paymentDate
+     * @param cellPhone
+     * @return new Exchange request
+     */
     public ExchangeRequest RequestForExchange(int vacationIdSeller, String seller, int vacationIdBuyer, String paymentDate, String cellPhone){
         return new ExchangeRequest(vacationIdSeller, seller,  vacationIdBuyer,  this.user_name,  paymentDate,  0,  cellPhone);//(Model inserts the request to db)
     }
 
+    /**
+     * updating user's vacation
+     * @param vacation
+     */
     public void updateVacation(Vacation vacation){
         vacations_dict.put(vacation.getVactionId(),vacation);
     }
 
+    /**
+     *
+     * @param vacationId
+     */
     public void deleteVacation(String vacationId){
         vacations_dict.remove(vacationId);
     }
 
+    /**
+     *
+     * @param vacationId
+     * @return vacation
+     */
     public Vacation ReadVacation(String vacationId){
         return vacations_dict.get(vacationId);
     }

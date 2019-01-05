@@ -1,16 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a7a8455e-493c-43ce-a196-677db546d8f7" name="Default" comment="Documentation of EveryVacation4U Pro">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="a7a8455e-493c-43ce-a196-677db546d8f7" name="Default" comment="Adapted code to UML">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Model/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Model.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Model/RegisteredUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/RegisteredUser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Model/Vacation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Vacation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/ExchangeRequestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/ExchangeRequestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/PurchaseRequestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/PurchaseRequestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/MainView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MainView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/logo.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/logo.jpg" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -24,30 +22,50 @@
       <FILTER>.*</FILTER>
     </SUITE>
   </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/View/View.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3025">
-              <caret line="223" column="33" lean-forward="true" selection-start-line="223" selection-start-column="33" selection-end-line="223" selection-end-column="33" />
+            <state relative-caret-position="509">
+              <caret line="75" column="5" selection-start-line="75" selection-start-column="5" selection-end-line="75" selection-end-column="5" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Model/RegisteredUser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="401">
-              <caret line="36" column="33" lean-forward="true" selection-start-line="36" selection-start-column="33" selection-end-line="36" selection-end-column="33" />
+            <state relative-caret-position="1955">
+              <caret line="115" column="7" selection-start-line="115" selection-start-column="7" selection-end-line="115" selection-end-column="7" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1417#1418#0" expanded="true" />
-                <element signature="e#1485#1486#0" expanded="true" />
-                <element signature="e#1541#1542#0" expanded="true" />
-                <element signature="e#1618#1619#0" expanded="true" />
-                <element signature="e#1674#1675#0" expanded="true" />
-                <element signature="e#1751#1752#0" expanded="true" />
+                <element signature="e#1095#1096#0" expanded="true" />
+                <element signature="e#1163#1164#0" expanded="true" />
+                <element signature="e#1219#1220#0" expanded="true" />
+                <element signature="e#1296#1297#0" expanded="true" />
+                <element signature="e#1352#1353#0" expanded="true" />
+                <element signature="e#1429#1430#0" expanded="true" />
+                <element signature="e#2716#2717#0" expanded="true" />
+                <element signature="e#2784#2785#0" expanded="true" />
+                <element signature="e#2909#2910#0" expanded="true" />
+                <element signature="e#2958#2959#0" expanded="true" />
+                <element signature="e#3012#3013#0" expanded="true" />
+                <element signature="e#3065#3066#0" expanded="true" />
                 <element signature="e#3235#3236#0" expanded="true" />
                 <element signature="e#3277#3278#0" expanded="true" />
               </folding>
@@ -56,10 +74,32 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Model/Vacation.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="643">
+              <caret line="317" column="62" selection-start-line="317" selection-start-column="62" selection-end-line="317" selection-end-column="62" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/View/SearchVacationController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="375">
+              <caret line="274" column="55" selection-start-line="274" selection-start-column="55" selection-end-line="274" selection-end-column="55" />
+              <folding>
+                <element signature="e#5439#5440#0" expanded="true" />
+                <element signature="e#5476#5477#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/Controller/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="867">
-              <caret line="51" column="43" selection-start-line="51" selection-start-column="43" selection-end-line="51" selection-end-column="43" />
+            <state relative-caret-position="361">
+              <caret line="159" column="77" selection-start-line="159" selection-start-column="77" selection-end-line="159" selection-end-column="77" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1492#1493#0" expanded="true" />
@@ -78,23 +118,15 @@
                 <element signature="e#3921#3922#0" expanded="true" />
                 <element signature="e#4091#4092#0" expanded="true" />
                 <element signature="e#4139#4140#0" expanded="true" />
-                <element signature="e#5744#5745#0" expanded="true" />
-                <element signature="e#5797#5798#0" expanded="true" />
-                <element signature="e#7034#7035#0" expanded="true" />
-                <element signature="e#7090#7091#0" expanded="true" />
-                <element signature="e#7315#7316#0" expanded="true" />
-                <element signature="e#7370#7371#0" expanded="true" />
-                <element signature="e#7798#7799#0" expanded="true" />
-                <element signature="e#7848#7849#0" expanded="true" />
-                <element signature="e#7991#7992#0" expanded="true" />
-                <element signature="e#8045#8046#0" expanded="true" />
-                <element signature="e#8176#8177#0" expanded="true" />
-                <element signature="e#8224#8225#0" expanded="true" />
-                <element signature="e#8338#8339#0" expanded="true" />
-                <element signature="e#8373#8374#0" expanded="true" />
-                <element signature="e#8469#8470#0" expanded="true" />
-                <element signature="e#8532#8533#0" expanded="true" />
-                <element signature="e#11964#11965#0" expanded="true" />
+                <element signature="e#5814#5815#0" expanded="true" />
+                <element signature="e#7135#7136#0" expanded="true" />
+                <element signature="e#7422#7423#0" expanded="true" />
+                <element signature="e#7914#7915#0" expanded="true" />
+                <element signature="e#8118#8119#0" expanded="true" />
+                <element signature="e#8304#8305#0" expanded="true" />
+                <element signature="e#8460#8461#0" expanded="true" />
+                <element signature="e#8619#8620#0" expanded="true" />
+                <element signature="e#12233#12234#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -103,8 +135,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Model/Model.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="584">
-              <caret line="96" column="24" lean-forward="true" selection-start-line="96" selection-start-column="24" selection-end-line="96" selection-end-column="24" />
+            <state relative-caret-position="258">
+              <caret line="263" column="21" selection-start-line="263" selection-start-column="16" selection-end-line="263" selection-end-column="21" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#807#808#0" expanded="true" />
@@ -117,6 +149,8 @@
                 <element signature="e#5440#5441#0" expanded="true" />
                 <element signature="e#10580#10581#0" expanded="true" />
                 <element signature="e#10618#10619#0" expanded="true" />
+                <element signature="e#10979#10980#0" expanded="true" />
+                <element signature="e#11003#11004#0" expanded="true" />
                 <element signature="e#14551#14552#0" expanded="true" />
                 <element signature="e#14614#14615#0" expanded="true" />
               </folding>
@@ -136,11 +170,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>GetVacationsIdByField</find>
-      <find>purchaseRequest</find>
-      <find>createPurchaseRequestFromDB</find>
-      <find>set</find>
-      <find>boolean</find>
       <find>insertNewExchangeRequest</find>
       <find>createNewTable</find>
       <find>exchange</find>
@@ -165,7 +194,12 @@
       <find>vacation</find>
       <find>newVa</find>
       <find>updateUser</find>
+      <find>getAll</find>
       <find>update</find>
+      <find>next</find>
+      <find>getUser</find>
+      <find>disable</find>
+      <find>setCu</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -212,20 +246,20 @@
         <option value="$PROJECT_DIR$/src/main/java/Model/DBManagement.java" />
         <option value="$PROJECT_DIR$/src/main/java/Model/DBManagement.java" />
         <option value="$PROJECT_DIR$/src/main/java/View/ManageRequestsController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/View/SearchVacationController.java" />
         <option value="$PROJECT_DIR$/src/main/java/View/UserCRUDController.java" />
         <option value="$PROJECT_DIR$/src/main/java/View/View.java" />
         <option value="$PROJECT_DIR$/src/main/java/View/View.java" />
         <option value="$PROJECT_DIR$/src/main/java/View/Main.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Model/Vacation.java" />
         <option value="$PROJECT_DIR$/src/main/java/View/PurchaseRequestController.java" />
         <option value="$PROJECT_DIR$/src/main/java/View/ExchangeRequestController.java" />
         <option value="$PROJECT_DIR$/src/main/java/View/VacationCRUDController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Controller/Controller.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Controller/Controller.java" />
         <option value="$PROJECT_DIR$/src/main/java/Model/Model.java" />
         <option value="$PROJECT_DIR$/src/main/java/Model/Model.java" />
         <option value="$PROJECT_DIR$/src/main/java/Model/RegisteredUser.java" />
+        <option value="$PROJECT_DIR$/src/main/java/View/SearchVacationController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Model/Vacation.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Controller/Controller.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Controller/Controller.java" />
       </list>
     </option>
   </component>
@@ -281,14 +315,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="Controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="GLYR4U" type="b2602c69:ProjectViewProjectNode" />
-              <item name="GLYR4U" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="Model" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -299,21 +325,6 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="Model" type="462c0819:PsiDirectoryNode" />
               <item name="Vacation.java" type="529ef68f:ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
-            </path>
-            <path>
-              <item name="GLYR4U" type="b2602c69:ProjectViewProjectNode" />
-              <item name="GLYR4U" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="View" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="GLYR4U" type="b2602c69:ProjectViewProjectNode" />
-              <item name="GLYR4U" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -461,7 +472,7 @@
       <workItem from="1546506869509" duration="9078000" />
       <workItem from="1546521029388" duration="1779000" />
       <workItem from="1546558002464" duration="646000" />
-      <workItem from="1546696839797" duration="3290000" />
+      <workItem from="1546696839797" duration="6804000" />
     </task>
     <task id="LOCAL-00001" summary="add search flights details from DB">
       <created>1544226641829</created>
@@ -638,11 +649,18 @@
       <option name="project" value="LOCAL" />
       <updated>1546461767387</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Adapted code to UML">
+      <created>1546700174945</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1546700174946</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="147300000" />
+    <option name="totallyTimeSpent" value="150814000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -657,7 +675,7 @@
     <frame x="-8" y="-8" width="1696" height="1026" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.12958436" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12958436" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -666,15 +684,15 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3285176" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.044792835" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39949748" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Version Control" order="7" visible="true" weight="0.033594623" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.033594623" />
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.32767764" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.32698768" />
       <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="12" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
@@ -686,7 +704,7 @@
       <window_info anchor="right" id="Palette&#9;" order="6" />
       <window_info anchor="right" id="Maven Projects" order="7" />
       <window_info anchor="right" id="Coverage" order="8" side_tool="true" weight="0.3296875" />
-      <window_info anchor="right" id="Database" order="9" />
+      <window_info anchor="right" id="Database" order="9" weight="0.3294621" />
       <window_info anchor="right" id="Maven" order="10" />
     </layout>
     <layout-to-restore>
@@ -744,7 +762,8 @@
     <MESSAGE value="update new object" />
     <MESSAGE value="update requests GUI" />
     <MESSAGE value="update comboBox in ManageRequests window" />
-    <option name="LAST_COMMIT_MESSAGE" value="update comboBox in ManageRequests window" />
+    <MESSAGE value="Adapted code to UML" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adapted code to UML" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -760,12 +779,6 @@
           <line>58</line>
           <properties />
           <option name="timeStamp" value="30" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/View/SearchVacationController.java</url>
-          <line>132</line>
-          <properties />
-          <option name="timeStamp" value="38" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -886,17 +899,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/View/SearchVacationController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="603">
-          <caret line="666" column="40" selection-start-line="666" selection-start-column="40" selection-end-line="666" selection-end-column="40" />
-          <folding>
-            <element signature="e#5439#5440#0" expanded="true" />
-            <element signature="e#5476#5477#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/View/ManageRequestsController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="811">
@@ -926,63 +928,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="17" column="25" selection-start-line="17" selection-start-column="25" selection-end-line="17" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Model/Vacation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
-          <folding>
-            <element signature="e#3568#3569#0" expanded="true" />
-            <element signature="e#3599#3600#0" expanded="true" />
-            <element signature="e#3294#3295#0" expanded="true" />
-            <element signature="e#3333#3334#0" expanded="true" />
-            <element signature="e#3460#3461#0" expanded="true" />
-            <element signature="e#3497#3498#0" expanded="true" />
-            <element signature="e#3640#3641#0" expanded="true" />
-            <element signature="e#3693#3694#0" expanded="true" />
-            <element signature="e#3830#3831#0" expanded="true" />
-            <element signature="e#3881#3882#0" expanded="true" />
-            <element signature="e#4007#4008#0" expanded="true" />
-            <element signature="e#4046#4047#0" expanded="true" />
-            <element signature="e#4163#4164#0" expanded="true" />
-            <element signature="e#4199#4200#0" expanded="true" />
-            <element signature="e#4325#4326#0" expanded="true" />
-            <element signature="e#4364#4365#0" expanded="true" />
-            <element signature="e#4481#4482#0" expanded="true" />
-            <element signature="e#4517#4518#0" expanded="true" />
-            <element signature="e#4622#4623#0" expanded="true" />
-            <element signature="e#4654#4655#0" expanded="true" />
-            <element signature="e#4753#4754#0" expanded="true" />
-            <element signature="e#4783#4784#0" expanded="true" />
-            <element signature="e#4876#4877#0" expanded="true" />
-            <element signature="e#4904#4905#0" expanded="true" />
-            <element signature="e#5008#5009#0" expanded="true" />
-            <element signature="e#5041#5042#0" expanded="true" />
-            <element signature="e#5152#5153#0" expanded="true" />
-            <element signature="e#5186#5187#0" expanded="true" />
-            <element signature="e#5297#5298#0" expanded="true" />
-            <element signature="e#5331#5332#0" expanded="true" />
-            <element signature="e#5424#5425#0" expanded="true" />
-            <element signature="e#5463#5464#0" expanded="true" />
-            <element signature="e#5577#5578#0" expanded="true" />
-            <element signature="e#5612#5613#0" expanded="true" />
-            <element signature="e#5741#5742#0" expanded="true" />
-            <element signature="e#5781#5782#0" expanded="true" />
-            <element signature="e#5922#5923#0" expanded="true" />
-            <element signature="e#5966#5967#0" expanded="true" />
-            <element signature="e#6092#6093#0" expanded="true" />
-            <element signature="e#6142#6143#0" expanded="true" />
-            <element signature="e#6247#6248#0" expanded="true" />
-            <element signature="e#6279#6280#0" expanded="true" />
-            <element signature="e#6375#6376#0" expanded="true" />
-            <element signature="e#6404#6405#0" expanded="true" />
-            <element signature="e#6553#6554#0" expanded="true" />
-            <element signature="e#6605#6606#0" expanded="true" />
-            <element signature="e#6724#6725#0" expanded="true" />
-            <element signature="e#6779#6780#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1023,17 +968,59 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Model/Vacation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="643">
+          <caret line="317" column="62" selection-start-line="317" selection-start-column="62" selection-end-line="317" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Model/RegisteredUser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1955">
+          <caret line="115" column="7" selection-start-line="115" selection-start-column="7" selection-end-line="115" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1095#1096#0" expanded="true" />
+            <element signature="e#1163#1164#0" expanded="true" />
+            <element signature="e#1219#1220#0" expanded="true" />
+            <element signature="e#1296#1297#0" expanded="true" />
+            <element signature="e#1352#1353#0" expanded="true" />
+            <element signature="e#1429#1430#0" expanded="true" />
+            <element signature="e#2716#2717#0" expanded="true" />
+            <element signature="e#2784#2785#0" expanded="true" />
+            <element signature="e#2909#2910#0" expanded="true" />
+            <element signature="e#2958#2959#0" expanded="true" />
+            <element signature="e#3012#3013#0" expanded="true" />
+            <element signature="e#3065#3066#0" expanded="true" />
+            <element signature="e#3235#3236#0" expanded="true" />
+            <element signature="e#3277#3278#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/View/View.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3025">
-          <caret line="223" column="33" lean-forward="true" selection-start-line="223" selection-start-column="33" selection-end-line="223" selection-end-column="33" />
+        <state relative-caret-position="509">
+          <caret line="75" column="5" selection-start-line="75" selection-start-column="5" selection-end-line="75" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/View/SearchVacationController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="274" column="55" selection-start-line="274" selection-start-column="55" selection-end-line="274" selection-end-column="55" />
+          <folding>
+            <element signature="e#5439#5440#0" expanded="true" />
+            <element signature="e#5476#5477#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Model/Model.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="584">
-          <caret line="96" column="24" lean-forward="true" selection-start-line="96" selection-start-column="24" selection-end-line="96" selection-end-column="24" />
+        <state relative-caret-position="258">
+          <caret line="263" column="21" selection-start-line="263" selection-start-column="16" selection-end-line="263" selection-end-column="21" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#807#808#0" expanded="true" />
@@ -1046,6 +1033,8 @@
             <element signature="e#5440#5441#0" expanded="true" />
             <element signature="e#10580#10581#0" expanded="true" />
             <element signature="e#10618#10619#0" expanded="true" />
+            <element signature="e#10979#10980#0" expanded="true" />
+            <element signature="e#11003#11004#0" expanded="true" />
             <element signature="e#14551#14552#0" expanded="true" />
             <element signature="e#14614#14615#0" expanded="true" />
           </folding>
@@ -1054,8 +1043,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Controller/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="867">
-          <caret line="51" column="43" selection-start-line="51" selection-start-column="43" selection-end-line="51" selection-end-column="43" />
+        <state relative-caret-position="361">
+          <caret line="159" column="77" selection-start-line="159" selection-start-column="77" selection-end-line="159" selection-end-column="77" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1492#1493#0" expanded="true" />
@@ -1074,41 +1063,15 @@
             <element signature="e#3921#3922#0" expanded="true" />
             <element signature="e#4091#4092#0" expanded="true" />
             <element signature="e#4139#4140#0" expanded="true" />
-            <element signature="e#5744#5745#0" expanded="true" />
-            <element signature="e#5797#5798#0" expanded="true" />
-            <element signature="e#7034#7035#0" expanded="true" />
-            <element signature="e#7090#7091#0" expanded="true" />
-            <element signature="e#7315#7316#0" expanded="true" />
-            <element signature="e#7370#7371#0" expanded="true" />
-            <element signature="e#7798#7799#0" expanded="true" />
-            <element signature="e#7848#7849#0" expanded="true" />
-            <element signature="e#7991#7992#0" expanded="true" />
-            <element signature="e#8045#8046#0" expanded="true" />
-            <element signature="e#8176#8177#0" expanded="true" />
-            <element signature="e#8224#8225#0" expanded="true" />
-            <element signature="e#8338#8339#0" expanded="true" />
-            <element signature="e#8373#8374#0" expanded="true" />
-            <element signature="e#8469#8470#0" expanded="true" />
-            <element signature="e#8532#8533#0" expanded="true" />
-            <element signature="e#11964#11965#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Model/RegisteredUser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="401">
-          <caret line="36" column="33" lean-forward="true" selection-start-line="36" selection-start-column="33" selection-end-line="36" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1417#1418#0" expanded="true" />
-            <element signature="e#1485#1486#0" expanded="true" />
-            <element signature="e#1541#1542#0" expanded="true" />
-            <element signature="e#1618#1619#0" expanded="true" />
-            <element signature="e#1674#1675#0" expanded="true" />
-            <element signature="e#1751#1752#0" expanded="true" />
-            <element signature="e#3235#3236#0" expanded="true" />
-            <element signature="e#3277#3278#0" expanded="true" />
+            <element signature="e#5814#5815#0" expanded="true" />
+            <element signature="e#7135#7136#0" expanded="true" />
+            <element signature="e#7422#7423#0" expanded="true" />
+            <element signature="e#7914#7915#0" expanded="true" />
+            <element signature="e#8118#8119#0" expanded="true" />
+            <element signature="e#8304#8305#0" expanded="true" />
+            <element signature="e#8460#8461#0" expanded="true" />
+            <element signature="e#8619#8620#0" expanded="true" />
+            <element signature="e#12233#12234#0" expanded="true" />
           </folding>
         </state>
       </provider>
