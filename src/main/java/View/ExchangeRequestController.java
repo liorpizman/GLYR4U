@@ -71,9 +71,6 @@ public class ExchangeRequestController implements Initializable {
         vacationsListBox.setItems(data);
     }
 
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    /* Exchange Request Controller */
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     /**
      * field of ExchangeRequestController
@@ -91,8 +88,8 @@ public class ExchangeRequestController implements Initializable {
             String sellerUserName = vacationDetails[2].split("SellerID:")[1].trim();
             String selected = vacationsListBox.getValue();
             String vacationIDBuyer = selected.split("From")[0].split("VacationId:")[1].trim();
-            if(controller.insertNewExchangeRequest(new ExchangeRequest(Integer.parseInt(VacationID), sellerUserName, Integer.parseInt(vacationIDBuyer), controller.getCurrentUser().getUser_name(),
-                    LocalDate.now().toString(), 0, phoneNumber.getText()))){
+            if(controller.insertNewExchangeRequest(Integer.parseInt(VacationID), sellerUserName, Integer.parseInt(vacationIDBuyer),
+                    LocalDate.now().toString(),phoneNumber.getText())){
                 Alert a = new Alert(Alert.AlertType.INFORMATION);
                 a.setContentText("ExchangeRequest Sent!");
                 a.show();

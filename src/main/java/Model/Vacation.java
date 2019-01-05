@@ -1,3 +1,4 @@
+
 package Model;
 
 /**
@@ -43,25 +44,27 @@ public class Vacation {
     private boolean Transfers;
     private String userID;
 
+
     /**
      * This constructor of Vacation
-     * @param vacationId id of vacation
-     * @param fromOriginFlight origin flight
-     * @param fromDestFlight dest flight
-     * @param dVacationCountry dest country
-     * @param dVacationCity dest city
-     * @param oVacationCountry origin country
-     * @param oVacationCity origin city
-     * @param startDate arrival date
-     * @param endDate departure date
-     * @param price price
-     * @param Baggagetype type of baggage
-     * @param vacationType type of vacation
-     * @param accommodationType type of accommodation
+     *
+     * @param vacationId            id of vacation
+     * @param fromOriginFlight      origin flight
+     * @param fromDestFlight        dest flight
+     * @param dVacationCountry      dest country
+     * @param dVacationCity         dest city
+     * @param oVacationCountry      origin country
+     * @param oVacationCity         origin city
+     * @param startDate             arrival date
+     * @param endDate               departure date
+     * @param price                 price
+     * @param Baggagetype           type of baggage
+     * @param vacationType          type of vacation
+     * @param accommodationType     type of accommodation
      * @param accommodationIncluded if accommodation included or not
-     * @param transfers included or not
-     * @param accommodationRank accommodation rank
-     * @param _userID id of the user
+     * @param transfers             included or not
+     * @param accommodationRank     accommodation rank
+     * @param _userID               id of the user
      */
     public Vacation(int vacationId, FlightTickets fromOriginFlight, FlightTickets fromDestFlight, String dVacationCountry,
                     String dVacationCity, String oVacationCountry, String oVacationCity, String startDate, String endDate, double price, String Baggagetype,
@@ -89,8 +92,13 @@ public class Vacation {
         userID = _userID;
     }
 
+    public void setStatus(VacationStatus status) {
+        Status = status;
+    }
+
     /**
      * Getter for FromOriginFlight
+     *
      * @return FromOriginFlight
      */
     public FlightTickets getFromOriginFlight() {
@@ -99,6 +107,7 @@ public class Vacation {
 
     /**
      * Getter for FromDestFlight
+     *
      * @return FromDestFlight
      */
     public FlightTickets getFromDestFlight() {
@@ -107,6 +116,7 @@ public class Vacation {
 
     /**
      * Getter for FromOriginFlight TicketId
+     *
      * @return FromOriginFlight TicketId
      */
     public int getFromOriginFlightId() {
@@ -115,6 +125,7 @@ public class Vacation {
 
     /**
      * Getter for FromDestFlight TicketId
+     *
      * @return FromDestFlight TicketId
      */
     public int getFromDestFlightId() {
@@ -123,6 +134,7 @@ public class Vacation {
 
     /**
      * Getter for DVacationCountry
+     *
      * @return DVacationCountry
      */
     public String getDVacationCountry() {
@@ -131,6 +143,7 @@ public class Vacation {
 
     /**
      * Getter for DVacationCity
+     *
      * @return DVacationCity
      */
     public String getDVacationCity() {
@@ -139,6 +152,7 @@ public class Vacation {
 
     /**
      * Getter for OVacationCountry
+     *
      * @return OVacationCountry
      */
     public String getOVacationCountry() {
@@ -147,6 +161,7 @@ public class Vacation {
 
     /**
      * Getter for OVacationCity
+     *
      * @return OVacationCity
      */
     public String getOVacationCity() {
@@ -155,6 +170,7 @@ public class Vacation {
 
     /**
      * Getter for StartDate
+     *
      * @return StartDate
      */
     public String getStartDate() {
@@ -163,6 +179,7 @@ public class Vacation {
 
     /**
      * Getter for EndDate
+     *
      * @return EndDate
      */
     public String getEndDate() {
@@ -171,6 +188,7 @@ public class Vacation {
 
     /**
      * Getter for Price
+     *
      * @return Price
      */
     public double getPrice() {
@@ -179,6 +197,7 @@ public class Vacation {
 
     /**
      * Getter for VacationId
+     *
      * @return VacationId
      */
     public int getVactionId() {
@@ -187,6 +206,7 @@ public class Vacation {
 
     /**
      * Getter for BaggageType
+     *
      * @return BaggageType
      */
     public String getBaggageType() {
@@ -195,6 +215,7 @@ public class Vacation {
 
     /**
      * Getter for HotVacation
+     *
      * @return HotVacation
      */
     public boolean isHotVacation() {
@@ -203,6 +224,7 @@ public class Vacation {
 
     /**
      * Getter for Status
+     *
      * @return Status
      */
     public int getStatus() {
@@ -211,6 +233,7 @@ public class Vacation {
 
     /**
      * Getter for VacationType
+     *
      * @return VacationType
      */
     public String getVacationType() {
@@ -219,6 +242,7 @@ public class Vacation {
 
     /**
      * Getter for AccommodationType
+     *
      * @return AccommodationType
      */
     public String getAccommodationType() {
@@ -227,6 +251,7 @@ public class Vacation {
 
     /**
      * Getter for AccommodationIncluded
+     *
      * @return AccommodationIncluded
      */
     public boolean isAccommodationIncluded() {
@@ -235,6 +260,7 @@ public class Vacation {
 
     /**
      * Getter for AccommodationRank
+     *
      * @return AccommodationRank
      */
     public int getAccommodationRank() {
@@ -243,6 +269,7 @@ public class Vacation {
 
     /**
      * Getter for Transfers
+     *
      * @return Transfers
      */
     public boolean isTransfers() {
@@ -251,6 +278,7 @@ public class Vacation {
 
     /**
      * Getter for userID
+     *
      * @return userID
      */
     public String getUserID() {
@@ -259,6 +287,7 @@ public class Vacation {
 
     /**
      * Getter for FromOriginFlight Airline
+     *
      * @return FromOriginFlight Airline
      */
     public String getFromOriginFlightAirline() {
@@ -267,6 +296,7 @@ public class Vacation {
 
     /**
      * Getter for TicketType
+     *
      * @return TicketType
      */
     public String getFromOriginFlightClass() {
@@ -275,10 +305,11 @@ public class Vacation {
 
     /**
      * toString for Vacation
+     *
      * @return toString
      */
     public String toString() {
-        String sol = "VacationId: " + VacationId + " From " + OVacationCountry + "," + OVacationCity+" to " + DVacationCountry + "," + DVacationCity;
+        String sol = "VacationId: " + VacationId + " From " + OVacationCountry + "," + OVacationCity + " to " + DVacationCountry + "," + DVacationCity;
         if (FromDestFlight != null) {
             sol += " -  2 way ticket";
         } else {

@@ -16,11 +16,13 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="EveryVacation4U" />
         <module name="try" />
         <module name="Vacation4U" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="EveryVacation4U" target="1.8" />
       <module name="try" target="1.7" />
       <module name="Vacation4U" target="1.8" />
     </bytecodeTargetLevel>

@@ -1,18 +1,13 @@
+
 package View;
 
 import Controller.Controller;
-import Model.PurchaseRequest;
-import Model.Vacation;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 
 import java.net.URL;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.ResourceBundle;
 
 /**
@@ -28,7 +23,8 @@ public class PurchaseRequestController implements Initializable {
 
     /**
      * Method which happens when the window initialize
-     * @param location location
+     *
+     * @param location  location
      * @param resources resources
      */
     public void initialize(URL location, ResourceBundle resources) {
@@ -68,15 +64,13 @@ public class PurchaseRequestController implements Initializable {
             String[] vacationDetails = stage.getTitle().split(",");
             String VacationID = vacationDetails[1].split("VacationID:")[1].trim();
             String sellerUserName = vacationDetails[2].split("SellerID:")[1].trim();
-            if(controller.insertNewPurchaseRequest(new PurchaseRequest(Integer.parseInt(VacationID), sellerUserName, controller.getCurrentUser().getUser_name(),
-                    LocalDate.now().toString(), 0, phoneNumber.getText()))){
+            if (controller.insertNewPurchaseRequest(Integer.parseInt(VacationID), sellerUserName, LocalDate.now().toString(), phoneNumber.getText())) {
                 Alert a = new Alert(Alert.AlertType.INFORMATION);
                 a.setContentText("PurchaseRequest Sent!");
                 a.show();
                 stage.close();
                 return;
-            }
-            else{
+            } else {
                 Alert a = new Alert(Alert.AlertType.INFORMATION);
                 a.setContentText("You have already got a purchase request!");
                 a.show();
@@ -93,6 +87,7 @@ public class PurchaseRequestController implements Initializable {
 
     /**
      * Method to check if phone number is valid
+     *
      * @param phoneNumber
      * @return if true or false
      */

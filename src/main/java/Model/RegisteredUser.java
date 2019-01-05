@@ -1,9 +1,14 @@
 package Model;
 
+import Model.AUser;
+import Model.Vacation;
+
+import java.util.Dictionary;
+
 /**
  * This class represents a user in the data base
  */
-public class RegisteredUser extends AUser{
+public class RegisteredUser extends AUser {
     /**
      * fields of RegisteredUser
      */
@@ -13,6 +18,8 @@ public class RegisteredUser extends AUser{
     private String last_name;
     private String city;
     private String date;
+    private Dictionary<Integer,Vacation> vacations_dict;
+
 
     /**
      * This is a default constructor to create a new user
@@ -25,15 +32,47 @@ public class RegisteredUser extends AUser{
      * @param date
      */
     public RegisteredUser(String user_name, String password, String first_name, String last_name, String city,
-                         String date) {
+                          String date) {
         this.user_name = user_name;
         this.password = password;
         this.first_name = first_name;
         this.last_name = last_name;
         this.city = city;
         this.date = date;
+
     }
 
+    public void publishVacation(Vacation vacation){
+        vacations_dict.put(vacation.getVactionId(),vacation);
+    }
+
+    public void acceptPurchaseRequest(int vacationId){
+        vacations_dict.get(vacationId).setStatus(VacationStatus.Sold);
+    }
+
+    public void acceptExchangeRequest(int vacationId){
+        vacations_dict.get(vacationId).setStatus(VacationStatus.Sold);
+    }
+
+    public PurchaseRequest RequestForPurchase(int vacationIdSeller, String seller, String paymentDate,  String cellPhone){
+        return new PurchaseRequest(vacationIdSeller,  seller, this.user_name, paymentDate,  0,  cellPhone);//(Model inserts the request to db)
+    }
+
+    public ExchangeRequest RequestForExchange(int vacationIdSeller, String seller, int vacationIdBuyer, String paymentDate, String cellPhone){
+        return new ExchangeRequest(vacationIdSeller, seller,  vacationIdBuyer,  this.user_name,  paymentDate,  0,  cellPhone);//(Model inserts the request to db)
+    }
+
+    public void updateVacation(Vacation vacation){
+        vacations_dict.put(vacation.getVactionId(),vacation);
+    }
+
+    public void deleteVacation(String vacationId){
+        vacations_dict.remove(vacationId);
+    }
+
+    public Vacation ReadVacation(String vacationId){
+        return vacations_dict.get(vacationId);
+    }
     /**
      * Getter for user_name
      * @return user_name

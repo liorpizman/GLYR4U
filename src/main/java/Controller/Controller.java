@@ -1,3 +1,4 @@
+
 package Controller;
 /**
  * This class represents a controller which is responsible for returning the response to a request.
@@ -11,6 +12,7 @@ import Model.PurchaseRequest;
 import Model.ExchangeRequest;
 import View.View;
 import javafx.scene.control.Alert;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -31,8 +33,9 @@ public class Controller {
 
     /**
      * This is a default constructor to create the controller
+     *
      * @param _model model class
-     * @param _view view class
+     * @param _view  view class
      */
     public Controller(Model _model, View _view) {
         model = _model;
@@ -41,6 +44,7 @@ public class Controller {
 
     /**
      * This method returning the response to an updateU request
+     *
      * @param updatedUser
      * @return
      */
@@ -50,6 +54,7 @@ public class Controller {
 
     /**
      * This method returning the response to search request
+     *
      * @param userName
      * @return RegisteredUser
      */
@@ -59,12 +64,13 @@ public class Controller {
 
     /**
      * This method returning the response to an insert of a user request;
-     * @param userName user's name
-     * @param password user's password
+     *
+     * @param userName  user's name
+     * @param password  user's password
      * @param firstName first name
-     * @param lastName last name
-     * @param userCity user's city
-     * @param date birthdate
+     * @param lastName  last name
+     * @param userCity  user's city
+     * @param date      birthdate
      */
     public void insertUser(String userName, String password, String firstName, String lastName, String userCity,
                            LocalDate date) {
@@ -73,8 +79,9 @@ public class Controller {
 
     /**
      * This method returning the response to deleteD of a user request;
+     *
      * @param userToDelete the user to delete
-     * @param password user's password
+     * @param password     user's password
      * @return boolean
      */
     public boolean deleteUser(String userToDelete, String password) {
@@ -83,6 +90,7 @@ public class Controller {
 
     /**
      * This method returning the response to an insert of a vacation request;
+     *
      * @param newVacation new vacation
      */
     public void insertVacation(Vacation newVacation) {
@@ -92,6 +100,7 @@ public class Controller {
 
     /**
      * This method returning the response to an insert of a flightTickets request;
+     *
      * @param newFlightTickets new flight tickets
      */
     public void insertFlightTickets(FlightTickets newFlightTickets) {
@@ -101,6 +110,7 @@ public class Controller {
 
     /**
      * This method returning the response if a current user exists in the DB
+     *
      * @param userName user name
      * @param password user's password
      */
@@ -111,6 +121,7 @@ public class Controller {
 
     /**
      * This method sets the current user which logged to the app
+     *
      * @param currUser current user
      */
     public void setCurrentUserInSystem(RegisteredUser currUser) {
@@ -119,6 +130,7 @@ public class Controller {
 
     /**
      * Method to get current user in system
+     *
      * @return urrent user in system
      */
     public RegisteredUser getCurrentUser() {
@@ -127,6 +139,7 @@ public class Controller {
 
     /**
      * Method for search by values
+     *
      * @param askedValues
      * @return
      */
@@ -136,6 +149,7 @@ public class Controller {
 
     /**
      * When users applies for log in
+     *
      * @param _userName user name
      * @param _password user's password
      * @return
@@ -174,6 +188,7 @@ public class Controller {
 
     /**
      * Method to check whether user is connected
+     *
      * @return whether user is connected
      */
     public boolean isUserConnected() {
@@ -182,6 +197,7 @@ public class Controller {
 
     /**
      * This method calls the DB function to get a list of all Vacations ID's that suitable to the user search
+     *
      * @param askedValues values
      */
     public ArrayList<Integer> GetVacationsIdByField(HashMap<String, String> askedValues) {
@@ -190,6 +206,7 @@ public class Controller {
 
     /**
      * This method get a list of Vacations ID's and return a list of the suitable vacation objects
+     *
      * @param VacationsID id of vacation
      */
     public ArrayList<Vacation> GetVacationsInformation(ArrayList<Integer> VacationsID) {//,String FieldToFind){
@@ -198,6 +215,7 @@ public class Controller {
 
     /**
      * Search the vacation data and if exist in the database display the data
+     *
      * @param vacationID id of vacation
      * @return vacation data
      */
@@ -209,6 +227,7 @@ public class Controller {
 
     /**
      * This method updates vacation
+     *
      * @param newVacation updated vacation
      * @return updated vacation
      */
@@ -218,6 +237,7 @@ public class Controller {
 
     /**
      * This method deletes all the Vacations records in table that belong to user that was deleted and not sold yet.
+     *
      * @param user user
      */
     public void deleteVacationOfDeletedUser(RegisteredUser user) {
@@ -226,6 +246,7 @@ public class Controller {
 
     /**
      * This method deletes a record from the Vacations table in the DB by the VacationId
+     *
      * @param VacationIdToDelete id of vacation
      */
     public boolean deleteVacationRecord(String VacationIdToDelete) {
@@ -234,6 +255,7 @@ public class Controller {
 
     /**
      * Setters for currentSeller
+     *
      * @param currentSeller
      */
     public void setCurrrentSeller(String currentSeller) {
@@ -242,6 +264,7 @@ public class Controller {
 
     /**
      * Setters for currentVacation
+     *
      * @param currentVacation
      */
     public void setCurrentVacation(String currentVacation) {
@@ -250,6 +273,7 @@ public class Controller {
 
     /**
      * Setters for currentPrice
+     *
      * @param currentPrice
      */
     public void setCurrentPrice(double currentPrice) {
@@ -258,6 +282,7 @@ public class Controller {
 
     /**
      * Getter for currentPrice
+     *
      * @return currentPrice
      */
     public double getCurrentPrice() {
@@ -273,15 +298,18 @@ public class Controller {
 
     /**
      * Method to insert new purchase request
-     * @param purchaseRequest new purchase request
+     *
+     *  pass purchase request info
      * @return if succeeded
      */
-    public boolean insertNewPurchaseRequest(PurchaseRequest purchaseRequest) {
-        return model.insertNewPurchaseRequest(purchaseRequest);
+    public boolean insertNewPurchaseRequest(int vacationIdSeller, String seller,
+                                            String paymentDate, String cellPhone) {
+        return model.insertNewPurchaseRequest(vacationIdSeller, seller, paymentDate, cellPhone);
     }
 
     /**
      * Method to get all purchase requests for user
+     *
      * @param processVacation current status
      * @return
      */
@@ -291,6 +319,7 @@ public class Controller {
 
     /**
      * Method to get purchase requests info
+     *
      * @param PurchaseRequestID id of purchase request
      * @return list of purchase requests
      */
@@ -300,33 +329,37 @@ public class Controller {
 
     /**
      * Method to accept purchase request
+     *
      * @param VacationIdSeller id of vacation of the seller
-     * @param Buyer buyer user name
+     * @param Buyer            buyer user name
      */
-    public void AcceptPurchaseRequest(int VacationIdSeller,String Buyer) {
-        model.AcceptPurchaseRequest(VacationIdSeller,Buyer);
+    public void AcceptPurchaseRequest(int VacationIdSeller, String Buyer) {
+        model.AcceptPurchaseRequest(VacationIdSeller, Buyer);
     }
 
     /**
      * Method to reject purchase request
+     *
      * @param VacationIdSeller id of vacation of the seller
-     * @param buyer buyer user name
+     * @param buyer            buyer user name
      */
-    public void RejectPurchaseRequest(int VacationIdSeller,String buyer) {
-        model.RejectPurchaseRequest(VacationIdSeller,buyer);
+    public void RejectPurchaseRequest(int VacationIdSeller, String buyer) {
+        model.RejectPurchaseRequest(VacationIdSeller, buyer);
     }
 
     /**
      * Method to insert new exchange request
-     * @param exchangeRequest new exchange request
+     *
+     * exchange request info
      * @return if succeeded
      */
-    public boolean insertNewExchangeRequest(ExchangeRequest exchangeRequest) {
-        return model.insertNewExchangeRequest(exchangeRequest);
+    public boolean insertNewExchangeRequest(int vacationIdSeller, String seller, int vacationIdBuyer, String paymentDate, String cellPhone) {
+        return model.insertNewExchangeRequest(vacationIdSeller, seller, vacationIdBuyer, paymentDate, cellPhone);
     }
 
     /**
      * Method to get all exchange requests for user
+     *
      * @param processVacation current status
      * @return
      */
@@ -336,6 +369,7 @@ public class Controller {
 
     /**
      * Method to get exchange requests info
+     *
      * @param ExchangeRequestID id of exchange request
      * @return list of exchange requests
      */
@@ -345,6 +379,7 @@ public class Controller {
 
     /**
      * Method to accept exchange request
+     *
      * @param VacationIdSeller id of vacation of the seller
      * @param VacationIdBuyer  id of vacation of the buyer
      */
@@ -354,19 +389,21 @@ public class Controller {
 
     /**
      * Method to reject purchase request
+     *
      * @param VacationIdSeller id of vacation of the seller
-     * @param VacationIdBuyer id of vacation of the buyer
+     * @param VacationIdBuyer  id of vacation of the buyer
      */
     public void RejectExchangeRequest(int VacationIdSeller, int VacationIdBuyer) {
-        model.RejectExchangeRequest(VacationIdSeller,VacationIdBuyer);
+        model.RejectExchangeRequest(VacationIdSeller, VacationIdBuyer);
     }
 
     /**
      * Method to get vacation by id
+     *
      * @param id of vacation
      * @return suitable vacation
      */
-    public Vacation GetVacationByVacationID(int id){
+    public Vacation GetVacationByVacationID(int id) {
         return model.GetVacationByVacationID(id);
     }
 }
