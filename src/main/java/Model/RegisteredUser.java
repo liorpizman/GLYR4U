@@ -6,6 +6,7 @@ import Model.Vacation;
 import java.util.ArrayList;
 import java.util.Dictionary;
 import java.util.Enumeration;
+import java.util.HashMap;
 
 /**
  * This class represents a user in the data base
@@ -20,7 +21,7 @@ public class RegisteredUser extends AUser {
     private String last_name;
     private String city;
     private String date;
-    private Dictionary<Integer,Vacation> vacations_dict;
+    private HashMap<Integer,Vacation> vacations_dict;
 
 
     /**
@@ -41,6 +42,7 @@ public class RegisteredUser extends AUser {
         this.last_name = last_name;
         this.city = city;
         this.date = date;
+        this.vacations_dict = new HashMap<>() ;
 
     }
 
@@ -218,5 +220,9 @@ public class RegisteredUser extends AUser {
      */
     public void printUser() {
         System.out.println(user_name + ", " + password + ", " + first_name + ", " + last_name + ", " + city + ", " + date);
+    }
+
+    public void setVacations(HashMap<Integer,Vacation> vacations) {
+        this.vacations_dict = vacations;
     }
 }

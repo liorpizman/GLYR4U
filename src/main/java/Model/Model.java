@@ -65,6 +65,7 @@ public class Model {
      */
     public void insertUser(String userName, String password, String firstName, String lastName, String userCity,
                            LocalDate date) {
+
         RegisteredUser newUser = new RegisteredUser(userName, password, firstName, lastName, userCity, date.toString());
         dbManagement.insertNewUser(newUser);
     }
@@ -105,7 +106,17 @@ public class Model {
      * @return RegisteredUser
      */
     public RegisteredUser searchUserData(String userName) {
-        return dbManagement.findExistsUser(userName);
+        HashMap<String, String> askedFields = new HashMap<String, String>();
+        askedFields.put("user_name",userName);
+        ArrayList<Vacation> vacations = this.currentUser.Search(askedFields, dbManagement);
+        HashMap<Integer,Vacation> vacations_dict = new HashMap<>();
+        for (Vacation vacation:vacations) {
+            vacations_dict.put(vacation.getVactionId(),vacation);
+        }
+        RegisteredUser user = dbManagement.findExistsUser(userName);
+        if (user!=null)
+            user.setVacations(vacations_dict);
+        return user;
     }
 
     /**
@@ -262,7 +273,10 @@ public class Model {
      * @param currUser current user to set
      */
     public void setCurrentUser(RegisteredUser currUser) {
-        currentUser = currUser;
+        if (currUser == null)
+            currentUser = new UnRegisteredUser();
+        else
+            currentUser = currUser;
     }
 
     public Vacation getUserVacation(String vID){

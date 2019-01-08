@@ -242,7 +242,7 @@ public class SearchVacationController implements Initializable {
             Exchange2.setDisable(true);
         }
         if (i + 2 < vacationsList.size()) {
-            if (currentUser != null && vacationsList.get(i).getUserID().equals(controller.getCurrentUser().getUser_name())) {
+            if (currentUser != null && vacationsList.get(i+2).getUserID().equals(controller.getCurrentUser().getUser_name())) {
                 PurchaseButton3.setDisable(true);
                 Exchange3.setDisable(true);
             } else {
