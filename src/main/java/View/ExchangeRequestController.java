@@ -89,6 +89,12 @@ public class ExchangeRequestController implements Initializable {
             String VacationID = vacationDetails[1].split("VacationID:")[1].trim();
             String sellerUserName = vacationDetails[2].split("SellerID:")[1].trim();
             String selected = vacationsListBox.getValue();
+            if(selected== null || selected.isEmpty()){
+                Alert a = new Alert(Alert.AlertType.INFORMATION);
+                a.setContentText("Please choose vacation before applying!");
+                a.show();
+                return;
+            }
             String vacationIDBuyer = selected.split("From")[0].split("VacationId:")[1].trim();
 
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);

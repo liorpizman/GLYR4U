@@ -648,6 +648,12 @@ public class SearchVacationController implements Initializable {
      * handles pressing on manage requests button
      */
     public void manageRequests() {
+        if (!controller.isUserConnected()) {
+            Alert a = new Alert(Alert.AlertType.INFORMATION);
+            a.setContentText("You can't Manage Requests if you aren't connected");
+            a.show();
+            return;
+        }
         Stage stage = new Stage();
         stage.setResizable(true);
         stage.setTitle("Manage Requests Window");
