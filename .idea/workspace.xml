@@ -1,13 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a7a8455e-493c-43ce-a196-677db546d8f7" name="Default" comment="Adapted code to UML">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+    <list default="true" id="a7a8455e-493c-43ce-a196-677db546d8f7" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/ExchangeRequestController.java" afterPath="$PROJECT_DIR$/src/main/java/View/ExchangeRequestController.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/ManageRequestsController.java" afterPath="$PROJECT_DIR$/src/main/java/View/ManageRequestsController.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/PurchaseRequestController.java" afterPath="$PROJECT_DIR$/src/main/java/View/PurchaseRequestController.java" />
-      <change beforePath="$PROJECT_DIR$/v4uDB.db" afterPath="$PROJECT_DIR$/v4uDB.db" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -51,8 +46,8 @@
       <file leaf-file-name="RegisteredUser.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/Model/RegisteredUser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="421">
-              <caret line="58" column="16" lean-forward="false" selection-start-line="58" selection-start-column="16" selection-end-line="58" selection-end-column="16" />
+            <state relative-caret-position="146">
+              <caret line="45" column="0" lean-forward="true" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
               <folding>
                 <element signature="e#1443#1444#0" expanded="true" />
                 <element signature="e#1520#1521#0" expanded="true" />
@@ -618,7 +613,7 @@
       <workItem from="1546521029388" duration="1779000" />
       <workItem from="1546558002464" duration="646000" />
       <workItem from="1546696839797" duration="6804000" />
-      <workItem from="1546933767494" duration="1069000" />
+      <workItem from="1546933767494" duration="1171000" />
     </task>
     <task id="LOCAL-00001" summary="add search flights details from DB">
       <created>1544226641829</created>
@@ -802,11 +797,18 @@
       <option name="project" value="LOCAL" />
       <updated>1546700174946</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="adding of insurance message before accept or reject requests">
+      <created>1546935668448</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1546935668449</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="151883000" />
+    <option name="totallyTimeSpent" value="151985000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -912,7 +914,8 @@
     <MESSAGE value="update requests GUI" />
     <MESSAGE value="update comboBox in ManageRequests window" />
     <MESSAGE value="Adapted code to UML" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adapted code to UML" />
+    <MESSAGE value="adding of insurance message before accept or reject requests" />
+    <option name="LAST_COMMIT_MESSAGE" value="adding of insurance message before accept or reject requests" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1305,8 +1308,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Model/RegisteredUser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="421">
-          <caret line="58" column="16" lean-forward="false" selection-start-line="58" selection-start-column="16" selection-end-line="58" selection-end-column="16" />
+        <state relative-caret-position="146">
+          <caret line="45" column="0" lean-forward="true" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
           <folding>
             <element signature="e#1443#1444#0" expanded="true" />
             <element signature="e#1520#1521#0" expanded="true" />
