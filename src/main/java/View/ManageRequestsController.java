@@ -8,11 +8,13 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 /**
@@ -63,11 +65,19 @@ public class ManageRequestsController implements Initializable {
             a.show();
             return;
         }
+
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setContentText("Are you sure you want to accept this request?");
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.get() != ButtonType.OK) {
+            return;
+        }
+
         String VacationID = selected.split("VacationId:")[1].split("From")[0].trim();
         String buyer = selected.split("buyer:")[1].split(" , contact")[0].trim();
         controller.AcceptPurchaseRequest(Integer.parseInt(VacationID), buyer);
         Alert a = new Alert(Alert.AlertType.INFORMATION);
-        a.setContentText("Your request has been approved!\nYour other requests for this vacation have been rejected.");
+        a.setContentText("This request has been approved!\nYour other requests for this vacation have been rejected.");
         a.show();
         controller.vacationsUpdate();
         backHome();
@@ -84,6 +94,14 @@ public class ManageRequestsController implements Initializable {
             a.show();
             return;
         }
+
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setContentText("Are you sure you want to reject this request?");
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.get() != ButtonType.OK) {
+            return;
+        }
+
         String VacationID = selected.split("VacationId:")[1].split("From")[0].trim();
         String buyer = selected.split("buyer:")[1].split(" , contact")[0].trim();
         controller.RejectPurchaseRequest(Integer.parseInt(VacationID), buyer);
@@ -105,11 +123,19 @@ public class ManageRequestsController implements Initializable {
             a.show();
             return;
         }
+
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setContentText("Are you sure you want to accept this request?");
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.get() != ButtonType.OK) {
+            return;
+        }
+
         String SellerVacationID = selected.split("VacationId:")[1].split("From")[0].trim();
         String BuyerVacationID = selected.split("VacationId:")[2].split(" From")[0].trim();
         controller.AcceptExchangeRequest(Integer.parseInt(SellerVacationID), Integer.parseInt(BuyerVacationID));
         Alert a = new Alert(Alert.AlertType.INFORMATION);
-        a.setContentText("The request has been approved!\nYour other requests for this vacation have been rejected.");
+        a.setContentText("This request has been approved!\nYour other requests for this vacation have been rejected.");
         a.show();
         controller.vacationsUpdate();
         backHome();
@@ -126,6 +152,14 @@ public class ManageRequestsController implements Initializable {
             a.show();
             return;
         }
+
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setContentText("Are you sure you want to reject this request?");
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.get() != ButtonType.OK) {
+            return;
+        }
+
         String SellerVacationID = selected.split("VacationId:")[1].split("From")[0].trim();
         String BuyerVacationID = selected.split("VacationId:")[2].split(" From")[0].trim();
         controller.RejectExchangeRequest(Integer.parseInt(SellerVacationID), Integer.parseInt(BuyerVacationID));

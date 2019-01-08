@@ -4,10 +4,12 @@ package View;
 import Controller.Controller;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
 
 import java.net.URL;
 import java.time.LocalDate;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 /**
@@ -64,6 +66,14 @@ public class PurchaseRequestController implements Initializable {
             String[] vacationDetails = stage.getTitle().split(",");
             String VacationID = vacationDetails[1].split("VacationID:")[1].trim();
             String sellerUserName = vacationDetails[2].split("SellerID:")[1].trim();
+
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setContentText("Are you sure you want to send this request?");
+            Optional<ButtonType> result = alert.showAndWait();
+            if (result.get() != ButtonType.OK) {
+                return;
+            }
+
             if (controller.insertNewPurchaseRequest(Integer.parseInt(VacationID), sellerUserName, LocalDate.now().toString(), phoneNumber.getText())) {
                 Alert a = new Alert(Alert.AlertType.INFORMATION);
                 a.setContentText("PurchaseRequest Sent!");

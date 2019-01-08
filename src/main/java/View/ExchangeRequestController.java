@@ -7,12 +7,14 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
 
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 /**
@@ -88,6 +90,14 @@ public class ExchangeRequestController implements Initializable {
             String sellerUserName = vacationDetails[2].split("SellerID:")[1].trim();
             String selected = vacationsListBox.getValue();
             String vacationIDBuyer = selected.split("From")[0].split("VacationId:")[1].trim();
+
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setContentText("Are you sure you want to send this request?");
+            Optional<ButtonType> result = alert.showAndWait();
+            if (result.get() != ButtonType.OK) {
+                return;
+            }
+
             if(controller.insertNewExchangeRequest(Integer.parseInt(VacationID), sellerUserName, Integer.parseInt(vacationIDBuyer),
                     LocalDate.now().toString(),phoneNumber.getText())){
                 Alert a = new Alert(Alert.AlertType.INFORMATION);
